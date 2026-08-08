@@ -21,9 +21,17 @@ WORDMARK_VIEWBOX, WORDMARK_INNER = _wm.split("\n---SPLIT---\n")
 GLITCH_SOURCE_DEFS = open(os.path.join(BUILD_DIR, "glitch_source.svg"), encoding="utf-8").read()
 LOGO_GLITCH_JS = open(os.path.join(BUILD_DIR, "logo_glitch.js"), encoding="utf-8").read()
 
-def wordmark_svg(css_class="logo", slot_id="mark-slot"):
+def wordmark_svg(css_class="logo", slot_id="mark-slot", base=""):
+    # L-5: 1x-DPR raster swap (see the @media(max-resolution) block in CSS below).
+    # The url() is set here, inline per-page, so it resolves relative to whatever
+    # depth this page sits at — a fixed relative path baked into the shared CSS
+    # string would 404 on any page below site root (our-work/<slug>/, careers/
+    # open-roles/<role>/, etc.), since CSS custom-property url()s resolve against
+    # the document that DECLARES the property, not the one that consumes it via var().
+    wm_file = "wordmark-26-ink.png" if "sm" in css_class.split() else "wordmark-30-ink.png"
     return (
-        f'<svg class="{css_class}" viewBox="{WORDMARK_VIEWBOX}" role="img" aria-label="Intercept">'
+        f'<svg class="{css_class}" viewBox="{WORDMARK_VIEWBOX}" role="img" aria-label="Intercept" '
+        f'style="--wm-raster:url(\'{base}assets/img/{wm_file}\')">'
         f'<g fill="var(--logo-ink)">{WORDMARK_INNER}</g>'
         f'<g id="{slot_id}" transform="translate(0, 1.22)"></g></svg>'
     )
@@ -31,7 +39,7 @@ def wordmark_svg(css_class="logo", slot_id="mark-slot"):
 def lockup_link(base, css_class="logo", slot_id="mark-slot"):
     return (
         f'<a class="fritz-lockup-hover" href="{base}index.html" aria-label="Intercept home" '
-        f'data-fritz-hover-lockup>{wordmark_svg(css_class, slot_id)}</a>'
+        f'data-fritz-hover-lockup>{wordmark_svg(css_class, slot_id, base)}</a>'
     )
 
 # ---- client logos (verbatim from home.html, + 2 more lifted from the redesign-v1-brand-applied
@@ -116,6 +124,19 @@ p{margin:0;text-wrap:pretty}
 .logo{width:auto;height:30px;display:block;shape-rendering:geometricPrecision}
 .logo.sm{height:26px}
 .fritz-lockup-hover{display:inline-flex;align-items:center;color:inherit;text-decoration:none;outline-offset:6px}
+
+/* L-5 (constitution): on true 1x-DPR displays, live GPU path rasterization of
+   the small wordmark is uneven regardless of correct vector geometry — swap in
+   a pre-rendered supersampled raster (16x render, Lanczos downscale) of the
+   SAME canon geometry instead. Retina (DPR>=2) keeps pure vector. The mark
+   icon (#mark-slot/#footer-mark-slot) stays vector so its hover-glitch still
+   animates; only the wordmark letterform paths are hidden. Integer widths are
+   required — a fractional box re-phases the paint and resamples stems. */
+@media(max-resolution:1.05dppx){
+  svg.logo:not(.sm){width:127px;aspect-ratio:auto;background:var(--wm-raster) 0 0/127px 30px no-repeat}
+  svg.logo.sm{width:110px;aspect-ratio:auto;background:var(--wm-raster) 0 0/110px 26px no-repeat}
+  svg.logo g[fill="var(--logo-ink)"]{display:none}
+}
 
 /* topbar (functional sticky divider — matches shipped site nav convention) */
 .topbar{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
