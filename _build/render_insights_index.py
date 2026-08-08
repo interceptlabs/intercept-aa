@@ -27,6 +27,7 @@ CSS = """
 .prop span{display:block;font-size:var(--fs-7);line-height:1.5;color:var(--ink-2);margin-bottom:16px}
 .prop .link{margin-top:auto}
 .feed{padding:48px 0 12px}
+.feed h2{margin-bottom:24px}
 .chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
 .chip{font-size:var(--fs-7);font-weight:600;padding:8px 16px;border-radius:99px;border:1px solid var(--line);color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
 .chip:hover{border-color:var(--ink-3)}

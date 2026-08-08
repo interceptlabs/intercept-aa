@@ -63,16 +63,18 @@ CSS = """
 .rhero h1,.fhero h1{font-size:var(--fs-1);line-height:1.04;letter-spacing:-.032em;margin:0 0 14px}
 .rhero p,.fhero p{font-size:var(--fs-5);line-height:1.5;color:var(--ink-2);margin:0;max-width:52ch}
 
-/* filters (static, non-interactive) */
+/* filters (real, filters .role rows by data-s discipline) */
 .filters{padding:0 0 8px}
 .filter-row{display:flex;flex-wrap:wrap;gap:10px;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.chip{font-size:var(--fs-7);padding:8px 16px;border:1px solid var(--line);border-radius:999px;color:var(--ink-2)}
-.chip.on{background:var(--carbon-500);color:#fff;border-color:var(--carbon-500);font-weight:600}
+.chip{font-size:var(--fs-7);font-weight:600;padding:8px 16px;border-radius:99px;border:1px solid var(--line);color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.chip:hover{border-color:var(--ink-3)}
+.chip.on{background:var(--carbon-500);color:#fff;border-color:var(--carbon-500)}
 .filter-note{font-size:var(--fs-8);color:var(--ink-3);padding:14px 0 0;margin:0}
 
 /* role list */
 .role-list{padding:8px 0 40px}
 a.role{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:24px;align-items:center;padding:22px 0;border-bottom:1px solid var(--line);color:inherit;text-decoration:none;transition:background .15s}
+a.role[hidden]{display:none}
 a.role:hover{background:var(--band)}
 .role h3{font-size:var(--fs-4);line-height:1.25;letter-spacing:-.015em;margin:0}
 .role .meta{font-size:var(--fs-7);color:var(--ink-2)}
@@ -241,10 +243,19 @@ def render_hub():
 
 def render_open_roles():
     role_html = "".join(
-        f'<a class="role" href="{slug}/index.html"><h3>{esc(title)}</h3>'
+        f'<a class="role" data-s="{esc(disc)}" href="{slug}/index.html"><h3>{esc(title)}</h3>'
         f'<span class="meta">{esc(disc)}</span><span class="type">Full-time · Remote</span>'
         f'<span class="go link">View</span></a>'
         for title, disc, slug in ROLES
+    )
+    # discipline chips in first-seen order (not alphabetical)
+    seen = []
+    for _, disc, _ in ROLES:
+        if disc not in seen:
+            seen.append(disc)
+    disciplines = seen
+    chips_html = '<span class="chip on" data-f="">All roles</span>' + "".join(
+        f'<span class="chip" data-f="{esc(d)}">{esc(d)}</span>' for d in disciplines
     )
 
     return f"""<!doctype html>
@@ -269,23 +280,37 @@ def render_open_roles():
 
 <section class="filters">
   <div class="wrap">
-    <div class="filter-row">
-      <span class="chip on">All roles</span>
-      <span class="chip">Content</span>
-      <span class="chip">Client leadership</span>
-      <span class="chip">Creative</span>
-      <span class="chip">Operations</span>
-    </div>
-    <p class="filter-note">9 open roles</p>
+    <div class="filter-row">{chips_html}</div>
+    <p class="filter-note" id="filterNote">{len(ROLES)} open roles</p>
   </div>
 </section>
 
 <section class="role-list">
   <div class="wrap">
     <div class="role-head"><span>Role</span><span>Discipline</span><span>Type</span><span></span></div>
-    {role_html}
+    <div id="roleList">{role_html}</div>
   </div>
 </section>
+<script>
+(function(){{
+  var list = document.getElementById("roleList");
+  var roles = [].slice.call(list.querySelectorAll(".role"));
+  var note = document.getElementById("filterNote");
+  document.querySelector(".filter-row").addEventListener("click", function(e){{
+    var chip = e.target.closest(".chip"); if(!chip) return;
+    [].forEach.call(document.querySelectorAll(".chip"), function(c){{ c.classList.remove("on"); }});
+    chip.classList.add("on");
+    var filter = chip.dataset.f || "";
+    var shown = 0;
+    roles.forEach(function(r){{
+      var match = !filter || r.dataset.s === filter;
+      r.hidden = !match;
+      if (match) shown++;
+    }});
+    note.textContent = shown + (shown === 1 ? " open role" : " open roles");
+  }});
+}})();
+</script>
 
 <section class="nofit">
   <div class="wrap read">

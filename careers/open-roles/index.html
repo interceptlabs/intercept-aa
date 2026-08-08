@@ -163,16 +163,18 @@ p{margin:0;text-wrap:pretty}
 .rhero h1,.fhero h1{font-size:var(--fs-1);line-height:1.04;letter-spacing:-.032em;margin:0 0 14px}
 .rhero p,.fhero p{font-size:var(--fs-5);line-height:1.5;color:var(--ink-2);margin:0;max-width:52ch}
 
-/* filters (static, non-interactive) */
+/* filters (real, filters .role rows by data-s discipline) */
 .filters{padding:0 0 8px}
 .filter-row{display:flex;flex-wrap:wrap;gap:10px;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.chip{font-size:var(--fs-7);padding:8px 16px;border:1px solid var(--line);border-radius:999px;color:var(--ink-2)}
-.chip.on{background:var(--carbon-500);color:#fff;border-color:var(--carbon-500);font-weight:600}
+.chip{font-size:var(--fs-7);font-weight:600;padding:8px 16px;border-radius:99px;border:1px solid var(--line);color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.chip:hover{border-color:var(--ink-3)}
+.chip.on{background:var(--carbon-500);color:#fff;border-color:var(--carbon-500)}
 .filter-note{font-size:var(--fs-8);color:var(--ink-3);padding:14px 0 0;margin:0}
 
 /* role list */
 .role-list{padding:8px 0 40px}
 a.role{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:24px;align-items:center;padding:22px 0;border-bottom:1px solid var(--line);color:inherit;text-decoration:none;transition:background .15s}
+a.role[hidden]{display:none}
 a.role:hover{background:var(--band)}
 .role h3{font-size:var(--fs-4);line-height:1.25;letter-spacing:-.015em;margin:0}
 .role .meta{font-size:var(--fs-7);color:var(--ink-2)}
@@ -251,23 +253,37 @@ a.role:hover{background:var(--band)}
 
 <section class="filters">
   <div class="wrap">
-    <div class="filter-row">
-      <span class="chip on">All roles</span>
-      <span class="chip">Content</span>
-      <span class="chip">Client leadership</span>
-      <span class="chip">Creative</span>
-      <span class="chip">Operations</span>
-    </div>
-    <p class="filter-note">9 open roles</p>
+    <div class="filter-row"><span class="chip on" data-f="">All roles</span><span class="chip" data-f="Content">Content</span><span class="chip" data-f="Client leadership">Client leadership</span><span class="chip" data-f="Creative">Creative</span><span class="chip" data-f="Operations">Operations</span></div>
+    <p class="filter-note" id="filterNote">9 open roles</p>
   </div>
 </section>
 
 <section class="role-list">
   <div class="wrap">
     <div class="role-head"><span>Role</span><span>Discipline</span><span>Type</span><span></span></div>
-    <a class="role" href="director-content/index.html"><h3>Director, Content</h3><span class="meta">Content</span><span class="type">Full-time · Remote</span><span class="go link">View</span></a><a class="role" href="senior-editorial-manager/index.html"><h3>Senior Editorial Manager</h3><span class="meta">Content</span><span class="type">Full-time · Remote</span><span class="go link">View</span></a><a class="role" href="senior-copywriter/index.html"><h3>Sr. Copywriter</h3><span class="meta">Content</span><span class="type">Full-time · Remote</span><span class="go link">View</span></a><a class="role" href="senior-account-manager/index.html"><h3>Sr. Account Manager</h3><span class="meta">Client leadership</span><span class="type">Full-time · Remote</span><span class="go link">View</span></a><a class="role" href="account-manager/index.html"><h3>Account Manager</h3><span class="meta">Client leadership</span><span class="type">Full-time · Remote</span><span class="go link">View</span></a><a class="role" href="account-associate/index.html"><h3>Account Associate</h3><span class="meta">Client leadership</span><span class="type">Full-time · Remote</span><span class="go link">View</span></a><a class="role" href="graphic-designer-ui-ux/index.html"><h3>Graphic Designer, UI-UX</h3><span class="meta">Creative</span><span class="type">Full-time · Remote</span><span class="go link">View</span></a><a class="role" href="graphic-designer/index.html"><h3>Graphic Designer</h3><span class="meta">Creative</span><span class="type">Full-time · Remote</span><span class="go link">View</span></a><a class="role" href="integrated-producer/index.html"><h3>Integrated Producer</h3><span class="meta">Operations</span><span class="type">Full-time · Remote</span><span class="go link">View</span></a>
+    <div id="roleList"><a class="role" data-s="Content" href="director-content/index.html"><h3>Director, Content</h3><span class="meta">Content</span><span class="type">Full-time · Remote</span><span class="go link">View</span></a><a class="role" data-s="Content" href="senior-editorial-manager/index.html"><h3>Senior Editorial Manager</h3><span class="meta">Content</span><span class="type">Full-time · Remote</span><span class="go link">View</span></a><a class="role" data-s="Content" href="senior-copywriter/index.html"><h3>Sr. Copywriter</h3><span class="meta">Content</span><span class="type">Full-time · Remote</span><span class="go link">View</span></a><a class="role" data-s="Client leadership" href="senior-account-manager/index.html"><h3>Sr. Account Manager</h3><span class="meta">Client leadership</span><span class="type">Full-time · Remote</span><span class="go link">View</span></a><a class="role" data-s="Client leadership" href="account-manager/index.html"><h3>Account Manager</h3><span class="meta">Client leadership</span><span class="type">Full-time · Remote</span><span class="go link">View</span></a><a class="role" data-s="Client leadership" href="account-associate/index.html"><h3>Account Associate</h3><span class="meta">Client leadership</span><span class="type">Full-time · Remote</span><span class="go link">View</span></a><a class="role" data-s="Creative" href="graphic-designer-ui-ux/index.html"><h3>Graphic Designer, UI-UX</h3><span class="meta">Creative</span><span class="type">Full-time · Remote</span><span class="go link">View</span></a><a class="role" data-s="Creative" href="graphic-designer/index.html"><h3>Graphic Designer</h3><span class="meta">Creative</span><span class="type">Full-time · Remote</span><span class="go link">View</span></a><a class="role" data-s="Operations" href="integrated-producer/index.html"><h3>Integrated Producer</h3><span class="meta">Operations</span><span class="type">Full-time · Remote</span><span class="go link">View</span></a></div>
   </div>
 </section>
+<script>
+(function(){
+  var list = document.getElementById("roleList");
+  var roles = [].slice.call(list.querySelectorAll(".role"));
+  var note = document.getElementById("filterNote");
+  document.querySelector(".filter-row").addEventListener("click", function(e){
+    var chip = e.target.closest(".chip"); if(!chip) return;
+    [].forEach.call(document.querySelectorAll(".chip"), function(c){ c.classList.remove("on"); });
+    chip.classList.add("on");
+    var filter = chip.dataset.f || "";
+    var shown = 0;
+    roles.forEach(function(r){
+      var match = !filter || r.dataset.s === filter;
+      r.hidden = !match;
+      if (match) shown++;
+    });
+    note.textContent = shown + (shown === 1 ? " open role" : " open roles");
+  });
+})();
+</script>
 
 <section class="nofit">
   <div class="wrap read">
