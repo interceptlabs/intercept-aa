@@ -22,9 +22,6 @@ HOME_CSS = """
 
 .hero-video-wrap{position:relative;flex:none;height:100%;aspect-ratio:4/3;background:var(--carbon-400)}
 .hero-video-wrap video{display:block;width:100%;height:100%;object-fit:cover}
-.hero-sound{position:absolute;right:16px;bottom:16px;width:40px;height:40px;padding:0;border-radius:50%;background:rgba(10,10,15,.55);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;transition:background .15s}
-.hero-sound:hover{background:rgba(10,10,15,.75)}
-.hero-sound svg{width:18px;height:18px}
 
 /* headline "Intercept" morphs into an arrow while the video's closing
    sting is on screen, reverting on native loop restart — see STING_START
@@ -165,15 +162,6 @@ HERO_SCRIPT = """<script>
     wasActive = active;
   });
 })();
-(function(){
-  var btn = document.getElementById("heroSound"), v = document.getElementById("heroVideo");
-  if (!btn || !v) return;
-  var ON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 5V4L8 9H4z" fill="currentColor" stroke="none"/><path d="M15.5 8.5a5 5 0 010 7"/><path d="M18.5 5.5a9 9 0 010 13"/></svg>';
-  var OFF = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 5V4L8 9H4z" fill="currentColor" stroke="none"/><path d="M16 8l6 8M22 8l-6 8"/></svg>';
-  function render(){ btn.innerHTML = v.muted ? OFF : ON; btn.setAttribute("aria-pressed", v.muted ? "false" : "true"); }
-  btn.addEventListener("click", function(){ v.muted = !v.muted; render(); });
-  render();
-})();
 </script>"""
 
 def case_teaser(slug, fallback_title=None, fallback_sub=None, aspect="4/3", client_label=None):
@@ -276,7 +264,6 @@ def render():
       <video id="heroVideo" autoplay muted loop playsinline poster="media/intercept-campaign-reel-poster.jpg">
         <source src="media/intercept-campaign-reel.mp4" type="video/mp4">
       </video>
-      <button class="hero-sound" id="heroSound" type="button" aria-pressed="false" aria-label="Toggle sound"></button>
     </div>
   </div>
 </section>
