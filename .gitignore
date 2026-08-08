@@ -1,0 +1,4 @@
+.DS_Store
+_build/__pycache__/
+_build/_retired-pre-reflow/
+media/*.pre-*.mp4

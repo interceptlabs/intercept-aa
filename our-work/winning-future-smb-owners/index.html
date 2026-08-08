@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Intuit wins educators to get QuickBooks into the classroom · Intercept case study</title>
+<meta name="description" content="An integrated digital campaign that gave educators the proof they needed to adopt QuickBooks">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --halo-100:#ffffff; --halo-200:#f5f7ff; --halo-300:#e6e9f5; --halo-400:#d1d6e6; --halo-500:#b8bed1;
+  --carbon-100:#3a3a4a; --carbon-200:#2c2c3a; --carbon-300:#1f1f2a; --carbon-400:#14141c; --carbon-500:#0a0a0f;
+  --flarepop:#ff00e5; --flarepop-500:#39003a; --flarepop-ink:#a8008c;
+  --coolsweep:#1a7aff; --coolsweep-500:#08285c;
+  --ink:var(--carbon-500); --ink-2:#2c2c3a; --ink-3:#5a5f70; --ink-muted:rgba(10,10,15,.45);
+  --logo-ink:var(--ink);
+  --page:var(--halo-100); --band:var(--halo-200); --line:var(--halo-300);
+  --maxw:1200px; --readw:700px;
+  --font-display:'Instrument Sans',system-ui,sans-serif;
+  --font-body:'Inter',system-ui,sans-serif;
+  --fs-1:56px; --fs-2:40px; --fs-3:24px; --fs-4:20px; --fs-5:18px; --fs-6:16px; --fs-7:14px; --fs-8:12px; --fs-data:56px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;overflow-x:clip;max-width:100%}
+body{background:var(--page);color:var(--ink);font-family:var(--font-body);font-size:var(--fs-6);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img,svg{max-width:100%}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;letter-spacing:-.02em;margin:0;text-wrap:balance}
+p{margin:0;text-wrap:pretty}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+.read{max-width:var(--readw)}
+.skip{position:absolute;left:-999px}
+.skip:focus{left:12px;top:12px;background:var(--flarepop);color:#0a0a0f;padding:8px 14px;border-radius:6px;z-index:200}
+
+/* Sentence case, not uppercase+tracked — the all-caps letter-spaced
+   overline label is a generic AI-template habit (Fritz rule, 2026-08-07),
+   not an Intercept convention. Source text is already written in sentence
+   case (see call sites); this rule used to force it into caps on top. */
+.eyebrow{font-family:var(--font-body);font-weight:600;font-size:var(--fs-8);color:var(--flarepop-ink);margin:0 0 14px;display:block}
+
+/* lockup */
+.logo{width:auto;height:30px;display:block;shape-rendering:geometricPrecision}
+.logo.sm{height:26px}
+.fritz-lockup-hover{display:inline-flex;align-items:center;color:inherit;text-decoration:none;outline-offset:6px}
+
+/* topbar (functional sticky divider — matches shipped site nav convention) */
+.topbar{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar .row{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.nav-wrap{display:flex;align-items:center;gap:20px}
+.nav-links{display:flex;align-items:center;gap:24px;font-size:var(--fs-7);font-weight:500;color:var(--ink-2)}
+.nav-links a:hover{color:var(--flarepop-ink)}
+.nav-links .inert{color:var(--ink);opacity:.45;cursor:default}
+.cta-nav{background:var(--carbon-500);color:#fff;font-weight:600;font-size:var(--fs-7);padding:9px 18px;border-radius:8px;transition:background .15s;flex:none}
+.cta-nav:hover{background:var(--flarepop);color:var(--carbon-500)}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;padding:0;background:none;border:0;cursor:pointer;flex:none}
+.nav-toggle span{display:block;width:100%;height:2px;background:var(--ink)}
+@media(max-width:860px){
+  .nav-toggle{display:flex}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;gap:18px;background:var(--page);padding:22px 24px 26px;border-bottom:1px solid var(--line)}
+}
+
+/* buttons — bg/text pairs checked for contrast: carbon/white ~19:1, flarepop/carbon ~6:1 */
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:var(--fs-7);padding:14px 24px;border-radius:8px;background:var(--carbon-500);color:#fff;transition:background .15s,color .15s}
+.btn:hover{background:var(--flarepop);color:var(--carbon-500)}
+.link{font-size:var(--fs-7);font-weight:600;display:inline-flex;align-items:center;gap:6px;color:var(--ink)}
+.link::after{content:'\203A';color:var(--flarepop-ink)}
+
+/* section rhythm — bands carry emphasis, not lines */
+.sec{padding:64px 0}
+.band-tint{background:var(--band)}
+.band-dark{background:var(--carbon-500);color:#fff}
+.band-dark .ink-2{color:var(--halo-500)}
+.band-navy{background:var(--coolsweep-500);color:#fff}
+
+.ph{background:var(--halo-200);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;color:var(--ink-3);font-family:var(--font-body);font-weight:600;font-size:var(--fs-8);letter-spacing:.09em;text-transform:uppercase}
+
+/* stat strip (the sanctioned data-viz default). Numeral voice is Instrument
+   Sans display bold, not a separate mono "data" register — ties the figure
+   to the same typographic voice as the headline above/around it instead of
+   defaulting to the generic dashboard convention of a monospace numeral.
+   Centered both as a row (within its band) and within each column. */
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;text-align:center}
+.stat b{display:block;font-family:var(--font-display);font-size:var(--fs-data);line-height:1;letter-spacing:-.03em;font-weight:700}
+.stat span{display:block;font-size:var(--fs-7);line-height:1.45;margin:12px auto 0;opacity:.9;max-width:26ch}
+@media(max-width:820px){.stat-row{grid-template-columns:1fr;gap:28px}}
+
+/* cards */
+.card-grid{display:grid;gap:24px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.g3,.g2{grid-template-columns:1fr}}
+.card h3{font-size:var(--fs-4);letter-spacing:-.015em;margin:0 0 8px;font-weight:700}
+.card p{font-size:var(--fs-7);line-height:1.5;color:var(--ink-2)}
+.card .ph{margin-bottom:14px}
+
+/* footer */
+.foot{padding:56px 0 32px}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:28px}
+.foot-col h4{font-size:var(--fs-8);font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin:0 0 14px}
+.foot-col a,.foot-col span.inert{display:block;font-size:var(--fs-7);color:var(--ink-2);margin-bottom:9px}
+.foot-col a:hover{color:var(--flarepop-ink)}
+.foot-col span.inert{color:var(--ink);opacity:.45}
+.foot-bot{margin-top:40px;padding-top:20px;font-size:var(--fs-8);color:var(--ink-3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media(max-width:820px){.foot-grid{grid-template-columns:1fr 1fr;gap:24px 20px}}
+</style>
+<style>
+.chero{padding:52px 0 40px}
+.chero .eyebrow{margin-bottom:16px}
+.chero h1{font-size:var(--fs-1);line-height:1.05;letter-spacing:-.03em;margin:0 0 16px;max-width:19ch}
+.chero .sub{font-family:var(--font-body);font-size:var(--fs-5);line-height:1.5;color:var(--ink-2);margin:0 0 22px;max-width:44ch}
+.credential{display:inline-flex;align-items:center;gap:8px;font-size:var(--fs-8);font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-2);border:1px solid var(--line);border-radius:99px;padding:6px 14px;margin:0 0 20px}
+.meta-row{display:flex;align-items:center;gap:14px}
+.meta-row .label{font-size:var(--fs-8);font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+.chero-media{aspect-ratio:21/9}
+
+.prose h2{font-size:var(--fs-2);line-height:1.15;letter-spacing:-.02em;margin:0 0 18px;max-width:22ch}
+.prose p{font-size:var(--fs-6);line-height:1.62;color:var(--ink-2);margin:0 0 18px}
+.prose p:last-child{margin-bottom:0}
+
+.spotlight{display:grid;gap:32px;margin-top:8px}
+.spotlight-item h3{font-size:var(--fs-5);font-weight:700;letter-spacing:-.01em;margin:0 0 8px}
+.spotlight-item p{font-size:var(--fs-6);line-height:1.58;color:var(--ink-2);margin:0;max-width:60ch}
+
+.result h2{font-size:var(--fs-2);margin:0 0 16px;max-width:20ch}
+
+.related-h{font-size:var(--fs-2);letter-spacing:-.02em}
+.rel h3{font-size:var(--fs-4);line-height:1.22;margin:0 0 6px;font-weight:700}
+.rel p{font-size:var(--fs-7);line-height:1.45;color:var(--ink-2);margin:0}
+
+.convert{text-align:center}
+.convert h2{font-size:var(--fs-2);line-height:1.1;letter-spacing:-.025em;margin:0 auto 14px;max-width:18ch}
+.convert p{font-size:var(--fs-6);color:var(--ink-2);margin:0 auto 20px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar"><div class="row"><a class="fritz-lockup-hover" href="../../index.html" aria-label="Intercept home" data-fritz-hover-lockup><svg class="logo" viewBox="0 0.9583 324.005 76.923" role="img" aria-label="Intercept"><g fill="var(--logo-ink)"><path d="M4.85695 54.8039V11.2147H14.1252V54.8039H4.85695Z"/>
+      <path d="M18.3324 54.8039V23.9282H27.1794V31.1931H27.36V54.8039H18.3324ZM39.6976 54.8039V35.6731C39.6976 33.9779 39.2563 32.7066 38.3736 31.859C37.531 31.0115 36.2872 30.5877 34.6422 30.5877C33.2379 30.5877 31.9741 30.9106 30.8506 31.5563C29.7673 32.2021 28.9047 33.09 28.2627 34.2201C27.6609 35.3502 27.36 36.6821 27.36 38.2158L26.5776 30.7693C27.5807 28.5091 29.0451 26.7131 30.971 25.3812C32.937 24.0089 35.3443 23.3228 38.193 23.3228C41.6034 23.3228 44.2114 24.2915 46.0169 26.2288C47.8224 28.1257 48.7252 30.6886 48.7252 33.9174V54.8039H39.6976Z"/>
+      <path d="M66.4586 55.4698C62.5266 55.4698 59.5977 54.5214 57.6718 52.6244C55.7861 50.6871 54.8432 47.761 54.8432 43.8461V17.0266L63.8707 13.6363V44.1488C63.8707 45.521 64.2519 46.5502 65.0142 47.2363C65.7766 47.9224 66.9602 48.2655 68.5651 48.2655C69.1669 48.2655 69.7286 48.205 70.2502 48.0839C70.7718 47.9628 71.2934 47.8215 71.815 47.6601V54.5617C71.2934 54.8442 70.5511 55.0662 69.5882 55.2277C68.6654 55.3891 67.6222 55.4698 66.4586 55.4698ZM49.1258 30.8298V23.9282H71.815V30.8298H49.1258Z"/>
+      <path d="M88.2042 55.4093C84.7938 55.4093 81.8247 54.7434 79.297 53.4115C76.7693 52.0392 74.8033 50.1423 73.399 47.7206C72.0349 45.299 71.3528 42.5142 71.3528 39.3661C71.3528 36.1776 72.0349 33.3927 73.399 31.0115C74.8033 28.5898 76.7493 26.7131 79.2368 25.3812C81.7244 24.0089 84.6132 23.3228 87.9033 23.3228C91.073 23.3228 93.8213 23.9686 96.1484 25.2601C98.4755 26.5516 100.281 28.3477 101.565 30.6482C102.849 32.9488 103.491 35.6529 103.491 38.7606C103.491 39.4064 103.471 40.0118 103.431 40.5769C103.391 41.1015 103.33 41.606 103.25 42.0904H76.6489V36.0969H95.9679L94.4031 37.1866C94.4031 34.6843 93.8013 32.8479 92.5976 31.6774C91.434 30.4666 89.8292 29.8612 87.7829 29.8612C85.4157 29.8612 83.5701 30.6684 82.246 32.2828C80.9621 33.8972 80.3201 36.3188 80.3201 39.5477C80.3201 42.6958 80.9621 45.0367 82.246 46.5704C83.5701 48.1041 85.5361 48.8709 88.144 48.8709C89.5884 48.8709 90.8322 48.6288 91.8754 48.1444C92.9186 47.6601 93.701 46.8731 94.2226 45.7834H102.708C101.705 48.77 99.9801 51.1311 97.5327 52.8666C95.1253 54.5617 92.0158 55.4093 88.2042 55.4093Z"/>
+      <path d="M105.911 54.8039V23.9282H114.758V31.1931H114.939V54.8039H105.911ZM114.939 38.7001L114.156 31.3747C114.879 28.7513 116.062 26.7534 117.707 25.3812C119.352 24.0089 121.399 23.3228 123.846 23.3228C124.608 23.3228 125.17 23.4035 125.531 23.565V32.0406C125.331 31.9599 125.05 31.9196 124.689 31.9196C124.328 31.8792 123.886 31.859 123.365 31.859C120.476 31.859 118.349 32.3837 116.985 33.4331C115.621 34.4421 114.939 36.1978 114.939 38.7001Z"/>
+      <path d="M140.916 55.4093C137.706 55.4093 134.877 54.7232 132.43 53.3509C129.982 51.9787 128.056 50.0817 126.652 47.6601C125.288 45.2385 124.606 42.4738 124.606 39.3661C124.606 36.2583 125.288 33.4936 126.652 31.072C128.056 28.6504 129.982 26.7534 132.43 25.3812C134.877 24.0089 137.706 23.3228 140.916 23.3228C143.604 23.3228 146.011 23.8273 148.138 24.8363C150.304 25.805 152.07 27.157 153.434 28.8925C154.838 30.628 155.741 32.6662 156.142 35.0071H147.415C146.974 33.5138 146.172 32.3837 145.008 31.6169C143.885 30.85 142.561 30.4666 141.036 30.4666C139.592 30.4666 138.328 30.8298 137.244 31.5563C136.201 32.2828 135.399 33.312 134.837 34.6439C134.275 35.9758 133.995 37.5498 133.995 39.3661C133.995 41.1823 134.275 42.7563 134.837 44.0882C135.399 45.4201 136.201 46.4493 137.244 47.1758C138.328 47.9023 139.592 48.2655 141.036 48.2655C142.561 48.2655 143.885 47.8821 145.008 47.1152C146.172 46.3484 146.974 45.2183 147.415 43.725H156.142C155.741 46.0659 154.838 48.1041 153.434 49.8396C152.07 51.5751 150.304 52.9473 148.138 53.9563C146.011 54.925 143.604 55.4093 140.916 55.4093Z"/>
+      <path d="M172.668 55.4093C169.258 55.4093 166.289 54.7434 163.761 53.4115C161.233 52.0392 159.267 50.1423 157.863 47.7206C156.499 45.299 155.817 42.5142 155.817 39.3661C155.817 36.1776 156.499 33.3927 157.863 31.0115C159.267 28.5898 161.213 26.7131 163.701 25.3812C166.188 24.0089 169.077 23.3228 172.367 23.3228C175.537 23.3228 178.285 23.9686 180.612 25.2601C182.939 26.5516 184.745 28.3477 186.029 30.6482C187.313 32.9488 187.955 35.6529 187.955 38.7606C187.955 39.4064 187.935 40.0118 187.895 40.5769C187.854 41.1015 187.794 41.606 187.714 42.0904H161.113V36.0969H180.432L178.867 37.1866C178.867 34.6843 178.265 32.8479 177.062 31.6774C175.898 30.4666 174.293 29.8612 172.247 29.8612C169.88 29.8612 168.034 30.6684 166.71 32.2828C165.426 33.8972 164.784 36.3188 164.784 39.5477C164.784 42.6958 165.426 45.0367 166.71 46.5704C168.034 48.1041 170 48.8709 172.608 48.8709C174.052 48.8709 175.296 48.6288 176.339 48.1444C177.383 47.6601 178.165 46.8731 178.687 45.7834H187.172C186.169 48.77 184.444 51.1311 181.997 52.8666C179.589 54.5617 176.48 55.4093 172.668 55.4093Z"/>
+      <path d="M209.092 55.4093C206.163 55.4093 203.816 54.7232 202.051 53.3509C200.286 51.9787 199.242 50.1019 198.921 47.7206L199.403 47.6601V67.2147H190.375V23.9282H199.222V30.7693L198.681 30.6482C199.122 28.388 200.326 26.6122 202.292 25.3206C204.258 23.9888 206.685 23.3228 209.574 23.3228C212.342 23.3228 214.73 23.9888 216.736 25.3206C218.782 26.6122 220.347 28.4486 221.43 30.8298C222.553 33.2111 223.115 36.0161 223.115 39.245C223.115 42.5142 222.533 45.3596 221.37 47.7812C220.206 50.2028 218.581 52.0796 216.495 53.4115C214.409 54.7434 211.941 55.4093 209.092 55.4093ZM206.565 48.1444C208.691 48.1444 210.416 47.3776 211.74 45.8439C213.064 44.3102 213.727 42.1307 213.727 39.3055C213.727 36.4803 213.044 34.321 211.68 32.8277C210.356 31.3343 208.611 30.5877 206.444 30.5877C204.358 30.5877 202.633 31.3545 201.269 32.8882C199.944 34.3815 199.282 36.5408 199.282 39.3661C199.282 42.1913 199.944 44.3707 201.269 45.9044C202.633 47.3978 204.398 48.1444 206.565 48.1444Z"/>
+      <path d="M239.501 55.4698C235.569 55.4698 232.64 54.5214 230.714 52.6244C228.828 50.6871 227.885 47.761 227.885 43.8461V17.0266L236.913 13.6363V44.1488C236.913 45.521 237.294 46.5502 238.056 47.2363C238.819 47.9224 240.002 48.2655 241.607 48.2655C242.209 48.2655 242.771 48.205 243.292 48.0839C243.814 47.9628 244.335 47.8215 244.857 47.6601V54.5617C244.335 54.8442 243.593 55.0662 242.63 55.2277C241.707 55.3891 240.664 55.4698 239.501 55.4698ZM222.168 30.8298V23.9282H244.857V30.8298H222.168Z"/></g><g id="mark-slot" transform="translate(0, 1.22)"></g></svg></a>
+    <div class="nav-wrap">
+      <nav class="nav-links" id="navLinks" aria-label="Primary">
+        <a href="../../our-work/index.html">Our Work</a>
+        <a href="../../index.html#services">What We Do</a>
+        <a href="../../insights/index.html">Insights</a>
+        <a href="../../about-us/index.html">About Us</a>
+        <a href="../../careers/index.html">Careers</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Menu"><span></span><span></span><span></span></button>
+      <a class="cta-nav" href="../../contact/index.html">Contact</a>
+    </div></div></header>
+<script>
+(function(){
+  var t = document.getElementById("navToggle"), n = document.getElementById("navLinks");
+  if (!t || !n) return;
+  t.addEventListener("click", function(){
+    var open = n.classList.toggle("open");
+    t.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+})();
+</script>
+
+<main id="main">
+<section class="chero">
+  <div class="wrap">
+    <span class="eyebrow">Case study · Intuit</span>
+    <span class="credential">CMA · Bronze</span>
+    <h1>Intuit wins educators to get QuickBooks into the classroom</h1>
+    <p class="sub">An integrated digital campaign that gave educators the proof they needed to adopt QuickBooks</p>
+    <div class="meta-row"><span class="label">3-minute read</span></div>
+  </div>
+</section>
+
+<div class="wrap"><div class="ph chero-media">Case hero</div></div>
+
+<section class="sec prose">
+  <div class="wrap read">
+    <h2>New competitors, new approach</h2>
+    <p>Intuit makes one of the most popular accounting software in the world, QuickBooks. It powers hundreds of thousands of small businesses. But new competitors like Xero and FreshBooks were gaining traction with young startups, and these modern, cloud-native rivals meant Intuit needed to respond.</p><p>Intuit made a strategic pivot. To win the future of small business customers, they needed to start engaging them before they were business owners looking for accounting software. So they looked at the university and college segment, where students were learning accounting skills. The strategy was to make QuickBooks free for educators so they would download it and use it in their classrooms, embedding QuickBooks into the curriculum so that students entering the workforce would be looking for QuickBooks.</p>
+  </div>
+</section>
+
+<section class="sec prose band-tint" style="padding-bottom:52px">
+  <div class="wrap read">
+    <h2>Get into the classroom</h2>
+    <p>Educators were the influencers. Win them and they would bring QuickBooks into a class of 30 to 150 students as a hands-on way to develop accounting skills. An integrated digital strategy reached them through niche media and paid social, under the line “Build skills. Launch careers.”</p>
+    <div class="spotlight"><div class="spotlight-item"><h3>Finding the proof educators wanted</h3><p>Audience research came first. Focus groups with educators showed one point very clearly, that educators wanted to see proof it worked. They did not want to take a chance in their classroom.</p></div><div class="spotlight-item"><h3>Statistical proof and social proof</h3><p>One-to-one interviews with educators already using QuickBooks became snackable quotes featured in the creative. Past data collected from educators about the impact QuickBooks had on helping their students become career-ready bolstered the proof points.</p></div><div class="spotlight-item"><h3>Adding the power of LinkedIn</h3><p>Facebook and Twitter were the two obvious channels. LinkedIn was added to the mix as a greenfield opportunity to tap into a new pool of educators Intuit had not engaged before.</p></div><div class="spotlight-item"><h3>A jab-cross combination on LinkedIn</h3><p>The jab was image ads and video ads to let educators know QuickBooks was ready for their classrooms. The cross was message ads with a direct call to action, sent from the Intuit Job Readiness Team.</p></div></div>
+  </div>
+</section>
+
+<section class="sec band-navy">
+  <div class="wrap">
+    <div class="stat-row"><div class="stat"><b>7.6M</b><span>educators reached on LinkedIn</span></div><div class="stat"><b>14,000+</b><span>educators sent to sign up for QuickBooks</span></div><div class="stat"><b>4.2x</b><span>the target growth rate, with 4,600 educators bringing QuickBooks into their classrooms</span></div></div>
+  </div>
+</section>
+
+<section class="sec prose result">
+  <div class="wrap read">
+    <h2>Straight to the CEO</h2>
+    <p>Based on its success, Sasan Goodarzi, Intuit’s global CEO, took a personal interest in expanding this strategy to win the future of small business owners.</p>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="related-h" style="margin:0 0 24px">Related work</h2>
+    <div class="card-grid g3"><a class="card rel" href="../../our-work/dev-zone/index.html"><div class="ph" style="aspect-ratio:4/3">Microsoft</div><h3>Dev Zone</h3><p>Pop-up movie nights that put Microsoft Build highlights on the big screen for developers.</p></a><a class="card rel" href="../../our-work/to-the-cloud/index.html"><div class="ph" style="aspect-ratio:4/3">TD SYNNEX</div><h3>To the Cloud</h3><p>A 7-step guide and an expert webinar that moved managed service providers to cloud.</p></a><a class="card rel" href="../../our-work/index.html"><div class="ph" style="aspect-ratio:4/3">Related work</div><h3>Intel vPro, Explained</h3><p>Five interviews that explained Intel vPro to small business decision-makers without the jargon.</p></a></div>
+  </div>
+</section>
+
+<section class="sec convert band-tint">
+  <div class="wrap read">
+    <span class="eyebrow">Start the conversation</span>
+    <h2>Give us a hard problem. Let&rsquo;s solve it together.</h2>
+    <a class="btn" href="../../contact/index.html">Connect with an expert</a>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="fritz-lockup-hover" href="../../index.html" aria-label="Intercept home" data-fritz-hover-lockup><svg class="logo sm" viewBox="0 0.9583 324.005 76.923" role="img" aria-label="Intercept"><g fill="var(--logo-ink)"><path d="M4.85695 54.8039V11.2147H14.1252V54.8039H4.85695Z"/>
+      <path d="M18.3324 54.8039V23.9282H27.1794V31.1931H27.36V54.8039H18.3324ZM39.6976 54.8039V35.6731C39.6976 33.9779 39.2563 32.7066 38.3736 31.859C37.531 31.0115 36.2872 30.5877 34.6422 30.5877C33.2379 30.5877 31.9741 30.9106 30.8506 31.5563C29.7673 32.2021 28.9047 33.09 28.2627 34.2201C27.6609 35.3502 27.36 36.6821 27.36 38.2158L26.5776 30.7693C27.5807 28.5091 29.0451 26.7131 30.971 25.3812C32.937 24.0089 35.3443 23.3228 38.193 23.3228C41.6034 23.3228 44.2114 24.2915 46.0169 26.2288C47.8224 28.1257 48.7252 30.6886 48.7252 33.9174V54.8039H39.6976Z"/>
+      <path d="M66.4586 55.4698C62.5266 55.4698 59.5977 54.5214 57.6718 52.6244C55.7861 50.6871 54.8432 47.761 54.8432 43.8461V17.0266L63.8707 13.6363V44.1488C63.8707 45.521 64.2519 46.5502 65.0142 47.2363C65.7766 47.9224 66.9602 48.2655 68.5651 48.2655C69.1669 48.2655 69.7286 48.205 70.2502 48.0839C70.7718 47.9628 71.2934 47.8215 71.815 47.6601V54.5617C71.2934 54.8442 70.5511 55.0662 69.5882 55.2277C68.6654 55.3891 67.6222 55.4698 66.4586 55.4698ZM49.1258 30.8298V23.9282H71.815V30.8298H49.1258Z"/>
+      <path d="M88.2042 55.4093C84.7938 55.4093 81.8247 54.7434 79.297 53.4115C76.7693 52.0392 74.8033 50.1423 73.399 47.7206C72.0349 45.299 71.3528 42.5142 71.3528 39.3661C71.3528 36.1776 72.0349 33.3927 73.399 31.0115C74.8033 28.5898 76.7493 26.7131 79.2368 25.3812C81.7244 24.0089 84.6132 23.3228 87.9033 23.3228C91.073 23.3228 93.8213 23.9686 96.1484 25.2601C98.4755 26.5516 100.281 28.3477 101.565 30.6482C102.849 32.9488 103.491 35.6529 103.491 38.7606C103.491 39.4064 103.471 40.0118 103.431 40.5769C103.391 41.1015 103.33 41.606 103.25 42.0904H76.6489V36.0969H95.9679L94.4031 37.1866C94.4031 34.6843 93.8013 32.8479 92.5976 31.6774C91.434 30.4666 89.8292 29.8612 87.7829 29.8612C85.4157 29.8612 83.5701 30.6684 82.246 32.2828C80.9621 33.8972 80.3201 36.3188 80.3201 39.5477C80.3201 42.6958 80.9621 45.0367 82.246 46.5704C83.5701 48.1041 85.5361 48.8709 88.144 48.8709C89.5884 48.8709 90.8322 48.6288 91.8754 48.1444C92.9186 47.6601 93.701 46.8731 94.2226 45.7834H102.708C101.705 48.77 99.9801 51.1311 97.5327 52.8666C95.1253 54.5617 92.0158 55.4093 88.2042 55.4093Z"/>
+      <path d="M105.911 54.8039V23.9282H114.758V31.1931H114.939V54.8039H105.911ZM114.939 38.7001L114.156 31.3747C114.879 28.7513 116.062 26.7534 117.707 25.3812C119.352 24.0089 121.399 23.3228 123.846 23.3228C124.608 23.3228 125.17 23.4035 125.531 23.565V32.0406C125.331 31.9599 125.05 31.9196 124.689 31.9196C124.328 31.8792 123.886 31.859 123.365 31.859C120.476 31.859 118.349 32.3837 116.985 33.4331C115.621 34.4421 114.939 36.1978 114.939 38.7001Z"/>
+      <path d="M140.916 55.4093C137.706 55.4093 134.877 54.7232 132.43 53.3509C129.982 51.9787 128.056 50.0817 126.652 47.6601C125.288 45.2385 124.606 42.4738 124.606 39.3661C124.606 36.2583 125.288 33.4936 126.652 31.072C128.056 28.6504 129.982 26.7534 132.43 25.3812C134.877 24.0089 137.706 23.3228 140.916 23.3228C143.604 23.3228 146.011 23.8273 148.138 24.8363C150.304 25.805 152.07 27.157 153.434 28.8925C154.838 30.628 155.741 32.6662 156.142 35.0071H147.415C146.974 33.5138 146.172 32.3837 145.008 31.6169C143.885 30.85 142.561 30.4666 141.036 30.4666C139.592 30.4666 138.328 30.8298 137.244 31.5563C136.201 32.2828 135.399 33.312 134.837 34.6439C134.275 35.9758 133.995 37.5498 133.995 39.3661C133.995 41.1823 134.275 42.7563 134.837 44.0882C135.399 45.4201 136.201 46.4493 137.244 47.1758C138.328 47.9023 139.592 48.2655 141.036 48.2655C142.561 48.2655 143.885 47.8821 145.008 47.1152C146.172 46.3484 146.974 45.2183 147.415 43.725H156.142C155.741 46.0659 154.838 48.1041 153.434 49.8396C152.07 51.5751 150.304 52.9473 148.138 53.9563C146.011 54.925 143.604 55.4093 140.916 55.4093Z"/>
+      <path d="M172.668 55.4093C169.258 55.4093 166.289 54.7434 163.761 53.4115C161.233 52.0392 159.267 50.1423 157.863 47.7206C156.499 45.299 155.817 42.5142 155.817 39.3661C155.817 36.1776 156.499 33.3927 157.863 31.0115C159.267 28.5898 161.213 26.7131 163.701 25.3812C166.188 24.0089 169.077 23.3228 172.367 23.3228C175.537 23.3228 178.285 23.9686 180.612 25.2601C182.939 26.5516 184.745 28.3477 186.029 30.6482C187.313 32.9488 187.955 35.6529 187.955 38.7606C187.955 39.4064 187.935 40.0118 187.895 40.5769C187.854 41.1015 187.794 41.606 187.714 42.0904H161.113V36.0969H180.432L178.867 37.1866C178.867 34.6843 178.265 32.8479 177.062 31.6774C175.898 30.4666 174.293 29.8612 172.247 29.8612C169.88 29.8612 168.034 30.6684 166.71 32.2828C165.426 33.8972 164.784 36.3188 164.784 39.5477C164.784 42.6958 165.426 45.0367 166.71 46.5704C168.034 48.1041 170 48.8709 172.608 48.8709C174.052 48.8709 175.296 48.6288 176.339 48.1444C177.383 47.6601 178.165 46.8731 178.687 45.7834H187.172C186.169 48.77 184.444 51.1311 181.997 52.8666C179.589 54.5617 176.48 55.4093 172.668 55.4093Z"/>
+      <path d="M209.092 55.4093C206.163 55.4093 203.816 54.7232 202.051 53.3509C200.286 51.9787 199.242 50.1019 198.921 47.7206L199.403 47.6601V67.2147H190.375V23.9282H199.222V30.7693L198.681 30.6482C199.122 28.388 200.326 26.6122 202.292 25.3206C204.258 23.9888 206.685 23.3228 209.574 23.3228C212.342 23.3228 214.73 23.9888 216.736 25.3206C218.782 26.6122 220.347 28.4486 221.43 30.8298C222.553 33.2111 223.115 36.0161 223.115 39.245C223.115 42.5142 222.533 45.3596 221.37 47.7812C220.206 50.2028 218.581 52.0796 216.495 53.4115C214.409 54.7434 211.941 55.4093 209.092 55.4093ZM206.565 48.1444C208.691 48.1444 210.416 47.3776 211.74 45.8439C213.064 44.3102 213.727 42.1307 213.727 39.3055C213.727 36.4803 213.044 34.321 211.68 32.8277C210.356 31.3343 208.611 30.5877 206.444 30.5877C204.358 30.5877 202.633 31.3545 201.269 32.8882C199.944 34.3815 199.282 36.5408 199.282 39.3661C199.282 42.1913 199.944 44.3707 201.269 45.9044C202.633 47.3978 204.398 48.1444 206.565 48.1444Z"/>
+      <path d="M239.501 55.4698C235.569 55.4698 232.64 54.5214 230.714 52.6244C228.828 50.6871 227.885 47.761 227.885 43.8461V17.0266L236.913 13.6363V44.1488C236.913 45.521 237.294 46.5502 238.056 47.2363C238.819 47.9224 240.002 48.2655 241.607 48.2655C242.209 48.2655 242.771 48.205 243.292 48.0839C243.814 47.9628 244.335 47.8215 244.857 47.6601V54.5617C244.335 54.8442 243.593 55.0662 242.63 55.2277C241.707 55.3891 240.664 55.4698 239.501 55.4698ZM222.168 30.8298V23.9282H244.857V30.8298H222.168Z"/></g><g id="footer-mark-slot" transform="translate(0, 1.22)"></g></svg></a></div>
+      <div class="foot-col"><h4>Site</h4>
+        <a href="../../our-work/index.html">Our Work</a>
+        <a href="../../index.html#services">What We Do</a>
+        <a href="../../insights/index.html">Insights</a>
+        <a href="../../about-us/index.html">About Us</a>
+        <a href="../../careers/index.html">Careers</a>
+        <a href="../../contact/index.html">Contact</a>
+      </div>
+      <div class="foot-col"><h4>Trust</h4>
+        <a href="../../ai-policy/index.html">AI Policy</a>
+        <a href="../../privacy/index.html">Privacy Policy</a>
+        <a href="../../terms/index.html">Terms of Service</a>
+      </div>
+      <div class="foot-col"><h4>Socials</h4>
+        <a href="https://www.linkedin.com/company/interceptagency/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>&copy; 2026 Intercept.</span>
+      <span>Powered by curiosity.</span>
+    </div>
+  </div>
+</footer>
+<svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden"
+  id="fritz-glitch-source" data-accent-palette="#8846C9 #1DABC1 #5154C4 #FF44F9 #FFA9F8 #FF52F9" data-channels="#FF00E5 #1A7AFF #00D862">
+    <g class="fritz-layout" data-node="520:2115" data-tx="259.483" data-scale="1.28149" data-fill="#00D862">
+      <path class="base" d="M41.9108 49.5V21.4085H24.0137L0 49.5H41.9108Z"/>
+      <path class="base" d="M41.9108 19.143V13.2529H30.5835L25.5995 19.143H41.9108Z"/>
+      <path class="base" d="M41.9108 11.214V0L32.3959 11.214H41.9108Z"/>
+      <path class="accent" fill="#1DABC1" d="M21.0685 19.143L22.8739 17.0447H37.3565V19.143H21.0685Z"/>
+      <path class="accent" fill="#8846C9" d="M25.351 2.51151H21.7745V5.48133H25.351V2.51151Z"/>
+      <path class="accent" fill="#5154C4" d="M10.8683 27.2558H6.11658V31.5273H10.8683V27.2558Z"/>
+      <path class="accent" fill="#86E2DC" d="M41.9107 11.2139H34.7745L37.3798 8.26886H41.9107V11.2139Z"/>
+      <path class="accent" fill="#1BF2D7" d="M25.4862 19.143L27.373 17.0447H37.3566V19.143H25.4862Z"/>
+      <path class="accent" fill="#1BF2D7" d="M34.4142 23H40.7835V28.2572H34.4142V23Z"/>
+    </g>
+    <g class="fritz-layout" data-node="520:2233" data-tx="258.471" data-scale="1.29456" data-fill="#1A7AFF">
+      <path class="base" d="M42.2723 13.4554V0L30.7231 13.4554H42.2723Z"/>
+      <path class="base" d="M42.1602 43.5057V15.4737H28.8169L4.48513 43.5057H42.1602Z"/>
+      <path class="base" d="M42.1602 49V45.6362H2.91533L0 49H42.1602Z"/>
+      <path class="accent" fill="#8846C9" d="M8.44015 20.4007H4.67467V23.6283H8.44015V20.4007Z"/>
+      <path class="accent" fill="#1DABC1" d="M7.97723 1.17302H4.03661V4.70081H7.97723V1.17302Z"/>
+      <path class="accent" fill="#5154C4" d="M18.7107 13.1449H15.6458V15.8846H18.7107V13.1449Z"/>
+      <path class="accent" fill="#8846C9" d="M26.6865 13.4703L29.3261 10.3553H38.2331V13.4703H26.6865Z"/>
+      <path class="accent" fill="#1DABC1" d="M10.3158 43.5057L12.1288 41.7116H47.7666V43.5057H10.3158Z"/>
+      <path class="accent" fill="#32D2FF" d="M41.9315 43.5057H10.3158L12.1288 41.7116H41.9315V43.5057Z"/>
+      <path class="accent" fill="#939DFF" d="M30.8352 13.4703L33.4142 10.3553H38.2331V13.4703H30.8352Z"/>
+    </g>
+    <g class="fritz-layout" data-node="515:1882" data-tx="259.423" data-scale="1.29456" data-fill="#FF00E5">
+      <path class="base" d="M41.5371 12.4462V1.99028e-06L30.8849 12.4462H41.5371Z"/>
+      <path class="base" d="M41.5371 36.4416V14.4645H29.3151L10.6329 36.4416H41.5371Z"/>
+      <path class="base" d="M41.5371 49V38.46H8.90776L1.19209e-07 49H41.5371Z"/>
+      <path class="accent" fill="#8846C9" d="M21.8841 3.23671H8.07323V11.8435H21.8841V3.23671Z"/>
+      <path class="accent" fill="#1DABC1" d="M15.2914 10.3048H11.0005V13.3072H15.2914V10.3048Z"/>
+      <path class="accent" fill="#5154C4" d="M23.4979 15.7216H20.0577V17.9234H23.4979V15.7216Z"/>
+      <path class="accent" fill="#1DABC1" d="M28.3684 12.4462L30.6457 9.75512H38.9648V12.4462H28.3684Z"/>
+      <path class="accent" fill="#8846C9" d="M5.83067 36.4814L8.92061 32.8535H36.8552V36.4814H5.83067Z"/>
+      <path class="accent" fill="#FF44F9" d="M10.5844 36.4814L13.6619 32.8535H36.8552V36.4814H10.5844Z"/>
+      <path class="accent" fill="#FFA9F8" d="M31.1716 12.4462L33.1899 9.75512H38.9648V12.4462H31.1716Z"/>
+    </g>
+    <g class="fritz-layout" data-node="520:2286" data-tx="259.362" data-scale="1.29456" data-fill="#00D862">
+      <path class="base" d="M41.5826 49V42.0321H5.84404L4.76837e-07 49H41.5826Z"/>
+      <path class="base" d="M7.6422 40.0092H41.5826V25.3991H20.0046L7.6422 40.0092Z"/>
+      <path class="base" d="M22.0275 23.1514H41.5826V0L22.0275 23.1514Z"/>
+      <path class="accent" fill="#8846C9" d="M4.49541 40.0569L6.62697 37.5367H38.7132V40.0569H4.49541Z"/>
+      <path class="accent" fill="#5154C4" d="M47.0833 32.5917H42.4817V36.5665H47.0833V32.5917Z"/>
+      <path class="accent" fill="#1DABC1" d="M26.9725 23.1527L29.8313 19.7798H46.9214V23.1527H26.9725Z"/>
+      <path class="accent" fill="#8846C9" d="M48.391 6.06885H41.5826V12.0623H48.391V6.06885Z"/>
+      <path class="accent" fill="#86E2DC" d="M38.6605 6.06885H42.5099V12.0498H38.6605V6.06885Z"/>
+      <path class="accent" fill="#1BF2D7" d="M41.5469 23.1527H25.8486L28.7074 19.7798H41.5469V23.1527Z"/>
+      <path class="accent" fill="#1BF2D7" d="M29.2202 27.1972H33.7466V31.2096H29.2202V27.1972Z"/>
+      <path class="accent" fill="#86E2DC" d="M7.86697 40.0569L10.0111 37.5367H39.5018V40.0569H7.86697Z"/>
+    </g>
+    <g class="fritz-layout" data-node="520:2399" data-tx="257.019" data-scale="1.30791" data-fill="#1A7AFF">
+      <path class="base" d="M42.8398 25.5263L42.9508 0L20.976 25.5263H42.8398Z"/>
+      <path class="base" d="M42.8398 38.7334V27.413H19.6442L9.98856 38.7334H42.8398Z"/>
+      <path class="base" d="M42.8398 48.5V40.5092H8.54577L1.77575 48.5H42.8398Z"/>
+      <path class="accent" fill="#8846C9" d="M15.0938 38.8007L18.8333 34.4051H47.9563V38.8007H15.0938Z"/>
+      <path class="accent" fill="#939DFF" d="M42.8398 38.8007H15.0938L18.8333 34.4051H42.8398V38.8007Z"/>
+      <path class="accent" fill="#1DABC1" d="M16.5366 25.5263L19.5887 21.9748H37.9414V25.5263H16.5366Z"/>
+      <path class="accent" fill="#8846C9" d="M7.8503 22.3718H3.78893V26.0122H7.8503V22.3718Z"/>
+      <path class="accent" fill="#1DABC1" d="M2.67457 5.71773H1.49012e-06V7.95892H2.67457V5.71773Z"/>
+      <path class="accent" fill="#5154C4" d="M14.2728 25.4798H9.98856V29.1202H14.2728V25.4798Z"/>
+      <path class="accent" fill="#32D2FF" d="M20.865 25.5263L24.0476 21.9748H37.9565V25.5263H20.865Z"/>
+    </g>
+    <g class="fritz-layout" data-node="520:2071" data-tx="259.362" data-scale="1.29456" data-fill="#FF00E5">
+      <path class="base" d="M41.5826 49V22.2523H22.7018L0 49H41.5826Z"/>
+      <path class="base" d="M41.5826 5.16972V0L37.0872 5.16972H41.5826Z"/>
+      <path class="base" d="M41.5826 20.2294V7.41743H35.289L24.5 20.2294H41.5826Z"/>
+      <path class="accent" fill="#8846C9" d="M11.9587 7.41742H6.64233V10.7652H11.9587V7.41742Z"/>
+      <path class="accent" fill="#8846C9" d="M30.9175 20.135L34.6665 15.7339H48.2834V20.135H30.9175Z"/>
+      <path class="accent" fill="#1DABC1" d="M51.36 22.0275H45.0781V26.8674H51.36V22.0275Z"/>
+      <path class="accent" fill="#FF44F9" d="M41.9426 20.135H30.0184L33.7675 15.7339H41.9426V20.135Z"/>
+      <path class="accent" fill="#FF52F9" d="M31.1423 24.7248H34.2018V26.919H31.1423V24.7248Z"/>
+    </g>
+    <g class="fritz-layout" data-node="520:2236" data-tx="259.427" data-scale="1.32153" data-fill="#FF00E5">
+      <path class="base" d="M40.6866 32.5161V0L13.0369 32.5161H40.6866Z"/>
+      <path class="base" d="M40.6866 38.9309V34.5069H11.2673L7.5069 38.9309H40.6866Z"/>
+      <path class="base" d="M40.6866 48V41.1429H5.73731L0 48H40.6866Z"/>
+      <path class="accent" fill="#1DABC1" d="M2.43318 38.8413L4.23472 36.7189H35.9591V38.8413H2.43318Z"/>
+      <path class="accent" fill="#8846C9" d="M6.41475 32.5289L9.05535 29.4194H34.3879V32.5289H6.41475Z"/>
+      <path class="accent" fill="#8846C9" d="M13.8261 3.53916H7.52074V9.11653H13.8261V3.53916Z"/>
+      <path class="accent" fill="#1DABC1" d="M45.6855 7.07834H40.7005V11.212H45.6855V7.07834Z"/>
+      <path class="accent" fill="#FFA9F8" d="M7.52074 38.8413L9.32227 36.7189H37.3818V38.8413H7.52074Z"/>
+      <path class="accent" fill="#FF44F9" d="M13.0507 32.5289L15.6913 29.4194H35.0393V32.5289H13.0507Z"/>
+      <path class="accent" fill="#FF52F9" d="M34.9493 22.1198H38.7868V25.291H34.9493V22.1198Z"/>
+      <path class="accent" fill="#FFA9F8" d="M40.4793 7.07834H40.726V11.1997H40.4793V7.07834Z"/>
+    </g>
+    <g class="fritz-layout fritz-canon" data-node="" data-tx="0" data-scale="1" data-fill="#FF00E5">
+      <path class="base" d="M313.195 29.2138V63.8583H259.277L288.724 29.2138H313.195ZM313.195 26.787H290.787L305.126 9.91692H313.195V26.787ZM313.195 7.49016H307.189L313.195 0.424735V7.49016Z"/>
+      <path class="accent" fill="#8846C9" d="M297.818 26.7875L302.654 21.1099H320.22V26.7875H297.818Z"/>
+      <path class="accent" fill="#8846C9" d="M272.002 8.52534H265.143V12.8442H272.002V8.52534Z"/>
+      <path class="accent" fill="#1DABC1" d="M324.005 29.0518H315.901V35.2955H324.005V29.0518Z"/>
+      <path class="accent" fill="#5154C4" d="M303.01 32.5619H299.063V35.3926H303.01V32.5619Z"/>
+      <path class="accent" fill="#FF44F9" d="M313.2 26.7875H297.818L302.654 21.1099H313.2V26.7875Z"/>
+      <path class="accent" fill="#FFA9F8" d="M307.183 7.49016L311.162 2.81548V7.49016H307.183Z"/>
+      <path class="accent" fill="#FF52F9" d="M299.063 32.5619H303.01V35.3926H299.063V32.5619Z"/>
+    </g>
+</svg>
+<script>/* ── staging script: logo-glitch ── */
+
+(function(){
+  var source = document.getElementById("fritz-glitch-source");
+  var ACCENT_PALETTE = source.dataset.accentPalette.split(" ");
+  var CHANNELS = source.dataset.channels.split(" ");
+  var BEAT_MS = 100;
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function parseLayout(g){
+    return {
+      node: g.dataset.node,
+      tx: parseFloat(g.dataset.tx),
+      scale: parseFloat(g.dataset.scale),
+      fill: g.dataset.fill,
+      baseD: Array.prototype.map.call(g.querySelectorAll("path.base"), function(p){ return p.getAttribute("d"); }),
+      accents: Array.prototype.map.call(g.querySelectorAll("path.accent"), function(p){
+        return { d: p.getAttribute("d"), fill: p.getAttribute("fill") };
+      })
+    };
+  }
+
+  var LAYOUTS = Array.prototype.map.call(
+    source.querySelectorAll(".fritz-layout:not(.fritz-canon)"), parseLayout
+  );
+  var CANON = parseLayout(source.querySelector(".fritz-canon"));
+
+  function pick(arr){ return arr[Math.floor(Math.random() * arr.length)]; }
+
+  function beatHTML(layout, baseFill, accentFills){
+    var base = layout.baseD.map(function(d){ return '<path d="' + d + '" fill="' + baseFill + '"/>'; }).join("");
+    var accents = layout.accents.map(function(a, i){
+      return '<path d="' + a.d + '" fill="' + (accentFills ? accentFills[i] : a.fill) + '"/>';
+    }).join("");
+    return '<g transform="translate(' + layout.tx + ',0.4247) scale(' + layout.scale + ')">' + base + accents + '</g>';
+  }
+
+  function randomBeat(){
+    var layout = pick(LAYOUTS);
+    var baseFill = pick(CHANNELS);
+    var accentFills = layout.accents.map(function(){ return pick(ACCENT_PALETTE); });
+    return beatHTML(layout, baseFill, accentFills);
+  }
+
+  var CANON_HTML = beatHTML(CANON, CANON.fill, null);
+
+  function initLockup(root){
+    var slot = root.querySelector("#mark-slot") || root.querySelector('[id$="mark-slot"]');
+    if (!slot) return;
+    slot.innerHTML = CANON_HTML;
+    if (reduceMotion) return;
+
+    var timers = [];
+    var playing = false;
+
+    function clearTimers(){ timers.forEach(clearTimeout); timers = []; }
+
+    function play(){
+      if (playing) return;
+      playing = true;
+      clearTimers();
+      var seq = LAYOUTS.map(function(l){ return beatHTML(l, l.fill, null); });
+      seq.push(randomBeat());
+      seq.push(randomBeat());
+      seq.forEach(function(html, i){
+        timers.push(setTimeout(function(){ slot.innerHTML = html; }, i * BEAT_MS));
+      });
+      timers.push(setTimeout(function(){
+        slot.innerHTML = CANON_HTML;
+        playing = false;
+      }, seq.length * BEAT_MS));
+    }
+
+    function reset(){
+      clearTimers();
+      playing = false;
+      slot.innerHTML = CANON_HTML;
+    }
+
+    root.addEventListener("mouseenter", play);
+    root.addEventListener("focus", play);
+    root.addEventListener("mouseleave", reset);
+    root.addEventListener("blur", reset);
+  }
+
+  document.querySelectorAll("[data-fritz-hover-lockup]").forEach(initLockup);
+
+  // Play the glitch once on load so every visitor sees the mark animate at least once
+  setTimeout(function(){
+    document.querySelectorAll("[data-fritz-hover-lockup]").forEach(function(el){
+      el.dispatchEvent(new Event("mouseenter"));
+    });
+  }, 500);
+})();</script>
+</body>
+</html>

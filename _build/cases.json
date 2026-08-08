@@ -1,0 +1,2230 @@
+[
+  {
+    "slug": "be-the-answer",
+    "client_slug": "BMC",
+    "client_display": "BMC",
+    "short_title": "Be the answer",
+    "eyebrow": "Case study · BMC",
+    "credential": null,
+    "h1": "BMC wrote the evaluation criteria buyers were missing",
+    "sub": "A buyer’s guide comparing Control-M to named rivals, built in the structure AI assistants cite",
+    "read_time": "3-minute read",
+    "problem_h2": "The shortlist was set before sales arrived",
+    "problem_paras": [
+      "In enterprise software the buyer does the research now. Orchestration is bought by groups, and each member forms a view before anyone talks to sales. By the time a workflow orchestration buyer spoke to a salesperson, the shortlist was usually already decided, and Control-M had no voice in any of it.",
+      "Search engines, AI assistants, competitor content and review-site signals were shaping the comparison criteria. The category was moving from job scheduling to workflow orchestration, and many buyers were still searching for the older, simpler tool for a problem that had become far more complex. Buyers at the consideration stage were calibrating what good enough looked like, and which platforms to shortlist. So the insight was straightforward. The team that controls the evaluation criteria controls the shortlist. The leap was to build a guide that does not sell."
+    ],
+    "solution_h2": "The guide became the campaign",
+    "solution_intro_paras": [
+      "The buyer’s guide to workflow orchestration laid out seven critical capabilities, then compared Control-M, RunMyJobs and Stonebranch side by side, in the shape a buyer would build in a spreadsheet. One artifact powered the whole consideration journey, running through the landing page, paid search, content syndication, account-based media and review sites."
+    ],
+    "acc_items": [
+      {
+        "title": "Designed to be cited",
+        "body": "Buyers had started asking AI assistants how to evaluate orchestration platforms. Structured comparison and explicit criteria-and-trade-off framing are the shapes large language models and search engines cite, so the guide was engineered to be that source."
+      },
+      {
+        "title": "Three named account lists",
+        "body": "The audience was a buying committee, named in advance. Roughly 14,000 growth and white-space accounts were evaluating orchestration for the first time, 3,900 installed-base accounts were deciding whether to extend or replace, and a further 2,700 surfaced through retargeting."
+      },
+      {
+        "title": "LinkedIn carried the guide itself",
+        "body": "LinkedIn was where these people did their professional research, so it carried the asset itself. Document ads let a buyer read the comparison inside the feed, with no form in the way. Targeting ran by job level from manager through to CXO."
+      },
+      {
+        "title": "Proof and owned reach",
+        "body": "Domino’s cites 3,000 data pipelines orchestrated and improved service level agreement performance. Air Europa cites a 54% increase in DataOps workflow efficiency. BMC’s own LinkedIn newsletter carried the guide to 52,000 sends and nearly 13,000 views."
+      }
+    ],
+    "stats": [
+      {
+        "value": "20,000+",
+        "label": "target accounts reached, with every target list covered"
+      },
+      {
+        "value": "90%",
+        "label": "of top-of-funnel engagement carried by document ads inside the feed"
+      },
+      {
+        "value": "850+",
+        "label": "newly qualified accounts brought into the buying cycle"
+      }
+    ],
+    "result_h2": "Measured in accounts",
+    "result_paras": [
+      "Success was account progression in named target lists. In the installed base, the guide creative delivered nearly double the account click-through of a competitive-messaging variant running alongside it."
+    ],
+    "related": [
+      {
+        "title": "From signal to sale",
+        "desc": "An always-on AI desk that returns a ready-to-use engagement plan within 48 hours."
+      },
+      {
+        "title": "Confidence in every word",
+        "desc": "Taylor, an AI content strategist built around approved content, with every claim cited to its source."
+      },
+      {
+        "title": "AI in Practice",
+        "desc": "One connected experience across live events, skilling, guidance and peer proof."
+      }
+    ],
+    "source_file": "intercept-case-study_BMC_Be-the-answer_2026-08-06.html",
+    "service": "Content"
+  },
+  {
+    "slug": "agents-of-change",
+    "client_slug": "HP",
+    "client_display": "HP",
+    "short_title": "Agents of change",
+    "eyebrow": "Case study · HP",
+    "credential": "CMA · Bronze",
+    "h1": "An AI voice agent that qualified leads for HP’s channel partners",
+    "sub": "A voice agent onboarded like a new hire, with a knowledge base and hardcoded compliance",
+    "read_time": "3-minute read",
+    "problem_h2": "Leads were flowing, sales weren’t",
+    "problem_paras": [
+      "In commercial tech, over 90% of revenue flows through channel partners. These resellers are vital allies, but often under-resourced. HP had invested heavily in co-marketing. The leads were there, but too many slipped through the cracks without timely, qualified follow-up. Leads went cold and conversions stalled.",
+      "Windows 10 was nearing end-of-support, leaving 24M+ commercial devices ineligible for upgrade, and pandemic-era PCs were aging out. The window would not stay open. Partner interviews revealed that most leads were sitting dormant, and not for lack of interest. No one had time to qualify them. Partners didn’t need more names, they needed someone to verify contacts and route the right leads to sales. With BDR hiring off the table, HP built its own."
+    ],
+    "solution_h2": "An AI agent built for outcomes",
+    "solution_intro_paras": [
+      "HP built an AI sales agent powered by Claude’s latest language models and integrated with workflow automations. It navigated IVR phone systems, confirmed contact details, asked buying questions such as whether a refresh was planned in the next 12 months, and flagged high-potential leads for human follow-up."
+    ],
+    "acc_items": [
+      {
+        "title": "Signals layered over partner profiles",
+        "body": "Partners supplied ideal customer profiles. An AI model was trained to look beyond firmographics, using signals like tech stack maturity and hiring velocity to identify similar accounts. The agent then ran outreach across those targets."
+      },
+      {
+        "title": "Onboarded like a junior BDR",
+        "body": "Execution began with a clear, compliant conversation flow. Each call opened with AI disclosure and followed a logic tree built to guide the interaction. A central knowledge base held HP product information and partner context."
+      },
+      {
+        "title": "Safeguards written into every call",
+        "body": "Objection handling was built in, from “not the right time” to budget constraints. Calls followed local time rules and attempt thresholds were capped, with DNC and TCPA compliance hardcoded. Human reviewers and AI simulations pressure-tested it before launch."
+      },
+      {
+        "title": "Sharper agents with every sprint",
+        "body": "Two agent personas were tested for tone. “Stacey” was warm and conversational, “Scott” fast-paced and high-energy. IT decision-makers preferred Stacey. AI-powered review tools flagged dropout points and weak transitions, feeding insights back into the system each sprint."
+      }
+    ],
+    "stats": [
+      {
+        "value": "10,750+",
+        "label": "contacts dialed across partner-provided and AI-generated lists"
+      },
+      {
+        "value": "1,600+",
+        "label": "live conversations completed, at a 15% connection rate"
+      },
+      {
+        "value": "1/3",
+        "label": "the cost of hiring and training human reps for the same scope"
+      }
+    ],
+    "result_h2": "AI earns its seat",
+    "result_paras": [
+      "The initiative reframed how partners think about sales enablement. With AI handling qualification, partner sales reps could focus on closing. The success triggered new pilots, including Sales Dojo."
+    ],
+    "related": [
+      {
+        "title": "The measure of a marketer",
+        "desc": "A controlled experiment across 500 accounts that measured what marketing added to deal size."
+      },
+      {
+        "title": "Lights, camera, avatars",
+        "desc": "Studio-quality AI avatars that replaced traditional video production and cut costs by 55%."
+      },
+      {
+        "title": "AI under the influence",
+        "desc": "A creator-led YouTube series that drove Copilot adoption without any paid media."
+      }
+    ],
+    "source_file": "intercept-case-study_HP_Agents-of-change_2026-08-06.html",
+    "service": "Channel"
+  },
+  {
+    "slug": "confidence-in-every-word",
+    "client_slug": "HP",
+    "client_display": "HP",
+    "short_title": "Confidence in every word",
+    "eyebrow": "Case study · HP",
+    "credential": null,
+    "h1": "HP built Taylor, an AI content strategist for its channel partners",
+    "sub": "An AI teammate that builds customer-ready assets with partners, citing the source behind every claim",
+    "read_time": "3-minute read",
+    "problem_h2": "Growth travels through partners",
+    "problem_paras": [
+      "HP’s growth reaches market through channel partners, which means HP’s message arrives in someone else’s voice. Many partners focused on smaller businesses run lean teams. Vendor content rarely deploys as-is, and one partner-ready asset took up to three days and involved 6 to 10 people.",
+      "In an ideal world HP would place someone who knows the brand inside out in every partner’s office, keeping every word on message. That does not scale. And now that AI can generate anything instantly, partners can publish more, and faster, than ever, which makes brand drift a bigger risk. When partners write on your behalf, the instinct is to add approvals. HP removed them and made the source material the control. The guardrail became the library rather than the reviewer."
+    ],
+    "solution_h2": "Built to be trusted",
+    "solution_intro_paras": [
+      "Taylor, an AI content strategist and copywriter, was purpose-built around approved HP, Intel and Microsoft content, so compliance came from what the AI could draw on rather than who checked it afterwards. The experience ran inside a secure workspace and cited the source behind every claim."
+    ],
+    "acc_items": [
+      {
+        "title": "Taylor behaves like a colleague",
+        "body": "Taylor builds the asset with the partner using a four-stage method called CRIT, so Taylor carries the structure and the partner simply answers. A 70/30 partner-to-vendor voice balance let content sound like the partner while staying true to HP."
+      },
+      {
+        "title": "Four principles shaped the build",
+        "body": "Simplicity let partners ask in plain language. Personalization adapted outputs to each partner’s tone, positioning and customers. Trust made every claim traceable to an approved source. Activation carried a partner from concept to customer-ready content in one working session."
+      },
+      {
+        "title": "Built for everyday partner work",
+        "body": "Taylor produced what partners need. Social posts, email nurtures, landing page copy, sales enablement material, campaign planning support and thought leadership, all drawn from approved knowledge libraries with compliance safeguards applied."
+      },
+      {
+        "title": "HP wrapped Taylor in enablement",
+        "body": "HP wrapped Taylor in launch emails, quick-start guides, prompt examples and templates, interactive use cases, and training, alongside a dedicated landing page and web experience. The workflow changed completely. What took days and multiple reviewers now took minutes."
+      }
+    ],
+    "stats": [
+      {
+        "value": "86%",
+        "label": "of invited HP partners engaged with Taylor, 12 of 14, across the quietest quarter for partner marketing"
+      },
+      {
+        "value": "8.6",
+        "label": "prompts in an average conversation, reaching as many as 32 in a single session"
+      },
+      {
+        "value": "97.5%",
+        "label": "lower estimated cost per asset, with days of stakeholder time becoming minutes"
+      }
+    ],
+    "result_h2": "From pilot to platform",
+    "result_paras": [
+      "All feedback was positive, and HP committed to a Phase 2. A three-month test is becoming a scalable channel enablement platform."
+    ],
+    "related": [
+      {
+        "title": "From signal to sale",
+        "desc": "An always-on AI desk that returns a ready-to-use engagement plan within 48 hours."
+      },
+      {
+        "title": "Be the answer",
+        "desc": "BMC wrote the evaluation criteria buyers were missing, in the structure AI assistants cite."
+      },
+      {
+        "title": "AI in Practice",
+        "desc": "One connected experience across live events, skilling, guidance and peer proof."
+      }
+    ],
+    "source_file": "intercept-case-study_HP_Confidence-in-every-word_2026-08-06.html",
+    "service": "Channel"
+  },
+  {
+    "slug": "fly-with-dragonfly",
+    "client_slug": "HP",
+    "client_display": "HP",
+    "short_title": "Fly with Dragonfly",
+    "eyebrow": "Case study · HP",
+    "credential": "ANA Reggie · Bronze",
+    "h1": "Earning reseller sales reps’ attention for the lightest business laptop",
+    "sub": "Environmental branding, weighted water bottles, replica notebooks and mini drones, backed by tiered incentives",
+    "read_time": "3-minute read",
+    "problem_h2": "A sea of new devices",
+    "problem_paras": [
+      "The business of notebook PCs and laptops is competitive, with many new SKUs each year. HP was struggling to earn the attention of resellers, the companies that sell the devices to end business customers, and needed a campaign to spotlight the value propositions that set the Elite Dragonfly apart.",
+      "The target audience was clear, sales reps working at resellers, people actively courted by every device manufacturer. But the path to winning them was blocked by an endless stream of new campaigns, incentives and SPIFFs from the competition. A key selling point of the Dragonfly is its ultra light weight. At 2.2 lbs it is the lightest business class laptop ever made, and the campaign anchored on that. Breaking through the noise meant a three pronged approach for the sales rep audience."
+    ],
+    "solution_h2": "Flying above the competition",
+    "solution_intro_paras": [
+      "High impact environmental branding was designed and produced for installation inside distributors’ and resellers’ offices. Signage was suspended above competing messaging or appeared to burst from the ceiling, and glass clings let the devices hover around offices. Replicas of the device were hung from reseller ceilings to illustrate its light factor."
+    ],
+    "acc_items": [
+      {
+        "title": "Water bottles at 2.2 lbs",
+        "body": "Water bottles were used to physically demonstrate the weight of the device. When filled, the bottle was the exact weight of the Dragonfly. The bottles formed part of the educate prong."
+      },
+      {
+        "title": "Notebooks cut to exact size",
+        "body": "Paper notebooks showcased the device size while sneaking in sales collateral. Cut to the exact dimensions of the device, with a deep blue cover and foil embossed logo, they could be mistaken for the real thing."
+      },
+      {
+        "title": "A mini drone for reps",
+        "body": "The Dragonfly inspired mini drone was an exact fit for the creative narrative of the campaign. It went out alongside the custom paper notebooks and the weighted water bottles."
+      },
+      {
+        "title": "Incentives that sustained the attention",
+        "body": "Attention was earned, then sustained with multi tiered sales performance incentives. Clip level instant rewards and sweepstakes ran alongside achievements based on units sold, against a business objective of selling 40,000 units through the channel."
+      }
+    ],
+    "stats": [
+      {
+        "value": "2.2 lbs",
+        "label": "the device weight, and the anchor for the whole campaign"
+      },
+      {
+        "value": "3",
+        "label": "part approach across the reseller channel"
+      },
+      {
+        "value": "38%",
+        "label": "above the campaign target for units sold through distributors and resellers"
+      }
+    ],
+    "result_h2": "Innovation in any format",
+    "result_paras": [
+      "Digital channels have come to be seen as the only way to innovate in marketing. This campaign applied innovation to a different format, and set a new standard for reseller engagement within HP."
+    ],
+    "related": [
+      {
+        "title": "Surface Experience Kits",
+        "desc": "A device experience ordered from a microsite, used at home, then picked up again."
+      },
+      {
+        "title": "Security Skilling",
+        "desc": "A two day training experience that IT teams hosted on their own schedule."
+      },
+      {
+        "title": "Unbound",
+        "desc": "A high touch executive breakfast that opened relationships with finance leaders."
+      }
+    ],
+    "source_file": "intercept-case-study_HP_Fly-with-Dragonfly_2026-08-06.html",
+    "service": "Channel"
+  },
+  {
+    "slug": "from-signal-to-sale",
+    "client_slug": "HP",
+    "client_display": "HP",
+    "short_title": "From signal to sale",
+    "eyebrow": "Case study · HP",
+    "credential": null,
+    "h1": "HP put AI on the account research, people on the relationship",
+    "sub": "An always-on intelligence desk that returns a ready-to-use engagement plan within 48 hours",
+    "read_time": "3-minute read",
+    "problem_h2": "Thirteen people to convince",
+    "problem_paras": [
+      "Forrester finds that a typical B2B buying decision now runs through 13 internal stakeholders, each with a different priority and a different reason to say yes. HP set out to build relationships across 571 priority enterprise accounts, public and private, in a single year. The intelligence existed. The hours did not.",
+      "Assembling that intelligence by hand took three to four hours per account, so sellers researched properly only the few they could find time for. People respond when an approach speaks to what they care about and move on when it does not. The winning move was to make every message land, by giving sellers a real understanding of each person before they reached out. So HP put a harder question to AI. Could it understand an account well enough to say something its buyers would recognize as relevant?"
+    ],
+    "solution_h2": "HP built an intelligence desk",
+    "solution_intro_paras": [
+      "HP built the RADAR Intelligence Desk. A seller requests an account, and an always-on AI-powered service returns a ready-to-use engagement plan built around that account’s real people and priorities. AI did the research and drafted the outreach. Human teams reviewed the work, and the seller owned the relationship."
+    ],
+    "acc_items": [
+      {
+        "title": "One brief, back within 48 hours",
+        "body": "Every request came back within 48 hours as one branded account brief. It opened with the account’s live buying signals and mapped the stakeholders who mattered most. Then it recommended a clear way in."
+      },
+      {
+        "title": "Outreach written for the role",
+        "body": "Alongside it came ready-to-run personalized outreach for email and LinkedIn, along with call scripts written for a particular role and moment. AI drafted every version, tailored to the stakeholder receiving it."
+      },
+      {
+        "title": "Four steps, one of them human",
+        "body": "A seller submitted a priority account. AI synthesized that account’s signals and stakeholders into a report. Human teams checked every report for quality, so nothing unverified reached a customer. Then the seller activated the outreach."
+      },
+      {
+        "title": "Adoption was the design problem",
+        "body": "The hardest part of an AI service is rarely the technology. It is getting a sales team to trust it. So HP made RADAR feel like asking a colleague for help, with no tool to learn and no prompt to write."
+      }
+    ],
+    "stats": [
+      {
+        "value": "44",
+        "label": "account briefs delivered to 12 sellers, every one inside the 48-hour commitment"
+      },
+      {
+        "value": "176",
+        "label": "net-new contacts surfaced, alongside 132 live buying signals"
+      },
+      {
+        "value": "73%",
+        "label": "lower cost per report, at about four times the speed of the manual process"
+      }
+    ],
+    "result_h2": "Relevance, made repeatable",
+    "result_paras": [
+      "80% of sellers put RADAR to work. What had depended on a seller’s spare hours now arrived reliably, on demand, for any account."
+    ],
+    "related": [
+      {
+        "title": "Confidence in every word",
+        "desc": "Taylor, an AI content strategist built around approved content, with every claim cited to its source."
+      },
+      {
+        "title": "Be the answer",
+        "desc": "BMC wrote the evaluation criteria buyers were missing, in the structure AI assistants cite."
+      },
+      {
+        "title": "AI in Practice",
+        "desc": "One connected experience across live events, skilling, guidance and peer proof."
+      }
+    ],
+    "source_file": "intercept-case-study_HP_From-signal-to-sale_2026-08-06.html",
+    "service": "Sales Enablement"
+  },
+  {
+    "slug": "subscription-overload",
+    "client_slug": "HP",
+    "client_display": "HP",
+    "short_title": "Subscription Overload",
+    "eyebrow": "Case study · HP",
+    "credential": "CMA · Bronze",
+    "h1": "HP launches subscription management to a list of 1,000 customers",
+    "sub": "A data-driven ABM launch built on licensed IDC insights, targeted media, nurture and a sales tele-script",
+    "read_time": "3-minute read",
+    "problem_h2": "Welcome to the era of Everything-as-a-Service",
+    "problem_paras": [
+      "In a rapidly evolving tech landscape, companies face a deluge of as-a-service solutions that drive innovation and also lead to subscription overload and escalating expenses. HP saw the challenge as an opportunity and introduced the HP Subscription Management Service, then needed a launch campaign to secure market traction.",
+      "Creating a new category takes a lot of time and a lot of money. There was neither, and leads had to be generated quickly to get HP sales reps in front of the right customers. So instead of trying to boil the ocean, the work started by analysing software usage insights across 8,000 HP customers, then layering on buying intent data and D&B audience research to reach a targeted list of 1,000 customers to pursue."
+    ],
+    "solution_h2": "A playbook built on data",
+    "solution_intro_paras": [
+      "Thought leadership gave the new solution the credibility it needed, and the data model powered a targeted media buy that maximised reach with the right audiences. Sales worked in lock step, calling down to qualified leads with a tele-script."
+    ],
+    "acc_items": [
+      {
+        "title": "Needed credibility from licensed insights",
+        "body": "Custom research was out of budget. IDC had just wrapped their Future of Work study, so those insights were licensed and turned into a white paper explaining the importance of subscription management within the hybrid workplace."
+      },
+      {
+        "title": "Targeted audience, diversified media mix",
+        "body": "Programmatic display, search, YouTube, content syndication and publisher-direct buys carried the creative. Optimising media spend against the data targeting maximised reach and engaged the clients who needed the solution most."
+      },
+      {
+        "title": "A nurture that read behaviour",
+        "body": "Contacts who downloaded the asset entered a dynamic email nurture delivering tailored and relevant content based on their behaviours and level of engagement. Leads passed to sales once they were ready to talk business."
+      },
+      {
+        "title": "Powering demand, protecting brand",
+        "body": "Aligned with HP’s new brand style called VisID, the creative execution embraced its distinct colours and clean line breaks, making content easily consumable and visually engaging. That consistent visual identity strengthened HP’s brand recognition."
+      }
+    ],
+    "stats": [
+      {
+        "value": "8,000",
+        "label": "HP customers analysed for software usage insights"
+      },
+      {
+        "value": "1,000",
+        "label": "customers on the targeted list the data model produced"
+      },
+      {
+        "value": "179%",
+        "label": "of the lead generation target attained, in 10 weeks"
+      }
+    ],
+    "result_h2": "The formula went global",
+    "result_paras": [
+      "The email campaign doubled the industry average open rate and delivered a click-through rate seven times the benchmark. HP’s Global New Product Innovation Team adopted the formula."
+    ],
+    "related": [
+      {
+        "title": "Surface Show and Go",
+        "desc": "Microsoft’s first-ever hybrid device showcase kit, built so resellers could demo the full Surface line-up."
+      },
+      {
+        "title": "Intel vPro, Explained",
+        "desc": "Five interviews that explained Intel vPro to small business decision-makers without the jargon."
+      },
+      {
+        "title": "Dev Zone",
+        "desc": "Pop-up movie nights that merged Microsoft Build highlights with a film premiere for developers."
+      }
+    ],
+    "source_file": "intercept-case-study_HP_Subscription-Overload_2026-08-06.html",
+    "service": "Strategy"
+  },
+  {
+    "slug": "the-measure-of-a-marketer",
+    "client_slug": "HP",
+    "client_display": "HP",
+    "short_title": "The measure of a marketer",
+    "eyebrow": "Case study · HP",
+    "credential": "CMA · Gold",
+    "h1": "HP ran a controlled experiment to measure what marketing added",
+    "sub": "Two matched groups of 250 enterprise accounts, one receiving ABX journeys built from AI-upcycled content",
+    "read_time": "3-minute read",
+    "problem_h2": "Marketing under the microscope",
+    "problem_paras": [
+      "Inside HP, a debate was rumbling. Does marketing drive real value, and can you measure it? Sales teams felt the pressure in the pipeline. Finance wanted to see it in the numbers. For marketing, it was time to move from influence to incrementality.",
+      "HP had evolved. Perception hadn’t. The company had expanded into meeting room solutions and enterprise services, but most commercial buyers still saw HP as “the laptop company.” Hybrid work had fractured traditional IT buying cycles, and with Windows 10 approaching end-of-support, a rare window opened for high-value upgrade and cross-sell conversations. Before the campaign could prove value in the market, it had to earn confidence inside HP."
+    ],
+    "solution_h2": "A test built to earn trust",
+    "solution_intro_paras": [
+      "A third-party consultant was brought in to co-design the experiment, ensuring statistical balance and methodological rigor. Matched test and control groups were structured with HP sales leaders across industry, account size, buying stage and past engagement. 250 accounts received ABX campaigns. Another 250 received none."
+    ],
+    "acc_items": [
+      {
+        "title": "Smarter segments for sharper journeys",
+        "body": "HP’s data science team analyzed purchase history and behavioral signals across the 250 test accounts to surface three segments, from lifecycle-driven buyers nearing a device refresh to IT-led teams prioritizing operational efficiency. Each received a customized journey."
+      },
+      {
+        "title": "Content at scale, powered by AI",
+        "body": "Instead of building from scratch, HP’s content library was audited for reuse potential. A model trained on HP’s editorial standards and segmentation insights refreshed 20 assets in under two weeks, some of them two to three years old."
+      },
+      {
+        "title": "Designing for cohesion during brand evolution",
+        "body": "HP’s integration with Poly introduced visual complexity, and legacy assets from both brands varied widely in design. Every asset was aligned to HP’s evolving Visual ID system, across emails, guides, landing pages and ads."
+      },
+      {
+        "title": "Targeting the full buying committee",
+        "body": "HP’s media team identified 25 buyer roles across each of the 250 test accounts, from CIOs and CMOs to finance and ops leaders. Delivery ran across programmatic, paid social and syndication, engineered to drive engagement across the buying committee."
+      }
+    ],
+    "stats": [
+      {
+        "value": "500",
+        "label": "enterprise accounts, split evenly between test and control"
+      },
+      {
+        "value": "20",
+        "label": "assets refreshed in under two weeks through AI-powered upcycling"
+      },
+      {
+        "value": "398%",
+        "label": "incremental lift in average deal size against the control group"
+      }
+    ],
+    "result_h2": "The debate ended",
+    "result_paras": [
+      "Marketing didn’t just prove its value; it ended the debate. The gains were immediate and measurable, validating marketing’s role in driving sales velocity and customer re-engagement."
+    ],
+    "related": [
+      {
+        "title": "Agents of change",
+        "desc": "An AI voice agent that qualified and re-engaged leads for HP’s channel partners."
+      },
+      {
+        "title": "Lights, camera, avatars",
+        "desc": "Studio-quality AI avatars that replaced traditional video production and cut costs by 55%."
+      },
+      {
+        "title": "AI under the influence",
+        "desc": "A creator-led YouTube series that drove Copilot adoption without any paid media."
+      }
+    ],
+    "source_file": "intercept-case-study_HP_The-measure-of-a-marketer_2026-08-06.html",
+    "service": "Sales Enablement"
+  },
+  {
+    "slug": "the-video-that-talks-back",
+    "client_slug": "HP",
+    "client_display": "HP",
+    "short_title": "The video that talks back",
+    "eyebrow": "Case study · HP",
+    "credential": "CMA · Gold",
+    "h1": "HP turns a video into a conversation that recommends devices",
+    "sub": "HP’s first-ever interactive video, greeting viewers by name and recommending devices for their scenario",
+    "read_time": "3-minute read",
+    "problem_h2": "The expectation buyers bring to work",
+    "problem_paras": [
+      "In our personal lives we expect brands to understand who we are and what we want, and we bring that expectation into the workplace. As B2B buyers, we want buying to be convenient and personalized. That posed a challenge for HP and the channel partners who carry over 90% of its commercial revenue.",
+      "Business and IT decision-makers at small and mid-sized businesses are the people responsible for making technology purchase decisions, and they face an overwhelming number of options. Up to 60% of qualified pipeline was being lost to indecision. Market research said video was the number one way people consumed learning content, so the question became what would happen if people could go beyond watching a video to interacting with it, and if the video could change in real time based on their inputs."
+    ],
+    "solution_h2": "A video that talks back",
+    "solution_intro_paras": [
+      "HP’s first-ever interactive video greeted viewers by name and asked about their needs, then recommended devices based on their specific scenarios. The personalized approach aimed to reduce indecision by providing clear, tailored recommendations. To keep everything on brand, it featured a clean, modern design aligned with HP’s visual guidelines."
+    ],
+    "acc_items": [
+      {
+        "title": "Three partners tested the format",
+        "body": "HP identified three forward-looking channel partners to experiment with a new content format. The strategy was for partners to post the interactive video on their websites and convert traffic into qualified leads for their sales teams."
+      },
+      {
+        "title": "Co-branded down to the inventory",
+        "body": "The video carried HP branding and left room for channel partners to insert their logos, creating a co-branded experience. The product recommendation engine was personalized to the inventory each partner carried, so recommendations stayed relevant and actionable."
+      },
+      {
+        "title": "Built to feel like a conversation",
+        "body": "It started by asking simple things like the user’s name, then progressed to more detailed discovery questions about their priorities and end-user needs. Multiple pauses were integrated throughout to encourage customers to respond naturally."
+      },
+      {
+        "title": "A flexible tool for marketers",
+        "body": "Partners used the video as they saw fit. It could sit passively on their website for visitors to explore, or become a central tool in their marketing, with their media driving traffic to it."
+      }
+    ],
+    "stats": [
+      {
+        "value": "3",
+        "label": "channel partners piloted HP’s first-ever interactive video"
+      },
+      {
+        "value": "1.7x",
+        "label": "the benchmark engagement rate for interactive video, at 60% against 35%"
+      },
+      {
+        "value": "3x",
+        "label": "the standard conversion on the call to action, at 15% against 5%"
+      }
+    ],
+    "result_h2": "Beyond the campaign",
+    "result_paras": [
+      "Due to the strong performance, partners began investing their own media in promoting the video, and HP made the offer available to 1,000 of its top managed service providers."
+    ],
+    "related": [
+      {
+        "title": "Intel: The Magic of Metaphors",
+        "desc": "Intel’s cloud migration story told in everyday metaphors and targeted with precision."
+      },
+      {
+        "title": "This time it’s personal",
+        "desc": "A personalized Micro App built for each of HP’s top 50 target accounts."
+      },
+      {
+        "title": "Leading in the era of AI",
+        "desc": "An event for senior business leaders where every experience was powered by AI."
+      }
+    ],
+    "source_file": "intercept-case-study_HP_The-video-that-talks-back_2026-08-06.html",
+    "service": "Creative"
+  },
+  {
+    "slug": "this-time-its-personal",
+    "client_slug": "HP",
+    "client_display": "HP",
+    "short_title": "This time its personal",
+    "eyebrow": "Case study · HP",
+    "credential": "CMA · Bronze",
+    "h1": "HP built a personalized Micro App for 50 enterprise accounts",
+    "sub": "An interactive experience tailored to each customer, with intent data and engagement analytics for sales",
+    "read_time": "3-minute read",
+    "problem_h2": "The buying committee got bigger and younger",
+    "problem_paras": [
+      "In B2C, you win over one head of household. In B2B, you win over an entire buying committee, and for technology purchases it now averages 25 people. It is getting younger too, with 71% of business buyers under 45. HP approved an innovation pilot to engage 50 accounts.",
+      "81% of B2B buyers favour digital interactions over face to face, and 63% disregard content that is not personalized to their interests, needs, industry or role. Buyers were also focused on evolving the workplace for a more permanent hybrid work scenario. Meanwhile, marketing was still sending PDFs and PowerPoints without ever knowing whether they had been opened. HP’s sales team asked for a new approach, one that would break through the noise and set up strategic discussions about the future of work."
+    ],
+    "solution_h2": "A Micro App per account",
+    "solution_intro_paras": [
+      "A Micro App turns a high volume of content into an interactive, digestible format. This one was tailored for each of the 50 enterprise accounts, calling the customer by name and prioritizing content around their scenario. It led with insights and a framework to facilitate internal conversations about hybrid work success."
+    ],
+    "acc_items": [
+      {
+        "title": "White glove for HP sellers",
+        "body": "Sellers got ready-to-go Micro Apps, personalized to their customers, along with email outreach and follow-up templates based on where the customer sat in their buying journey, so HP sales teams could take action easily."
+      },
+      {
+        "title": "Choose your own adventure navigation",
+        "body": "For customers, the Micro App featured a clean, modern design with intuitive navigation, set up so they could choose their own adventure based on their priorities. With their name on it, the experience generated positive feedback."
+      },
+      {
+        "title": "Intent data fed back to sales",
+        "body": "Intent data ran across the 50 accounts. Topics included Windows 10 end of support and device refreshes, along with accounts that might switch to a competitor. Sales used it to prioritize by readiness and interest."
+      },
+      {
+        "title": "A dashboard behind the curtain",
+        "body": "The campaign offered deep analytics on Micro App activity. Sales had a dashboard showing how engaged each customer was and which content they spent the most time reviewing, which informed a more targeted follow-up."
+      }
+    ],
+    "stats": [
+      {
+        "value": "25",
+        "label": "average size of a buying committee for B2B technology purchases"
+      },
+      {
+        "value": "50",
+        "label": "enterprise accounts, each with a version of the Micro App built for them"
+      },
+      {
+        "value": "3 min",
+        "label": "average time spent reviewing the Micro App, against an industry average of 1 minute"
+      }
+    ],
+    "result_h2": "Operating in sync",
+    "result_paras": [
+      "It marked the first time sales knew whether customers had opened their materials, and it demonstrated what is possible when sales and marketing work as one."
+    ],
+    "related": [
+      {
+        "title": "The video that talks back",
+        "desc": "HP’s first interactive video, greeting viewers by name and recommending devices based on their scenarios."
+      },
+      {
+        "title": "Migrate to innovate",
+        "desc": "A practical guide that showed MSPs three paths to move their customers to the cloud."
+      },
+      {
+        "title": "Eyes on the road",
+        "desc": "An e-book and real dash cam footage that took AI-powered fleet safety to fleet-heavy industries."
+      }
+    ],
+    "source_file": "intercept-case-study_HP_This-time-its-personal_2026-08-06.html",
+    "service": "Digital Media"
+  },
+  {
+    "slug": "the-magic-of-metaphors",
+    "client_slug": "INTEL",
+    "client_display": "Intel",
+    "short_title": "The Magic of Metaphors",
+    "eyebrow": "Case study · Intel",
+    "credential": "CMA · Silver",
+    "h1": "Intel makes complex cloud migration simple with everyday metaphors",
+    "sub": "Metaphor-led creative and separate guides for developers and finance leaders, promoted to targeted enterprise accounts",
+    "read_time": "3-minute read",
+    "problem_h2": "Thousands of choices, one complex message",
+    "problem_paras": [
+      "Before a company can run AI applications, it needs to be running in the cloud. For each workload migrated, companies face thousands of choices, so many that they make educated guesses rather than data-driven decisions. Intel Cloud Optimizer answers that, though the solution itself is complex and expensive.",
+      "Earlier campaigns for Intel Cloud Optimizer had failed, and it came down to a simple insight. The message was just too complex. A clearer message was not enough, so the audience targeting needed pinpoint precision. Firmographic data like revenue and employee size was set aside for a list of companies with specific cloud infrastructure needs, showing intent signals for cloud migration and cost optimization. Two very distinct audiences had to be won at once. Developers prioritize performance from cloud applications, while finance leaders focus on cost efficiency."
+    ],
+    "solution_h2": "Landing the message with metaphors",
+    "solution_intro_paras": [
+      "Intel had learned the hard way that in marketing, complexity is the enemy, so the message was landed with metaphors. The creative featured everyday scenarios illustrating the perils of choosing the wrong tool for the job, such as eating soup with a fork or hammering a nail with a screwdriver."
+    ],
+    "acc_items": [
+      {
+        "title": "Painting the picture with GenAI",
+        "body": "A text-to-image platform trained on licensed images produced high-impact creative depicting the scenarios. That meant less time photoshopping and more time crafting intelligent customer journeys that drove revenue."
+      },
+      {
+        "title": "Separate guides for each audience",
+        "body": "Separate e-Guides were produced as hero assets for the DevOps and FinOps audiences, speaking to their specific pain points and how Intel could solve them. Third-party audience data promoted them to targeted accounts through LinkedIn Ads and content syndication."
+      },
+      {
+        "title": "A nurture series built by role",
+        "body": "Customers who downloaded the assets were entered into a personalized email nurture series based on their role. Through the series they received guides, videos, reports, customer stories and solution briefs to nurture them along the buying journey."
+      },
+      {
+        "title": "Making sales easy with automation",
+        "body": "Based on engagement with the content, sales reps were triggered to follow up using email templates created for them. This smart, automated journey ensured that qualified leads were actioned on in real time."
+      }
+    ],
+    "stats": [
+      {
+        "value": "250",
+        "label": "enterprise-level accounts targeted for the campaign"
+      },
+      {
+        "value": "2",
+        "label": "distinct audiences to win at once, developers and finance leaders"
+      },
+      {
+        "value": "96%",
+        "label": "of targeted accounts reached, against a goal of 70%"
+      }
+    ],
+    "result_h2": "Simplicity stood out",
+    "result_paras": [
+      "Beyond the business impact, the sales team said the one thing marketers never hear. “These leads are really high quality!” The campaign became the benchmark for building an ABM engine across Intel Americas marketing."
+    ],
+    "related": [
+      {
+        "title": "Leading in the era of AI",
+        "desc": "An event for senior business leaders where every experience was powered by AI."
+      },
+      {
+        "title": "The video that talks back",
+        "desc": "HP’s first-ever interactive video, greeting viewers by name and recommending devices."
+      },
+      {
+        "title": "Migrate to innovate",
+        "desc": "A practical guide showing managed service providers three clear paths to the cloud."
+      }
+    ],
+    "source_file": "intercept-case-study_INTEL_The-Magic-of-Metaphors_2026-08-06.html",
+    "service": "Strategy"
+  },
+  {
+    "slug": "winning-future-smb-owners",
+    "client_slug": "INTUIT",
+    "client_display": "Intuit",
+    "short_title": "Winning Future SMB Owners",
+    "eyebrow": "Case study · Intuit",
+    "credential": "CMA · Bronze",
+    "h1": "Intuit wins educators to get QuickBooks into the classroom",
+    "sub": "An integrated digital campaign that gave educators the proof they needed to adopt QuickBooks",
+    "read_time": "3-minute read",
+    "problem_h2": "New competitors, new approach",
+    "problem_paras": [
+      "Intuit makes one of the most popular accounting software in the world, QuickBooks. It powers hundreds of thousands of small businesses. But new competitors like Xero and FreshBooks were gaining traction with young startups, and these modern, cloud-native rivals meant Intuit needed to respond.",
+      "Intuit made a strategic pivot. To win the future of small business customers, they needed to start engaging them before they were business owners looking for accounting software. So they looked at the university and college segment, where students were learning accounting skills. The strategy was to make QuickBooks free for educators so they would download it and use it in their classrooms, embedding QuickBooks into the curriculum so that students entering the workforce would be looking for QuickBooks."
+    ],
+    "solution_h2": "Get into the classroom",
+    "solution_intro_paras": [
+      "Educators were the influencers. Win them and they would bring QuickBooks into a class of 30 to 150 students as a hands-on way to develop accounting skills. An integrated digital strategy reached them through niche media and paid social, under the line “Build skills. Launch careers.”"
+    ],
+    "acc_items": [
+      {
+        "title": "Finding the proof educators wanted",
+        "body": "Audience research came first. Focus groups with educators showed one point very clearly, that educators wanted to see proof it worked. They did not want to take a chance in their classroom."
+      },
+      {
+        "title": "Statistical proof and social proof",
+        "body": "One-to-one interviews with educators already using QuickBooks became snackable quotes featured in the creative. Past data collected from educators about the impact QuickBooks had on helping their students become career-ready bolstered the proof points."
+      },
+      {
+        "title": "Adding the power of LinkedIn",
+        "body": "Facebook and Twitter were the two obvious channels. LinkedIn was added to the mix as a greenfield opportunity to tap into a new pool of educators Intuit had not engaged before."
+      },
+      {
+        "title": "A jab-cross combination on LinkedIn",
+        "body": "The jab was image ads and video ads to let educators know QuickBooks was ready for their classrooms. The cross was message ads with a direct call to action, sent from the Intuit Job Readiness Team."
+      }
+    ],
+    "stats": [
+      {
+        "value": "7.6M",
+        "label": "educators reached on LinkedIn"
+      },
+      {
+        "value": "14,000+",
+        "label": "educators sent to sign up for QuickBooks"
+      },
+      {
+        "value": "4.2x",
+        "label": "the target growth rate, with 4,600 educators bringing QuickBooks into their classrooms"
+      }
+    ],
+    "result_h2": "Straight to the CEO",
+    "result_paras": [
+      "Based on its success, Sasan Goodarzi, Intuit’s global CEO, took a personal interest in expanding this strategy to win the future of small business owners."
+    ],
+    "related": [
+      {
+        "title": "Dev Zone",
+        "desc": "Pop-up movie nights that put Microsoft Build highlights on the big screen for developers."
+      },
+      {
+        "title": "To the Cloud",
+        "desc": "A 7-step guide and an expert webinar that moved managed service providers to cloud."
+      },
+      {
+        "title": "Intel vPro, Explained",
+        "desc": "Five interviews that explained Intel vPro to small business decision-makers without the jargon."
+      }
+    ],
+    "source_file": "intercept-case-study_INTUIT_Winning-Future-SMB-Owners_2026-08-06.html",
+    "service": "Digital Media"
+  },
+  {
+    "slug": "ai-under-the-influence",
+    "client_slug": "MICROSOFT",
+    "client_display": "Microsoft",
+    "short_title": "AI under the influence",
+    "eyebrow": "Case study · Microsoft",
+    "credential": "ANA B2 · Bronze",
+    "h1": "Microsoft answers the Copilot questions users were already asking",
+    "sub": "A YouTube-first tutorial series with creator Kevin Stratvert, built from the questions users searched",
+    "read_time": "3-minute read",
+    "problem_h2": "Use it or lose it",
+    "problem_paras": [
+      "Microsoft Copilot launched to strong demand, quickly gaining traction with enterprise buyers. But usage lagged. End users were not engaging. Tutorials felt dense. Documentation read like code. Headlines followed with stories of customers pulling back licenses. Without activation, Copilot risked becoming shelfware.",
+      "Using AI at work is more than toggling on a feature. It rewires habits and reshapes workflows, and it often raises concerns about job security. While enterprises moved quickly to license Copilot, most users were left to figure it out alone. Transformation had stalled at the login screen. Research revealed a gap. Most users did not understand how, when or why to use Copilot. Even with a library of enablement content, daily active usage remained flat."
+    ],
+    "solution_h2": "Even Copilot needs a guide",
+    "solution_intro_paras": [
+      "Microsoft turned to Kevin Stratvert, a former Microsoft employee and trusted creator known for making complex tools feel simple. Using AI-powered search data, the team mapped the top Copilot questions users were asking online, and those became the foundation for a YouTube-first tutorial series."
+    ],
+    "acc_items": [
+      {
+        "title": "Reaching the people that matter",
+        "body": "Most enterprise AI campaigns target IT and business leaders. Here, usage dictated renewal, which made employees the true decision-makers. If real people did not engage with Copilot, no amount of licensing would save it."
+      },
+      {
+        "title": "Guidance that felt peer to peer",
+        "body": "Microsoft blended the brand’s credibility with Kevin Stratvert’s YouTube-native voice. The tone and pacing were shaped to feel like peer-to-peer guidance. Sponsorship was clearly disclosed, and the value came from clarity."
+      },
+      {
+        "title": "Making space for a trusted voice",
+        "body": "Internal teams had to align. Advocacy across brand, legal and marketing enabled a new kind of enterprise storytelling that was still on brand but grounded in the creator’s natural voice."
+      },
+      {
+        "title": "Distributed organically, with no paid media",
+        "body": "The series launched organically across Kevin’s channels and Microsoft’s owned platforms. YouTube was the core channel, built for deep tutorials and Shorts. Reach extended to LinkedIn, Instagram and TikTok. No paid media was used."
+      }
+    ],
+    "stats": [
+      {
+        "value": "10K",
+        "label": "users the campaign set out to drive to Copilot Labs"
+      },
+      {
+        "value": "37K+",
+        "label": "click-throughs to Copilot Labs across the series"
+      },
+      {
+        "value": "20%",
+        "label": "rise in training attendance"
+      }
+    ],
+    "result_h2": "Utility earned attention",
+    "result_paras": [
+      "The series earned 2.85 million organic views with no media spend behind it, and it redefined what lifecycle marketing could achieve without paid amplification."
+    ],
+    "related": [
+      {
+        "title": "Lights, camera, avatars",
+        "desc": "Studio-quality AI avatars that replaced traditional video production across dozens of SAP teams."
+      },
+      {
+        "title": "Agents of change",
+        "desc": "An AI-powered sales assistant that qualified and converted leads for HP’s channel partners in real time."
+      },
+      {
+        "title": "The measure of a marketer",
+        "desc": "A controlled experiment across 500 accounts that measured what marketing added to deal size."
+      }
+    ],
+    "source_file": "intercept-case-study_MICROSOFT_AI-under-the-influence_2026-08-06.html",
+    "service": "Content"
+  },
+  {
+    "slug": "align-in-the-metaverse",
+    "client_slug": "MICROSOFT",
+    "client_display": "Microsoft",
+    "short_title": "Align in the Metaverse",
+    "eyebrow": "Case study · Microsoft",
+    "credential": "CMA · Gold",
+    "h1": "Microsoft hosts its first metaverse event on a private island",
+    "sub": "A full-day partner kickoff on a private island, with live keynotes and five breakout paths",
+    "read_time": "3-minute read",
+    "problem_h2": "Webinar fatigue in full effect",
+    "problem_paras": [
+      "95% of Microsoft’s revenue flows through partners, so Microsoft funds Channel Ambassadors, hired by partners to provide training and service support to sales teams. Each year an event brings ambassadors together to discuss the latest offerings. The previous virtual version was a series of connected webinars, and webinar fatigue set in.",
+      "The audience was Channel Ambassadors at Microsoft partners. They understood why the event needed to be virtual, and they were dreading another webinar experience. Research showed that less than 40% would attend, opting instead to watch a playback of the content. For efficiency and scalability reasons the virtual format had to stay. The goal was to meet or exceed the 40% webinar attendance benchmark, with a stretch goal of 75% live attendance."
+    ],
+    "solution_h2": "An island in the metaverse",
+    "solution_intro_paras": [
+      "The event was hosted on a private island in the metaverse, with a state-of-the-art virtual conference center, a courtyard, meeting rooms, a private beach and waterfront views from almost every angle. Channel Ambassadors created avatars and joined the world."
+    ],
+    "acc_items": [
+      {
+        "title": "A conference center for keynotes",
+        "body": "The modern conference center hosted keynotes with a full stage and floor-to-ceiling glass walls. Courtyards were placed to provide natural gathering spots for Channel Ambassadors in both professional and social capacities."
+      },
+      {
+        "title": "Five breakout paths across the day",
+        "body": "Throughout the full-day experience, Channel Ambassadors attended live keynote sessions and selected one of five breakout paths. Meeting rooms gave them private spaces where voice and chat were limited to those present."
+      },
+      {
+        "title": "Games built for team bonding",
+        "body": "Attendees worked in teams on scavenger hunts to find hidden clues and secret prizes. They played light-hearted games from Pictionary to dance-offs, and hopped on speedboats to race to remote parts of the island."
+      },
+      {
+        "title": "Email still did the inviting",
+        "body": "The way the word went out did not change. Email remained the primary communication vehicle. What changed was the invitation itself, to a private island rather than a full day of webinars."
+      }
+    ],
+    "stats": [
+      {
+        "value": "5",
+        "label": "breakout paths inside the full-day experience"
+      },
+      {
+        "value": "40%",
+        "label": "the webinar attendance benchmark the event had to beat"
+      },
+      {
+        "value": "96%",
+        "label": "of Channel Ambassadors attended live, 128% of the stretch goal"
+      }
+    ],
+    "result_h2": "The first ever",
+    "result_paras": [
+      "It was the first metaverse event ever produced by Microsoft, and it contributed to a subsidiary of the year award based on top revenue performance."
+    ],
+    "related": [
+      {
+        "title": "Surface Pitch Perfect",
+        "desc": "A pitch challenge that had partner sales reps sell Surface devices to Microsoft judges."
+      },
+      {
+        "title": "Into the Breach",
+        "desc": "A video game experience that put Information Security teams inside a cyberattack."
+      },
+      {
+        "title": "DevBuilder",
+        "desc": "More than 25 developer programs turned into one connected journey across four pillars."
+      }
+    ],
+    "source_file": "intercept-case-study_MICROSOFT_Align-in-the-Metaverse_2026-08-06.html",
+    "service": "Channel"
+  },
+  {
+    "slug": "dev-zone",
+    "client_slug": "MICROSOFT",
+    "client_display": "Microsoft",
+    "short_title": "Dev Zone",
+    "eyebrow": "Case study · Microsoft",
+    "credential": "CMA · Gold",
+    "h1": "Microsoft brings Build highlights to developers on the big screen",
+    "sub": "Pop-up movie nights pairing Microsoft Build highlights with the premiere of Top Gun: Maverick",
+    "read_time": "3-minute read",
+    "problem_h2": "Winning the voice of developers",
+    "problem_paras": [
+      "In the tech industry, developers wield immense power in shaping companies’ technology choices. Microsoft recognized the significance of winning the hearts and minds of this audience to maintain their competitive edge. Before COVID, Microsoft nurtured their developer community through in-person meet-ups, but the pandemic ended that.",
+      "Microsoft Build is the major conference dedicated to developers, known for its latest announcements and tools. But busy developers often struggle to attend because of packed schedules. Microsoft identified this pain point as an opportunity to create a unique and immersive experience. The strategic insight was to provide developers with an alternative way to consume Microsoft Build content, in a social and relaxed setting that catered to their interests. It was an exclusive screening for an exclusive audience."
+    ],
+    "solution_h2": "An innovation double-feature",
+    "solution_intro_paras": [
+      "Microsoft created pop-up movie nights exclusively for developers. They could catch the highlights of Microsoft Build on the big screen, while also being among the first to watch the premiere of Top Gun: Maverick. The setting was social and relaxed. Invitations went out through LinkedIn and email."
+    ],
+    "acc_items": [
+      {
+        "title": "Calling developers to the flight deck",
+        "body": "The campaign embraced the iconic Top Gun theme, with aviators and fighter jets flying in formation, representing a camaraderie among developers. The concept was both playful and captivating."
+      },
+      {
+        "title": "A creative risk that paid off",
+        "body": "Adopting an unconventional look for Microsoft was a risk, but it paid off with massive engagement. The approach caught the attention of developers and set the campaign apart from traditional marketing."
+      },
+      {
+        "title": "An exclusive screening for an exclusive audience",
+        "body": "LinkedIn and email invitations promoted the event series. Both platforms reached the target audience effectively and generated excitement for a set of pop-up movie nights that were exclusively for developers."
+      },
+      {
+        "title": "A memorable experience. A collectible ticket.",
+        "body": "Novelty tickets were produced for developers, ensuring they would remember the experience long after the events wrapped. The memento strengthened the connection with the developer community, reinforcing Microsoft as their go-to platform for future innovations."
+      }
+    ],
+    "stats": [
+      {
+        "value": "1,100",
+        "label": "developers registered, against an initial goal of 800"
+      },
+      {
+        "value": "173%",
+        "label": "of the live attendance target, with nearly 500 developers at the events"
+      },
+      {
+        "value": "96%",
+        "label": "attendance rate among Microsoft’s target strategic accounts"
+      }
+    ],
+    "result_h2": "Scaled out globally",
+    "result_paras": [
+      "Based on its success, the strategy was scaled out globally, becoming a guiding light for other major Microsoft events and reaching developers around the world."
+    ],
+    "related": [
+      {
+        "title": "To the Cloud",
+        "desc": "A 7-step guide and an expert webinar that moved managed service providers to cloud."
+      },
+      {
+        "title": "Winning Future SMB Owners",
+        "desc": "QuickBooks written into the accounting curriculum by winning over the educators who teach it."
+      },
+      {
+        "title": "Subscription Overload",
+        "desc": "A data-driven launch for HP’s Subscription Management Service, aimed at a targeted list of 1,000 customers."
+      }
+    ],
+    "source_file": "intercept-case-study_MICROSOFT_Dev-Zone_2026-08-06.html",
+    "service": "Digital Media"
+  },
+  {
+    "slug": "devbuilder",
+    "client_slug": "MICROSOFT",
+    "client_display": "Microsoft",
+    "short_title": "DevBuilder",
+    "eyebrow": "Case study · Microsoft",
+    "credential": "CMA · Bronze",
+    "h1": "Microsoft turns more than 25 developer programs into one connected journey",
+    "sub": "Four pillars, and a personalized path built for each developer team by Microsoft architects",
+    "read_time": "3-minute read",
+    "problem_h2": "Winning the battle for developers",
+    "problem_paras": [
+      "For any cloud solution provider, developers are a critical audience to win. They decide which tools and technologies get used to build business applications. Microsoft created a series of developer engagement offers, from assessments to hackathons. It was overwhelming, and developer teams were not engaging.",
+      "Eight in ten developers report an increase in burnout, and one third say a lack of communication from the team or management is a driving factor. So while developers were in sprint mode, they were struggling to build internal culture. DevBuilder was designed to help developer teams build internal culture alongside their skills, vision, experience and applications. Engagement was measured by a tool Microsoft built that analyzes program participation and cloud usage to score target accounts."
+    ],
+    "solution_h2": "Four pillars, one personalized path",
+    "solution_intro_paras": [
+      "DevBuilder turned more than 25 programs into four pillars. Build your skills offered gamified learning, Build your vision offered interactive discussions with Microsoft leaders and domain experts, Build your experience offered team-based challenges and hackathons, and Build faster offered workshops delivered by expert Microsoft partners."
+    ],
+    "acc_items": [
+      {
+        "title": "Cloud Solution Architects made the invitation",
+        "body": "Microsoft Cloud Solution Architects, the technical professionals responsible for helping developer teams succeed, invited teams to sign up. A program pitch deck explained the benefits to developer team leads."
+      },
+      {
+        "title": "Journey Builder personalized every path",
+        "body": "Journey Builder let Cloud Solution Architects quickly build a personalized DevBuilder journey for each customer, drawing on hackathons and accelerator offers, and shaped by the team’s business targets and culture goals."
+      },
+      {
+        "title": "Materials built for white glove support",
+        "body": "Cloud Solution Architects received demand generation assets, including email templates and program collateral, plus regular updates on developer team engagement levels and reminders to follow up in order to sustain or accelerate progress."
+      },
+      {
+        "title": "Playful creative for a gaming audience",
+        "body": "The name DevBuilder was crafted to represent the objective of helping developer teams build. Knowing developers over-index on gaming, the campaign used playful creative and iconography to present the offers and experiences."
+      }
+    ],
+    "stats": [
+      {
+        "value": "25+",
+        "label": "developer programs turned into four pillars"
+      },
+      {
+        "value": "57%",
+        "label": "more highly engaged strategic accounts, 2.3 times the target"
+      },
+      {
+        "value": "2.8x",
+        "label": "the target for new developer contacts within strategic accounts, at 42% growth"
+      }
+    ],
+    "result_h2": "A new standard",
+    "result_paras": [
+      "DevBuilder ranked first in the world within Microsoft for the most highly engaged developer teams at strategic accounts, and the model was set for wider adoption."
+    ],
+    "related": [
+      {
+        "title": "Innovation Mavericks",
+        "desc": "A five-step program that paired small businesses with investment and expertise."
+      },
+      {
+        "title": "Into the Breach",
+        "desc": "A video game experience that put Information Security teams inside a cyberattack."
+      },
+      {
+        "title": "Surface Pitch Perfect",
+        "desc": "A pitch challenge that had partner sales reps sell Surface devices to Microsoft judges."
+      }
+    ],
+    "source_file": "intercept-case-study_MICROSOFT_DevBuilder_2026-08-06.html",
+    "service": "Content"
+  },
+  {
+    "slug": "devhero-stories",
+    "client_slug": "MICROSOFT",
+    "client_display": "Microsoft",
+    "short_title": "DevHero Stories",
+    "eyebrow": "Case study · Microsoft",
+    "credential": "CMA · Silver",
+    "h1": "Microsoft turns software developers into superheroes with their own comics",
+    "sub": "Personal origin stories, told as custom comic strips, that led developers into learning pathways",
+    "read_time": "3-minute read",
+    "problem_h2": "Recognising the people behind the code",
+    "problem_paras": [
+      "In 2019, a journey began to win the hearts of software developers. The DevHeroes campaign asked strategic Microsoft customers to nominate developers who stood out as leaders and exceptional people, then commemorated them with their very own Funko Pop! figurines and office celebrations.",
+      "Just as superheroes have their origin stories, so did the DevHeroes. Getting to know them uncovered inspiring stories of resilience, determination, lifelong learning, and community spirit. The strategy was to connect with developers on an emotional level by telling that story. Through a live interview the campaign got to know them, where they came from and what they stood for. The real things that make them heroes."
+    ],
+    "solution_h2": "Telling their superhero origin story",
+    "solution_intro_paras": [
+      "Each DevHero completed a questionnaire covering their background and education, followed by an interview. From those resources came a personal story for each of them, and from the highlights of that story, a custom comic befitting a superhero."
+    ],
+    "acc_items": [
+      {
+        "title": "Comic panels for every chapter",
+        "body": "Each panel reflected a different chapter of their journey, from family values to milestone moments. There is only one way to illustrate stories about superheroes, and that is through a comic strip."
+      },
+      {
+        "title": "A power meter on every hero",
+        "body": "The comics carried a playful element, a power meter reminiscent of superhero trading cards. It showed their technical skills and personal hobbies, and a self-identified kryptonite, where laundry and cooking topped the lists."
+      },
+      {
+        "title": "The developers behind the stories",
+        "body": "Chamanpreet overcame gender bias in her career and now coaches female developers. Sasha donates her time to helping activists use data to drive change. Shandon champions open-source software projects to support new developers."
+      },
+      {
+        "title": "Stories that led to skilling",
+        "body": "The stories were shared through a purpose-built portal and social media, driving developers to the Cloud Skills Challenge, where they could access personalized learning paths to advance their careers and deepen their Microsoft knowledge."
+      }
+    ],
+    "stats": [
+      {
+        "value": "126,000",
+        "label": "developers reached by the DevHero stories, 126% of the target"
+      },
+      {
+        "value": "40,000",
+        "label": "hours of learning completed, an average of 23 hours per developer"
+      },
+      {
+        "value": "3.6x",
+        "label": "the target for developers engaged in learning pathways, at 1,793 against 500"
+      }
+    ],
+    "result_h2": "A new standard",
+    "result_paras": [
+      "DevHeroes began as a pilot and now sets a new standard for developer engagement at Microsoft globally."
+    ],
+    "related": [
+      {
+        "title": "The (Modern) Office",
+        "desc": "A virtual Teams training session themed on the most popular show of the year."
+      },
+      {
+        "title": "Surface Experience Kits",
+        "desc": "A demo kit that put Surface devices into the hands of IT decision-makers."
+      },
+      {
+        "title": "Find Your Path",
+        "desc": "Free learning pathways built around ten in-demand jobs identified from LinkedIn data."
+      }
+    ],
+    "source_file": "intercept-case-study_MICROSOFT_DevHero-Stories_2026-08-06.html",
+    "service": "Creative"
+  },
+  {
+    "slug": "find-your-path",
+    "client_slug": "MICROSOFT",
+    "client_display": "Microsoft",
+    "short_title": "Find Your Path",
+    "eyebrow": "Case study · Microsoft",
+    "credential": "CMA · Silver",
+    "h1": "Microsoft connects free learning pathways to ten in-demand jobs",
+    "sub": "A skilling campaign built for job seekers and employed people looking for advancement",
+    "read_time": "3-minute read",
+    "problem_h2": "The scale of the skills gap",
+    "problem_paras": [
+      "After March 2020, nearly one-third of the global population went into lockdown. Businesses struggled with compressing two years of digital transformation into a few months. People struggled with being displaced from their jobs, as the pandemic triggered job losses that far exceeded the scale of the Great Recession.",
+      "Research showed the vastness of the employment gap. 53% of workers believed automation would change or eliminate their job within the next 10 years, and 32% did not believe they could develop the skills they need for the jobs of the future through their current employer. Funding matters, but the workforce needs concrete skilling to ensure long-term success. Microsoft had the technologies and the training opportunities to help people future-proof their jobs by increasing their level of digital skill."
+    ],
+    "solution_h2": "Learning paths built from job data",
+    "solution_intro_paras": [
+      "LinkedIn’s Economic Graph represents the global economy through more than 690 million professionals, 50 million companies, 11 million job listings, and 36,000 defined skills. That data identified 10 in-demand jobs well positioned for future growth, from project managers to software developers."
+    ],
+    "acc_items": [
+      {
+        "title": "Creative tailored to each audience",
+        "body": "Creative and communications were optimized for each audience. Regardless of the audience or vehicle, all roads led back to the campaign landing page presenting resources on different learning paths and certification opportunities available."
+      },
+      {
+        "title": "Reaching people already in work",
+        "body": "Microsoft account executives sent emails to strategic customers selling the benefits of certification opportunities for their team members. LinkedIn was used to target employees at strategic customers using Microsoft Cloud solutions."
+      },
+      {
+        "title": "Reaching job seekers on LinkedIn",
+        "body": "Job seekers were targeted on LinkedIn with static and animated ad formats, sponsored messages, carousel ads, and InMail. The learning paths offered supported the 10 in-demand jobs identified, each backed by an industry-recognized certification."
+      },
+      {
+        "title": "Skilling on your own schedule",
+        "body": "People chose what they wanted to learn, with certifications available across AI and Machine Learning, Data science, apps, IoT, Security, and DevOps. They also chose how, through self-guided learning or instructor-led virtual training, all free."
+      }
+    ],
+    "stats": [
+      {
+        "value": "10",
+        "label": "in-demand jobs identified from LinkedIn data and matched to learning paths"
+      },
+      {
+        "value": "1M+",
+        "label": "learners engaged across six months in market, 10x the target"
+      },
+      {
+        "value": "935%",
+        "label": "year over year increase in certifications related to data and artificial intelligence"
+      }
+    ],
+    "result_h2": "A movement was born",
+    "result_paras": [
+      "Its success sparked an evergreen strategy to ensure the workforce has the skills it needs to build meaningful careers."
+    ],
+    "related": [
+      {
+        "title": "The (Modern) Office",
+        "desc": "A virtual Teams training session themed on the most popular show of the year."
+      },
+      {
+        "title": "DevHero Stories",
+        "desc": "Developer origin stories told as custom comic strips, leading into skilling."
+      },
+      {
+        "title": "Surface Experience Kits",
+        "desc": "A demo kit that put Surface devices into the hands of IT decision-makers."
+      }
+    ],
+    "source_file": "intercept-case-study_MICROSOFT_Find-Your-Path_2026-08-06.html",
+    "service": "Content"
+  },
+  {
+    "slug": "innovation-mavericks",
+    "client_slug": "MICROSOFT",
+    "client_display": "Microsoft",
+    "short_title": "Innovation Mavericks",
+    "eyebrow": "Case study · Microsoft",
+    "credential": "CMA · Gold",
+    "h1": "Microsoft brings the managed account experience to small businesses at scale",
+    "sub": "A five-step program pairing small businesses with investments, consultants, engineers and training resources",
+    "read_time": "3-minute read",
+    "problem_h2": "Breaking through to small businesses",
+    "problem_paras": [
+      "Microsoft is known as a leading technology brand for big business, which pushed start-ups and scale-ups to competing cloud providers. To win small and midsized customers onto Azure, Microsoft built a 30-person team of field sellers, and that team needed a marketing strategy to generate high-quality leads.",
+      "Research showed that small businesses want to be treated like big businesses. They expect personalized communication and useful insights. Big businesses are managed accounts, with account teams dedicated to understanding their needs and delivering high-touch experiences, which makes sense when the revenue potential is big. The challenge was to design a managed account experience for smaller companies that could function at scale and stay cost-effective. Rather than build new offerings, Microsoft curated existing ones into a connected journey."
+    ],
+    "solution_h2": "Five steps, one connected journey",
+    "solution_intro_paras": [
+      "Innovation Mavericks paired small businesses with innovation investments, technology consultants, Microsoft engineers and training resources to help scale business growth. The hero tagline was “Think big. Act bold.” The creative was inspired by a series of data nodes that created a visual illusion which drew the audience in."
+    ],
+    "acc_items": [
+      {
+        "title": "Apply, then find the roadblock",
+        "body": "Small businesses applied to join the program. Once accepted, they completed an assessment built to help them understand where they might be stuck and how to break free."
+      },
+      {
+        "title": "The Innovation Concierge connects experts",
+        "body": "Working with the Innovation Concierge, small businesses connected with industry and engineering experts to build innovation strategies. Those ready to explore proof-of-concepts were presented with different offers, from cloud credits to funding."
+      },
+      {
+        "title": "Thought leaders and peer networks",
+        "body": "Members were given access to industry thought leaders, training content, workshop experiences and fellow Innovation Mavericks, for inspiration toward their next breakthrough and for network building and co-innovation projects."
+      },
+      {
+        "title": "Four pillars drove customer demand",
+        "body": "LinkedIn Conversation and Carousel Ads targeted high-growth digital native companies and legacy businesses. A health network opened industry partnerships. Sales teams received email templates and collateral. Members received a promotional package with a LinkedIn badge."
+      }
+    ],
+    "stats": [
+      {
+        "value": "5",
+        "label": "steps in the journey, from assessment through to investment"
+      },
+      {
+        "value": "4",
+        "label": "demand pillars, from LinkedIn through to member advocacy"
+      },
+      {
+        "value": "280%",
+        "label": "of the first-year target, at 80% year-over-year growth"
+      }
+    ],
+    "result_h2": "More than leads",
+    "result_paras": [
+      "In its first year, Innovation Mavericks empowered nearly 100 businesses and proved that marketing can do more than generate impressions and qualified leads."
+    ],
+    "related": [
+      {
+        "title": "Into the Breach",
+        "desc": "A video game experience that put Information Security teams inside a cyberattack."
+      },
+      {
+        "title": "DevBuilder",
+        "desc": "More than 25 developer programs turned into one connected journey across four pillars."
+      },
+      {
+        "title": "Surface Pitch Perfect",
+        "desc": "A pitch challenge that had partner sales reps sell Surface devices to Microsoft judges."
+      }
+    ],
+    "source_file": "intercept-case-study_MICROSOFT_Innovation-Mavericks_2026-08-06.html",
+    "service": "Strategy"
+  },
+  {
+    "slug": "into-the-breach",
+    "client_slug": "MICROSOFT",
+    "client_display": "Microsoft",
+    "short_title": "Into the Breach",
+    "eyebrow": "Case study · Microsoft",
+    "credential": "CMA · Gold",
+    "h1": "A video game that put security teams inside a cyberattack",
+    "sub": "Information Security teams played a Cyber Defense Analyst resolving a breach with Microsoft security tools",
+    "read_time": "3-minute read",
+    "problem_h2": "Cybersecurity was a new game",
+    "problem_paras": [
+      "Microsoft offers state-of-the-art security solutions, but cybersecurity was a new game for the company. It needed businesses hands-on with its latest Microsoft 365 Security and Azure Sentinel offerings. Rather than go all-in at once, Microsoft piloted the campaign with a specific set of customers before rolling out broadly.",
+      "The audience was very specific. Information Security teams, whose job is to protect against cyberattacks, were burnt out, pulling 12-hour days on average and turning to video games to blow off steam. With minimum viable product in mind, the pilot targets were to engage five strategic enterprise accounts and, within them, drive a 25% increase in software license purchases and a 50% increase in active license usage. There was also one qualitative ask, to show up differently with a truly breakthrough experience."
+    ],
+    "solution_h2": "Call of Duty meets cybersecurity",
+    "solution_intro_paras": [
+      "Into the Breach was a video game experience where Information Security professionals stepped into the role of a Cyber Defense Analyst whose organization was under cyberattack. The Call of Duty-like interface included battle rooms and gamer profiles, so security solutions felt more like play than work."
+    ],
+    "acc_items": [
+      {
+        "title": "Field sellers opened the door",
+        "body": "Sales teams were equipped with a complete bill of materials including email templates and LinkedIn messaging. In collaboration with field sellers, Information Security professionals were invited to host a private, virtual session with their team."
+      },
+      {
+        "title": "Orientation before the mission began",
+        "body": "Teams registered on a landing page and received an orientation package with access codes and a guided platform walkthrough. During sessions, Microsoft’s technical teams were on standby to offer tips where customers got stuck."
+      },
+      {
+        "title": "The mission, discover and resolve",
+        "body": "The challenge was to discover the breach and resolve it using Microsoft cybersecurity tools, identifying the cause along the way. Afterwards, Information Security team leaders were provided a proactive proposal to purchase Microsoft’s latest security solutions."
+      },
+      {
+        "title": "An account-based route to market",
+        "body": "Rather than boil the ocean, the campaign engaged specific companies within the priority accounts list. LinkedIn carried an integrated strategy of sponsored messages and carousels aimed at companies on that list."
+      }
+    ],
+    "stats": [
+      {
+        "value": "9",
+        "label": "major accounts joined the pilot, against a target of five"
+      },
+      {
+        "value": "70",
+        "label": "Information Security professionals took part"
+      },
+      {
+        "value": "222%",
+        "label": "growth in active license usage, over four times the target"
+      }
+    ],
+    "result_h2": "A calculated risk",
+    "result_paras": [
+      "Software license purchases grew 122%, nearly five times the target. Word of mouth spread, and Into the Breach was declared a new best practice."
+    ],
+    "related": [
+      {
+        "title": "Innovation Mavericks",
+        "desc": "A five-step program that paired small businesses with investment and expertise."
+      },
+      {
+        "title": "DevBuilder",
+        "desc": "More than 25 developer programs turned into one connected journey across four pillars."
+      },
+      {
+        "title": "Align in the Metaverse",
+        "desc": "A full-day partner kickoff hosted on a private island in the metaverse."
+      }
+    ],
+    "source_file": "intercept-case-study_MICROSOFT_Into-the-Breach_2026-08-06.html",
+    "service": "Creative"
+  },
+  {
+    "slug": "leading-in-the-era-of-ai",
+    "client_slug": "MICROSOFT",
+    "client_display": "Microsoft",
+    "short_title": "Leading in the era of AI",
+    "eyebrow": "Case study · Microsoft",
+    "credential": "CMA · Silver",
+    "h1": "Microsoft hosts an AI event that is powered by AI",
+    "sub": "A full day of envisioning sessions for senior business leaders from Microsoft’s top accounts",
+    "read_time": "3-minute read",
+    "problem_h2": "AI is on everyone’s agenda",
+    "problem_paras": [
+      "Artificial intelligence is at the top of everyone’s agenda. Half of companies have already invested in AI, and two-thirds plan to invest more over the next three years. The surge in AI investment is no secret, and every tech company is vying for a share of the booming market. Microsoft needed to stand out.",
+      "Insights revealed that while the C-suite had big AI ambitions, there was a significant gap in foundational AI literacy. Employees were not waiting for leadership to implement AI strategies. Microsoft’s Work Trends Index found 74% of knowledge workers already using AI, yet only 30% of companies had established an AI policy, a discrepancy leading to growing risk and compliance issues. Microsoft wanted to close that gap by giving the C-suite the insights and resources to plot the path forward."
+    ],
+    "solution_h2": "Weaving AI into the experience",
+    "solution_intro_paras": [
+      "Instead of going digital, Microsoft chose a physical, in-person event at their office, an exclusive experience for senior business leaders from top accounts. The creative was colorful and vibrant, with 3D-rendered cubes as metaphors for the building blocks of AI. The event was about AI and powered by AI as well."
+    ],
+    "acc_items": [
+      {
+        "title": "The agenda that led the conversation",
+        "body": "The event opened with a fireside chat on responsible AI and economic growth. It was followed by a panel discussion with customer CEOs sharing their experiences of GenAI workplace transformation."
+      },
+      {
+        "title": "Top partners ran the workshops",
+        "body": "Microsoft invited top partners including Accenture, BDO, EY and PwC to facilitate strategic workshops with attendees. Accenture also presented on AI market insights. The partners offered practical advice tailored to each participant’s needs."
+      },
+      {
+        "title": "Experiences powered by AI itself",
+        "body": "AI composed the original music that provided the background at the event. An AI-powered golf simulator recorded attendees’ golf swings and turned them into 3D animation with accurate biomechanical measurements. AI was brought to the event swag too, using style transfer on an attendee photo to create a custom design printed on socks."
+      },
+      {
+        "title": "Getting the C-suite in the room",
+        "body": "To get the C-suite there, sales was equipped with targeted email invites and LinkedIn copy to capture the attention of busy executives. A parallel PR strategy earned interviews on how AI can help close the productivity gap."
+      }
+    ],
+    "stats": [
+      {
+        "value": "4",
+        "label": "named partners among those facilitating strategic workshops with attendees"
+      },
+      {
+        "value": "74%",
+        "label": "of knowledge workers already using AI, against 30% of companies with an AI policy"
+      },
+      {
+        "value": "146",
+        "label": "new leads generated, nearly six times the target"
+      }
+    ],
+    "result_h2": "A full house",
+    "result_paras": [
+      "Over 250 customers registered and 75% attended, against a Microsoft benchmark of 50%. Originally planned as a pilot, the event has expanded into a global tour."
+    ],
+    "related": [
+      {
+        "title": "Intel: The Magic of Metaphors",
+        "desc": "Intel’s cloud migration story told in everyday metaphors and targeted with precision."
+      },
+      {
+        "title": "The video that talks back",
+        "desc": "HP’s first-ever interactive video, greeting viewers by name and recommending devices."
+      },
+      {
+        "title": "Eyes on the road",
+        "desc": "AI-powered dash cams brought to fleet-heavy industries through an e-book and real footage."
+      }
+    ],
+    "source_file": "intercept-case-study_MICROSOFT_Leading-in-the-era-of-AI_2026-08-06.html",
+    "service": "Digital Media"
+  },
+  {
+    "slug": "security-skilling",
+    "client_slug": "MICROSOFT",
+    "client_display": "Microsoft",
+    "short_title": "Security Skilling",
+    "eyebrow": "Case study · Microsoft",
+    "credential": null,
+    "h1": "Security training IT teams could host on their own schedule",
+    "sub": "A two day program with a physical kit, hands on labs and certification vouchers",
+    "read_time": "3-minute read",
+    "problem_h2": "A widening security skills gap",
+    "problem_paras": [
+      "Remote work meant freedom for most people. To IT professionals it was code red for data security. When 5 offices become 50,000 branches of one, a distributed workforce means more opportunities for bad actors. Organizations looking to beef up security found gaps in both available people and specialized skill.",
+      "By the end of the year, more than 3 million cyber security jobs would go unfilled for lack of skills and training. Yet IT security professionals were burnt out, with 54% leaving their jobs due to overwork in 2019 and 2020, while 99% of security practitioners agreed a specialized security certification would boost their careers. At a time when IT teams were struggling to keep up, how could anyone ask them to carve out time for training?"
+    ],
+    "solution_h2": "A self hosted skilling experience",
+    "solution_intro_paras": [
+      "Security Skilling was a two day training experience that security teams could host on their own schedule and at their own pace. A physical training package arrived with an agenda, links to training resources, access to hands on labs, and vouchers for a Microsoft security certification."
+    ],
+    "acc_items": [
+      {
+        "title": "The most literal name possible",
+        "body": "Knowing the audience, the program was given the most literal name possible. When you are surrounded by security threats and barely have time for lunch, you are not going to decipher a cryptic marketing message."
+      },
+      {
+        "title": "A minimalist look and feel",
+        "body": "Minimalist design principles and iconography ran through the creative and the messaging, so instructions came across clearly. The theme of simplicity carried into every part of the experience."
+      },
+      {
+        "title": "Signing up on a microsite",
+        "body": "Customers visited a campaign microsite and followed a simple process to register on behalf of their organization. Once signed up, they received access to a carefully curated learning path."
+      },
+      {
+        "title": "A kit, then the exam",
+        "body": "After signing up, customers received a Security Skilling Kit containing t-shirts, stress cubes and collateral to generate interest across their team. After training, they could request vouchers offering 50% off the MS-500 Security Exam."
+      }
+    ],
+    "stats": [
+      {
+        "value": "35",
+        "label": "top customers the pilot set out to engage"
+      },
+      {
+        "value": "50%",
+        "label": "off the certification exam, offered once training was complete"
+      },
+      {
+        "value": "229%",
+        "label": "of target, with 77 IT teams completing the program and certifying"
+      }
+    ],
+    "result_h2": "A new standard",
+    "result_paras": [
+      "What began as an easier way for teams to consume training content set a new standard for training at Microsoft, and proved the business impact training can generate."
+    ],
+    "related": [
+      {
+        "title": "Unbound",
+        "desc": "A high touch executive breakfast that opened relationships with finance leaders."
+      },
+      {
+        "title": "Find Your Path",
+        "desc": "Free learning pathways on Microsoft Learn, mapped to ten in demand jobs."
+      },
+      {
+        "title": "DevHero Stories",
+        "desc": "Developer stories told as comics, drawing developers into learning pathways."
+      }
+    ],
+    "source_file": "intercept-case-study_MICROSOFT_Security-Skilling_2026-08-06.html",
+    "service": "Content"
+  },
+  {
+    "slug": "surface-experience-kits",
+    "client_slug": "MICROSOFT",
+    "client_display": "Microsoft",
+    "short_title": "Surface Experience Kits",
+    "eyebrow": "Case study · Microsoft",
+    "credential": "CMA · Silver",
+    "h1": "Microsoft puts the Surface touch factor into customers’ hands",
+    "sub": "A demo kit built around the device and its accessories, requested online and returned by pickup",
+    "read_time": "3-minute read",
+    "problem_h2": "Selling Surface without the touch factor",
+    "problem_paras": [
+      "Sales feedback was clear. If you can get a customer to touch the device, the chances of closing the deal are much greater. That is why Surface made an appearance at many industry tradeshows and ran an extensive demo device program. Then COVID-19 shut down in-person events.",
+      "The problems to solve were how to reach people no longer working in the office, and how to create a rich experience that delivered the same value as an in-person interaction. Customers were spending more time at webinars and virtual events, and it was getting harder for them to stay focused. A kit designed to optimize that experience, and to put the device in their hands for extended periods, had the potential to be the most engaging demo experience ever delivered."
+    ],
+    "solution_h2": "The Surface Experience Kit",
+    "solution_intro_paras": [
+      "The kit contained a device, headphones, digital pen, and ergonomic mouse, everything needed to get the most from a virtual event. Customers requested one from a microsite and had it in two days. Turning on the device revealed a OneNote template ready to collect notes."
+    ],
+    "acc_items": [
+      {
+        "title": "A box worthy of unboxing",
+        "body": "The sleek minimalist design included custom slots for Surface Headphones 2, a Surface Arc Mouse, a Surface Pen, the Surface itself and assorted cables. Four different inserts were designed to fit seven different Surface device models."
+      },
+      {
+        "title": "Creativity Awaits, on the lid",
+        "body": "On the lid of the matte black box, the message “Creativity Awaits.” appeared in one corner. Inside, each device carried a label reading “Surface Sterilized. This Surface has been cleaned with disinfectant.”"
+      },
+      {
+        "title": "An easy end to the experience",
+        "body": "After the virtual event, customers repacked the kit and applied the pre-paid return label. One phone call and the package was picked up the next day, returned to the warehouse to be sterilized and recirculated."
+      },
+      {
+        "title": "Follow-up from a sales rep",
+        "body": "A sales rep followed up after the experience to see if the customer was interested in purchasing Surface devices for their organizations. Branded communications had already confirmed the request and estimated date of delivery."
+      }
+    ],
+    "stats": [
+      {
+        "value": "38",
+        "label": "cities the kits were delivered across, nearly double the target of 20"
+      },
+      {
+        "value": "90%",
+        "label": "of recipients agreed Surface was better than their current personal device"
+      },
+      {
+        "value": "3x",
+        "label": "the sales target the kits were set against"
+      }
+    ],
+    "result_h2": "A hands-on experience",
+    "result_paras": [
+      "Recipients rated the kits 4.5 stars out of 5, and follow-up from an account manager summed up the experience with an easy path to purchase."
+    ],
+    "related": [
+      {
+        "title": "The (Modern) Office",
+        "desc": "A virtual Teams training session themed on the most popular show of the year."
+      },
+      {
+        "title": "DevHero Stories",
+        "desc": "Developer origin stories told as custom comic strips, leading into skilling."
+      },
+      {
+        "title": "Unbound",
+        "desc": "An executive breakfast built for CFOs, down to the running shoe fitting."
+      }
+    ],
+    "source_file": "intercept-case-study_MICROSOFT_Surface-Experience-Kits_2026-08-06.html",
+    "service": "Sales Enablement"
+  },
+  {
+    "slug": "surface-pitch-perfect",
+    "client_slug": "MICROSOFT",
+    "client_display": "Microsoft",
+    "short_title": "Surface Pitch Perfect",
+    "eyebrow": "Case study · Microsoft",
+    "credential": "CMA · Bronze",
+    "h1": "A pitch challenge that refined how partner sales reps sell Surface",
+    "sub": "Sales reps at Microsoft’s biggest partners pitched Surface devices to a panel of Microsoft judges",
+    "read_time": "3-minute read",
+    "problem_h2": "When the value propositions blur",
+    "problem_paras": [
+      "Microsoft Surface is a device line with over 10 models meeting different user needs. Innovation and device breadth are strengths, but they were creating confusion among partners who sell Surface to customers. Sales teams hesitated, not knowing what to sell or how best to do it.",
+      "The audience was sales teams at Microsoft partners who sell Surface devices. There was no shortage of device details and spec sheets, but it became clear that sales teams needed more than information. They needed practical guidance on how to land the pitch with customers. Most sales programs are built around revenue. Here revenue was the outcome, and strengthening the pitch was the gap to close in achieving it. The way in was their competitive nature and their preference for easy-to-understand programs."
+    ],
+    "solution_h2": "Saying it straight to sellers",
+    "solution_intro_paras": [
+      "Surface Pitch Perfect made its point quickly. Sales professionals are busy thinking about retiring their quota and have limited time and tolerance for fluff. Hero images represented what reps were being asked to do, and the stark, clean creative kept communication to sales teams clear."
+    ],
+    "acc_items": [
+      {
+        "title": "Sign up, then get the brief",
+        "body": "A sales rep signed up for the challenge through a streamlined landing environment that took three clicks, and received a fictitious customer brief explaining the customer’s device needs."
+      },
+      {
+        "title": "Three weeks to build a pitch",
+        "body": "Reps had three weeks to prepare a three-minute pitch selling multiple Surface devices, live to the judging panel. The reps with the best pitches won cash and bragging rights."
+      },
+      {
+        "title": "Best pitches became shared practice",
+        "body": "Microsoft selected the best pitches and shared best practices from the top ones, so the rest of the sales teams could apply them. Program collateral covered an overview deck and a pitch guidance document."
+      },
+      {
+        "title": "Channel Ambassadors carried it inside",
+        "body": "Email templates were provided to partners so they could share the challenge with their sales teams. Channel Ambassadors, who work for the partner and encourage sales teams to sell Surface, received incentives for securing high participation."
+      }
+    ],
+    "stats": [
+      {
+        "value": "10+",
+        "label": "Surface models sales teams had to know how to pitch"
+      },
+      {
+        "value": "3",
+        "label": "minutes per pitch"
+      },
+      {
+        "value": "300%",
+        "label": "of the quarter-over-quarter growth target within channel partners, at 15% growth"
+      }
+    ],
+    "result_h2": "In the trenches",
+    "result_paras": [
+      "Microsoft listened to sales teams and helped them refine their pitches, giving them confidence to pitch Surface devices to customers. The model is being rolled out to other solution areas."
+    ],
+    "related": [
+      {
+        "title": "Align in the Metaverse",
+        "desc": "A full-day partner kickoff hosted on a private island in the metaverse."
+      },
+      {
+        "title": "DevBuilder",
+        "desc": "More than 25 developer programs turned into one connected journey across four pillars."
+      },
+      {
+        "title": "Innovation Mavericks",
+        "desc": "A five-step program that paired small businesses with investment and expertise."
+      }
+    ],
+    "source_file": "intercept-case-study_MICROSOFT_Surface-Pitch-Perfect_2026-08-06.html",
+    "service": "Sales Enablement"
+  },
+  {
+    "slug": "surface-show-and-go",
+    "client_slug": "MICROSOFT",
+    "client_display": "Microsoft",
+    "short_title": "Surface Show and Go",
+    "eyebrow": "Case study · Microsoft",
+    "credential": "CMA · Silver",
+    "h1": "Microsoft gives resellers a showcase kit for the full Surface line-up",
+    "sub": "A hybrid device showcase kit pairing a sturdy travelling case with an immersive virtual environment",
+    "read_time": "3-minute read",
+    "problem_h2": "The benefit and curse of premium",
+    "problem_paras": [
+      "In the competitive commercial tech space, Surface devices were premium offerings whose high price point demanded an in-person experience for buyers to appreciate their value. Commercial devices are bought through reseller partners, and with a portfolio of over 10 devices, showing the full line-up was getting harder.",
+      "Partner success is Microsoft’s success. The strategy was partner-centric, aimed at resellers who drive Surface device sales and build brand equity with customers. Microsoft wanted a modern demo kit partners could use for engaging device demos, and budgets were tight enough that partners would pay for the kit themselves. Knowing it was a tall order, Microsoft expected to sell 20. In a risky move, almost all the money went into designing and producing the kits, on the hope that its creativity would sell itself."
+    ],
+    "solution_h2": "Blending the physical and digital",
+    "solution_intro_paras": [
+      "The first-ever Hybrid Device Showcase Kit worked in both realms. A sleek and sturdy travelling case held up to 6 devices and essential accessories, so partners could transport Surface devices and do demos on the go. A digital version supported follow-up conversations and self-guided virtual demos."
+    ],
+    "acc_items": [
+      {
+        "title": "A case built to travel",
+        "body": "The interior was custom-fitted to hold Surface devices and accessories securely. The design struck a balance between ruggedness and refinement. There was even room for a table skirt if partners were headed to a trade show."
+      },
+      {
+        "title": "The full line-up, from anywhere",
+        "body": "Partners activated the digital version when customers could not meet in person. It offered an immersive virtual environment where customers could explore the full Surface lineup, picking a device and looking at it from every angle."
+      },
+      {
+        "title": "A premium look, rendered in 3D",
+        "body": "For the digital aspect, the aim was a high-quality user experience that complemented the premium nature of the Surface brand. 3D renders and dynamic animations presented the devices in a visually engaging way."
+      },
+      {
+        "title": "Numbers built into the demo",
+        "body": "Built-in calculators for total cost of ownership and emissions addressed business impact. The interactive feature let potential customers see the tangible benefits of choosing Surface devices in terms of cost savings and environmental impact."
+      }
+    ],
+    "stats": [
+      {
+        "value": "10+",
+        "label": "different Surface devices in the portfolio resellers had to show"
+      },
+      {
+        "value": "6",
+        "label": "devices and essential accessories the travelling case carried"
+      },
+      {
+        "value": "100+",
+        "label": "partners requested the kits, against an initial goal of 20"
+      }
+    ],
+    "result_h2": "A new standard",
+    "result_paras": [
+      "Responding to partner demand, a second version of the kit was created for education customers. The program set a new standard for how Surface devices are experienced in the modern workplace."
+    ],
+    "related": [
+      {
+        "title": "Subscription Overload",
+        "desc": "A data-driven launch for HP’s Subscription Management Service, aimed at a targeted list of 1,000 customers."
+      },
+      {
+        "title": "Intel vPro, Explained",
+        "desc": "Five interviews that explained Intel vPro to small business decision-makers without the jargon."
+      },
+      {
+        "title": "Dev Zone",
+        "desc": "Pop-up movie nights that merged Microsoft Build highlights with a film premiere for developers."
+      }
+    ],
+    "source_file": "intercept-case-study_MICROSOFT_Surface-Show-and-Go_2026-08-06.html",
+    "service": "Sales Enablement"
+  },
+  {
+    "slug": "the-modern-office",
+    "client_slug": "MICROSOFT",
+    "client_display": "Microsoft",
+    "short_title": "The Modern Office",
+    "eyebrow": "Case study · Microsoft",
+    "credential": "CMA · Silver",
+    "h1": "Microsoft trains Teams users with the most dysfunctional office ever",
+    "sub": "A Teams training session themed on “The Office,” opened by one of its legendary characters",
+    "read_time": "3-minute read",
+    "problem_h2": "A race for the meeting platform",
+    "problem_paras": [
+      "March 2020 started a race for who would become the leading productivity and meeting platform for remote work. Most companies had not picked a unified meeting solution. Hundreds of thousands of users had access to Microsoft Teams but simply weren’t using it.",
+      "Video and webinar fatigue was setting in for remote workers. To deal with it all, people were binge-watching their favourite shows. The most popular show of 2020 was “The Office.” Simply walking people through Teams features was not going to win anyone over. So the answer was to use the most dysfunctional office environment ever to teach people how to use world-class productivity tools. If people got comfortable using Teams, it would become embedded in their new daily routine."
+    ],
+    "solution_h2": "Welcome to The (Modern) Office",
+    "solution_intro_paras": [
+      "The (Modern) Office was a virtual training session opened by Todd Packer, who explained how Microsoft Teams would have made life better at Dunder Mifflin. After the laughs came a guided walk-through of Teams, covering group chats and project timelines."
+    ],
+    "acc_items": [
+      {
+        "title": "Characters joined as Teams members",
+        "body": "The concept went beyond Todd’s appearance. As Michael Scott and Jim Halpert joined as members in Teams, the demo illustrated creating group chats, participating in video calls, managing workback schedules, and sending GIFs."
+      },
+      {
+        "title": "One call to action per session",
+        "body": "The engagement and excitement created in each session was channelled toward a single action. At the end of every session, viewers were called out to request training for their departments, to achieve the scale and impact needed."
+      },
+      {
+        "title": "Equipping the sales teams",
+        "body": "Given the account-based focus, Microsoft sales teams were engaged as demand gen champions. They were equipped with a complete bill of materials including collateral, social selling copy decks, email signatures, and email templates."
+      },
+      {
+        "title": "An account-based route to scale",
+        "body": "The opportunity was clearest in strategic accounts already using Teams but not using its meeting features. Sales teams used the novel experience to bring some much-needed laughter to their customers’ days."
+      }
+    ],
+    "stats": [
+      {
+        "value": "26",
+        "label": "Modern Office sessions hosted, with over 3,000 people attending live"
+      },
+      {
+        "value": "187,000",
+        "label": "Teams users trained across 4,093 sessions delivered against a target of 1,000"
+      },
+      {
+        "value": "37%",
+        "label": "increase in active Teams users, against a target of 20%"
+      }
+    ],
+    "result_h2": "Worth a Dundie",
+    "result_paras": [
+      "Each session drove a spike in requests for additional Teams training, and the campaign passed every target it set, from sessions delivered to active users gained."
+    ],
+    "related": [
+      {
+        "title": "DevHero Stories",
+        "desc": "Developer origin stories told as custom comic strips, leading into skilling."
+      },
+      {
+        "title": "Surface Experience Kits",
+        "desc": "A demo kit that put Surface devices into the hands of IT decision-makers."
+      },
+      {
+        "title": "Find Your Path",
+        "desc": "Free learning pathways built around ten in-demand jobs identified from LinkedIn data."
+      }
+    ],
+    "source_file": "intercept-case-study_MICROSOFT_The-Modern-Office_2026-08-06.html",
+    "service": "Creative"
+  },
+  {
+    "slug": "unbound-cfo-event",
+    "client_slug": "MICROSOFT",
+    "client_display": "Microsoft",
+    "short_title": "Unbound CFO Event",
+    "eyebrow": "Case study · Microsoft",
+    "credential": null,
+    "h1": "An executive breakfast built entirely around how CFOs think",
+    "sub": "Personal invitations, CFO to CFO sessions, private solutioning and a fitting for running shoes",
+    "read_time": "3-minute read",
+    "problem_h2": "Microsoft had little history with CFOs",
+    "problem_paras": [
+      "CFOs are no longer just the financial gatekeepers of an organization. They are driving strategy and their companies’ digital transformation journeys. Their share of responsibility for digital activities has doubled in the past year, and every tech company was realizing it at once.",
+      "Understanding CFOs better was what the messaging had to get right. They are busy and have no time for fluff, so an invitation to an experience had better be worth it. They want to understand what is practical today. And they are passionate runners, a finding that held up across third party research and a survey of CFOs already known to the team. Rather than boil the ocean, the program took an account based approach, aimed at live attendance from 20 top accounts."
+    ],
+    "solution_h2": "Everything tailored to the audience",
+    "solution_intro_paras": [
+      "Unbound was a CFO executive breakfast, named for the transformative business impact of unified data and automated workflows across an entire organization. It was high value and no nonsense at every step of the journey, and even the date was chosen to avoid the month and quarter close."
+    ],
+    "acc_items": [
+      {
+        "title": "Invitations sent by a fellow CFO",
+        "body": "Finance leaders were personally invited by the company’s own CFO, a signal that this was something other than another sales event. On arrival, attendees could check their car with a complimentary valet and head straight up."
+      },
+      {
+        "title": "Sessions delivered by CFOs, to CFOs",
+        "body": "Insightful presentations explored how to connect business data and how to build a data driven company culture. CFOs from existing customers shared how they use Microsoft solutions inside their own organizations."
+      },
+      {
+        "title": "An express lane to outcomes",
+        "body": "Private cloud solution sessions were offered to CFOs who were eager to hit the road with their digital transformation strategy, exploring how Microsoft solutions could be implemented within their existing technology stack."
+      },
+      {
+        "title": "A fitting for running shoes",
+        "body": "Attendees were sized for a pair of On Cloud performance runners, delivered after the event. With uncertainty about where participants would be afterwards, the team captured home addresses and sent the shoes as a direct mailing."
+      }
+    ],
+    "stats": [
+      {
+        "value": "20",
+        "label": "top accounts the event set out to bring in live"
+      },
+      {
+        "value": "71%",
+        "label": "attendance rate from those registered, against a 45% target"
+      },
+      {
+        "value": "90%",
+        "label": "agreed or strongly agreed the event was a valuable use of their time"
+      }
+    ],
+    "result_h2": "A springboard for more",
+    "result_paras": [
+      "The event became a springboard for other CFO marketing programs, including a customer story series and accelerator experiences, and it exceeded its targets for registration and attendance."
+    ],
+    "related": [
+      {
+        "title": "Security Skilling",
+        "desc": "A two day training experience that IT teams hosted on their own schedule."
+      },
+      {
+        "title": "Surface Experience Kits",
+        "desc": "A device experience ordered from a microsite, used at home, then picked up again."
+      },
+      {
+        "title": "The (Modern) Office",
+        "desc": "A fully themed virtual training session that made Teams users comfortable with meetings."
+      }
+    ],
+    "source_file": "intercept-case-study_MICROSOFT_Unbound-CFO-Event_2026-08-06.html",
+    "service": "Digital Media"
+  },
+  {
+    "slug": "lights-camera-avatars",
+    "client_slug": "SAP",
+    "client_display": "SAP",
+    "short_title": "Lights camera avatars",
+    "eyebrow": "Case study · SAP",
+    "credential": "Hermes Creative · Gold",
+    "h1": "SAP replaces traditional video production with photorealistic AI avatars",
+    "sub": "Studio-quality multilingual avatars, a global playbook, a structured intake form and a centralized tracker",
+    "read_time": "3-minute read",
+    "problem_h2": "Video production without a shared system",
+    "problem_paras": [
+      "SAP powers over two-thirds of the world’s transactions, and that scale demands constant communication across regions and industries. Product teams were producing their own videos, with overlapping content and no shared system. An audit found three video formats duplicated across dozens of teams, with inconsistent style and rising costs.",
+      "SAP’s marketing team started with the basics. Could content be templated or production batched? Could centralized talent reduce cost and variability? Each adjustment helped on the margins, but none came close to the 25% cost and speed improvements the business needed. The problem was not creative. It was capacity. Traditional workflows, no matter how refined, could not scale to match SAP’s global footprint. Rather than shrink its video footprint, SAP saw a chance to redesign video production entirely."
+    ],
+    "solution_h2": "AI takes a starring role",
+    "solution_intro_paras": [
+      "SAP piloted photorealistic AI avatars as a creative alternative. These were studio-quality, fully multilingual avatars capable of generating content in 140+ languages, instantly and on demand. No studio bookings, no reshoots. If a line was missed, it could be regenerated instantly, even in another language."
+    ],
+    "acc_items": [
+      {
+        "title": "Putting people in the director’s chair",
+        "body": "Internal teams were hesitant to adopt a new system. SAP built a global playbook setting brand and quality standards, a structured intake form to streamline briefs, and a centralized tracker for transparency across teams and regions."
+      },
+      {
+        "title": "Built to engage, beat for beat",
+        "body": "Internal benchmarks showed videos with a clear narrative outperformed demos. SAP introduced a five-part story framework running from a proactive opening line and a headline takeaway through a real-world challenge, a guided demo and a recap."
+      },
+      {
+        "title": "Bringing the brand into frame",
+        "body": "SAP extended its visual language across every asset. The anvil icon became a design system, appearing in animations and layout patterns. Each video combined avatars, animated interstitials and screen recordings with subtle sound design."
+      },
+      {
+        "title": "Earning views while upholding values",
+        "body": "SAP committed to using AI with clarity and care. Every video included an “AI-generated video” disclosure. Avatars were designed to reflect global diversity, so the people in SAP’s stories looked like the people watching them."
+      }
+    ],
+    "stats": [
+      {
+        "value": "140+",
+        "label": "languages the avatars could generate content in, instantly and on demand"
+      },
+      {
+        "value": "12",
+        "label": "videos in the pilot that became SAP’s new standard"
+      },
+      {
+        "value": "55%",
+        "label": "reduction in production costs, more than double the 25% target"
+      }
+    ],
+    "result_h2": "From pilot to platform",
+    "result_paras": [
+      "What began as a 12-video test is now a core part of SAP’s long-term brand system, with over 100 AI-driven videos in progress."
+    ],
+    "related": [
+      {
+        "title": "AI under the influence",
+        "desc": "A creator-led YouTube series built on real-world scenarios where Copilot could make a difference."
+      },
+      {
+        "title": "Agents of change",
+        "desc": "An AI-powered sales assistant that qualified and converted leads for HP’s channel partners in real time."
+      },
+      {
+        "title": "The measure of a marketer",
+        "desc": "A controlled experiment across 500 accounts that measured what marketing added to deal size."
+      }
+    ],
+    "source_file": "intercept-case-study_SAP_Lights-camera-avatars_2026-08-06.html",
+    "service": "Creative"
+  },
+  {
+    "slug": "migrate-to-innovate",
+    "client_slug": "TD-SYNNEX",
+    "client_display": "TD SYNNEX",
+    "short_title": "Migrate to innovate",
+    "eyebrow": "Case study · TD SYNNEX",
+    "credential": "MarCom · Platinum",
+    "h1": "TD SYNNEX gave MSPs three paths to the cloud",
+    "sub": "A practical guide that quantified the market opportunity and set out clear, actionable steps for MSPs",
+    "read_time": "3-minute read",
+    "problem_h2": "Before AI, there is the cloud",
+    "problem_paras": [
+      "Everyone wants to explore AI. But before you can run AI projects, you need to be running in the cloud, and most companies are not. TD SYNNEX data revealed that over 50% of companies are still running on-premise servers powered by Windows Server and SQL Server 2012 or older.",
+      "With Windows Server and SQL Server 2012 hitting end of support, these systems no longer receive regular updates, posing significant security risks. That presented an opportunity to help companies upgrade their servers to support AI. TD SYNNEX sells through Managed Service Providers, who sell to businesses, so the first objective was to help MSPs see the opportunity, then empower them to advise customers on migrating to Microsoft Azure-powered cloud solutions."
+    ],
+    "solution_h2": "A guide built for action",
+    "solution_intro_paras": [
+      "The hero tagline was three words, Lag or Leap? As hero content, TD SYNNEX produced a comprehensive guide that outlined three paths MSPs could lead their customers along to support their growing cloud business."
+    ],
+    "acc_items": [
+      {
+        "title": "Reading what MSPs were downloading",
+        "body": "MSPs sell PCs, printers, monitors, support services and cloud solutions, so the first step was understanding their mindset on cloud migration. AI analysis of their content downloads pointed to guides over thought leadership."
+      },
+      {
+        "title": "Bold, direct and in motion",
+        "body": "The creative was bold and direct, designed to capture attention immediately. Photography subjects were always in motion to align with the leap ahead narrative, challenging MSPs to decide what they would do for their clients’ businesses."
+      },
+      {
+        "title": "A strategic surround across channels",
+        "body": "Paid search targeted keywords related to cloud migration and Microsoft Azure. LinkedIn posts drove traffic to the landing page. Content syndication and a media partnership put promotional emails in front of a community of IT leaders."
+      },
+      {
+        "title": "Keeping the conversation going after download",
+        "body": "Once MSPs engaged with the guide they entered a nurture stream of emails and call downs. A script was developed for sales teams to use when calling qualified leads, helping MSPs move from interest to action."
+      }
+    ],
+    "stats": [
+      {
+        "value": "50%+",
+        "label": "of companies still running on outdated on-premise servers"
+      },
+      {
+        "value": "7,000",
+        "label": "visitors to the landing page, nearly 3x the target"
+      },
+      {
+        "value": "1.5x",
+        "label": "the qualified lead target"
+      }
+    ],
+    "result_h2": "A repeatable playbook",
+    "result_paras": [
+      "TD SYNNEX executives packaged the strategy and mechanics of the campaign to be scaled across the business. What started small became a model for future initiatives."
+    ],
+    "related": [
+      {
+        "title": "This time it’s personal",
+        "desc": "A personalized Micro App built for each of HP’s 50 target enterprise accounts."
+      },
+      {
+        "title": "Eyes on the road",
+        "desc": "An e-book and real dash cam footage that took AI-powered fleet safety to fleet-heavy industries."
+      },
+      {
+        "title": "The video that talks back",
+        "desc": "HP’s first interactive video, greeting viewers by name and recommending devices based on their scenarios."
+      }
+    ],
+    "source_file": "intercept-case-study_TD-SYNNEX_Migrate-to-innovate_2026-08-06.html",
+    "service": "Channel"
+  },
+  {
+    "slug": "to-the-cloud",
+    "client_slug": "TD-SYNNEX",
+    "client_display": "TD SYNNEX",
+    "short_title": "To the Cloud",
+    "eyebrow": "Case study · TD SYNNEX",
+    "credential": "CMA · Bronze",
+    "h1": "TD SYNNEX moves managed service providers from servers to cloud",
+    "sub": "A 7-step guide for partners starting out and an expert webinar for those scaling",
+    "read_time": "3-minute read",
+    "problem_h2": "Innovate before you’re forced to",
+    "problem_paras": [
+      "Managed service providers play a crucial role in managing businesses’ IT infrastructure. Most built their companies selling and setting up physical servers. It was predictable and profitable. Then the cloud came and everything changed. TD SYNNEX, a leading technology distributor, recognized this pivotal moment.",
+      "Two audiences needed different things. New managed service providers had minimal experience selling cloud solutions and faced barriers in understanding the cloud landscape and learning the skills and processes needed to build a profitable cloud practice. Existing providers had already ventured into cloud services but encountered difficulties scaling their practice. The extensive array of cloud programs and resources offered by TD SYNNEX often left them overwhelmed, leading to a decline in engagement."
+    ],
+    "solution_h2": "Turning pain points into content",
+    "solution_intro_paras": [
+      "TD SYNNEX answered each audience with its own content, defining the path to modernization for providers new to cloud and re-engaging established ones with strategies for scaling their business. The approach went beyond generic content delivery, meeting each set of pain points with precision."
+    ],
+    "acc_items": [
+      {
+        "title": "Helping new partners get started",
+        "body": "A 7-step guide to building a profitable cloud practice was designed for providers new to cloud. Intent data powered the media, from programmatic display and paid search through to LinkedIn."
+      },
+      {
+        "title": "Sales ready on the other end",
+        "body": "Once providers downloaded the guide they were placed into an email nurture, with TD SYNNEX sales reps ready to connect on the other end. Getting it right meant essentially building a new business."
+      },
+      {
+        "title": "Helping existing partners scale their practice",
+        "body": "An exclusive webinar featuring a Microsoft cloud expert covered the latest trends and strategies to accelerate business transformation. Providers were invited through email and personal invitations from account executives, and attendees entered a separate email nurture."
+      },
+      {
+        "title": "A fresh take on cloud transformation",
+        "body": "The campaign embraced TD SYNNEX’s new branding. Modern and innovative visuals provided a positive, fresh feel for a topic that often causes high stress for providers, given the scope and gravity of the transformation."
+      }
+    ],
+    "stats": [
+      {
+        "value": "2,300",
+        "label": "partner leads generated"
+      },
+      {
+        "value": "120",
+        "label": "existing partners joined the expert webinar, 160% of the goal"
+      },
+      {
+        "value": "3x",
+        "label": "the net new partner acquisition target"
+      }
+    ],
+    "result_h2": "To the cloud, and beyond",
+    "result_paras": [
+      "Paying attention to the audiences’ pain points paid off. Based on business impact, the in-market period was extended to extract every ounce of value from a high-performance campaign."
+    ],
+    "related": [
+      {
+        "title": "Dev Zone",
+        "desc": "Pop-up movie nights that put Microsoft Build highlights on the big screen for developers."
+      },
+      {
+        "title": "Winning Future SMB Owners",
+        "desc": "QuickBooks written into the accounting curriculum by winning over the educators who teach it."
+      },
+      {
+        "title": "Subscription Overload",
+        "desc": "A data-driven launch for HP’s Subscription Management Service, aimed at a targeted list of 1,000 customers."
+      }
+    ],
+    "source_file": "intercept-case-study_TD-SYNNEX_To-the-Cloud_2026-08-06.html",
+    "service": "Channel"
+  },
+  {
+    "slug": "eyes-on-the-road",
+    "client_slug": "TELUS",
+    "client_display": "TELUS",
+    "short_title": "Eyes on the road",
+    "eyebrow": "Case study · TELUS",
+    "credential": "CMA · Bronze",
+    "h1": "TELUS Business took AI-powered dash cams to fleet-heavy industries",
+    "sub": "An e-book and a series of videos showing real footage of AI-powered dash cams at work",
+    "read_time": "2-minute read",
+    "problem_h2": "All that convenience comes at a cost",
+    "problem_paras": [
+      "Today, convenience is everywhere. A search, a tap, and it arrives on the doorstep. Behind the scenes, vehicle fleets are on the move day and night, no matter the weather, to get those goods where they need to be. Large trucks have a fatality rate twice as high as other vehicles. With staffing shortages and supply chain issues putting pressure on fleets, road and driver safety are a growing issue.",
+      "That is where TELUS Business comes in. They operate a portfolio of fleet management solutions for businesses left to figure out how they can get their fleets running on time, and safely. The goal was to promote those solutions and improve safety and efficiency for vehicle fleets. The story had to reach a broad audience, including fleet directors, operations managers, IT, and executives."
+    ],
+    "solution_h2": "Start with the hero assets",
+    "solution_intro_paras": [
+      "TELUS Business started by producing a few hero assets, then got the message out through a comprehensive media mix built to reach the audience with precision."
+    ],
+    "acc_items": [
+      {
+        "title": "Staying alert to the dangers",
+        "body": "The AI dash cam keeps companies alert to dangers like speeding and distracted driving, and gives them insights for making fleets more efficient and sustainable."
+      },
+      {
+        "title": "An e-book and real footage",
+        "body": "An e-book explained how to move beyond basic fleet tracking. A series of videos showed real footage of how AI-powered dash cams work. Together they formed the hero assets the campaign was built around."
+      },
+      {
+        "title": "Reaching them at the right time",
+        "body": "Programmatic ads, publisher direct media buys, content syndication, and LinkedIn reached the audience at the right place and the right time, across fleet-heavy industries such as transportation, oil and gas, construction, and HVAC."
+      }
+    ],
+    "stats": [
+      {
+        "value": "2",
+        "label": "cameras in the AI dash cam, one for the driver and one for the road"
+      },
+      {
+        "value": "7x",
+        "label": "the view objective, with nearly 2.7 million views of the assets"
+      },
+      {
+        "value": "107%",
+        "label": "of the lead generation goal"
+      }
+    ],
+    "result_h2": "Six-fold on average",
+    "result_paras": [
+      "On average, the campaign exceeded targets six-fold, with over 28,000 click-throughs beating the click target ten times over. Much like the audience, the campaign knew how to deliver."
+    ],
+    "related": [
+      {
+        "title": "This time it’s personal",
+        "desc": "A personalized Micro App built for each of HP’s 50 target enterprise accounts."
+      },
+      {
+        "title": "Migrate to innovate",
+        "desc": "A practical guide that showed MSPs three paths to move their customers to the cloud."
+      },
+      {
+        "title": "The video that talks back",
+        "desc": "HP’s first interactive video, greeting viewers by name and recommending devices based on their scenarios."
+      }
+    ],
+    "source_file": "intercept-case-study_TELUS_Eyes-on-the-road_2026-08-06.html",
+    "service": "Digital Media"
+  },
+  {
+    "slug": "ai-in-practice",
+    "client_slug": "MICROSOFT",
+    "client_display": "Microsoft",
+    "short_title": "ai in practice",
+    "eyebrow": "Case study · Microsoft",
+    "credential": "Cannes B2B · Shortlisted",
+    "h1": "Microsoft turns AI curiosity into confidence to act",
+    "sub": "One connected experience across live events, skilling, guidance and peer proof",
+    "read_time": "3-minute read",
+    "problem_h2": "The shift from whether to how",
+    "problem_paras": [
+      "Organizations were no longer asking whether AI mattered. They were asking how to apply it without wasting investment or losing credibility. As AI turned urgent, people needed less hype and more help. Read together, the signals pointed to one conclusion, that AI adoption behaves like change management.",
+      "Microsoft’s insight was that putting AI to work behaves less like buying a product and more like leading change. People do not transform in a single leap. They move one step at a time, gaining confidence as they go. So the way forward was to meet people exactly where they stood and help them take the next step. Success would be judged by how far accounts progressed, measured through the Marketing Engagement Index, rather than by how much attention the campaign drew."
+    ],
+    "solution_h2": "Meeting people where they stood",
+    "solution_intro_paras": [
+      "Microsoft built one connected experience across live events, skilling, guidance and peer proof, tracked account by account. The Americas AI Tour inspired, the bootcamps built capability, The Art of Practical AI and Cloud on Your Terms gave guidance, and AI Innovators supplied peer proof."
+    ],
+    "acc_items": [
+      {
+        "title": "Inspire, through the Americas AI Tour",
+        "body": "Live demos and Promptathons brought AI into the room."
+      },
+      {
+        "title": "Learn, through bootcamps built to scale",
+        "body": "The Cloud and AI Bootcamp and the AI-Powered Work Bootcamp built skills at scale."
+      },
+      {
+        "title": "Apply, with guidance people could use",
+        "body": "The Art of Practical AI distilled lessons from 100+ AI-first movers into a three-part series, carried through blogs, email, paid social, field enablement and influencer content. Cloud on Your Terms took teams the next step through nurture and employee advocacy."
+      },
+      {
+        "title": "Prove, with peers already succeeding",
+        "body": "AI Innovators kept proof flowing through a content hub of customer webinars, customer stories, developer partnerships and a podcast, so people could see peers already succeeding."
+      }
+    ],
+    "stats": [
+      {
+        "value": "100+",
+        "label": "AI-first movers whose lessons shaped the guidance"
+      },
+      {
+        "value": "4",
+        "label": "connected stages, from live events through to peer proof"
+      },
+      {
+        "value": "4x",
+        "label": "more pipeline in accounts that engaged across three or more parts of the campaign"
+      }
+    ],
+    "result_h2": "Practical beat impressive",
+    "result_paras": [
+      "AI in Practice did more than get noticed. It turned AI from something organizations were curious about into something they were ready and confident to do."
+    ],
+    "related": [
+      {
+        "title": "The measure of a marketer",
+        "desc": "A controlled test that showed which HP Workforce Solutions campaigns moved deal size."
+      },
+      {
+        "title": "Lights, camera, avatars",
+        "desc": "Photorealistic AI avatars that gave dozens of SAP product teams one video system."
+      },
+      {
+        "title": "The Magic of Metaphors",
+        "desc": "Intel’s cloud migration story told in plain metaphors and run as precision ABX."
+      }
+    ],
+    "source_file": "microsoft_ai-in-practice.html",
+    "service": "Content"
+  }
+]

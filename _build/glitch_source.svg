@@ -1,0 +1,96 @@
+<svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden"
+  id="fritz-glitch-source" data-accent-palette="#8846C9 #1DABC1 #5154C4 #FF44F9 #FFA9F8 #FF52F9" data-channels="#FF00E5 #1A7AFF #00D862">
+    <g class="fritz-layout" data-node="520:2115" data-tx="259.483" data-scale="1.28149" data-fill="#00D862">
+      <path class="base" d="M41.9108 49.5V21.4085H24.0137L0 49.5H41.9108Z"/>
+      <path class="base" d="M41.9108 19.143V13.2529H30.5835L25.5995 19.143H41.9108Z"/>
+      <path class="base" d="M41.9108 11.214V0L32.3959 11.214H41.9108Z"/>
+      <path class="accent" fill="#1DABC1" d="M21.0685 19.143L22.8739 17.0447H37.3565V19.143H21.0685Z"/>
+      <path class="accent" fill="#8846C9" d="M25.351 2.51151H21.7745V5.48133H25.351V2.51151Z"/>
+      <path class="accent" fill="#5154C4" d="M10.8683 27.2558H6.11658V31.5273H10.8683V27.2558Z"/>
+      <path class="accent" fill="#86E2DC" d="M41.9107 11.2139H34.7745L37.3798 8.26886H41.9107V11.2139Z"/>
+      <path class="accent" fill="#1BF2D7" d="M25.4862 19.143L27.373 17.0447H37.3566V19.143H25.4862Z"/>
+      <path class="accent" fill="#1BF2D7" d="M34.4142 23H40.7835V28.2572H34.4142V23Z"/>
+    </g>
+    <g class="fritz-layout" data-node="520:2233" data-tx="258.471" data-scale="1.29456" data-fill="#1A7AFF">
+      <path class="base" d="M42.2723 13.4554V0L30.7231 13.4554H42.2723Z"/>
+      <path class="base" d="M42.1602 43.5057V15.4737H28.8169L4.48513 43.5057H42.1602Z"/>
+      <path class="base" d="M42.1602 49V45.6362H2.91533L0 49H42.1602Z"/>
+      <path class="accent" fill="#8846C9" d="M8.44015 20.4007H4.67467V23.6283H8.44015V20.4007Z"/>
+      <path class="accent" fill="#1DABC1" d="M7.97723 1.17302H4.03661V4.70081H7.97723V1.17302Z"/>
+      <path class="accent" fill="#5154C4" d="M18.7107 13.1449H15.6458V15.8846H18.7107V13.1449Z"/>
+      <path class="accent" fill="#8846C9" d="M26.6865 13.4703L29.3261 10.3553H38.2331V13.4703H26.6865Z"/>
+      <path class="accent" fill="#1DABC1" d="M10.3158 43.5057L12.1288 41.7116H47.7666V43.5057H10.3158Z"/>
+      <path class="accent" fill="#32D2FF" d="M41.9315 43.5057H10.3158L12.1288 41.7116H41.9315V43.5057Z"/>
+      <path class="accent" fill="#939DFF" d="M30.8352 13.4703L33.4142 10.3553H38.2331V13.4703H30.8352Z"/>
+    </g>
+    <g class="fritz-layout" data-node="515:1882" data-tx="259.423" data-scale="1.29456" data-fill="#FF00E5">
+      <path class="base" d="M41.5371 12.4462V1.99028e-06L30.8849 12.4462H41.5371Z"/>
+      <path class="base" d="M41.5371 36.4416V14.4645H29.3151L10.6329 36.4416H41.5371Z"/>
+      <path class="base" d="M41.5371 49V38.46H8.90776L1.19209e-07 49H41.5371Z"/>
+      <path class="accent" fill="#8846C9" d="M21.8841 3.23671H8.07323V11.8435H21.8841V3.23671Z"/>
+      <path class="accent" fill="#1DABC1" d="M15.2914 10.3048H11.0005V13.3072H15.2914V10.3048Z"/>
+      <path class="accent" fill="#5154C4" d="M23.4979 15.7216H20.0577V17.9234H23.4979V15.7216Z"/>
+      <path class="accent" fill="#1DABC1" d="M28.3684 12.4462L30.6457 9.75512H38.9648V12.4462H28.3684Z"/>
+      <path class="accent" fill="#8846C9" d="M5.83067 36.4814L8.92061 32.8535H36.8552V36.4814H5.83067Z"/>
+      <path class="accent" fill="#FF44F9" d="M10.5844 36.4814L13.6619 32.8535H36.8552V36.4814H10.5844Z"/>
+      <path class="accent" fill="#FFA9F8" d="M31.1716 12.4462L33.1899 9.75512H38.9648V12.4462H31.1716Z"/>
+    </g>
+    <g class="fritz-layout" data-node="520:2286" data-tx="259.362" data-scale="1.29456" data-fill="#00D862">
+      <path class="base" d="M41.5826 49V42.0321H5.84404L4.76837e-07 49H41.5826Z"/>
+      <path class="base" d="M7.6422 40.0092H41.5826V25.3991H20.0046L7.6422 40.0092Z"/>
+      <path class="base" d="M22.0275 23.1514H41.5826V0L22.0275 23.1514Z"/>
+      <path class="accent" fill="#8846C9" d="M4.49541 40.0569L6.62697 37.5367H38.7132V40.0569H4.49541Z"/>
+      <path class="accent" fill="#5154C4" d="M47.0833 32.5917H42.4817V36.5665H47.0833V32.5917Z"/>
+      <path class="accent" fill="#1DABC1" d="M26.9725 23.1527L29.8313 19.7798H46.9214V23.1527H26.9725Z"/>
+      <path class="accent" fill="#8846C9" d="M48.391 6.06885H41.5826V12.0623H48.391V6.06885Z"/>
+      <path class="accent" fill="#86E2DC" d="M38.6605 6.06885H42.5099V12.0498H38.6605V6.06885Z"/>
+      <path class="accent" fill="#1BF2D7" d="M41.5469 23.1527H25.8486L28.7074 19.7798H41.5469V23.1527Z"/>
+      <path class="accent" fill="#1BF2D7" d="M29.2202 27.1972H33.7466V31.2096H29.2202V27.1972Z"/>
+      <path class="accent" fill="#86E2DC" d="M7.86697 40.0569L10.0111 37.5367H39.5018V40.0569H7.86697Z"/>
+    </g>
+    <g class="fritz-layout" data-node="520:2399" data-tx="257.019" data-scale="1.30791" data-fill="#1A7AFF">
+      <path class="base" d="M42.8398 25.5263L42.9508 0L20.976 25.5263H42.8398Z"/>
+      <path class="base" d="M42.8398 38.7334V27.413H19.6442L9.98856 38.7334H42.8398Z"/>
+      <path class="base" d="M42.8398 48.5V40.5092H8.54577L1.77575 48.5H42.8398Z"/>
+      <path class="accent" fill="#8846C9" d="M15.0938 38.8007L18.8333 34.4051H47.9563V38.8007H15.0938Z"/>
+      <path class="accent" fill="#939DFF" d="M42.8398 38.8007H15.0938L18.8333 34.4051H42.8398V38.8007Z"/>
+      <path class="accent" fill="#1DABC1" d="M16.5366 25.5263L19.5887 21.9748H37.9414V25.5263H16.5366Z"/>
+      <path class="accent" fill="#8846C9" d="M7.8503 22.3718H3.78893V26.0122H7.8503V22.3718Z"/>
+      <path class="accent" fill="#1DABC1" d="M2.67457 5.71773H1.49012e-06V7.95892H2.67457V5.71773Z"/>
+      <path class="accent" fill="#5154C4" d="M14.2728 25.4798H9.98856V29.1202H14.2728V25.4798Z"/>
+      <path class="accent" fill="#32D2FF" d="M20.865 25.5263L24.0476 21.9748H37.9565V25.5263H20.865Z"/>
+    </g>
+    <g class="fritz-layout" data-node="520:2071" data-tx="259.362" data-scale="1.29456" data-fill="#FF00E5">
+      <path class="base" d="M41.5826 49V22.2523H22.7018L0 49H41.5826Z"/>
+      <path class="base" d="M41.5826 5.16972V0L37.0872 5.16972H41.5826Z"/>
+      <path class="base" d="M41.5826 20.2294V7.41743H35.289L24.5 20.2294H41.5826Z"/>
+      <path class="accent" fill="#8846C9" d="M11.9587 7.41742H6.64233V10.7652H11.9587V7.41742Z"/>
+      <path class="accent" fill="#8846C9" d="M30.9175 20.135L34.6665 15.7339H48.2834V20.135H30.9175Z"/>
+      <path class="accent" fill="#1DABC1" d="M51.36 22.0275H45.0781V26.8674H51.36V22.0275Z"/>
+      <path class="accent" fill="#FF44F9" d="M41.9426 20.135H30.0184L33.7675 15.7339H41.9426V20.135Z"/>
+      <path class="accent" fill="#FF52F9" d="M31.1423 24.7248H34.2018V26.919H31.1423V24.7248Z"/>
+    </g>
+    <g class="fritz-layout" data-node="520:2236" data-tx="259.427" data-scale="1.32153" data-fill="#FF00E5">
+      <path class="base" d="M40.6866 32.5161V0L13.0369 32.5161H40.6866Z"/>
+      <path class="base" d="M40.6866 38.9309V34.5069H11.2673L7.5069 38.9309H40.6866Z"/>
+      <path class="base" d="M40.6866 48V41.1429H5.73731L0 48H40.6866Z"/>
+      <path class="accent" fill="#1DABC1" d="M2.43318 38.8413L4.23472 36.7189H35.9591V38.8413H2.43318Z"/>
+      <path class="accent" fill="#8846C9" d="M6.41475 32.5289L9.05535 29.4194H34.3879V32.5289H6.41475Z"/>
+      <path class="accent" fill="#8846C9" d="M13.8261 3.53916H7.52074V9.11653H13.8261V3.53916Z"/>
+      <path class="accent" fill="#1DABC1" d="M45.6855 7.07834H40.7005V11.212H45.6855V7.07834Z"/>
+      <path class="accent" fill="#FFA9F8" d="M7.52074 38.8413L9.32227 36.7189H37.3818V38.8413H7.52074Z"/>
+      <path class="accent" fill="#FF44F9" d="M13.0507 32.5289L15.6913 29.4194H35.0393V32.5289H13.0507Z"/>
+      <path class="accent" fill="#FF52F9" d="M34.9493 22.1198H38.7868V25.291H34.9493V22.1198Z"/>
+      <path class="accent" fill="#FFA9F8" d="M40.4793 7.07834H40.726V11.1997H40.4793V7.07834Z"/>
+    </g>
+    <g class="fritz-layout fritz-canon" data-node="" data-tx="0" data-scale="1" data-fill="#FF00E5">
+      <path class="base" d="M313.195 29.2138V63.8583H259.277L288.724 29.2138H313.195ZM313.195 26.787H290.787L305.126 9.91692H313.195V26.787ZM313.195 7.49016H307.189L313.195 0.424735V7.49016Z"/>
+      <path class="accent" fill="#8846C9" d="M297.818 26.7875L302.654 21.1099H320.22V26.7875H297.818Z"/>
+      <path class="accent" fill="#8846C9" d="M272.002 8.52534H265.143V12.8442H272.002V8.52534Z"/>
+      <path class="accent" fill="#1DABC1" d="M324.005 29.0518H315.901V35.2955H324.005V29.0518Z"/>
+      <path class="accent" fill="#5154C4" d="M303.01 32.5619H299.063V35.3926H303.01V32.5619Z"/>
+      <path class="accent" fill="#FF44F9" d="M313.2 26.7875H297.818L302.654 21.1099H313.2V26.7875Z"/>
+      <path class="accent" fill="#FFA9F8" d="M307.183 7.49016L311.162 2.81548V7.49016H307.183Z"/>
+      <path class="accent" fill="#FF52F9" d="M299.063 32.5619H303.01V35.3926H299.063V32.5619Z"/>
+    </g>
+</svg>
