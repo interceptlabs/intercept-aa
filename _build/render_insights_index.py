@@ -74,41 +74,46 @@ FILTER_SCRIPT = """<script>
 
 CHIPS = ["Signals from the Edge", "Trends Brief", "ChatB2B", "eBooks"]
 
-# verbatim from insights-hub.html's .feed-grid (29 cards) — only the 4
-# "Signals from the Edge" articles have a real page built; everything else
-# (Trends Brief, all 22 ChatB2B episodes, both eBooks) has no detail page
-# per sitemap.html ("To build"), so those render as non-linked cards,
-# same convention as the rest of this site's not-yet-built CTAs
+# verbatim from insights-hub.html's .feed-grid (29 cards). Round 2 sitemap
+# (2026-08-08, "New Wire Frames 2") upgraded ChatB2B's own hub + the first
+# Trends Brief detail + both eBook details to real pages — those rows now
+# carry real hrefs. The 21 individual ChatB2B episodes still have no
+# per-episode URL (there isn't one — the hub is a single scrolling page),
+# so every ChatB2B row links to the one hub page. Trends Brief/eBooks'
+# OWN index/hub pages are still "to build" per sitemap.html — only their
+# first real detail pages exist, so those 3 specific cards below were
+# updated with the real titles/blurbs from their now-real pages rather than
+# left as generic placeholder teaser text.
 FEED = [
     ("Signals from the Edge", "Signals from the Edge · Jul 2026", "Who owns your marketing alpha?", "Where durable advantage lives when every competitor rents the same frontier models.", "who-owns-your-marketing-alpha/index.html"),
     ("Signals from the Edge", "Signals from the Edge", "Why 2026 feels heavier, and what the data says", "The two-sided squeeze on B2B tech marketing, read against research from Promethean and WP Engine.", "why-2026-feels-heavier/index.html"),
     ("Signals from the Edge", "Signals from the Edge", "SEO is not dead. It is becoming findability", "What changes when buyers stop searching and start asking.", "seo-is-becoming-findability/index.html"),
     ("Signals from the Edge", "Signals from the Edge", "How AI is reshaping B2B tech marketing", "What we see across global product, field, and alliance marketing teams.", "how-ai-is-reshaping-b2b-tech-marketing/index.html"),
-    ("Trends Brief", "Trends Brief", "AI in B2B marketing", "Original Watchtower research, published twice a year.", None),
-    ("ChatB2B", "ChatB2B · 28 Jul 2026", "The Anatomy of AI-Powered ABM", "Hans Bunes, independent consultant, previously HP.", None),
-    ("ChatB2B", "ChatB2B · 30 Jun 2026", "What it takes to be creative in the AI era at HP", "Liz Merrilees Emlay, Head of Global Creative Services and Product Marketing, HP.", None),
-    ("ChatB2B", "ChatB2B · 2 Jun 2026", "Building the Backend for AI Agents", "Patrick Vuong, first Director of Product Management, Moderne.", None),
-    ("ChatB2B", "ChatB2B · 19 May 2026", "The Rise of the Senior IC in the AI Era", "Jaynie Miller, Worldwide Product Marketing Lead, HP.", None),
-    ("ChatB2B", "ChatB2B · 21 Apr 2026", "Optimizing AI Search: Lessons from Sophos", "Megan Cabrera, former VP of Marketing Operations, Sophos.", None),
-    ("ChatB2B", "ChatB2B · 14 Apr 2026", "The AI-Ready Marketer: New Rules for Content and Culture", "Tammy Tufty, Content Strategist, BMC Software.", None),
-    ("ChatB2B", "ChatB2B · 7 Apr 2026", "When AI Meets ABM: Rethinking Content and Buyers", "Murali Kandasamy, VP of Growth and Strategy, PathFactory.", None),
-    ("ChatB2B", "ChatB2B · 31 Mar 2026", "What AI PCs Really Change for Marketers", "Jeanette Kennedy, Marketing Lead, Microsoft.", None),
-    ("ChatB2B", "ChatB2B · 24 Mar 2026", "How AI Is Rewriting the Rules of Knowledge Work", "Mahadev Sastri, Marketing Lead for Strategic Alliances, CGI.", None),
-    ("ChatB2B", "ChatB2B · 10 Mar 2026", "AI Adoption Inside Lenovo: Pilots, Procurement, and Progress", "Shoeb Shaikh, Senior Manager for Global Campaigns, Lenovo.", None),
-    ("ChatB2B", "ChatB2B · 24 Feb 2026", "How TELUS is Applying AI in Vertical GTM", "Tristan Retelsdorf, VP of Marketing and RevOps, TELUS Agriculture and Consumer Goods.", None),
-    ("ChatB2B", "ChatB2B · 17 Feb 2026", "“Sprint to Agents”: What Agentic Marketing Actually Means", "Francis Silva, Chief Technology Officer, Intercept.", None),
-    ("ChatB2B", "ChatB2B · 10 Feb 2026", "Redefining Creative Work for the AI Era", "Catherine Richards, creative and content strategy leader, previously Dell, Adobe, and VMware.", None),
-    ("ChatB2B", "ChatB2B · 3 Feb 2026", "Scaling Social Without Losing the Human", "Kelly Broili, SAP.", None),
-    ("ChatB2B", "ChatB2B · 27 Jan 2026", "The Playbook for Practical AI: Inside Procom’s AI Journey", "Dylan Fedy, Procom.", None),
-    ("ChatB2B", "ChatB2B · 20 Jan 2026", "Re-wiring the Marketing Org", "Audrey Davidson, integrated marketing lead for the Americas, Microsoft.", None),
-    ("ChatB2B", "ChatB2B · 13 Jan 2026", "What It Really Takes to Scale AI Pilots", "Jessica Hreha, Veeam.", None),
-    ("ChatB2B", "ChatB2B · 16 Dec 2025", "How AI Can Support Partner Growth", "Shelley Green, TD SYNNEX.", None),
-    ("ChatB2B", "ChatB2B · 20 Nov 2025", "Future-Proof Your Marketing Career in the Age of AI", "Josh Chiavaroli, Intel.", None),
-    ("ChatB2B", "ChatB2B · 20 Nov 2025", "The AI Opportunity for Channel Partner Marketing", "", None),
-    ("ChatB2B", "ChatB2B · 20 Nov 2025", "Rethinking Sales Enablement in the AI Era", "", None),
-    ("ChatB2B", "ChatB2B · 13 Nov 2025", "Introducing ChatB2B", "", None),
-    ("eBooks", "eBook", "Cortex report", "Neuroscience-based creative measurement, and what it predicts before a campaign runs.", None),
-    ("eBooks", "eBook", "AI-powered research", "How synthetic and live audience research work together.", None),
+    ("Trends Brief", "H1 Trends Brief · H1 2026", "When AI becomes an operating model.", "The demand now is better, faster, and cheaper, no longer one at the expense of the others.", "trends-brief/when-ai-becomes-an-operating-model/index.html"),
+    ("ChatB2B", "ChatB2B · 28 Jul 2026", "The Anatomy of AI-Powered ABM", "Hans Bunes, independent consultant, previously HP.", "chatb2b/index.html"),
+    ("ChatB2B", "ChatB2B · 30 Jun 2026", "What it takes to be creative in the AI era at HP", "Liz Merrilees Emlay, Head of Global Creative Services and Product Marketing, HP.", "chatb2b/index.html"),
+    ("ChatB2B", "ChatB2B · 2 Jun 2026", "Building the Backend for AI Agents", "Patrick Vuong, first Director of Product Management, Moderne.", "chatb2b/index.html"),
+    ("ChatB2B", "ChatB2B · 19 May 2026", "The Rise of the Senior IC in the AI Era", "Jaynie Miller, Worldwide Product Marketing Lead, HP.", "chatb2b/index.html"),
+    ("ChatB2B", "ChatB2B · 21 Apr 2026", "Optimizing AI Search: Lessons from Sophos", "Megan Cabrera, former VP of Marketing Operations, Sophos.", "chatb2b/index.html"),
+    ("ChatB2B", "ChatB2B · 14 Apr 2026", "The AI-Ready Marketer: New Rules for Content and Culture", "Tammy Tufty, Content Strategist, BMC Software.", "chatb2b/index.html"),
+    ("ChatB2B", "ChatB2B · 7 Apr 2026", "When AI Meets ABM: Rethinking Content and Buyers", "Murali Kandasamy, VP of Growth and Strategy, PathFactory.", "chatb2b/index.html"),
+    ("ChatB2B", "ChatB2B · 31 Mar 2026", "What AI PCs Really Change for Marketers", "Jeanette Kennedy, Marketing Lead, Microsoft.", "chatb2b/index.html"),
+    ("ChatB2B", "ChatB2B · 24 Mar 2026", "How AI Is Rewriting the Rules of Knowledge Work", "Mahadev Sastri, Marketing Lead for Strategic Alliances, CGI.", "chatb2b/index.html"),
+    ("ChatB2B", "ChatB2B · 10 Mar 2026", "AI Adoption Inside Lenovo: Pilots, Procurement, and Progress", "Shoeb Shaikh, Senior Manager for Global Campaigns, Lenovo.", "chatb2b/index.html"),
+    ("ChatB2B", "ChatB2B · 24 Feb 2026", "How TELUS is Applying AI in Vertical GTM", "Tristan Retelsdorf, VP of Marketing and RevOps, TELUS Agriculture and Consumer Goods.", "chatb2b/index.html"),
+    ("ChatB2B", "ChatB2B · 17 Feb 2026", "“Sprint to Agents”: What Agentic Marketing Actually Means", "Francis Silva, Chief Technology Officer, Intercept.", "chatb2b/index.html"),
+    ("ChatB2B", "ChatB2B · 10 Feb 2026", "Redefining Creative Work for the AI Era", "Catherine Richards, creative and content strategy leader, previously Dell, Adobe, and VMware.", "chatb2b/index.html"),
+    ("ChatB2B", "ChatB2B · 3 Feb 2026", "Scaling Social Without Losing the Human", "Kelly Broili, SAP.", "chatb2b/index.html"),
+    ("ChatB2B", "ChatB2B · 27 Jan 2026", "The Playbook for Practical AI: Inside Procom’s AI Journey", "Dylan Fedy, Procom.", "chatb2b/index.html"),
+    ("ChatB2B", "ChatB2B · 20 Jan 2026", "Re-wiring the Marketing Org", "Audrey Davidson, integrated marketing lead for the Americas, Microsoft.", "chatb2b/index.html"),
+    ("ChatB2B", "ChatB2B · 13 Jan 2026", "What It Really Takes to Scale AI Pilots", "Jessica Hreha, Veeam.", "chatb2b/index.html"),
+    ("ChatB2B", "ChatB2B · 16 Dec 2025", "How AI Can Support Partner Growth", "Shelley Green, TD SYNNEX.", "chatb2b/index.html"),
+    ("ChatB2B", "ChatB2B · 20 Nov 2025", "Future-Proof Your Marketing Career in the Age of AI", "Josh Chiavaroli, Intel.", "chatb2b/index.html"),
+    ("ChatB2B", "ChatB2B · 20 Nov 2025", "The AI Opportunity for Channel Partner Marketing", "", "chatb2b/index.html"),
+    ("ChatB2B", "ChatB2B · 20 Nov 2025", "Rethinking Sales Enablement in the AI Era", "", "chatb2b/index.html"),
+    ("ChatB2B", "ChatB2B · 13 Nov 2025", "Introducing ChatB2B", "", "chatb2b/index.html"),
+    ("eBooks", "eBook · Intercept Cortex report", "The Hidden Neuroscience Behind High-Performing Ads", "Neuroscience-based creative measurement, and what it predicts before a campaign runs.", "ebooks/hidden-neuroscience-behind-high-performing-ads/index.html"),
+    ("eBooks", "eBook · Watchtower report", "The Next Era of AI-Powered Research", "How synthetic and live audience research work together.", "ebooks/next-era-of-ai-powered-research/index.html"),
 ]
 
 def render():

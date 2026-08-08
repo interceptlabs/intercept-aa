@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Insights · Intercept</title>
-<meta name="description" content="Our perspectives on AI, B2B tech marketing, and what's changing across the industry.">
+<title>Three to five word headline · Intercept</title>
+<meta name="description" content="Two sentences describing the offer. What they get, and why it is worth their time.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -132,46 +132,70 @@ p{margin:0;text-wrap:pretty}
 @media(max-width:820px){.foot-grid{grid-template-columns:1fr 1fr;gap:24px 20px}}
 </style>
 <style>
-.ihero{padding:52px 0 34px}
-.ihero h1{font-size:var(--fs-1);line-height:1.04;letter-spacing:-.032em;margin:0 0 16px;max-width:19ch}
-.feat{padding:8px 0 52px}
-.feat-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:52px;align-items:center}
-.feat .ph{aspect-ratio:16/10}
-.feat h2{font-size:var(--fs-2);line-height:1.08;letter-spacing:-.028em;margin:0 0 14px}
-.feat p{font-size:var(--fs-6);line-height:1.5;color:var(--ink-2);margin:0 0 20px;max-width:46ch}
-.byline{display:flex;align-items:center;gap:12px;margin:0 0 22px}
-.byline .ph{width:38px;height:38px;padding:0;font-size:7px;border-radius:50%}
-.byline b{display:block;font-size:var(--fs-7);font-weight:700}
-.byline .meta{display:block;font-size:var(--fs-8);color:var(--ink-3)}
-.props{padding:48px 0;background:var(--band)}
-.prop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:24px;align-items:stretch}
-.prop{display:flex;flex-direction:column}
-.prop .ph{aspect-ratio:4/3;margin-bottom:14px}
-.prop b{display:block;font-size:var(--fs-4);line-height:1.22;font-weight:700;margin-bottom:8px}
-.prop span{display:block;font-size:var(--fs-7);line-height:1.5;color:var(--ink-2);margin-bottom:16px}
-.prop .link{margin-top:auto}
-.feed{padding:48px 0 12px}
-.feed h2{margin-bottom:24px}
-.chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
-.chip{font-size:var(--fs-7);font-weight:600;padding:8px 16px;border-radius:99px;border:1px solid var(--line);color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
-.chip:hover{border-color:var(--ink-3)}
-.chip.on{background:var(--carbon-500);color:#fff;border-color:var(--carbon-500)}
-.feed-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px 24px;margin-top:28px}
-.card .ph{aspect-ratio:16/9;margin-bottom:12px}
-.card .meta{display:block;margin-bottom:8px;font-size:var(--fs-8);color:var(--ink-3)}
-.card h3{font-size:var(--fs-4);line-height:1.24;letter-spacing:-.014em;margin:0 0 6px;font-weight:700}
-.card p{font-size:var(--fs-7);line-height:1.45;color:var(--ink-2);margin:0}
-.more{text-align:center;margin-top:40px}
-.sub{padding:52px 0;background:var(--band);margin-top:40px;text-align:center}
-.sub h2{font-size:var(--fs-2);max-width:20ch;margin:0 auto 20px}
-@media(max-width:1100px){.prop-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:900px){.feat-grid{grid-template-columns:1fr}}
-@media(max-width:700px){.feed-grid{grid-template-columns:1fr}}
+.ebar{background:var(--carbon-500);color:#fff;padding:13px 0}
+.ebar-row{max-width:var(--maxw);margin:0 auto;padding:0 32px;display:flex;flex-wrap:wrap;gap:10px 22px;align-items:baseline;font-size:var(--fs-8);font-weight:600}
+.ebar-row b{font-weight:700}
+.ebar-row span:not(.link){color:var(--halo-500)}
+
+.ehero{padding:60px 0 54px;border-bottom:1px solid var(--line)}
+.ehero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:start}
+.ehero h1{font-size:var(--fs-1);line-height:1.02;letter-spacing:-.036em;margin:0 0 20px}
+.ehero p:not(.eyebrow){font-size:var(--fs-5);line-height:1.56;color:var(--ink-2);margin:0;max-width:48ch}
+
+.book{border:1px solid var(--ink);padding:28px}
+.book h2{font-size:var(--fs-5);line-height:1.2;letter-spacing:-.014em;margin:0 0 20px}
+.book .field{margin:0 0 13px}
+.book label{display:block;font-size:var(--fs-8);color:var(--ink-3);margin:0 0 6px}
+.book .input{border:1px solid var(--line);height:42px}
+.book .btn{display:block;text-align:center;margin-top:18px}
+
+.esec{padding:54px 0;border-bottom:1px solid var(--line)}
+.esec h2{font-size:var(--fs-2);line-height:1.1;letter-spacing:-.026em;margin:0 0 26px}
+
+.takes{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.take{border-top:2px solid var(--ink);padding:15px 0 0}
+.take span:not(.link){font-size:var(--fs-8);color:var(--ink-3);display:block;margin:0 0 10px}
+.take b{display:block;font-size:var(--fs-5);line-height:1.26;letter-spacing:-.014em;margin:0 0 8px}
+.take p:not(.eyebrow){font-size:var(--fs-7);line-height:1.5;color:var(--ink-2);margin:0}
+
+.acards{display:grid;grid-template-columns:repeat(2,1fr);gap:30px}
+.acard .ph{aspect-ratio:16/9;margin:0 0 16px}
+.acard .kind{font-size:var(--fs-8);color:var(--ink-3);display:block;margin:0 0 8px}
+.acard b{display:block;font-size:var(--fs-3);line-height:1.2;letter-spacing:-.018em;margin:0 0 9px}
+.acard p:not(.eyebrow){font-size:var(--fs-6);line-height:1.5;color:var(--ink-2);margin:0 0 12px}
+
+.ccards{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.ccard .ph{aspect-ratio:16/9;margin:0 0 14px}
+.ccard b{display:block;font-size:var(--fs-4);line-height:1.24;letter-spacing:-.016em;margin:0 0 8px}
+.ccard p:not(.eyebrow){font-size:var(--fs-7);line-height:1.5;color:var(--ink-2);margin:0}
+
+.people{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.person .ph{aspect-ratio:1/1;margin:0 0 13px}
+.person b{display:block;font-size:var(--fs-6);margin:0 0 3px}
+.person span:not(.link){font-size:var(--fs-7);color:var(--ink-3);display:block}
+.person .mail{font-size:var(--fs-8);color:var(--ink-3);margin-top:5px}
+
+.lwall{display:grid;grid-template-columns:repeat(8,1fr);gap:14px}
+.lwall .ph{aspect-ratio:5/2;font-size:10px}
+
+.feed{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.post{border:1px solid var(--line);padding:18px;display:flex;flex-direction:column;gap:11px}
+.post .top{display:flex;align-items:center;gap:10px}
+.post .av{width:34px;height:34px;border-radius:999px;background:var(--band);flex:none}
+.post .who{font-size:var(--fs-8);color:var(--ink-3)}
+.post .ph{min-height:62px;font-size:10px}
+.feed-note{font-size:var(--fs-8);color:var(--ink-3);margin:18px 0 0}
+
+.eclose{padding:60px 0}
+.eclose h2{font-size:var(--fs-2);line-height:1.06;letter-spacing:-.032em;margin:0 0 22px;max-width:18ch}
+
+@media(max-width:1000px){.lwall{grid-template-columns:repeat(4,1fr)}.people{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.ehero-grid,.acards,.ccards,.takes,.feed{grid-template-columns:1fr;gap:26px}}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="topbar"><div class="row"><a class="fritz-lockup-hover" href="../index.html" aria-label="Intercept home" data-fritz-hover-lockup><svg class="logo" viewBox="0 0.9583 324.005 76.923" role="img" aria-label="Intercept" style="--wm-raster:url('../assets/img/wordmark-30-ink.png')"><g fill="var(--logo-ink)"><path d="M4.85695 54.8039V11.2147H14.1252V54.8039H4.85695Z"/>
+<header class="topbar"><div class="row"><a class="fritz-lockup-hover" href="../../index.html" aria-label="Intercept home" data-fritz-hover-lockup><svg class="logo" viewBox="0 0.9583 324.005 76.923" role="img" aria-label="Intercept" style="--wm-raster:url('../../assets/img/wordmark-30-ink.png')"><g fill="var(--logo-ink)"><path d="M4.85695 54.8039V11.2147H14.1252V54.8039H4.85695Z"/>
       <path d="M18.3324 54.8039V23.9282H27.1794V31.1931H27.36V54.8039H18.3324ZM39.6976 54.8039V35.6731C39.6976 33.9779 39.2563 32.7066 38.3736 31.859C37.531 31.0115 36.2872 30.5877 34.6422 30.5877C33.2379 30.5877 31.9741 30.9106 30.8506 31.5563C29.7673 32.2021 28.9047 33.09 28.2627 34.2201C27.6609 35.3502 27.36 36.6821 27.36 38.2158L26.5776 30.7693C27.5807 28.5091 29.0451 26.7131 30.971 25.3812C32.937 24.0089 35.3443 23.3228 38.193 23.3228C41.6034 23.3228 44.2114 24.2915 46.0169 26.2288C47.8224 28.1257 48.7252 30.6886 48.7252 33.9174V54.8039H39.6976Z"/>
       <path d="M66.4586 55.4698C62.5266 55.4698 59.5977 54.5214 57.6718 52.6244C55.7861 50.6871 54.8432 47.761 54.8432 43.8461V17.0266L63.8707 13.6363V44.1488C63.8707 45.521 64.2519 46.5502 65.0142 47.2363C65.7766 47.9224 66.9602 48.2655 68.5651 48.2655C69.1669 48.2655 69.7286 48.205 70.2502 48.0839C70.7718 47.9628 71.2934 47.8215 71.815 47.6601V54.5617C71.2934 54.8442 70.5511 55.0662 69.5882 55.2277C68.6654 55.3891 67.6222 55.4698 66.4586 55.4698ZM49.1258 30.8298V23.9282H71.815V30.8298H49.1258Z"/>
       <path d="M88.2042 55.4093C84.7938 55.4093 81.8247 54.7434 79.297 53.4115C76.7693 52.0392 74.8033 50.1423 73.399 47.7206C72.0349 45.299 71.3528 42.5142 71.3528 39.3661C71.3528 36.1776 72.0349 33.3927 73.399 31.0115C74.8033 28.5898 76.7493 26.7131 79.2368 25.3812C81.7244 24.0089 84.6132 23.3228 87.9033 23.3228C91.073 23.3228 93.8213 23.9686 96.1484 25.2601C98.4755 26.5516 100.281 28.3477 101.565 30.6482C102.849 32.9488 103.491 35.6529 103.491 38.7606C103.491 39.4064 103.471 40.0118 103.431 40.5769C103.391 41.1015 103.33 41.606 103.25 42.0904H76.6489V36.0969H95.9679L94.4031 37.1866C94.4031 34.6843 93.8013 32.8479 92.5976 31.6774C91.434 30.4666 89.8292 29.8612 87.7829 29.8612C85.4157 29.8612 83.5701 30.6684 82.246 32.2828C80.9621 33.8972 80.3201 36.3188 80.3201 39.5477C80.3201 42.6958 80.9621 45.0367 82.246 46.5704C83.5701 48.1041 85.5361 48.8709 88.144 48.8709C89.5884 48.8709 90.8322 48.6288 91.8754 48.1444C92.9186 47.6601 93.701 46.8731 94.2226 45.7834H102.708C101.705 48.77 99.9801 51.1311 97.5327 52.8666C95.1253 54.5617 92.0158 55.4093 88.2042 55.4093Z"/>
@@ -182,14 +206,14 @@ p{margin:0;text-wrap:pretty}
       <path d="M239.501 55.4698C235.569 55.4698 232.64 54.5214 230.714 52.6244C228.828 50.6871 227.885 47.761 227.885 43.8461V17.0266L236.913 13.6363V44.1488C236.913 45.521 237.294 46.5502 238.056 47.2363C238.819 47.9224 240.002 48.2655 241.607 48.2655C242.209 48.2655 242.771 48.205 243.292 48.0839C243.814 47.9628 244.335 47.8215 244.857 47.6601V54.5617C244.335 54.8442 243.593 55.0662 242.63 55.2277C241.707 55.3891 240.664 55.4698 239.501 55.4698ZM222.168 30.8298V23.9282H244.857V30.8298H222.168Z"/></g><g id="mark-slot" transform="translate(0, 1.22)"></g></svg></a>
     <div class="nav-wrap">
       <nav class="nav-links" id="navLinks" aria-label="Primary">
-        <a href="../our-work/index.html">Our Work</a>
-        <a href="../index.html#services">What We Do</a>
-        <a href="../insights/index.html">Insights</a>
-        <a href="../about-us/index.html">About Us</a>
-        <a href="../careers/index.html">Careers</a>
+        <a href="../../our-work/index.html">Our Work</a>
+        <a href="../../index.html#services">What We Do</a>
+        <a href="../../insights/index.html">Insights</a>
+        <a href="../../about-us/index.html">About Us</a>
+        <a href="../../careers/index.html">Careers</a>
       </nav>
       <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Menu"><span></span><span></span><span></span></button>
-      <a class="cta-nav" href="../contact/index.html">Contact</a>
+      <a class="cta-nav" href="../../contact/index.html">Contact</a>
     </div></div></header>
 <script>
 (function(){
@@ -201,44 +225,79 @@ p{margin:0;text-wrap:pretty}
   });
 })();
 </script>
+<div class="ebar"><div class="ebar-row">
+  <b>Intercept at Event name</b><span>Host org</span><span>Dates</span><span>Format</span>
+</div></div>
+
 <main id="main">
 
-<section class="ihero"><div class="wrap"><span class="eyebrow">Insights</span><h1>Our perspectives</h1></div></section>
-
-<section class="feat">
-  <div class="wrap"><div class="feat-grid">
-    <div class="ph" style="aspect-ratio:16/10">Featured</div>
-    <div>
-      <span class="eyebrow">Featured &middot; Signals from the Edge &middot; July 2026</span>
-      <h2>Who owns your marketing alpha?</h2>
-      <p>A field read on the ownership question now facing enterprise technology, and what it means for marketing teams building on frontier AI models.</p>
-      <div class="byline"><div class="ph">Portrait</div><div><b>Shaheen Yazdani</b><span class="meta">Co-CEO &middot; 23 min read</span></div></div>
-      <a class="link" href="who-owns-your-marketing-alpha/index.html">Read the blog</a>
+<section class="ehero">
+  <div class="wrap">
+    <div class="ehero-grid">
+      <div>
+        <h1>Three to five word headline</h1>
+        <p>Two sentences describing the offer. What they get, and why it is worth their time.</p>
+      </div>
+      <div class="book">
+        <h2>A few quick details</h2>
+        <div class="field"><label>Name</label><div class="input"></div></div><div class="field"><label>Work email</label><div class="input"></div></div><div class="field"><label>Company</label><div class="input"></div></div>
+        <span class="btn">Call to action</span>
+      </div>
     </div>
-  </div></div>
-</section>
-
-<section class="props">
-  <div class="wrap">
-    <h2 style="font-size:var(--fs-2)">Where to start</h2>
-    <div class="prop-grid"><div class="prop"><div class="ph">Signals from the Edge</div><b>Signals from the Edge</b><span>Shaheen Yazdani on what we are seeing in live client work, and what it means for the year ahead.</span></div><div class="prop"><div class="ph">Trends Brief</div><b>Trends Brief</b><span>Original research on what is changing across the industry, and how our clients are adapting.</span></div><div class="prop"><div class="ph">ChatB2B</div><b>ChatB2B</b><span>Andrew Au interviews marketing leaders at the largest enterprise technology companies on how they are piloting and scaling AI use cases across their organizations.</span></div><div class="prop"><div class="ph">eBooks</div><b>eBooks</b><span>Papers on emerging trends such as neuroscience-based creative and AI-powered research.</span></div></div>
   </div>
 </section>
 
-<section class="feed">
+<section class="esec">
   <div class="wrap">
-    <h2 style="font-size:var(--fs-2)">Insights hub</h2>
-    <div class="chips"><span class="chip on" data-f="">Everything</span><span class="chip" data-f="Signals from the Edge">Signals from the Edge</span><span class="chip" data-f="Trends Brief">Trends Brief</span><span class="chip" data-f="ChatB2B">ChatB2B</span><span class="chip" data-f="eBooks">eBooks</span></div>
-    <div class="feed-grid"><a class="card" data-s="Signals from the Edge" href="who-owns-your-marketing-alpha/index.html"><div class="ph">Visual</div><span class="meta">Signals from the Edge · Jul 2026</span><h3>Who owns your marketing alpha?</h3><p>Where durable advantage lives when every competitor rents the same frontier models.</p></a><a class="card" data-s="Signals from the Edge" href="why-2026-feels-heavier/index.html"><div class="ph">Visual</div><span class="meta">Signals from the Edge</span><h3>Why 2026 feels heavier, and what the data says</h3><p>The two-sided squeeze on B2B tech marketing, read against research from Promethean and WP Engine.</p></a><a class="card" data-s="Signals from the Edge" href="seo-is-becoming-findability/index.html"><div class="ph">Visual</div><span class="meta">Signals from the Edge</span><h3>SEO is not dead. It is becoming findability</h3><p>What changes when buyers stop searching and start asking.</p></a><a class="card" data-s="Signals from the Edge" href="how-ai-is-reshaping-b2b-tech-marketing/index.html"><div class="ph">Visual</div><span class="meta">Signals from the Edge</span><h3>How AI is reshaping B2B tech marketing</h3><p>What we see across global product, field, and alliance marketing teams.</p></a><a class="card" data-s="Trends Brief" href="trends-brief/when-ai-becomes-an-operating-model/index.html"><div class="ph">Visual</div><span class="meta">H1 Trends Brief · H1 2026</span><h3>When AI becomes an operating model.</h3><p>The demand now is better, faster, and cheaper, no longer one at the expense of the others.</p></a><a class="card" data-s="ChatB2B" href="chatb2b/index.html"><div class="ph">Visual</div><span class="meta">ChatB2B · 28 Jul 2026</span><h3>The Anatomy of AI-Powered ABM</h3><p>Hans Bunes, independent consultant, previously HP.</p></a><a class="card" data-s="ChatB2B" href="chatb2b/index.html"><div class="ph">Visual</div><span class="meta">ChatB2B · 30 Jun 2026</span><h3>What it takes to be creative in the AI era at HP</h3><p>Liz Merrilees Emlay, Head of Global Creative Services and Product Marketing, HP.</p></a><a class="card" data-s="ChatB2B" href="chatb2b/index.html"><div class="ph">Visual</div><span class="meta">ChatB2B · 2 Jun 2026</span><h3>Building the Backend for AI Agents</h3><p>Patrick Vuong, first Director of Product Management, Moderne.</p></a><a class="card" data-s="ChatB2B" href="chatb2b/index.html"><div class="ph">Visual</div><span class="meta">ChatB2B · 19 May 2026</span><h3>The Rise of the Senior IC in the AI Era</h3><p>Jaynie Miller, Worldwide Product Marketing Lead, HP.</p></a><a class="card" data-s="ChatB2B" href="chatb2b/index.html"><div class="ph">Visual</div><span class="meta">ChatB2B · 21 Apr 2026</span><h3>Optimizing AI Search: Lessons from Sophos</h3><p>Megan Cabrera, former VP of Marketing Operations, Sophos.</p></a><a class="card" data-s="ChatB2B" href="chatb2b/index.html"><div class="ph">Visual</div><span class="meta">ChatB2B · 14 Apr 2026</span><h3>The AI-Ready Marketer: New Rules for Content and Culture</h3><p>Tammy Tufty, Content Strategist, BMC Software.</p></a><a class="card" data-s="ChatB2B" href="chatb2b/index.html"><div class="ph">Visual</div><span class="meta">ChatB2B · 7 Apr 2026</span><h3>When AI Meets ABM: Rethinking Content and Buyers</h3><p>Murali Kandasamy, VP of Growth and Strategy, PathFactory.</p></a><a class="card" data-s="ChatB2B" href="chatb2b/index.html"><div class="ph">Visual</div><span class="meta">ChatB2B · 31 Mar 2026</span><h3>What AI PCs Really Change for Marketers</h3><p>Jeanette Kennedy, Marketing Lead, Microsoft.</p></a><a class="card" data-s="ChatB2B" href="chatb2b/index.html"><div class="ph">Visual</div><span class="meta">ChatB2B · 24 Mar 2026</span><h3>How AI Is Rewriting the Rules of Knowledge Work</h3><p>Mahadev Sastri, Marketing Lead for Strategic Alliances, CGI.</p></a><a class="card" data-s="ChatB2B" href="chatb2b/index.html"><div class="ph">Visual</div><span class="meta">ChatB2B · 10 Mar 2026</span><h3>AI Adoption Inside Lenovo: Pilots, Procurement, and Progress</h3><p>Shoeb Shaikh, Senior Manager for Global Campaigns, Lenovo.</p></a><a class="card" data-s="ChatB2B" href="chatb2b/index.html"><div class="ph">Visual</div><span class="meta">ChatB2B · 24 Feb 2026</span><h3>How TELUS is Applying AI in Vertical GTM</h3><p>Tristan Retelsdorf, VP of Marketing and RevOps, TELUS Agriculture and Consumer Goods.</p></a><a class="card" data-s="ChatB2B" href="chatb2b/index.html"><div class="ph">Visual</div><span class="meta">ChatB2B · 17 Feb 2026</span><h3>“Sprint to Agents”: What Agentic Marketing Actually Means</h3><p>Francis Silva, Chief Technology Officer, Intercept.</p></a><a class="card" data-s="ChatB2B" href="chatb2b/index.html"><div class="ph">Visual</div><span class="meta">ChatB2B · 10 Feb 2026</span><h3>Redefining Creative Work for the AI Era</h3><p>Catherine Richards, creative and content strategy leader, previously Dell, Adobe, and VMware.</p></a><a class="card" data-s="ChatB2B" href="chatb2b/index.html"><div class="ph">Visual</div><span class="meta">ChatB2B · 3 Feb 2026</span><h3>Scaling Social Without Losing the Human</h3><p>Kelly Broili, SAP.</p></a><a class="card" data-s="ChatB2B" href="chatb2b/index.html"><div class="ph">Visual</div><span class="meta">ChatB2B · 27 Jan 2026</span><h3>The Playbook for Practical AI: Inside Procom’s AI Journey</h3><p>Dylan Fedy, Procom.</p></a><a class="card" data-s="ChatB2B" href="chatb2b/index.html"><div class="ph">Visual</div><span class="meta">ChatB2B · 20 Jan 2026</span><h3>Re-wiring the Marketing Org</h3><p>Audrey Davidson, integrated marketing lead for the Americas, Microsoft.</p></a><a class="card" data-s="ChatB2B" href="chatb2b/index.html"><div class="ph">Visual</div><span class="meta">ChatB2B · 13 Jan 2026</span><h3>What It Really Takes to Scale AI Pilots</h3><p>Jessica Hreha, Veeam.</p></a><a class="card" data-s="ChatB2B" href="chatb2b/index.html"><div class="ph">Visual</div><span class="meta">ChatB2B · 16 Dec 2025</span><h3>How AI Can Support Partner Growth</h3><p>Shelley Green, TD SYNNEX.</p></a><a class="card" data-s="ChatB2B" href="chatb2b/index.html"><div class="ph">Visual</div><span class="meta">ChatB2B · 20 Nov 2025</span><h3>Future-Proof Your Marketing Career in the Age of AI</h3><p>Josh Chiavaroli, Intel.</p></a><a class="card" data-s="ChatB2B" href="chatb2b/index.html"><div class="ph">Visual</div><span class="meta">ChatB2B · 20 Nov 2025</span><h3>The AI Opportunity for Channel Partner Marketing</h3><p></p></a><a class="card" data-s="ChatB2B" href="chatb2b/index.html"><div class="ph">Visual</div><span class="meta">ChatB2B · 20 Nov 2025</span><h3>Rethinking Sales Enablement in the AI Era</h3><p></p></a><a class="card" data-s="ChatB2B" href="chatb2b/index.html"><div class="ph">Visual</div><span class="meta">ChatB2B · 13 Nov 2025</span><h3>Introducing ChatB2B</h3><p></p></a><a class="card" data-s="eBooks" href="ebooks/hidden-neuroscience-behind-high-performing-ads/index.html"><div class="ph">Visual</div><span class="meta">eBook · Intercept Cortex report</span><h3>The Hidden Neuroscience Behind High-Performing Ads</h3><p>Neuroscience-based creative measurement, and what it predicts before a campaign runs.</p></a><a class="card" data-s="eBooks" href="ebooks/next-era-of-ai-powered-research/index.html"><div class="ph">Visual</div><span class="meta">eBook · Watchtower report</span><h3>The Next Era of AI-Powered Research</h3><p>How synthetic and live audience research work together.</p></a></div>
-    <div class="more"><span class="link" id="more">Load more</span></div>
+    <span class="eyebrow">From our session</span>
+    <h2>Key takeaways</h2>
+    <div class="takes"><div class="take"><span>01</span><b>Three to five word headline</b><p>Single sentence description of the takeaway.</p></div><div class="take"><span>02</span><b>Three to five word headline</b><p>Single sentence description of the takeaway.</p></div><div class="take"><span>03</span><b>Three to five word headline</b><p>Single sentence description of the takeaway.</p></div></div>
   </div>
 </section>
 
-<section class="sub">
+<section class="esec">
+  <div class="wrap">
+    <span class="eyebrow">Explore further</span>
+    <h2>Curated resources</h2>
+    <div class="acards"><div class="acard"><div class="ph">Cover · 16:9</div><b>Resource title</b><p>Single sentence description of the resource.</p><span class="link">Get the report</span></div><div class="acard"><div class="ph">Cover · 16:9</div><b>Resource title</b><p>Single sentence description of the resource.</p><span class="link">Listen</span></div></div>
+  </div>
+</section>
+
+<section class="esec">
+  <div class="wrap">
+    <h2>Featured case studies</h2>
+    <div class="ccards"><div class="ccard"><div class="ph">Case visual · 16:9</div><b>Three to five word headline</b><p>Single sentence description of the outcome.</p></div><div class="ccard"><div class="ph">Case visual · 16:9</div><b>Three to five word headline</b><p>Single sentence description of the outcome.</p></div><div class="ccard"><div class="ph">Case visual · 16:9</div><b>Three to five word headline</b><p>Single sentence description of the outcome.</p></div></div>
+  </div>
+</section>
+
+<section class="esec">
+  <div class="wrap">
+    <span class="eyebrow">In attendance</span>
+    <h2>Meet the team</h2>
+    <div class="people"><div class="person"><div class="ph">Portrait · 1:1</div><b>Name</b><span>Title</span><div class="mail">Email</div></div><div class="person"><div class="ph">Portrait · 1:1</div><b>Name</b><span>Title</span><div class="mail">Email</div></div><div class="person"><div class="ph">Portrait · 1:1</div><b>Name</b><span>Title</span><div class="mail">Email</div></div><div class="person"><div class="ph">Portrait · 1:1</div><b>Name</b><span>Title</span><div class="mail">Email</div></div></div>
+  </div>
+</section>
+
+<section class="esec">
+  <div class="wrap">
+    <span class="eyebrow">You are in good company</span>
+    <div class="lwall"><div class="ph">Client logo</div><div class="ph">Client logo</div><div class="ph">Client logo</div><div class="ph">Client logo</div><div class="ph">Client logo</div><div class="ph">Client logo</div><div class="ph">Client logo</div><div class="ph">Client logo</div></div>
+  </div>
+</section>
+
+<section class="esec">
+  <div class="wrap">
+    <span class="eyebrow">Live feed</span>
+    <h2>What people are saying</h2>
+    <div class="feed"><div class="post"><div class="top"><span class="av"></span><span class="who">X post</span></div><div class="ph">Post text</div></div><div class="post"><div class="top"><span class="av"></span><span class="who">X post</span></div><div class="ph">Post text</div></div><div class="post"><div class="top"><span class="av"></span><span class="who">X post</span></div><div class="ph">Post text</div></div></div>
+    <p class="feed-note">X embed · @handle or #hashtag · content not controlled by Intercept</p>
+  </div>
+</section>
+
+<section class="eclose">
   <div class="wrap read">
-    <span class="eyebrow">Start the conversation</span>
-    <h2>Give us a hard problem. Let&rsquo;s solve it together.</h2>
-    <a class="btn" href="../contact/index.html">Connect with an expert</a>
+    <h2>Three to five word headline</h2>
+    <span class="btn">Call to action</span>
   </div>
 </section>
 
@@ -246,7 +305,7 @@ p{margin:0;text-wrap:pretty}
 <footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
-      <div><a class="fritz-lockup-hover" href="../index.html" aria-label="Intercept home" data-fritz-hover-lockup><svg class="logo sm" viewBox="0 0.9583 324.005 76.923" role="img" aria-label="Intercept" style="--wm-raster:url('../assets/img/wordmark-26-ink.png')"><g fill="var(--logo-ink)"><path d="M4.85695 54.8039V11.2147H14.1252V54.8039H4.85695Z"/>
+      <div><a class="fritz-lockup-hover" href="../../index.html" aria-label="Intercept home" data-fritz-hover-lockup><svg class="logo sm" viewBox="0 0.9583 324.005 76.923" role="img" aria-label="Intercept" style="--wm-raster:url('../../assets/img/wordmark-26-ink.png')"><g fill="var(--logo-ink)"><path d="M4.85695 54.8039V11.2147H14.1252V54.8039H4.85695Z"/>
       <path d="M18.3324 54.8039V23.9282H27.1794V31.1931H27.36V54.8039H18.3324ZM39.6976 54.8039V35.6731C39.6976 33.9779 39.2563 32.7066 38.3736 31.859C37.531 31.0115 36.2872 30.5877 34.6422 30.5877C33.2379 30.5877 31.9741 30.9106 30.8506 31.5563C29.7673 32.2021 28.9047 33.09 28.2627 34.2201C27.6609 35.3502 27.36 36.6821 27.36 38.2158L26.5776 30.7693C27.5807 28.5091 29.0451 26.7131 30.971 25.3812C32.937 24.0089 35.3443 23.3228 38.193 23.3228C41.6034 23.3228 44.2114 24.2915 46.0169 26.2288C47.8224 28.1257 48.7252 30.6886 48.7252 33.9174V54.8039H39.6976Z"/>
       <path d="M66.4586 55.4698C62.5266 55.4698 59.5977 54.5214 57.6718 52.6244C55.7861 50.6871 54.8432 47.761 54.8432 43.8461V17.0266L63.8707 13.6363V44.1488C63.8707 45.521 64.2519 46.5502 65.0142 47.2363C65.7766 47.9224 66.9602 48.2655 68.5651 48.2655C69.1669 48.2655 69.7286 48.205 70.2502 48.0839C70.7718 47.9628 71.2934 47.8215 71.815 47.6601V54.5617C71.2934 54.8442 70.5511 55.0662 69.5882 55.2277C68.6654 55.3891 67.6222 55.4698 66.4586 55.4698ZM49.1258 30.8298V23.9282H71.815V30.8298H49.1258Z"/>
       <path d="M88.2042 55.4093C84.7938 55.4093 81.8247 54.7434 79.297 53.4115C76.7693 52.0392 74.8033 50.1423 73.399 47.7206C72.0349 45.299 71.3528 42.5142 71.3528 39.3661C71.3528 36.1776 72.0349 33.3927 73.399 31.0115C74.8033 28.5898 76.7493 26.7131 79.2368 25.3812C81.7244 24.0089 84.6132 23.3228 87.9033 23.3228C91.073 23.3228 93.8213 23.9686 96.1484 25.2601C98.4755 26.5516 100.281 28.3477 101.565 30.6482C102.849 32.9488 103.491 35.6529 103.491 38.7606C103.491 39.4064 103.471 40.0118 103.431 40.5769C103.391 41.1015 103.33 41.606 103.25 42.0904H76.6489V36.0969H95.9679L94.4031 37.1866C94.4031 34.6843 93.8013 32.8479 92.5976 31.6774C91.434 30.4666 89.8292 29.8612 87.7829 29.8612C85.4157 29.8612 83.5701 30.6684 82.246 32.2828C80.9621 33.8972 80.3201 36.3188 80.3201 39.5477C80.3201 42.6958 80.9621 45.0367 82.246 46.5704C83.5701 48.1041 85.5361 48.8709 88.144 48.8709C89.5884 48.8709 90.8322 48.6288 91.8754 48.1444C92.9186 47.6601 93.701 46.8731 94.2226 45.7834H102.708C101.705 48.77 99.9801 51.1311 97.5327 52.8666C95.1253 54.5617 92.0158 55.4093 88.2042 55.4093Z"/>
@@ -256,17 +315,17 @@ p{margin:0;text-wrap:pretty}
       <path d="M209.092 55.4093C206.163 55.4093 203.816 54.7232 202.051 53.3509C200.286 51.9787 199.242 50.1019 198.921 47.7206L199.403 47.6601V67.2147H190.375V23.9282H199.222V30.7693L198.681 30.6482C199.122 28.388 200.326 26.6122 202.292 25.3206C204.258 23.9888 206.685 23.3228 209.574 23.3228C212.342 23.3228 214.73 23.9888 216.736 25.3206C218.782 26.6122 220.347 28.4486 221.43 30.8298C222.553 33.2111 223.115 36.0161 223.115 39.245C223.115 42.5142 222.533 45.3596 221.37 47.7812C220.206 50.2028 218.581 52.0796 216.495 53.4115C214.409 54.7434 211.941 55.4093 209.092 55.4093ZM206.565 48.1444C208.691 48.1444 210.416 47.3776 211.74 45.8439C213.064 44.3102 213.727 42.1307 213.727 39.3055C213.727 36.4803 213.044 34.321 211.68 32.8277C210.356 31.3343 208.611 30.5877 206.444 30.5877C204.358 30.5877 202.633 31.3545 201.269 32.8882C199.944 34.3815 199.282 36.5408 199.282 39.3661C199.282 42.1913 199.944 44.3707 201.269 45.9044C202.633 47.3978 204.398 48.1444 206.565 48.1444Z"/>
       <path d="M239.501 55.4698C235.569 55.4698 232.64 54.5214 230.714 52.6244C228.828 50.6871 227.885 47.761 227.885 43.8461V17.0266L236.913 13.6363V44.1488C236.913 45.521 237.294 46.5502 238.056 47.2363C238.819 47.9224 240.002 48.2655 241.607 48.2655C242.209 48.2655 242.771 48.205 243.292 48.0839C243.814 47.9628 244.335 47.8215 244.857 47.6601V54.5617C244.335 54.8442 243.593 55.0662 242.63 55.2277C241.707 55.3891 240.664 55.4698 239.501 55.4698ZM222.168 30.8298V23.9282H244.857V30.8298H222.168Z"/></g><g id="footer-mark-slot" transform="translate(0, 1.22)"></g></svg></a></div>
       <div class="foot-col"><h4>Site</h4>
-        <a href="../our-work/index.html">Our Work</a>
-        <a href="../index.html#services">What We Do</a>
-        <a href="../insights/index.html">Insights</a>
-        <a href="../about-us/index.html">About Us</a>
-        <a href="../careers/index.html">Careers</a>
-        <a href="../contact/index.html">Contact</a>
+        <a href="../../our-work/index.html">Our Work</a>
+        <a href="../../index.html#services">What We Do</a>
+        <a href="../../insights/index.html">Insights</a>
+        <a href="../../about-us/index.html">About Us</a>
+        <a href="../../careers/index.html">Careers</a>
+        <a href="../../contact/index.html">Contact</a>
       </div>
       <div class="foot-col"><h4>Trust</h4>
-        <a href="../ai-policy/index.html">AI Policy</a>
-        <a href="../privacy/index.html">Privacy Policy</a>
-        <a href="../terms/index.html">Terms of Service</a>
+        <a href="../../ai-policy/index.html">AI Policy</a>
+        <a href="../../privacy/index.html">Privacy Policy</a>
+        <a href="../../terms/index.html">Terms of Service</a>
       </div>
       <div class="foot-col"><h4>Socials</h4>
         <a href="https://www.linkedin.com/company/interceptagency/" target="_blank" rel="noopener">LinkedIn</a>
@@ -468,31 +527,5 @@ p{margin:0;text-wrap:pretty}
     });
   }, 500);
 })();</script>
-<script>
-(function(){
-  var grid = document.querySelector(".feed-grid");
-  var cards = [].slice.call(grid.querySelectorAll(".card"));
-  var more = document.getElementById("more");
-  var filter = "", expanded = false;
-  function apply(){
-    var shown = 0;
-    cards.forEach(function(c){
-      var match = !filter || c.dataset.s === filter;
-      var within = expanded || filter || shown < 12;
-      c.hidden = !(match && within);
-      if (match) shown++;
-    });
-    var hiddenLeft = cards.filter(function(c){ return c.hidden; }).length;
-    more.parentNode.style.display = hiddenLeft ? "" : "none";
-  }
-  document.querySelector(".chips").addEventListener("click", function(e){
-    var chip = e.target.closest(".chip"); if(!chip) return;
-    [].forEach.call(document.querySelectorAll(".chip"), function(c){ c.classList.remove("on"); });
-    chip.classList.add("on"); filter = chip.dataset.f || ""; expanded = false; apply();
-  });
-  more.addEventListener("click", function(){ expanded = true; apply(); });
-  apply();
-})();
-</script>
 </body>
 </html>
