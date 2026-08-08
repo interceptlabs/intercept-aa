@@ -92,12 +92,12 @@ a.role:hover{background:var(--band)}
 .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px 24px;max-width:820px}
 .fgrid .wide{grid-column:1 / -1}
 .field label{display:block;font-size:var(--fs-8);color:var(--ink-3);margin:0 0 7px;font-weight:600}
-.field .input{border:1px solid var(--line);background:#fff;height:46px;display:flex;align-items:center;padding:0 14px;font-size:var(--fs-7);color:var(--ink-3)}
+.field .input{border:1px solid var(--line);background:var(--page);height:46px;display:flex;align-items:center;padding:0 14px;font-size:var(--fs-7);color:var(--ink-3)}
 .field .input.area{height:120px;align-items:flex-start;padding-top:13px}
 .field .input.select{display:flex}
 .field .input.select::after{content:'⌄';margin-left:auto;color:var(--ink-3);font-size:15px}
 .req{color:var(--ink-3);font-weight:400}
-.menu{border:1px solid var(--line);border-top:0;background:#fff}
+.menu{border:1px solid var(--line);border-top:0;background:var(--page)}
 .menu span{display:block;padding:11px 14px;font-size:var(--fs-7);color:var(--ink-2);border-top:1px solid var(--line)}
 .menu span:first-child{border-top:0;background:var(--band);color:var(--ink);font-weight:600}
 

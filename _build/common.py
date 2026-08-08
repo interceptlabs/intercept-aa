@@ -95,7 +95,18 @@ CSS = """
   --coolsweep:#1a7aff; --coolsweep-500:#08285c;
   --ink:var(--carbon-500); --ink-2:#2c2c3a; --ink-3:#5a5f70; --ink-muted:rgba(10,10,15,.45);
   --logo-ink:var(--ink);
-  --page:var(--halo-100); --band:var(--halo-200); --line:var(--halo-300);
+  /* Jon-directed light-mode exception, round 4 (2026-08-08): ONE flat warm
+     tone for every light surface — page, nav, .band sections, .ph boxes,
+     form fields — no separate lighter/darker step between them (round 3's
+     two-tier --warm-100/--warm-200 split was a mistake, called out
+     directly: "you just reversed everything" — a darker second tone on
+     boxes/panels recreated the same bright-surface-next-to-different-
+     surface clash this whole exception exists to remove). Lighter again
+     than round 3's --warm-100 (#fcfbfa). Boxes/bands now separate from the
+     page ONLY via their existing 1px --line border, not a fill-color step.
+     --line stays on the Halo scale — untouched, not named in the ask. */
+  --warm:#fdfcfb; --warm-rgb:253,252,251;
+  --page:var(--warm); --band:var(--warm); --line:var(--halo-300);
   --maxw:1200px; --readw:700px;
   --font-display:'Instrument Sans',system-ui,sans-serif;
   --font-body:'Inter',system-ui,sans-serif;
@@ -139,7 +150,7 @@ p{margin:0;text-wrap:pretty}
 }
 
 /* topbar (functional sticky divider — matches shipped site nav convention) */
-.topbar{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar{position:sticky;top:0;z-index:100;background:rgba(var(--warm-rgb),.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .topbar .row{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:28px}
 .nav-wrap{display:flex;align-items:center;gap:20px}
 .nav-links{display:flex;align-items:center;gap:24px;font-size:var(--fs-7);font-weight:500;color:var(--ink-2)}
@@ -168,7 +179,7 @@ p{margin:0;text-wrap:pretty}
 .band-dark .ink-2{color:var(--halo-500)}
 .band-navy{background:var(--coolsweep-500);color:#fff}
 
-.ph{background:var(--halo-200);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;color:var(--ink-3);font-family:var(--font-body);font-weight:600;font-size:var(--fs-8);letter-spacing:.09em;text-transform:uppercase}
+.ph{background:var(--band);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;color:var(--ink-3);font-family:var(--font-body);font-weight:600;font-size:var(--fs-8);letter-spacing:.09em;text-transform:uppercase}
 
 /* stat strip (the sanctioned data-viz default). Numeral voice is Instrument
    Sans display bold, not a separate mono "data" register — ties the figure

@@ -25,17 +25,27 @@ HOME_CSS = """
 
 /* headline "Intercept" morphs into an arrow while the video's closing
    sting is on screen, reverting on native loop restart — see STING_START
-   in HERO_SCRIPT below; keep in sync with the reel's own cut point. Shaft
-   and head are separate elements (not one SVG) so the head keeps an
-   equilateral shape regardless of how far the shaft has to stretch. */
+   in HERO_SCRIPT below; keep in sync with the reel's own cut point.
+   Segmented-relay treatment (2026-08-08, replacing the old single
+   continuous-shaft version): 5 discrete dashes fire left-to-right, each a
+   fixed step on the existing Halo/500->Halo/100 scale (grey floor to full
+   Halo white) rather than one flat white shaft — banded/stepped, not a
+   gradient, using only already-locked tokens. Head is a separate element
+   (not one SVG with the segments) so it keeps an equilateral shape
+   regardless of how the flex row divides --arrow-w. */
 .headline-word{position:relative;display:inline-block}
 .headline-word .word-text{display:inline-block;transition:opacity .3s ease}
-.headline-word .word-arrow{position:absolute;left:0;top:0;height:100%;width:var(--arrow-w,2.2em);opacity:0;transition:opacity .25s ease;pointer-events:none}
-.arrow-shaft{position:absolute;left:0;top:50%;margin-top:-9px;height:18px;background:#fff;width:0;transition:width .38s cubic-bezier(.22,1,.36,1)}
-.arrow-head{position:absolute;right:0;top:50%;margin-top:-22px;width:0;height:0;border-top:22px solid transparent;border-bottom:22px solid transparent;border-left:38px solid #fff;opacity:0;transition:opacity .16s ease .2s}
+.headline-word .word-arrow{position:absolute;left:0;top:0;height:100%;width:var(--arrow-w,2.2em);opacity:0;transition:opacity .25s ease;pointer-events:none;display:flex;align-items:center;gap:5px}
+.arrow-seg{flex:1 1 0;height:18px;border-radius:2px;transform:scaleX(0);transform-origin:left center;transition:transform .16s cubic-bezier(.4,0,.2,1)}
+.arrow-seg:nth-child(1){background:var(--halo-500);transition-delay:0ms}
+.arrow-seg:nth-child(2){background:var(--halo-400);transition-delay:70ms}
+.arrow-seg:nth-child(3){background:var(--halo-300);transition-delay:140ms}
+.arrow-seg:nth-child(4){background:var(--halo-200);transition-delay:210ms}
+.arrow-seg:nth-child(5){background:var(--halo-100);transition-delay:280ms}
+.arrow-head{flex:0 0 auto;width:0;height:0;border-top:22px solid transparent;border-bottom:22px solid transparent;border-left:38px solid var(--halo-100);opacity:0;transition:opacity .16s ease .38s}
 .headline-word.sting-active .word-text{opacity:0}
 .headline-word.sting-active .word-arrow{opacity:1}
-.headline-word.sting-active .arrow-shaft{width:calc(100% - 38px)}
+.headline-word.sting-active .arrow-seg{transform:scaleX(1)}
 .headline-word.sting-active .arrow-head{opacity:1}
 
 @media(max-width:860px){
@@ -255,7 +265,7 @@ def render():
     <div class="hero-card">
       <div class="hero-card-inner">
         <span class="eyebrow">The frontier B2B agency for global tech</span>
-        <h1>We are<br><span class="headline-word" id="stingWord"><span class="word-text">Intercept</span><span class="word-arrow" aria-hidden="true"><span class="arrow-shaft"></span><span class="arrow-head"></span></span></span></h1>
+        <h1>We are<br><span class="headline-word" id="stingWord"><span class="word-text">Intercept</span><span class="word-arrow" aria-hidden="true"><span class="arrow-seg"></span><span class="arrow-seg"></span><span class="arrow-seg"></span><span class="arrow-seg"></span><span class="arrow-seg"></span><span class="arrow-head"></span></span></span></h1>
         <p class="sub">We run an AI-native delivery model that brings enterprise rigor to campaigns built for global scale.</p>
         <a class="btn" href="#work">Explore our work</a>
       </div>

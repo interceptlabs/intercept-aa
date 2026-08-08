@@ -8,7 +8,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CSS = """
 .shero{padding:64px 0 40px}
 .shero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center}
-.shero video{aspect-ratio:4/3;width:100%;object-fit:cover;display:block;background:var(--halo-200)}
+.shero video{aspect-ratio:4/3;width:100%;object-fit:cover;display:block;background:var(--band)}
 .shero h1{font-size:var(--fs-1);line-height:1.05;letter-spacing:-.03em;margin:0 0 16px;max-width:16ch}
 .shero .sub{font-size:var(--fs-5);line-height:1.4;color:var(--ink-2);margin:0}
 .sec{padding:44px 0}

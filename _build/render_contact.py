@@ -20,18 +20,18 @@ CSS = """
 .field{position:relative}
 .field label{display:block;font-size:var(--fs-8);font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin:0 0 7px}
 .field input[type=text],.field input[type=email],.field textarea{
-  width:100%;box-sizing:border-box;border:1px solid var(--line);background:#fff;height:46px;
+  width:100%;box-sizing:border-box;border:1px solid var(--line);background:var(--page);height:46px;
   padding:0 14px;font-size:var(--fs-7);font-family:var(--font-body);color:var(--ink);
 }
 .field input:focus,.field textarea:focus,.select-btn:focus{outline:2px solid var(--flarepop-ink);outline-offset:2px}
 .field textarea{height:120px;padding-top:13px;resize:vertical}
-.select-btn{width:100%;box-sizing:border-box;border:1px solid var(--line);background:#fff;height:46px;padding:0 14px;font-size:var(--fs-7);font-family:var(--font-body);color:var(--ink-3);display:flex;align-items:center;cursor:pointer;text-align:left}
+.select-btn{width:100%;box-sizing:border-box;border:1px solid var(--line);background:var(--page);height:46px;padding:0 14px;font-size:var(--fs-7);font-family:var(--font-body);color:var(--ink-3);display:flex;align-items:center;cursor:pointer;text-align:left}
 .select-btn.chosen{color:var(--ink)}
 .select-btn::after{content:'⌄';margin-left:auto;color:var(--ink-3);font-size:15px}
 .select-btn[aria-expanded="true"]::after{content:'⌃'}
 .req{color:var(--ink-3);font-weight:400;text-transform:none;letter-spacing:0}
 .fsubmit{padding:26px 0 4px}
-.menu{list-style:none;margin:0;padding:0;position:absolute;left:0;right:0;top:100%;z-index:5;border:1px solid var(--line);border-top:0;background:#fff;box-shadow:0 8px 20px rgba(10,10,15,.08)}
+.menu{list-style:none;margin:0;padding:0;position:absolute;left:0;right:0;top:100%;z-index:5;border:1px solid var(--line);border-top:0;background:var(--page);box-shadow:0 8px 20px rgba(10,10,15,.08)}
 .menu li{padding:11px 14px;font-size:var(--fs-7);color:var(--ink-2);border-top:1px solid var(--line);cursor:pointer}
 .menu li:first-child{border-top:0}
 .menu li:hover,.menu li.on{background:var(--band);color:var(--ink);font-weight:600}
