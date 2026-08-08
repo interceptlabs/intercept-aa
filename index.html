@@ -180,7 +180,20 @@ p{margin:0;text-wrap:pretty}
 }
 
 .pos{padding:64px 0}
-.pos h2{font-size:var(--fs-2);line-height:1.2;letter-spacing:-.02em;max-width:24ch}
+.pos h2{font-size:var(--fs-2);line-height:1.2;letter-spacing:-.02em;width:50%}
+/* Line-by-line reveal: JS (LEDE_REVEAL_SCRIPT) splits the balanced h2 into
+   one .line-wrap per rendered line, each shrunk to its own text width
+   (width:max-content, not the full h2 box) so overflow:hidden actually
+   masks the slide — a wrapper as wide as the h2 itself would never clip a
+   translateX offset that small. Revealed state toggles on the SECTION
+   (#services-lede.revealed), not per line, so a resize-triggered rebuild
+   (line groupings shift because h2 width is 50%, not fixed) never re-plays
+   the animation: fresh .line-inner spans inherit the already-revealed CSS
+   state on creation with no transition, since nothing changed after paint. */
+#services-lede h2 .line-wrap{display:block;width:max-content;overflow:hidden}
+#services-lede h2 .line-inner{display:inline-block;transform:translateX(48px);opacity:0;transition:transform .8s cubic-bezier(.22,.61,.36,1),opacity .8s ease}
+#services-lede.revealed h2 .line-inner{transform:translateX(0);opacity:1}
+@media(max-width:860px){.pos h2{width:100%}}
 
 .logos{padding:44px 0}
 .logos .lbl{text-align:center;font-size:var(--fs-8);font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin:0 0 28px}
@@ -354,6 +367,65 @@ p{margin:0;text-wrap:pretty}
     <h2>We use AI to make the keep-the-lights-on work more efficient, freeing our people to drive innovation.</h2>
   </div>
 </section>
+<script>
+(function(){
+  var h2 = document.querySelector("#services-lede h2");
+  var section = document.getElementById("services-lede");
+  if (!h2 || !section) return;
+  var STAGGER_MS = 110;
+  var words = h2.textContent.trim().split(/\s+/);
+
+  function layoutLines(){
+    // Pass 1: plain inline word spans — let the browser's own text-wrap:balance
+    // (h2's shared default) decide where lines break at the CURRENT width,
+    // since h2 is 50% of the section and that width changes with the window.
+    h2.innerHTML = words.map(function(w){ return "<span class=\"lw\">" + w + "</span>"; }).join(" ");
+    var wordEls = [].slice.call(h2.querySelectorAll(".lw"));
+    var lines = [];
+    var lastTop = null;
+    wordEls.forEach(function(el){
+      var top = el.offsetTop;
+      if (lastTop === null || Math.abs(top - lastTop) > 2){
+        lines.push([]);
+        lastTop = top;
+      }
+      lines[lines.length - 1].push(el.textContent);
+    });
+
+    // Pass 2: rebuild as one block-level, own-width wrapper per line so
+    // overflow:hidden actually masks the translateX-from-the-right slide
+    // (a wrapper as wide as the whole h2 would never clip a 48px offset).
+    h2.innerHTML = lines.map(function(lineWords, i){
+      return "<span class=\"line-wrap\"><span class=\"line-inner\" style=\"transition-delay:" + (i * STAGGER_MS) + "ms\">" + lineWords.join(" ") + "</span></span>";
+    }).join("");
+  }
+
+  layoutLines();
+  // re-run once webfonts swap in — Instrument Sans loads with font-display:swap,
+  // and the fallback font's metrics can group words into the wrong line
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(layoutLines);
+
+  var resizeTimer;
+  window.addEventListener("resize", function(){
+    clearTimeout(resizeTimer);
+    // rebuilding is safe even after reveal: the section already carries
+    // .revealed, so freshly-created .line-inner spans compute straight to
+    // the revealed end-state on insertion — nothing to transition from,
+    // so no replay
+    resizeTimer = setTimeout(layoutLines, 150);
+  });
+
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting){
+        section.classList.add("revealed");
+        obs.unobserve(section);
+      }
+    });
+  }, {threshold: 0.35});
+  obs.observe(section);
+})();
+</script>
 
 <section class="logos">
   <div class="wrap">
