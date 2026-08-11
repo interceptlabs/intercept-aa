@@ -86,7 +86,7 @@ def parse(fname):
     byline_inner = byline_html.group(1) if byline_html else ""
     toc = re.search(r'<nav class="toc">(.*?)</nav>', html, re.S).group(1)
     toc_links = re.findall(r'<a[^>]*>(.*?)</a>', toc)
-    copy = between(html, '<div class="copy">', '</div>\n      </div>\n    </div>\n  </div>\n</section>')
+    copy = between(html, '<div class="copy">', '\n      </div>\n    </div>\n  </div>\n</section>\n\n<!-- ARTICLE CTA -->')
     acta = between(html, '<!-- ARTICLE CTA -->', '<!-- FAQ -->')
     acta_inner = re.search(r'<div class="wrap">(.*?)</div>\s*</section>', acta, re.S)
     acta_html = acta_inner.group(1) if acta_inner else acta
@@ -129,6 +129,7 @@ def render(slug, data, base="../../"):
     copy = re.sub(r"<h2>(.*?)</h2>", add_id, copy)
 
     toc_html = "".join(f'<a href="#{slugify_heading(t)}">{t}</a>' for t in data["toc_links"] if slugify_heading(t))
+    faq_id = slugify_heading(data["toc_links"][-1]) if data["toc_links"] else "questions-we-get-asked"
 
     faq_html = "".join(
         f'<div class="acc-item"><h3>{q}</h3><p>{a}</p></div>' for q, a in data["faq_items"]
@@ -176,7 +177,7 @@ def render(slug, data, base="../../"):
 
 <section class="faq">
   <div class="wrap">
-    <h2>Frequently asked questions</h2>
+    <h2 id="{faq_id}">Frequently asked questions</h2>
     <div class="acc">{faq_html}</div>
     <p class="faq-close">{data["faq_close"]}</p>
   </div>
