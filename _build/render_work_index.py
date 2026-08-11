@@ -4,7 +4,11 @@ load-more (per our-work.html wireframe: chips filter by data-s, 12 shown by
 default, "Load more" reveals the rest — ported verbatim, not reinterpreted)."""
 import json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import esc, head_html, header_html, footer_html
+from common import esc, head_html, header_html, footer_html, IMG_DIMS
+
+def img_ratio(key):
+    w, h = IMG_DIMS[key]
+    return f"{w}/{h}"
 
 BUILD_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(BUILD_DIR)
@@ -121,7 +125,7 @@ def render():
             if c["credential"] else ""
         )
         cards += f"""<a class="card wcard case" data-s="{esc(c['service'])}" href="{c['slug']}/index.html">
-  <div class="ph" style="aspect-ratio:4/3">{esc(c['client_display'])}</div>
+  <img class="ph" style="aspect-ratio:{img_ratio(c['slug']+'-card')}" src="../assets/img/cases/{c['slug']}-card.webp" alt="{esc(c['client_display'])} — {esc(c['h1'])}">
   <span class="client">{esc(c['service'])}</span>
   <h3>{esc(c['h1'])}</h3>
   {credential_html}
@@ -148,7 +152,7 @@ def render():
 <section class="feat">
   <div class="wrap">
     <div class="feat-grid">
-      <div class="ph" style="aspect-ratio:16/9">{esc(feat['client_display'])}</div>
+      <img class="ph" style="aspect-ratio:{img_ratio(feat['slug']+'-hero')}" src="../assets/img/cases/{feat['slug']}-hero.webp" alt="{esc(feat['client_display'])} — AI in Practice">
       <div>
         <span class="eyebrow">Featured</span>
         <h2>AI in Practice</h2>

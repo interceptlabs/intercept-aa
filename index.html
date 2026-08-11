@@ -101,6 +101,7 @@ p{margin:0;text-wrap:pretty}
 .band-navy{background:var(--coolsweep-500);color:#fff}
 
 .ph{background:var(--band);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;color:var(--ink-3);font-family:var(--font-body);font-weight:600;font-size:var(--fs-8);letter-spacing:.09em;text-transform:uppercase}
+img.ph{width:100%;height:auto;object-fit:cover;display:block;border:0;background:none;padding:0}
 
 /* stat strip (the sanctioned data-viz default). Numeral voice is Instrument
    Sans display bold, not a separate mono "data" register — ties the figure
@@ -207,14 +208,14 @@ p{margin:0;text-wrap:pretty}
 .sec-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:32px;gap:24px}
 .sec-head h2{font-size:var(--fs-2);letter-spacing:-.025em}
 .feat{display:grid;grid-template-columns:1.5fr 1fr;gap:40px;align-items:center;margin-bottom:48px}
-.feat .ph{aspect-ratio:16/10}
+.feat img.ph{aspect-ratio:1600/1037}
 .feat-body h3{font-size:var(--fs-3);letter-spacing:-.02em;margin:0 0 14px}
 .feat-body p{font-size:var(--fs-6);line-height:1.55;margin:0 0 18px;color:var(--ink-2)}
-.tier2{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:28px}
-.tier2 .ph{aspect-ratio:16/9}
+.tier2{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:28px;align-items:start}
+.tier2 img.ph{aspect-ratio:1600/919}
 .tier2 h3{font-size:var(--fs-3)}
-.tier3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.tier3 .ph{aspect-ratio:4/3}
+.tier3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
+.tier3 img.ph{aspect-ratio:1600/1172}
 @media(max-width:900px){.feat,.tier2{grid-template-columns:1fr}.tier3{grid-template-columns:1fr}}
 
 .stats-sec{padding:56px 0}
@@ -229,12 +230,13 @@ p{margin:0;text-wrap:pretty}
 .labs{padding:68px 0 76px;background:var(--band)}
 .labs-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center}
 .labs-grid h2{font-size:var(--fs-3);line-height:1.25;letter-spacing:-.015em;max-width:26ch}
-.labs-grid .ph{aspect-ratio:4/3}
+.labs-grid img.ph{aspect-ratio:1600/1037}
 @media(max-width:860px){.labs-grid{grid-template-columns:1fr}}
 
 .ins{padding:72px 0 80px}
+.ins .card-grid{align-items:start}
 .icard{border:1px solid var(--line)}
-.icard .ph{aspect-ratio:4/3;border:0;border-bottom:1px solid var(--line)}
+.icard img.ph{aspect-ratio:1600/1172;border-bottom:1px solid var(--line)}
 .icard .body{padding:18px}
 .icard .kicker{font-size:var(--fs-8);font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}
 .icard h3{font-size:var(--fs-4);line-height:1.32;margin:0 0 8px}
@@ -250,8 +252,8 @@ p{margin:0;text-wrap:pretty}
 .faq-a{padding:14px 0 0;font-size:var(--fs-6);line-height:1.6;color:var(--ink-2);max-width:70ch}
 
 .team{padding:72px 0 80px;background:var(--band)}
-.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px 28px;margin-top:28px}
-.person .ph{aspect-ratio:4/3;margin-bottom:14px}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px 28px;margin-top:28px;align-items:start}
+.person img.ph{aspect-ratio:1600/1172;margin-bottom:14px}
 .person b{display:block;font-size:var(--fs-6);font-weight:700}
 .person span{display:block;font-size:var(--fs-8);color:var(--ink-3);margin-top:2px}
 @media(max-width:820px){.team-grid{grid-template-columns:1fr 1fr}}
@@ -472,7 +474,7 @@ p{margin:0;text-wrap:pretty}
     <div class="sec-head"><h2>Our work</h2><a class="link" href="our-work/index.html">View all</a></div>
 
     <div class="feat">
-      <div class="ph" style="aspect-ratio:16/10">Microsoft</div>
+      <img class="ph" src="assets/img/homepage/ai-in-practice.webp" alt="Microsoft — AI in practice">
       <div class="feat-body">
         <span class="eyebrow">Microsoft</span>
         <h3>AI in practice</h3>
@@ -481,8 +483,8 @@ p{margin:0;text-wrap:pretty}
       </div>
     </div>
 
-    <div class="tier2"><a class="card" href="our-work/the-measure-of-a-marketer/index.html"><div class="ph" style="aspect-ratio:16/9">HP</div><h3>The measure of a marketer</h3><p>Two matched groups of 250 enterprise accounts, one receiving ABX journeys built from AI-upcycled content</p></a><a class="card" href="our-work/lights-camera-avatars/index.html"><div class="ph" style="aspect-ratio:16/9">SAP</div><h3>Lights camera avatars</h3><p>Studio-quality multilingual avatars, a global playbook, a structured intake form and a centralized tracker</p></a></div>
-    <div class="tier3"><a class="card" href="our-work/the-magic-of-metaphors/index.html"><div class="ph" style="aspect-ratio:4/3">Intel</div><h3>The Magic of Metaphors</h3><p>Metaphor-led creative and separate guides for developers and finance leaders, promoted to targeted enterprise accounts</p></a><a class="card" href="our-work/agents-of-change/index.html"><div class="ph" style="aspect-ratio:4/3">HP</div><h3>Agents of change</h3><p>A voice agent onboarded like a new hire, with a knowledge base and hardcoded compliance</p></a><a class="card" href="our-work/be-the-answer/index.html"><div class="ph" style="aspect-ratio:4/3">BMC</div><h3>Be the answer</h3><p>A buyer’s guide comparing Control-M to named rivals, built in the structure AI assistants cite</p></a></div>
+    <div class="tier2"><a class="card" href="our-work/the-measure-of-a-marketer/index.html"><img class="ph" src="assets/img/homepage/the-measure-of-a-marketer.webp" alt="HP — The measure of a marketer"><h3>The measure of a marketer</h3><p>Two matched groups of 250 enterprise accounts, one receiving ABX journeys built from AI-upcycled content</p></a><a class="card" href="our-work/lights-camera-avatars/index.html"><img class="ph" src="assets/img/homepage/lights-camera-avatars.webp" alt="SAP — Lights camera avatars"><h3>Lights camera avatars</h3><p>Studio-quality multilingual avatars, a global playbook, a structured intake form and a centralized tracker</p></a></div>
+    <div class="tier3"><a class="card" href="our-work/the-magic-of-metaphors/index.html"><img class="ph" src="assets/img/homepage/the-magic-of-metaphors.webp" alt="Intel — The Magic of Metaphors"><h3>The Magic of Metaphors</h3><p>Metaphor-led creative and separate guides for developers and finance leaders, promoted to targeted enterprise accounts</p></a><a class="card" href="our-work/agents-of-change/index.html"><img class="ph" src="assets/img/homepage/agents-of-change.webp" alt="HP — Agents of change"><h3>Agents of change</h3><p>A voice agent onboarded like a new hire, with a knowledge base and hardcoded compliance</p></a><a class="card" href="our-work/be-the-answer/index.html"><img class="ph" src="assets/img/homepage/be-the-answer.webp" alt="BMC — Be the answer"><h3>Be the answer</h3><p>A buyer’s guide comparing Control-M to named rivals, built in the structure AI assistants cite</p></a></div>
   </div>
 </section>
 
@@ -506,7 +508,7 @@ p{margin:0;text-wrap:pretty}
 <section class="labs">
   <div class="wrap">
     <div class="labs-grid">
-      <div class="ph">Intercept Labs</div>
+      <img class="ph" src="assets/img/homepage/intercept-labs.webp" alt="Intercept Labs">
       <div>
         <span class="eyebrow">Intercept Labs</span>
         <h2>When you want to try something nobody has done, we fund up to half the cost and share the risk.</h2>
@@ -519,7 +521,7 @@ p{margin:0;text-wrap:pretty}
 <section class="ins" id="insights">
   <div class="wrap">
     <div class="sec-head"><h2>Insights</h2><a class="link" href="insights/index.html">Explore more</a></div>
-    <div class="card-grid g3"><a class="icard" href="insights/who-owns-your-marketing-alpha/index.html"><div class="ph">Signals from the Edge</div><div class="body"><div class="kicker">Signals from the Edge</div><h3>Who owns your marketing alpha?</h3><p>A field read on the ownership question now facing enterprise technology, and what it means for marketing teams building on frontier AI models.</p></div></a><a class="icard" href="insights/why-2026-feels-heavier/index.html"><div class="ph">Signals from the Edge</div><div class="body"><div class="kicker">Signals from the Edge</div><h3>Why 2026 feels heavier, and what the data says</h3><p>The two-sided squeeze on B2B tech marketing, read against research from Promethean and WP Engine.</p></div></a><a class="icard" href="insights/seo-is-becoming-findability/index.html"><div class="ph">Signals from the Edge</div><div class="body"><div class="kicker">Signals from the Edge</div><h3>SEO is not dead. It is becoming findability</h3><p>What changes when buyers stop searching and start asking.</p></div></a></div>
+    <div class="card-grid g3"><a class="icard" href="insights/who-owns-your-marketing-alpha/index.html"><img class="ph" src="assets/img/homepage/who-owns-your-marketing-alpha.webp" alt="Signals from the Edge — Who owns your marketing alpha?"><div class="body"><div class="kicker">Signals from the Edge</div><h3>Who owns your marketing alpha?</h3><p>A field read on the ownership question now facing enterprise technology, and what it means for marketing teams building on frontier AI models.</p></div></a><a class="icard" href="insights/why-2026-feels-heavier/index.html"><img class="ph" src="assets/img/homepage/why-2026-feels-heavier.webp" alt="Signals from the Edge — Why 2026 feels heavier, and what the data says"><div class="body"><div class="kicker">Signals from the Edge</div><h3>Why 2026 feels heavier, and what the data says</h3><p>The two-sided squeeze on B2B tech marketing, read against research from Promethean and WP Engine.</p></div></a><a class="icard" href="insights/seo-is-becoming-findability/index.html"><img class="ph" src="assets/img/homepage/seo-is-becoming-findability.webp" alt="Signals from the Edge — SEO is not dead. It is becoming findability"><div class="body"><div class="kicker">Signals from the Edge</div><h3>SEO is not dead. It is becoming findability</h3><p>What changes when buyers stop searching and start asking.</p></div></a></div>
   </div>
 </section>
 
@@ -534,7 +536,7 @@ p{margin:0;text-wrap:pretty}
 <section class="team" id="team">
   <div class="wrap">
     <div class="sec-head"><h2>Meet the leadership team</h2><a class="link" href="about-us/index.html">About us</a></div>
-    <div class="team-grid"><div class="person"><div class="ph">Andrew Au</div><b>Andrew Au</b><span>Co-CEO</span></div><div class="person"><div class="ph">Shaheen Yazdani</div><b>Shaheen Yazdani</b><span>Co-CEO</span></div><div class="person"><div class="ph">Francis Silva</div><b>Francis Silva</b><span>Chief Technology Officer</span></div><div class="person"><div class="ph">Laura White</div><b>Laura White</b><span>Chief Financial Officer</span></div><div class="person"><div class="ph">David Toto</div><b>David Toto</b><span>Managing Director</span></div><div class="person"><div class="ph">Jeff Lewis</div><b>Jeff Lewis</b><span>Head of Client Advisory</span></div></div>
+    <div class="team-grid"><div class="person"><img class="ph" src="assets/img/homepage/andrew-au.webp" alt="Andrew Au"><b>Andrew Au</b><span>Co-CEO</span></div><div class="person"><img class="ph" src="assets/img/homepage/shaheen-yazdani.webp" alt="Shaheen Yazdani"><b>Shaheen Yazdani</b><span>Co-CEO</span></div><div class="person"><img class="ph" src="assets/img/homepage/francis-silva.webp" alt="Francis Silva"><b>Francis Silva</b><span>Chief Technology Officer</span></div><div class="person"><img class="ph" src="assets/img/homepage/laura-white.webp" alt="Laura White"><b>Laura White</b><span>Chief Financial Officer</span></div><div class="person"><img class="ph" src="assets/img/homepage/david-toto.webp" alt="David Toto"><b>David Toto</b><span>Managing Director</span></div><div class="person"><img class="ph" src="assets/img/homepage/jeff-lewis.webp" alt="Jeff Lewis"><b>Jeff Lewis</b><span>Head of Client Advisory</span></div></div>
   </div>
 </section>
 

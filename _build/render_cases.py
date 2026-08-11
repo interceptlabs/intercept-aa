@@ -2,7 +2,11 @@
 """Render all 31 case-study pages from cases.json into ../our-work/<slug>/index.html."""
 import json, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import esc, head_html, header_html, footer_html, CSS
+from common import esc, head_html, header_html, footer_html, CSS, IMG_DIMS
+
+def img_ratio(key):
+    w, h = IMG_DIMS[key]
+    return f"{w}/{h}"
 
 BUILD_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(BUILD_DIR)
@@ -82,9 +86,12 @@ def render_case(c):
     for r in c["related"]:
         match = resolve_related(r["title"])
         href = f'{base}our-work/{match["slug"]}/index.html' if match else f'{base}our-work/index.html'
+        if match:
+            img_html = f'<img class="ph" style="aspect-ratio:{img_ratio(match["slug"]+"-card")}" src="{base}assets/img/cases/{match["slug"]}-card.webp" alt="{esc(match["client_display"])} — {esc(r["title"])}">'
+        else:
+            img_html = '<div class="ph" style="aspect-ratio:4/3">Related work</div>'
         rel_cards += (
-            f'<a class="card rel" href="{href}">'
-            f'<div class="ph" style="aspect-ratio:4/3">{esc(match["client_display"]) if match else "Related work"}</div>'
+            f'<a class="card rel" href="{href}">{img_html}'
             f'<h3>{esc(r["title"])}</h3><p>{esc(r["desc"])}</p></a>'
         )
 
@@ -113,7 +120,7 @@ def render_case(c):
   </div>
 </section>
 
-<div class="wrap"><div class="ph chero-media">Case hero</div></div>
+<div class="wrap"><img class="ph chero-media" style="aspect-ratio:{img_ratio(c['slug']+'-hero')}" src="{base}assets/img/cases/{c['slug']}-hero.webp" alt="{esc(c['client_display'])} — {esc(c['h1'])}"></div>
 
 <section class="sec prose">
   <div class="wrap read">

@@ -7,6 +7,74 @@ BUILD_DIR = os.path.dirname(os.path.abspath(__file__))
 def esc(s):
     return _html.escape(s, quote=False) if s else ""
 
+# case/hero image native dimensions (post-resize), used to set exact
+# aspect-ratio per image so object-fit:cover never crops real content
+IMG_DIMS = {
+    "agents-of-change-card": (1600, 1172),
+    "agents-of-change-hero": (1600, 700),
+    "ai-in-practice-card": (1600, 1038),
+    "ai-in-practice-hero": (1600, 700),
+    "ai-under-the-influence-card": (1600, 1172),
+    "ai-under-the-influence-hero": (1600, 700),
+    "align-in-the-metaverse-card": (1600, 1172),
+    "align-in-the-metaverse-hero": (1600, 1172),
+    "be-the-answer-card": (1600, 1172),
+    "be-the-answer-hero": (1600, 700),
+    "confidence-in-every-word-card": (1600, 1172),
+    "confidence-in-every-word-hero": (1600, 700),
+    "dev-zone-card": (1600, 1172),
+    "dev-zone-hero": (1600, 1172),
+    "devbuilder-card": (1600, 1172),
+    "devbuilder-hero": (1600, 1172),
+    "devhero-stories-card": (1600, 1172),
+    "devhero-stories-hero": (1600, 700),
+    "eyes-on-the-road-card": (1600, 1172),
+    "eyes-on-the-road-hero": (1600, 1172),
+    "find-your-path-card": (1600, 1172),
+    "find-your-path-hero": (1600, 1172),
+    "fly-with-dragonfly-card": (1600, 1172),
+    "fly-with-dragonfly-hero": (1600, 700),
+    "from-signal-to-sale-card": (1600, 1172),
+    "from-signal-to-sale-hero": (1600, 1172),
+    "innovation-mavericks-card": (1600, 1172),
+    "innovation-mavericks-hero": (1600, 700),
+    "into-the-breach-card": (1600, 1172),
+    "into-the-breach-hero": (1600, 1172),
+    "leading-in-the-era-of-ai-card": (1600, 1172),
+    "leading-in-the-era-of-ai-hero": (1600, 700),
+    "lights-camera-avatars-card": (1600, 1172),
+    "lights-camera-avatars-hero": (1600, 700),
+    "migrate-to-innovate-card": (1600, 1172),
+    "migrate-to-innovate-hero": (1600, 1172),
+    "security-skilling-card": (1600, 1172),
+    "security-skilling-hero": (1600, 1172),
+    "subscription-overload-card": (1600, 1172),
+    "subscription-overload-hero": (1600, 700),
+    "surface-experience-kits-card": (1600, 1172),
+    "surface-experience-kits-hero": (1600, 700),
+    "surface-pitch-perfect-card": (1600, 1172),
+    "surface-pitch-perfect-hero": (1600, 700),
+    "surface-show-and-go-card": (1600, 1172),
+    "surface-show-and-go-hero": (1600, 700),
+    "the-magic-of-metaphors-card": (1600, 1172),
+    "the-magic-of-metaphors-hero": (1600, 700),
+    "the-measure-of-a-marketer-card": (1600, 1172),
+    "the-measure-of-a-marketer-hero": (1600, 700),
+    "the-modern-office-card": (1600, 1172),
+    "the-modern-office-hero": (1600, 700),
+    "the-video-that-talks-back-card": (1600, 1172),
+    "the-video-that-talks-back-hero": (1600, 700),
+    "this-time-its-personal-card": (1600, 1172),
+    "this-time-its-personal-hero": (1600, 700),
+    "to-the-cloud-card": (1600, 1172),
+    "to-the-cloud-hero": (1600, 1172),
+    "unbound-cfo-event-card": (1600, 1172),
+    "unbound-cfo-event-hero": (1600, 1172),
+    "winning-future-smb-owners-card": (1600, 1172),
+    "winning-future-smb-owners-hero": (1600, 700),
+}
+
+
 # ---- wordmark (re-sourced from intercept-home-concepts/concept-d, 2026-08-06 correction —
 #      home.html's copy carried a runtime translate(0,-10) against a fractional viewBox, the
 #      exact "crunchy logo" failure mode the constitution's L-1..L-5 document. concept-d's copy
@@ -180,6 +248,7 @@ p{margin:0;text-wrap:pretty}
 .band-navy{background:var(--coolsweep-500);color:#fff}
 
 .ph{background:var(--band);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;color:var(--ink-3);font-family:var(--font-body);font-weight:600;font-size:var(--fs-8);letter-spacing:.09em;text-transform:uppercase}
+img.ph{width:100%;height:auto;object-fit:cover;display:block;border:0;background:none;padding:0}
 
 /* stat strip (the sanctioned data-viz default). Numeral voice is Instrument
    Sans display bold, not a separate mono "data" register — ties the figure

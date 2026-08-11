@@ -85,14 +85,14 @@ HOME_CSS = """
 .sec-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:32px;gap:24px}
 .sec-head h2{font-size:var(--fs-2);letter-spacing:-.025em}
 .feat{display:grid;grid-template-columns:1.5fr 1fr;gap:40px;align-items:center;margin-bottom:48px}
-.feat .ph{aspect-ratio:16/10}
+.feat img.ph{aspect-ratio:1600/1037}
 .feat-body h3{font-size:var(--fs-3);letter-spacing:-.02em;margin:0 0 14px}
 .feat-body p{font-size:var(--fs-6);line-height:1.55;margin:0 0 18px;color:var(--ink-2)}
-.tier2{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:28px}
-.tier2 .ph{aspect-ratio:16/9}
+.tier2{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:28px;align-items:start}
+.tier2 img.ph{aspect-ratio:1600/919}
 .tier2 h3{font-size:var(--fs-3)}
-.tier3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.tier3 .ph{aspect-ratio:4/3}
+.tier3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
+.tier3 img.ph{aspect-ratio:1600/1172}
 @media(max-width:900px){.feat,.tier2{grid-template-columns:1fr}.tier3{grid-template-columns:1fr}}
 
 .stats-sec{padding:56px 0}
@@ -107,12 +107,13 @@ HOME_CSS = """
 .labs{padding:68px 0 76px;background:var(--band)}
 .labs-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center}
 .labs-grid h2{font-size:var(--fs-3);line-height:1.25;letter-spacing:-.015em;max-width:26ch}
-.labs-grid .ph{aspect-ratio:4/3}
+.labs-grid img.ph{aspect-ratio:1600/1037}
 @media(max-width:860px){.labs-grid{grid-template-columns:1fr}}
 
 .ins{padding:72px 0 80px}
+.ins .card-grid{align-items:start}
 .icard{border:1px solid var(--line)}
-.icard .ph{aspect-ratio:4/3;border:0;border-bottom:1px solid var(--line)}
+.icard img.ph{aspect-ratio:1600/1172;border-bottom:1px solid var(--line)}
 .icard .body{padding:18px}
 .icard .kicker{font-size:var(--fs-8);font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}
 .icard h3{font-size:var(--fs-4);line-height:1.32;margin:0 0 8px}
@@ -128,8 +129,8 @@ HOME_CSS = """
 .faq-a{padding:14px 0 0;font-size:var(--fs-6);line-height:1.6;color:var(--ink-2);max-width:70ch}
 
 .team{padding:72px 0 80px;background:var(--band)}
-.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px 28px;margin-top:28px}
-.person .ph{aspect-ratio:4/3;margin-bottom:14px}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px 28px;margin-top:28px;align-items:start}
+.person img.ph{aspect-ratio:1600/1172;margin-bottom:14px}
 .person b{display:block;font-size:var(--fs-6);font-weight:700}
 .person span{display:block;font-size:var(--fs-8);color:var(--ink-3);margin-top:2px}
 @media(max-width:820px){.team-grid{grid-template-columns:1fr 1fr}}
@@ -268,9 +269,9 @@ def render():
     t3b = case_teaser("agents-of-change")
     t3c = case_teaser("be-the-answer")
 
-    def tier_card(item, aspect="4/3"):
+    def tier_card(item, img_slug):
         href, title, desc, client = item
-        return f"""<a class="card" href="{href}"><div class="ph" style="aspect-ratio:{aspect}">{esc(client)}</div><h3>{esc(title)}</h3><p>{esc(desc)}</p></a>"""
+        return f"""<a class="card" href="{href}"><img class="ph" src="assets/img/homepage/{img_slug}.webp" alt="{esc(client)} — {esc(title)}"><h3>{esc(title)}</h3><p>{esc(desc)}</p></a>"""
 
     logos_row1 = "".join(f'<span>{client_logo_html(n)}</span>' for n in ["Microsoft","SAP","HP","Lenovo","Cisco","AMD"])
     logos_row2 = "".join(f'<span>{client_logo_html(n)}</span>' for n in ["Qualcomm","Logitech","Nokia","TELUS","Staples","BMC","Intel"])
@@ -302,23 +303,23 @@ def render():
     )
 
     team = [
-        ("Andrew Au", "Co-CEO"), ("Shaheen Yazdani", "Co-CEO"),
-        ("Francis Silva", "Chief Technology Officer"), ("Laura White", "Chief Financial Officer"),
-        ("David Toto", "Managing Director"), ("Jeff Lewis", "Head of Client Advisory"),
+        ("Andrew Au", "Co-CEO", "andrew-au"), ("Shaheen Yazdani", "Co-CEO", "shaheen-yazdani"),
+        ("Francis Silva", "Chief Technology Officer", "francis-silva"), ("Laura White", "Chief Financial Officer", "laura-white"),
+        ("David Toto", "Managing Director", "david-toto"), ("Jeff Lewis", "Head of Client Advisory", "jeff-lewis"),
     ]
     team_html = "".join(
-        f'<div class="person"><div class="ph">{esc(name)}</div><b>{esc(name)}</b><span>{esc(role)}</span></div>'
-        for name, role in team
+        f'<div class="person"><img class="ph" src="assets/img/homepage/{slug}.webp" alt="{esc(name)}"><b>{esc(name)}</b><span>{esc(role)}</span></div>'
+        for name, role, slug in team
     )
 
     ins_cards = [
-        ("Signals from the Edge", "Who owns your marketing alpha?", "A field read on the ownership question now facing enterprise technology, and what it means for marketing teams building on frontier AI models.", "insights/who-owns-your-marketing-alpha/index.html"),
-        ("Signals from the Edge", "Why 2026 feels heavier, and what the data says", "The two-sided squeeze on B2B tech marketing, read against research from Promethean and WP Engine.", "insights/why-2026-feels-heavier/index.html"),
-        ("Signals from the Edge", "SEO is not dead. It is becoming findability", "What changes when buyers stop searching and start asking.", "insights/seo-is-becoming-findability/index.html"),
+        ("Signals from the Edge", "Who owns your marketing alpha?", "A field read on the ownership question now facing enterprise technology, and what it means for marketing teams building on frontier AI models.", "insights/who-owns-your-marketing-alpha/index.html", "who-owns-your-marketing-alpha"),
+        ("Signals from the Edge", "Why 2026 feels heavier, and what the data says", "The two-sided squeeze on B2B tech marketing, read against research from Promethean and WP Engine.", "insights/why-2026-feels-heavier/index.html", "why-2026-feels-heavier"),
+        ("Signals from the Edge", "SEO is not dead. It is becoming findability", "What changes when buyers stop searching and start asking.", "insights/seo-is-becoming-findability/index.html", "seo-is-becoming-findability"),
     ]
     ins_html = "".join(
-        f'<a class="icard" href="{href}"><div class="ph">{esc(k)}</div><div class="body"><div class="kicker">{esc(k)}</div><h3>{esc(h)}</h3><p>{esc(p)}</p></div></a>'
-        for k, h, p, href in ins_cards
+        f'<a class="icard" href="{href}"><img class="ph" src="assets/img/homepage/{img_slug}.webp" alt="{esc(k)} — {esc(h)}"><div class="body"><div class="kicker">{esc(k)}</div><h3>{esc(h)}</h3><p>{esc(p)}</p></div></a>'
+        for k, h, p, href, img_slug in ins_cards
     )
 
     return f"""<!doctype html>
@@ -373,7 +374,7 @@ def render():
     <div class="sec-head"><h2>Our work</h2><a class="link" href="our-work/index.html">View all</a></div>
 
     <div class="feat">
-      <div class="ph" style="aspect-ratio:16/10">{esc(feat_client)}</div>
+      <img class="ph" src="assets/img/homepage/ai-in-practice.webp" alt="{esc(feat_client)} — {esc(feat_title)}">
       <div class="feat-body">
         <span class="eyebrow">{esc(feat_client)}</span>
         <h3>{esc(feat_title)}</h3>
@@ -382,8 +383,8 @@ def render():
       </div>
     </div>
 
-    <div class="tier2">{tier_card(t2a, "16/9")}{tier_card(t2b, "16/9")}</div>
-    <div class="tier3">{tier_card(t3a)}{tier_card(t3b)}{tier_card(t3c)}</div>
+    <div class="tier2">{tier_card(t2a, "the-measure-of-a-marketer")}{tier_card(t2b, "lights-camera-avatars")}</div>
+    <div class="tier3">{tier_card(t3a, "the-magic-of-metaphors")}{tier_card(t3b, "agents-of-change")}{tier_card(t3c, "be-the-answer")}</div>
   </div>
 </section>
 
@@ -407,7 +408,7 @@ def render():
 <section class="labs">
   <div class="wrap">
     <div class="labs-grid">
-      <div class="ph">Intercept Labs</div>
+      <img class="ph" src="assets/img/homepage/intercept-labs.webp" alt="Intercept Labs">
       <div>
         <span class="eyebrow">Intercept Labs</span>
         <h2>When you want to try something nobody has done, we fund up to half the cost and share the risk.</h2>
