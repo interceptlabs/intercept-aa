@@ -7,7 +7,7 @@ PROOF / CONVERSION), confirmed against all 6 files. Output: what-we-do/<slug>/in
 """
 import os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import esc, head_html, header_html, footer_html
+from common import esc, head_html, header_html, footer_html, IMG_DIMS, PatternCycler
 from render_cases import resolve_related
 
 SRC_DIR = "/Users/jontoewsinterceptgroup.com/Downloads/New Wire Frames/pages/services"
@@ -133,6 +133,7 @@ def svcnav_html(active_slug, base):
     return f'<div class="svcnav"><div class="svcnav-row">{"".join(items)}</div></div>'
 
 def render(slug, data, base="../../"):
+    pc = PatternCycler()
     callout_html = ""
     if data["stat_value"]:
         callout_html = (
@@ -149,21 +150,31 @@ def render(slug, data, base="../../"):
     )
 
     tool_cols = min(len(data["tools"]), 4) or 4
-    tools_html = "".join(
-        f'<div class="tcard"><div class="ph">Tool</div><b>{esc(a)}</b><span>{esc(b)}</span></div>'
-        for a, b in data["tools"]
-    )
+    tool_pattern_size = f"{tool_cols}col" if tool_cols in (2, 3, 4) else "4col"
+    def tool_card(a, b):
+        src, ratio = pc.next(tool_pattern_size, base)
+        return f'<div class="tcard"><img class="ph" style="aspect-ratio:{ratio}" src="{src}" alt=""><b>{esc(a)}</b><span>{esc(b)}</span></div>'
+    tools_html = "".join(tool_card(a, b) for a, b in data["tools"])
 
     proof_html = ""
     for title, desc in data["proof_cards"]:
         match = resolve_related(title)
-        href = f'{base}our-work/{match["slug"]}/index.html' if match else f'{base}our-work/index.html'
-        caption = esc(match["client_display"]) if match else "Related work"
+        if match:
+            href = f'{base}our-work/{match["slug"]}/index.html'
+            img_key = f'{match["slug"]}-card'
+            w, h = IMG_DIMS[img_key]
+            img_html = f'<img class="ph" style="aspect-ratio:{w}/{h}" src="{base}assets/img/cases/{img_key}.webp" alt="{esc(match["client_display"])}">'
+        else:
+            href = f'{base}our-work/index.html'
+            src, ratio = pc.next("3col", base)
+            img_html = f'<img class="ph" style="aspect-ratio:{ratio}" src="{src}" alt="">'
         proof_html += (
             f'<a class="card" href="{href}">'
-            f'<div class="ph">{caption}</div>'
+            f'{img_html}'
             f'<h3>{esc(title)}</h3><p>{esc(desc)}</p></a>'
         )
+
+    hero_src, hero_ratio = pc.next("2col", base)
 
     return f"""<!doctype html>
 <html lang="en">
@@ -179,7 +190,7 @@ def render(slug, data, base="../../"):
 
 <section class="shero">
   <div class="wrap"><div class="shero-grid">
-    <div class="ph">Service hero</div>
+    <img class="ph" style="aspect-ratio:{hero_ratio}" src="{hero_src}" alt="">
     <div>
       <p class="eyebrow">{esc(data["eyebrow"])}</p>
       <h1>{esc(data["h1"])}</h1>

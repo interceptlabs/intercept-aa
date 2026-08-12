@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import esc, head_html, header_html, footer_html
+from common import esc, head_html, header_html, footer_html, PatternCycler
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -111,9 +111,16 @@ a.role:hover{background:var(--band)}
 # ---- data ----
 
 CREDS = [
-    ("Great Place to Work", "Certified seven years running. Protecting the culture through high growth."),
-    ("Certified B Corp", "Measured on how we treat people and the planet, not only on what we deliver."),
-    ("Agency of the Year", "Chief Marketer, 2025 and 2026, and counting."),
+    # Great Place to Work and Chief Marketer have no generic badge to source: GPTW's
+    # certification mark is personalized per company/validation-period and only issued
+    # through Intercept's own certification portal; Chief Marketer's "Agency of the Year"
+    # is an editorial list placement with no downloadable seal at all. Both stay honest
+    # text placeholders (same convention as Intuit's un-sourced logo) rather than a
+    # fabricated mark. B Corp's mark IS a real, non-personalized certification badge
+    # (bcorporation.net), sourced 2026-08-11 from B Lab's official Wikimedia asset.
+    ("Great Place to Work", "Certified seven years running. Protecting the culture through high growth.", False),
+    ("Certified B Corp", "Measured on how we treat people and the planet, not only on what we deliver.", True),
+    ("Agency of the Year", "Chief Marketer, 2025 and 2026, and counting.", False),
 ]
 
 AREAS = [
@@ -149,14 +156,24 @@ HEARD_ABOUT_OPTIONS = [
 
 
 def render_hub():
-    cred_html = "".join(
-        f'<div class="cred"><div class="ph">Mark</div><b>{esc(b)}</b><span>{esc(d)}</span></div>'
-        for b, d in CREDS
-    )
-    area_html = "".join(
-        f'<div class="area"><div class="ph">Area visual · 4:3</div><b>{esc(b)}</b><span>{esc(d)}</span></div>'
-        for b, d in AREAS
-    )
+    pc = PatternCycler()
+    def cred_card(b, d, has_mark):
+        if has_mark:
+            mark = '<img class="ph" style="padding:8px" src="../assets/img/badges/bcorp.svg" alt="Certified B Corporation">'
+        else:
+            src, ratio = pc.next("4col", "../")
+            mark = f'<img class="ph" style="aspect-ratio:{ratio}" src="{src}" alt="">'
+        return f'<div class="cred">{mark}<b>{esc(b)}</b><span>{esc(d)}</span></div>'
+    cred_html = "".join(cred_card(b, d, has_mark) for b, d, has_mark in CREDS)
+    def area_card(b, d):
+        src, ratio = pc.next("3col", "../")
+        return f'<div class="area"><img class="ph" style="aspect-ratio:{ratio}" src="{src}" alt=""><b>{esc(b)}</b><span>{esc(d)}</span></div>'
+    area_html = "".join(area_card(b, d) for b, d in AREAS)
+    chero_src, chero_ratio = pc.next("2col", "../")
+    rolescta_src, rolescta_ratio = pc.next("2col", "../")
+    life1_src, life1_ratio = pc.next("2col", "../")
+    life2_src, life2_ratio = pc.next("4col", "../")
+    life3_src, life3_ratio = pc.next("4col", "../")
 
     return f"""<!doctype html>
 <html lang="en">
@@ -177,7 +194,7 @@ def render_hub():
       <p>We are a global team working with the largest enterprise technology companies in the world, on the hardest frontier marketing problems.</p>
       <a class="link" href="open-roles/index.html">See open roles</a>
     </div>
-    <div class="ph">Careers hero · team film or still</div>
+    <img class="ph" style="aspect-ratio:{chero_ratio}" src="{chero_src}" alt="">
   </div></div>
 </section>
 
@@ -209,7 +226,7 @@ def render_hub():
         <p>Roles open across strategy, creative, technology, and client leadership, all remote. If none of these call out to you, apply anyway and tell us where your superpower is.</p>
         <a class="btn" href="open-roles/index.html">See open roles</a>
       </div>
-      <div class="ph" style="aspect-ratio:4/3">Team photography · 4:3</div>
+      <img class="ph" style="aspect-ratio:{rolescta_ratio}" src="{rolescta_src}" alt="">
     </div>
   </div>
 </section>
@@ -218,10 +235,10 @@ def render_hub():
   <div class="wrap">
     <h2>Life at Intercept</h2>
     <div class="life-grid">
-      <div class="ph">Team photography · 16:10</div>
+      <img class="ph" style="aspect-ratio:{life1_ratio}" src="{life1_src}" alt="">
       <div class="life-col">
-        <div class="ph">Team photography · 4:3</div>
-        <div class="ph">Team photography · 4:3</div>
+        <img class="ph" style="aspect-ratio:{life2_ratio}" src="{life2_src}" alt="">
+        <img class="ph" style="aspect-ratio:{life3_ratio}" src="{life3_src}" alt="">
       </div>
     </div>
   </div>

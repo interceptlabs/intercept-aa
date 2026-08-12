@@ -4,7 +4,7 @@ inner markup verbatim for free-form blocks (copy/FAQ/about/related) rather than
 re-deriving fields — lowest-risk path for copy fidelity on rich content."""
 import os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import esc, head_html, header_html, footer_html
+from common import esc, head_html, header_html, footer_html, PatternCycler
 
 SRC_DIR = "/Users/jontoewsinterceptgroup.com/Downloads/New Wire Frames/pages/insights"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -95,32 +95,43 @@ def parse(fname):
     faq_close = re.findall(r'<p class="faq-close"[^>]*>(.*?)</p>', html, re.S)
     about_block = between(html, '<!-- ABOUT THE SERIES + AUTHOR -->', '<!-- RELATED -->')
     about_grid = re.search(r'<div class="about-grid">(.*?)</div>\s*</div>\s*</section>', about_block, re.S).group(1)
-    rel_block = between(html, '<!-- RELATED -->', '<footer')
-    rel_cards = re.findall(r'<div><div class="ph">Visual · 16:9</div><span class="meta">(.*?)</span><h3>(.*?)</h3></div>', rel_block)
+    # NOTE: the source wireframe's own "RELATED" block is NOT parsed — all 4 source
+    # files carry the identical static 3-card list (verbatim copy/paste across the
+    # wireframe set, never customized per article), which produces two real bugs:
+    # seo-is-becoming-findability and why-2026-feels-heavier both "recommend" reading
+    # themselves, and who-owns-your-marketing-alpha never gets recommended anywhere.
+    # Fixed below by computing each page's 3 related cards as the other 3 real
+    # Signals from the Edge articles instead (see ARTICLE_META) — exactly fills the
+    # 3-column grid with no self-link and no orphaned article.
 
     return dict(crumb=crumb, eyebrow=eyebrow, h1=h1, byline_inner=byline_inner, toc_links=toc_links,
                 copy=copy, acta_html=acta_html, faq_items=faq_items, faq_close=faq_close[-1] if faq_close else "",
-                about_grid=about_grid, rel_cards=rel_cards)
+                about_grid=about_grid)
 
 def slugify_heading(h):
     text = re.sub(r"<[^>]+>", "", h).strip().lower()
     text = re.sub(r"[^a-z0-9]+", "-", text).strip("-")
     return text
 
-REL_MAP = {
-    "Signals from the Edge · Why 2026 feels heavier, and what the data says": "why-2026-feels-heavier",
-    "Signals from the Edge · Who owns your marketing alpha?": "who-owns-your-marketing-alpha",
-    "Signals from the Edge · SEO is not dead. It is becoming findability": "seo-is-becoming-findability",
-}
-
-def rel_href(meta, title):
-    key = f"{meta} · {title}"
-    slug = REL_MAP.get(key)
-    if slug:
-        return f"../{slug}/index.html"
-    return "../index.html"
+# short titles matching the exact strings used for these same 4 articles' cards
+# elsewhere on the site (render_insights_index.py's FEED list) — kept as one
+# explicit source of truth rather than re-deriving from each page's own long <h1>.
+ARTICLE_META = [
+    ("how-ai-is-reshaping-b2b-tech-marketing", "How AI is reshaping B2B tech marketing"),
+    ("seo-is-becoming-findability", "SEO is not dead. It is becoming findability"),
+    ("who-owns-your-marketing-alpha", "Who owns your marketing alpha?"),
+    ("why-2026-feels-heavier", "Why 2026 feels heavier, and what the data says"),
+]
 
 def render(slug, data, base="../../"):
+    pc = PatternCycler()
+
+    def swap_ph(html, label, size):
+        src, ratio = pc.next(size, base)
+        old = f'<div class="ph">{label}</div>'
+        new = f'<img class="ph" style="aspect-ratio:{ratio}" src="{src}" alt="">'
+        return html.replace(old, new, 1)
+
     # inject id anchors into copy h2 so the TOC can jump to them
     copy = data["copy"]
     def add_id(m):
@@ -134,11 +145,14 @@ def render(slug, data, base="../../"):
     faq_html = "".join(
         f'<div class="acc-item"><h3>{q}</h3><p>{a}</p></div>' for q, a in data["faq_items"]
     )
-    rel_html = "".join(
-        f'<a class="card rel" href="{rel_href(meta, title)}"><div class="ph">Related</div>'
-        f'<span class="rel-meta">{meta}</span><h3>{title}</h3></a>'
-        for meta, title in data["rel_cards"]
-    )
+    def rel_card(other_slug, title):
+        src, ratio = pc.next("3col", base)
+        return (f'<a class="card rel" href="../{other_slug}/index.html"><img class="ph" style="aspect-ratio:{ratio}" src="{src}" alt="">'
+                f'<span class="rel-meta">Signals from the Edge</span><h3>{esc(title)}</h3></a>')
+    rel_html = "".join(rel_card(s, t) for s, t in ARTICLE_META if s != slug)
+
+    hero_src, hero_ratio = pc.next("hero", base)
+    about_grid = swap_ph(data["about_grid"], "Portrait", "4col")
 
     return f"""<!doctype html>
 <html lang="en">
@@ -160,7 +174,7 @@ def render(slug, data, base="../../"):
   </div>
 </section>
 
-<section class="ahero"><div class="wrap"><div class="ph">Article hero</div></div></section>
+<section class="ahero"><div class="wrap"><img class="ph" style="aspect-ratio:{hero_ratio}" src="{hero_src}" alt=""></div></section>
 
 <section class="body">
   <div class="wrap">
@@ -184,7 +198,7 @@ def render(slug, data, base="../../"):
 </section>
 
 <section class="about">
-  <div class="wrap"><div class="about-grid">{data["about_grid"]}</div></div>
+  <div class="wrap"><div class="about-grid">{about_grid}</div></div>
 </section>
 
 <section class="rel">

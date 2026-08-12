@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import esc, head_html, header_html, footer_html
+from common import esc, head_html, header_html, footer_html, IMG_DIMS, PatternCycler
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -46,10 +46,17 @@ STEPS = [
 ]
 
 def render():
+    pc = PatternCycler()
     steps_html = "".join(
         f'<div class="hitem"><div class="row"><div><i>Step {i+1}</i><b>{esc(t)}</b></div></div><span>{esc(d)}</span></div>'
         for i, (t, d) in enumerate(STEPS)
     )
+    shero_src, shero_ratio = pc.next("2col", "../")
+    labsprocess_src, labsprocess_ratio = pc.next("2col", "../")
+    amd_src, amd_ratio = pc.next("2col", "../")
+    w, h = IMG_DIMS["lights-camera-avatars-card"]
+    sap_img = f'<img class="ph" style="aspect-ratio:{w}/{h}" src="../assets/img/cases/lights-camera-avatars-card.webp" alt="SAP">'
+
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -63,7 +70,7 @@ def render():
 
 <section class="shero">
   <div class="wrap"><div class="shero-grid">
-    <div class="ph" style="aspect-ratio:4/3">Labs</div>
+    <img class="ph" style="aspect-ratio:{shero_ratio}" src="{shero_src}" alt="">
     <div>
       <span class="eyebrow">Intercept Labs</span>
       <h1>Exploring the frontier together</h1>
@@ -83,7 +90,7 @@ def render():
     <h2>How it works</h2>
     <div class="how-grid">
       <div>{steps_html}</div>
-      <div class="how-panel"><div class="ph" style="aspect-ratio:4/3">Labs process</div></div>
+      <div class="how-panel"><img class="ph" style="aspect-ratio:{labsprocess_ratio}" src="{labsprocess_src}" alt=""></div>
     </div>
   </div>
 </section>
@@ -100,13 +107,13 @@ def render():
     <h2 style="font-size:var(--fs-3);margin-bottom:8px">What has come out of Labs</h2>
     <div class="proof-grid">
       <div>
-        <div class="ph" style="aspect-ratio:16/9">AMD</div>
+        <img class="ph" style="aspect-ratio:{amd_ratio}" src="{amd_src}" alt="">
         <h3>One-of-one content engine</h3>
         <p>Built for AMD, it tailors every asset to the individual downloading it and the organization they represent.</p>
         <span class="pending">Case study in the works</span>
       </div>
       <div>
-        <div class="ph" style="aspect-ratio:16/9">SAP</div>
+        {sap_img}
         <h3>AI avatar video series</h3>
         <p>An agentic workflow built for SAP that cut production costs by 55% and timelines by 23%.</p>
         <a class="link" href="../our-work/lights-camera-avatars/index.html">Read the case study</a>

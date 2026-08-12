@@ -3,7 +3,7 @@
 insights-hub.html wireframe: chips filter by data-s, 12 shown by default)."""
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import esc, head_html, header_html, footer_html
+from common import esc, head_html, header_html, footer_html, PatternCycler
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -117,12 +117,14 @@ FEED = [
 ]
 
 def render():
+    pc = PatternCycler()
     def feed_card(service, meta, title, desc, href):
         tag = "a" if href else "div"
         attr = f' href="{href}"' if href else ""
+        src, ratio = pc.next("3col", "../")
         return (
             f'<{tag} class="card" data-s="{esc(service)}"{attr}>'
-            f'<div class="ph">Visual</div><span class="meta">{esc(meta)}</span>'
+            f'<img class="ph" style="aspect-ratio:{ratio}" src="{src}" alt=""><span class="meta">{esc(meta)}</span>'
             f'<h3>{esc(title)}</h3><p>{esc(desc)}</p></{tag}>'
         )
     feed_html = "".join(feed_card(*row) for row in FEED)
@@ -135,7 +137,12 @@ def render():
         ("ChatB2B", "Andrew Au interviews marketing leaders at the largest enterprise technology companies on how they are piloting and scaling AI use cases across their organizations."),
         ("eBooks", "Papers on emerging trends such as neuroscience-based creative and AI-powered research."),
     ]
-    props_html = "".join(f'<div class="prop"><div class="ph">{esc(n)}</div><b>{esc(n)}</b><span>{esc(d)}</span></div>' for n, d in props)
+    def prop_card(n, d):
+        src, ratio = pc.next("4col", "../")
+        return f'<div class="prop"><img class="ph" style="aspect-ratio:{ratio}" src="{src}" alt="{esc(n)}"><b>{esc(n)}</b><span>{esc(d)}</span></div>'
+    props_html = "".join(prop_card(n, d) for n, d in props)
+    feat_src, feat_ratio = pc.next("2col", "../")
+    portrait_src, portrait_ratio = pc.next("4col", "../")
 
     return f"""<!doctype html>
 <html lang="en">
@@ -152,12 +159,12 @@ def render():
 
 <section class="feat">
   <div class="wrap"><div class="feat-grid">
-    <div class="ph" style="aspect-ratio:16/10">Featured</div>
+    <img class="ph" style="aspect-ratio:{feat_ratio}" src="{feat_src}" alt="">
     <div>
       <span class="eyebrow">Featured &middot; Signals from the Edge &middot; July 2026</span>
       <h2>Who owns your marketing alpha?</h2>
       <p>A field read on the ownership question now facing enterprise technology, and what it means for marketing teams building on frontier AI models.</p>
-      <div class="byline"><div class="ph">Portrait</div><div><b>Shaheen Yazdani</b><span class="meta">Co-CEO &middot; 23 min read</span></div></div>
+      <div class="byline"><img class="ph" style="aspect-ratio:{portrait_ratio}" src="{portrait_src}" alt="Shaheen Yazdani"><div><b>Shaheen Yazdani</b><span class="meta">Co-CEO &middot; 23 min read</span></div></div>
       <a class="link" href="who-owns-your-marketing-alpha/index.html">Read the blog</a>
     </div>
   </div></div>

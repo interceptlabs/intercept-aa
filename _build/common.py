@@ -17,37 +17,37 @@ IMG_DIMS = {
     "ai-under-the-influence-card": (1600, 1172),
     "ai-under-the-influence-hero": (1600, 700),
     "align-in-the-metaverse-card": (1600, 1172),
-    "align-in-the-metaverse-hero": (1600, 1172),
+    "align-in-the-metaverse-hero": (1600, 700),
     "be-the-answer-card": (1600, 1172),
     "be-the-answer-hero": (1600, 700),
     "confidence-in-every-word-card": (1600, 1172),
     "confidence-in-every-word-hero": (1600, 700),
     "dev-zone-card": (1600, 1172),
-    "dev-zone-hero": (1600, 1172),
+    "dev-zone-hero": (1600, 700),
     "devbuilder-card": (1600, 1172),
-    "devbuilder-hero": (1600, 1172),
+    "devbuilder-hero": (1600, 700),
     "devhero-stories-card": (1600, 1172),
     "devhero-stories-hero": (1600, 700),
     "eyes-on-the-road-card": (1600, 1172),
-    "eyes-on-the-road-hero": (1600, 1172),
+    "eyes-on-the-road-hero": (1600, 700),
     "find-your-path-card": (1600, 1172),
-    "find-your-path-hero": (1600, 1172),
+    "find-your-path-hero": (1600, 700),
     "fly-with-dragonfly-card": (1600, 1172),
     "fly-with-dragonfly-hero": (1600, 700),
     "from-signal-to-sale-card": (1600, 1172),
-    "from-signal-to-sale-hero": (1600, 1172),
+    "from-signal-to-sale-hero": (1600, 700),
     "innovation-mavericks-card": (1600, 1172),
     "innovation-mavericks-hero": (1600, 700),
     "into-the-breach-card": (1600, 1172),
-    "into-the-breach-hero": (1600, 1172),
+    "into-the-breach-hero": (1600, 700),
     "leading-in-the-era-of-ai-card": (1600, 1172),
     "leading-in-the-era-of-ai-hero": (1600, 700),
     "lights-camera-avatars-card": (1600, 1172),
     "lights-camera-avatars-hero": (1600, 700),
     "migrate-to-innovate-card": (1600, 1172),
-    "migrate-to-innovate-hero": (1600, 1172),
+    "migrate-to-innovate-hero": (1600, 700),
     "security-skilling-card": (1600, 1172),
-    "security-skilling-hero": (1600, 1172),
+    "security-skilling-hero": (1600, 1172),  # still no dedicated Figma hero art — falls back to card image
     "subscription-overload-card": (1600, 1172),
     "subscription-overload-hero": (1600, 700),
     "surface-experience-kits-card": (1600, 1172),
@@ -67,12 +67,44 @@ IMG_DIMS = {
     "this-time-its-personal-card": (1600, 1172),
     "this-time-its-personal-hero": (1600, 700),
     "to-the-cloud-card": (1600, 1172),
-    "to-the-cloud-hero": (1600, 1172),
+    "to-the-cloud-hero": (1600, 700),
     "unbound-cfo-event-card": (1600, 1172),
-    "unbound-cfo-event-hero": (1600, 1172),
+    "unbound-cfo-event-hero": (1600, 700),
     "winning-future-smb-owners-card": (1600, 1172),
     "winning-future-smb-owners-hero": (1600, 700),
 }
+
+# team headshots (About Us), sourced from the same Figma file, 2026-08-11
+TEAM_IMG_DIMS = {
+    "andrew-au": (800, 586),
+    "shaheen-yazdani": (800, 586),
+    "francis-silva": (800, 586),
+    "laura-white": (800, 586),
+    "david-toto": (800, 586),
+    "jeff-lewis": (800, 586),
+}
+
+# decorative truchet-pattern placeholders (Figma "Placeholder Images" page,
+# eTHq3jbEbLog3PkmurOfDw), sized to match a slot's own grid column count —
+# used for genuinely-empty image slots on insights/about-us/careers, cycling
+# through the 3 brand colors so adjacent slots never repeat. Not for slots
+# that will eventually hold a real logo/mark (those stay text placeholders).
+PATTERN_DIMS = {
+    "hero": (1600, 700),
+    "2col": (1280, 830),
+    "3col": (756, 554),
+    "4col": (671, 490),
+}
+PATTERN_COLORS = ["flarepop", "coolsweep", "wiretree"]
+
+class PatternCycler:
+    def __init__(self):
+        self.i = 0
+    def next(self, size, base=""):
+        color = PATTERN_COLORS[self.i % len(PATTERN_COLORS)]
+        self.i += 1
+        w, h = PATTERN_DIMS[size]
+        return f'{base}assets/img/patterns/{size}-{color}.webp', f"{w}/{h}"
 
 
 # ---- wordmark (re-sourced from intercept-home-concepts/concept-d, 2026-08-06 correction —

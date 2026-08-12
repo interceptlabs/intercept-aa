@@ -13,7 +13,21 @@ doesn't already define.
 """
 import os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import esc, head_html, header_html, footer_html
+from common import esc, head_html, header_html, footer_html, PatternCycler, client_logo_html
+
+# maps a chatb2b guest-wall name to its key in common.py's CLIENT_LOGOS
+# when the two spellings differ; anything absent here is looked up as-is,
+# and client_logo_html() itself falls back to plain text for names with
+# no sourced vector yet (Google, Veeam, Sophos, CGI, PathFactory, Moderne, Procom)
+WALL_LOGO_KEY = {"BMC Software": "BMC"}
+
+# real ChatB2B launch trailer (Andrew Au / Intercept's own YouTube upload) and the
+# show's official cover art (Apple Podcasts artwork, id 1840415344, letterboxed
+# from its native 1:1 into the hero's 16:9 slot — see assets/img/chatb2b/poster.webp).
+# Sourced 2026-08-11; confirmed via web search the podcast/episode count (22) matches
+# this build's own archive exactly.
+TRAILER_URL = "https://www.youtube.com/watch?v=-D34JKW2oik"
+POSTER_SRC = "assets/img/chatb2b/poster.webp"
 
 SRC = "/Users/jontoewsinterceptgroup.com/Downloads/New Wire Frames 2/pages/chatb2b.html"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -155,19 +169,26 @@ def parse():
 
 
 def render(data, base="../../"):
-    fcards_html = "".join(
-        f'<div class="fcard"><div class="ph">{ph}</div><span class="ep-date">{date}</span><h3>{h3}</h3><p>{p}</p></div>'
-        for ph, date, h3, p in data["fcards"]
+    pc = PatternCycler()
+    def fcard_html(ph, date, h3, p):
+        src, ratio = pc.next("3col", base)
+        return f'<div class="fcard"><img class="ph" style="aspect-ratio:{ratio}" src="{src}" alt=""><span class="ep-date">{date}</span><h3>{h3}</h3><p>{p}</p></div>'
+    fcards_html = "".join(fcard_html(*c) for c in data["fcards"])
+    wall_html = "".join(
+        f'<div class="ph">{client_logo_html(WALL_LOGO_KEY.get(name, name))}</div>'
+        for name in data["wall_logos"]
     )
-    wall_html = "".join(f'<div class="ph">{esc(name)}</div>' for name in data["wall_logos"])
-    eps_html = "".join(
-        f'<div class="ep"{hidden}>'
-        f'<div class="ph ep-art">{art}</div>'
-        f'<div class="ep-main"><span class="ep-date">{date}</span><h3>{h3}</h3><p>{p}</p></div>'
-        f'<div class="ep-links">{links}</div>'
-        f"</div>"
-        for hidden, art, date, h3, p, links in data["eps"]
-    )
+    def ep_html(hidden, art, date, h3, p, links):
+        src, ratio = pc.next("4col", base)
+        return (
+            f'<div class="ep"{hidden}>'
+            f'<img class="ph ep-art" style="aspect-ratio:{ratio}" src="{src}" alt="">'
+            f'<div class="ep-main"><span class="ep-date">{date}</span><h3>{h3}</h3><p>{p}</p></div>'
+            f'<div class="ep-links">{links}</div>'
+            f"</div>"
+        )
+    eps_html = "".join(ep_html(*e) for e in data["eps"])
+    feat_vid_src, feat_vid_ratio = pc.next("2col", base)
 
     return f"""<!doctype html>
 <html lang="en">
@@ -190,11 +211,11 @@ def render(data, base="../../"):
         <p>{data["hero_p"]}</p>
         <div class="plat-row">{data["hero_plats"]}</div>
       </div>
-      <div class="vid">
-        <div class="ph">Trailer video &middot; 16:9</div>
+      <a class="vid" href="{TRAILER_URL}" target="_blank" rel="noopener" aria-label="Watch the ChatB2B trailer on YouTube">
+        <img class="ph" style="aspect-ratio:16/9" src="{base}{POSTER_SRC}" alt="ChatB2B podcast cover art">
         <span class="vplay">&#9658;</span>
         <span class="vlabel">{data["hero_vlabel"]}</span>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -204,7 +225,7 @@ def render(data, base="../../"):
     <span class="eyebrow">Featured episode</span>
     <div class="latest-grid">
       <div class="vid">
-        <div class="ph">Episode art &middot; 16:9</div>
+        <img class="ph" style="aspect-ratio:{feat_vid_ratio}" src="{feat_vid_src}" alt="">
         <span class="vplay">&#9658;</span>
       </div>
       <div>

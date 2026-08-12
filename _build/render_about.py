@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import esc, head_html, header_html, footer_html
+from common import esc, head_html, header_html, footer_html, TEAM_IMG_DIMS, PatternCycler
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -47,17 +47,18 @@ def vid(name, ext="mp4"):
     return f'<source src="assets/video/{name}.{ext}" type="video/{ext}">'
 
 def render():
+    pc = PatternCycler()
     team = [
-        ("Andrew Au", "Co-CEO", "Leads strategy and AI integration for clients including Microsoft, SAP, Intel, and HP. One of the youngest members inducted into the Entrepreneurs' Organization, named to Forbes 30 Under 30, and a regular keynote speaker on AI in B2B."),
-        ("Shaheen Yazdani", "Co-CEO", "Bio to come. Target 40 to 50 words."),
-        ("Francis Silva", "Chief Technology Officer", "Designs the AI platforms and go-to-market systems behind the work. Previously EVP of Digital and AI at a North American loyalty technology company, leading teams of 250. Teaches analytics and AI marketing at Queen’s Smith School of Business."),
-        ("Laura White", "Chief Financial Officer", "Bio to come. Target 40 to 50 words."),
-        ("David Toto", "Managing Director", "Bio to come. Target 40 to 50 words."),
-        ("Jeff Lewis", "Head of Client Advisory", "Bio to come. Target 40 to 50 words."),
+        ("Andrew Au", "andrew-au", "Co-CEO", "Leads strategy and AI integration for clients including Microsoft, SAP, Intel, and HP. One of the youngest members inducted into the Entrepreneurs' Organization, named to Forbes 30 Under 30, and a regular keynote speaker on AI in B2B."),
+        ("Shaheen Yazdani", "shaheen-yazdani", "Co-CEO", "Leads client services and operations, and co-founded the agency in 2006. More than 20 years marketing for Fortune 100 brands, now steering Intercept’s move to an AI-native operating model. Named to WXN’s Canada’s Most Powerful Women, Top 100, and a juror for the ANA B2, Echo, and CMA awards."),
+        ("Francis Silva", "francis-silva", "Chief Technology Officer", "Designs the AI platforms and go-to-market systems behind the work. Previously EVP of Digital and AI at a North American loyalty technology company, leading teams of 250. Teaches analytics and AI marketing at Queen’s Smith School of Business."),
+        ("Laura White", "laura-white", "Chief Financial Officer", "Oversees the finance function, modernizing reporting and the systems that support it. More than 25 years of finance and operational leadership across advertising, media, and consumer businesses. Previously Senior Executive Finance Director at TBWA\\Chiat\\Day in New York and Group CFO of TBWA\\Group Canada."),
+        ("David Toto", "david-toto", "Managing Director", "Bio to come. Target 40 to 50 words."),
+        ("Jeff Lewis", "jeff-lewis", "Head of Client Advisory", "Bio to come. Target 40 to 50 words."),
     ]
     bio_html = "".join(
-        f'<div class="bio"><div class="ph">{esc(n)}</div><b>{esc(n)}</b><em>{esc(r)}</em><p>{esc(b)}</p></div>'
-        for n, r, b in team
+        f'<div class="bio"><img class="ph" style="aspect-ratio:{TEAM_IMG_DIMS[slug][0]}/{TEAM_IMG_DIMS[slug][1]}" src="../assets/img/team/{slug}.webp" alt="{esc(n)}, {esc(r)}"><b>{esc(n)}</b><em>{esc(r)}</em><p>{esc(b)}</p></div>'
+        for n, slug, r, b in team
     )
     awards = [
         ("Agency of the Year", "Chief Marketer, 2025 and 2026"),
@@ -65,7 +66,10 @@ def render():
         ("B Corp", "Certified"),
         ("The Drum Honors", "Recommended agencies, 2026"),
     ]
-    awards_html = "".join(f'<div class="tcard"><div class="ph">Award</div><b>{esc(a)}</b><span>{esc(d)}</span></div>' for a, d in awards)
+    def award_card(a, d):
+        src, ratio = pc.next("4col", "../")
+        return f'<div class="tcard"><img class="ph" style="aspect-ratio:{ratio}" src="{src}" alt="{esc(a)}"><b>{esc(a)}</b><span>{esc(d)}</span></div>'
+    awards_html = "".join(award_card(a, d) for a, d in awards)
 
     acc_items = [
         ("Time-tested industry expertise", "The best B2B work comes from practitioners who know which audience signals matter and which proof points shift perception. We built that pattern recognition across silicon, hyperscalers, OEMs, ISVs, and networking infrastructure."),
@@ -77,6 +81,10 @@ def render():
         f'<div class="acc-item"><div class="acc-head"><h3>{esc(t)}</h3></div><div class="acc-body"><p>{esc(d)}</p></div></div>'
         for t, d in acc_items
     )
+
+    shero_src, shero_ratio = pc.next("2col", "../")
+    twoup_src, twoup_ratio = pc.next("2col", "../")
+    careers_src, careers_ratio = pc.next("2col", "../")
 
     return f"""<!doctype html>
 <html lang="en">
@@ -91,7 +99,7 @@ def render():
 
 <section class="shero">
   <div class="wrap"><div class="shero-grid">
-    <div class="ph" style="aspect-ratio:4/3">Team or office</div>
+    <img class="ph" style="aspect-ratio:{shero_ratio}" src="{shero_src}" alt="">
     <div>
       <span class="eyebrow">About us</span>
       <h1>Twenty years inside global tech</h1>
@@ -142,7 +150,7 @@ def render():
 <section class="sec">
   <div class="wrap">
     <div class="two-up">
-      <div class="ph" style="aspect-ratio:4/3">Team grid or map</div>
+      <img class="ph" style="aspect-ratio:{twoup_ratio}" src="{twoup_src}" alt="">
       <div>
         <h2 style="margin-bottom:16px">A team built to find the best people, anywhere</h2>
         <p style="margin:0">We work remotely across North America, from San Francisco and San Diego to Toronto, Calgary, and Vancouver, with a growing team of specialists in Islamabad and Oman.</p>
@@ -154,7 +162,7 @@ def render():
 <section class="sec band-tint">
   <div class="wrap">
     <div class="careers-grid">
-      <div class="ph" style="aspect-ratio:4/3">Team visual</div>
+      <img class="ph" style="aspect-ratio:{careers_ratio}" src="{careers_src}" alt="">
       <div>
         <span class="eyebrow">Careers</span>
         <h2>We hire people who want the harder brief</h2>

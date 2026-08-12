@@ -21,7 +21,7 @@ copy and give main() a slug list.
 """
 import os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import esc, head_html, header_html, footer_html
+from common import esc, head_html, header_html, footer_html, PatternCycler
 
 SRC = "/Users/jontoewsinterceptgroup.com/Downloads/New Wire Frames 2/pages/event-template.html"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -156,19 +156,23 @@ def render_event(data, base="../../"):
         f'<div class="take"><span>{num}</span><b>{esc(h)}</b><p>{esc(p)}</p></div>'
         for num, h, p in data["takes"]
     )
+    pc = PatternCycler()
+    def ph_img(size):
+        src, ratio = pc.next(size, base)
+        return f'<img class="ph" style="aspect-ratio:{ratio}" src="{src}" alt="">'
     acards_html = "".join(
-        f'<div class="acard"><div class="ph">{esc(kind)}</div><b>{esc(h)}</b><p>{esc(p)}</p><span class="link">{esc(link)}</span></div>'
+        f'<div class="acard">{ph_img("2col")}<b>{esc(h)}</b><p>{esc(p)}</p><span class="link">{esc(link)}</span></div>'
         for kind, h, p, link in data["acards"]
     )
     ccards_html = "".join(
-        f'<div class="ccard"><div class="ph">{esc(kind)}</div><b>{esc(h)}</b><p>{esc(p)}</p></div>'
+        f'<div class="ccard">{ph_img("3col")}<b>{esc(h)}</b><p>{esc(p)}</p></div>'
         for kind, h, p in data["ccards"]
     )
     people_html = "".join(
-        f'<div class="person"><div class="ph">{esc(kind)}</div><b>{esc(name)}</b><span>{esc(title)}</span><div class="mail">{esc(mail)}</div></div>'
+        f'<div class="person">{ph_img("4col")}<b>{esc(name)}</b><span>{esc(title)}</span><div class="mail">{esc(mail)}</div></div>'
         for kind, name, title, mail in data["people"]
     )
-    lwall_html = '<div class="ph">Client logo</div>' * data["lwall_count"]
+    lwall_html = "".join(ph_img("4col") for _ in range(data["lwall_count"]))
     posts_html = "".join(
         f'<div class="post"><div class="top"><span class="av"></span><span class="who">{esc(who)}</span></div><div class="ph">{esc(body)}</div></div>'
         for who, body in data["posts"]

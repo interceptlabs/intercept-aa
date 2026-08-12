@@ -39,7 +39,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import esc, head_html, header_html, footer_html
+from common import esc, head_html, header_html, footer_html, PatternCycler
 
 SRC_DIR = "/Users/jontoewsinterceptgroup.com/Downloads/New Wire Frames 2/pages/insights"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -231,17 +231,19 @@ FIG_IMAGE_RE = re.compile(
 )
 
 
-def _phify_figs(copy_html):
-    """Re-wrap every inline `.fig-image` placeholder box into the shared `.ph`
-    primitive, carrying the label/sub-label text over unchanged. This is the
-    only structural surgery performed on the verbatim `.copy` blob."""
+def _phify_figs(copy_html, pc):
+    """Re-wrap every inline `.fig-image` placeholder box into a real truchet-pattern
+    image, carrying the label/sub-label text into alt text. This is the only
+    structural surgery performed on the verbatim `.copy` blob."""
     def repl(m):
         label, sub = m.group(1), m.group(2)
-        return f'<div class="ph"><span>{label}</span><span class="ph-sub">{sub}</span></div>'
+        src, ratio = pc.next("3col", BASE)
+        alt = re.sub(r"<[^>]+>", "", f"{label} — {sub}")
+        return f'<img class="ph" style="aspect-ratio:{ratio}" src="{src}" alt="{esc(alt)}">'
     return FIG_IMAGE_RE.sub(repl, copy_html)
 
 
-def parse(fname):
+def parse(fname, pc):
     html = open(os.path.join(SRC_DIR, fname), encoding="utf-8").read()
 
     kicker = re.search(r'<p class="kicker">(.*?)</p>', html, re.S).group(1)
@@ -260,7 +262,7 @@ def parse(fname):
 
     m = re.search(r'<div class="copy">(.*?)<!-- CONVERT CTA -->', html, re.S)
     copy_raw = re.sub(r"\s*</div>\s*</div>\s*</div>\s*</section>\s*$", "", m.group(1))
-    copy_inner = _phify_figs(copy_raw)
+    copy_inner = _phify_figs(copy_raw, pc)
     # Upgrade the inert "Intercept Labs" mention to a real href — intercept-labs/
     # index.html is a real page in this build (render_labs.py).
     copy_inner = copy_inner.replace(
@@ -300,13 +302,16 @@ def rel_card_html(kicker, title, desc, meta):
             f'<span class="meta">{meta}</span></div>')
 
 
-def render(slug, data):
+def render(slug, data, pc):
     base = BASE
     plain_h1 = re.sub(r"<[^>]+>", "", data["h1"])
     plain_dek = html_lib.unescape(re.sub(r"<[^>]+>", "", data["dek"]))
     title = f"{plain_h1} · eBook · Intercept"
 
     rel_html = "".join(rel_card_html(*c) for c in data["rel_cards"])
+    portrait_src, portrait_ratio = pc.next("4col", BASE)
+    cover_src, cover_ratio = pc.next("2col", BASE)
+    cover_alt = esc(re.sub(r"<[^>]+>", "", data["cover_label"]))
 
     return f"""<!doctype html>
 <html lang="en">
@@ -327,7 +332,7 @@ def render(slug, data):
       <h1>{data["h1"]}</h1>
       <p class="dek">{data["dek"]}</p>
       <div class="byline">
-        <div class="ph">Portrait</div>
+        <img class="ph" style="aspect-ratio:{portrait_ratio}" src="{portrait_src}" alt="{esc(data['byline_b'])}">
         <div class="byline-meta">
           <b>{data["byline_b"]}</b>
           <span class="meta">{data["byline_meta"]}</span>
@@ -339,7 +344,7 @@ def render(slug, data):
 
 <section class="cover">
   <div class="wrap">
-    <div class="ph"><span>{data["cover_label"]}</span><span class="ph-sub">{data["cover_sub"]}</span></div>
+    <img class="ph" style="aspect-ratio:{cover_ratio}" src="{cover_src}" alt="{cover_alt}">
   </div>
 </section>
 
@@ -387,8 +392,9 @@ def render(slug, data):
 
 def main():
     for slug, fname in EBOOKS:
-        data = parse(fname)
-        out = render(slug, data)
+        pc = PatternCycler()
+        data = parse(fname, pc)
+        out = render(slug, data, pc)
         outdir = os.path.join(ROOT, "insights", "ebooks", slug)
         os.makedirs(outdir, exist_ok=True)
         path = os.path.join(outdir, "index.html")
