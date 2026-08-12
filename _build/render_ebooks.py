@@ -39,7 +39,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import esc, head_html, header_html, footer_html, PatternCycler
+from common import esc, head_html, header_html, footer_html, PatternCycler, author_avatar_html
 
 SRC_DIR = "/Users/jontoewsinterceptgroup.com/Downloads/New Wire Frames 2/pages/insights"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -309,7 +309,13 @@ def render(slug, data, pc):
     title = f"{plain_h1} · eBook · Intercept"
 
     rel_html = "".join(rel_card_html(*c) for c in data["rel_cards"])
-    portrait_src, portrait_ratio = pc.next("4col", BASE)
+    # Byline author photo: use the real sourced headshot when the byline
+    # names a known team member (both ebooks credit Andrew Au) rather than
+    # the generic pattern-fill this used to render as.
+    byline_avatar_html = author_avatar_html(data["byline_b"], BASE)
+    if not byline_avatar_html:
+        src, ratio = pc.next("4col", BASE)
+        byline_avatar_html = f'<img class="ph" style="aspect-ratio:{ratio}" src="{src}" alt="">'
     cover_src, cover_ratio = pc.next("2col", BASE)
     cover_alt = esc(re.sub(r"<[^>]+>", "", data["cover_label"]))
 
@@ -332,7 +338,7 @@ def render(slug, data, pc):
       <h1>{data["h1"]}</h1>
       <p class="dek">{data["dek"]}</p>
       <div class="byline">
-        <img class="ph" style="aspect-ratio:{portrait_ratio}" src="{portrait_src}" alt="{esc(data['byline_b'])}">
+        {byline_avatar_html}
         <div class="byline-meta">
           <b>{data["byline_b"]}</b>
           <span class="meta">{data["byline_meta"]}</span>

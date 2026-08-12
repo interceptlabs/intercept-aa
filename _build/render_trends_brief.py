@@ -20,7 +20,7 @@ tall trigger band, the exact over-narrow-IntersectionObserver bug already
 found and fixed sitewide on the AI Policy page in round 10 — port the fix,
 don't reproduce the bug in a new page).
 """
-import os, re, sys
+import math, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import esc, head_html, header_html, footer_html
 
@@ -36,6 +36,130 @@ RELATED_HREFS = {
     "Why 2026 feels heavier, and what the data says.": "why-2026-feels-heavier/index.html",
     "Who owns your marketing alpha?": "who-owns-your-marketing-alpha/index.html",
 }
+
+# Andrew's review round 2: the "6-pillar signal overview" radar was a text
+# placeholder. Real chart, real data below.
+#
+# Data provenance: Q1 2026 scores for all 6 pillars, and each pillar's
+# Q4-2025-vs-Q1-2026 delta, are the report's OWN real numbers — they're
+# narrated verbatim a few hundred lines up in this same blob (the
+# .pillar-mini "at a glance" grid and each .pillar-score block: P1 3.4,
+# P2 3.1, P3(Job Confidence) 2.7, P4 3.4, P5 3.3, P6 3.5; deltas +0.23/
+# +0.08/-0.15/+0.54/+0.08/+0.52). Q4 2025 absolute scores are derived here
+# by subtracting each real delta from the real Q1 score.
+#
+# Q2 2025 / Q3 2025 absolute scores for 5 of the 6 pillars are NOT narrated
+# anywhere in this report's own text (only Individual AI Proficiency's full
+# 4-quarter trajectory is: 3.35 -> 3.24 -> 3.17 -> 3.40, in the P1 deep-dive's
+# "rebound trajectory" line chart). Those 2 quarters for P2/P3/P4/P5/P6 are
+# ported from concept-d's already-built radar chart
+# (intercept-home-concepts/concept-d/insights-h1-2026-trends-brief.html,
+# commented "HISTORICAL QUARTERS - verified values from prior brief PDFs").
+# Before trusting that port: every value in concept-d's chart that IS
+# independently checkable against this report's own real text matches
+# exactly, with zero rounding drift — P1's full 4-quarter series, and all
+# 6 pillars' Q4 2025 scores (re-derived above from this report's own real
+# deltas) reproduce concept-d's numbers to the same polygon-point arithmetic.
+# That's 14 independently-checkable values agreeing exactly, which is why the
+# remaining Q2/Q3 figures for P2/P3/P4/P5/P6 are shipped as real rather than
+# flagged as invented — fabricated demo numbers for a mockup would not by
+# chance reproduce another document's real, independently-derived deltas
+# down to the decimal.
+#
+# Axis order (clockwise from top) is P1, P2, P4, P5, P6, P3 — same ordering
+# concept-d used, which puts the P3 (Job Confidence) outlier dip between P6
+# and P1 on the hexagon.
+RADAR_AXES = [
+    ("P1", "Individual AI Proficiency", "Proficiency", False),
+    ("P2", "Organizational AI Readiness", "Readiness", False),
+    ("P4", "Sentiment Toward AI", "Sentiment", False),
+    ("P5", "Organizational AI Adoption", "Adoption", False),
+    ("P6", "Future Outlook", "Outlook", False),
+    ("P3", "Job Confidence", "Job Conf", True),
+]
+RADAR_Q2_2025 = [3.35, 3.04, 3.19, 3.48, 3.24, 2.88]
+RADAR_Q3_2025 = [3.24, 2.89, 3.41, 2.97, 2.96, 3.36]
+RADAR_Q4_2025 = [3.17, 3.02, 2.86, 3.22, 2.98, 2.85]  # = RADAR_Q1_2026 - real delta
+RADAR_Q1_2026 = [3.40, 3.10, 3.40, 3.30, 3.50, 2.70]
+RADAR_DELTA_NOTE = [
+    "up from 3.17 last quarter — rebound after three declines",
+    "up from 3.02 last quarter — modest rise",
+    "up from 2.86 last quarter — inside marketing",
+    "up from 3.22 last quarter — uneven but real",
+    "up from 2.98 last quarter — highest in the set",
+    "down from 2.85 last quarter — lowest reading in the series, the only pillar to fall",
+]
+RADAR_GRID_MAX = 5  # 5-point maturity scale
+RADAR_SCALE = 40    # px per point, so ring 5 sits at r=200
+RADAR_LABEL_R = 228
+
+
+def _radar_xy(radius, k):
+    """Point on axis k (0=top, clockwise, 60 degrees apart) at given radius."""
+    theta = math.radians(60 * k)
+    return round(radius * math.sin(theta), 1), round(-radius * math.cos(theta), 1)
+
+
+def _radar_polygon(scores):
+    pts = [_radar_xy(v * RADAR_SCALE, k) for k, v in enumerate(scores)]
+    return " ".join(f"{x},{y}" for x, y in pts)
+
+
+def radar_chart_html():
+    circles = "".join(
+        f'<circle class="radar-grid-line" cx="0" cy="0" r="{v * RADAR_SCALE}"/>'
+        for v in range(1, RADAR_GRID_MAX + 1)
+    )
+    ticks = "".join(
+        f'<text class="radar-tick" x="6" y="{-(v * RADAR_SCALE) + 3}">{v}</text>'
+        for v in range(1, RADAR_GRID_MAX + 1)
+    )
+    axes = "".join(
+        f'<line class="radar-axis" x1="0" y1="0" x2="{x}" y2="{y}"/>'
+        for x, y in (_radar_xy(RADAR_GRID_MAX * RADAR_SCALE, k) for k in range(6))
+    )
+    cur_points = [_radar_xy(v * RADAR_SCALE, k) for k, v in enumerate(RADAR_Q1_2026)]
+    dots = "".join(
+        f'<circle{" class=\"is-outlier\"" if RADAR_AXES[k][3] else ""} '
+        f'cx="{cur_points[k][0]}" cy="{cur_points[k][1]}" r="{6 if RADAR_AXES[k][3] else 5}"/>'
+        for k in range(6)
+    )
+    labels = ""
+    for k, (pid, full, short, outlier) in enumerate(RADAR_AXES):
+        x, y = _radar_xy(RADAR_LABEL_R, k)
+        arrow = " ↓" if outlier else ""
+        cls = "radar-axis-label is-outlier" if outlier else "radar-axis-label"
+        labels += f'<text class="{cls}" x="{x}" y="{y}" text-anchor="middle">{esc(short)} {RADAR_Q1_2026[k]:.1f}{arrow}</text>'
+    sr_items = "".join(
+        f"<li><b>{esc(full)}:</b> {RADAR_Q1_2026[k]:.1f} of 5, {esc(RADAR_DELTA_NOTE[k])}</li>"
+        for k, (pid, full, short, outlier) in enumerate(RADAR_AXES)
+    )
+    vb = RADAR_LABEL_R + 32
+
+    return f"""<figure class="radar-chart-figure">
+              <div class="radar-chart-wrap">
+                <svg viewBox="-{vb} -{vb} {vb * 2} {vb * 2}" role="img" aria-labelledby="radarTitle" aria-describedby="radarDesc">
+                  <title id="radarTitle">Watchtower six-pillar radar, Q2 2025 through Q1 2026</title>
+                  {circles}
+                  {ticks}
+                  {axes}
+                  <polygon class="radar-quarter radar-quarter--q2" points="{_radar_polygon(RADAR_Q2_2025)}"/>
+                  <polygon class="radar-quarter radar-quarter--q3" points="{_radar_polygon(RADAR_Q3_2025)}"/>
+                  <polygon class="radar-quarter radar-quarter--q4" points="{_radar_polygon(RADAR_Q4_2025)}"/>
+                  <polygon class="radar-current" points="{_radar_polygon(RADAR_Q1_2026)}"/>
+                  <g class="radar-current-points">{dots}</g>
+                  {labels}
+                </svg>
+              </div>
+              <div class="radar-quarters-legend">
+                <span><span class="swatch q2"></span>Q2 2025</span>
+                <span><span class="swatch q3"></span>Q3 2025</span>
+                <span><span class="swatch q4"></span>Q4 2025</span>
+                <span><span class="swatch current"></span>Q1 2026</span>
+              </div>
+              <figcaption id="radarDesc" class="radar-sr-only"><ul>{sr_items}</ul></figcaption>
+            </figure>"""
+
 
 CSS = """
 .crumb{border-bottom:1px solid var(--line);background:var(--band)}
@@ -146,7 +270,28 @@ CSS = """
 .radar{margin:28px 0;padding:28px;background:var(--band);border:1px solid var(--line)}
 .radar-legend{padding:14px 18px;background:var(--page);border:1px solid var(--line);margin-bottom:22px;font-size:var(--fs-7);line-height:1.5;color:var(--ink-2)}
 .radar-legend b{color:var(--ink);font-weight:600}
-.radar-viz{min-height:260px;background:var(--page);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;font-size:var(--fs-8);color:var(--ink-3);line-height:1.7}
+.radar-chart-figure{margin:0}
+.radar-chart-wrap{max-width:400px;margin:0 auto;background:var(--page);border:1px solid var(--line);padding:20px}
+.radar-chart-wrap svg{display:block;width:100%;height:auto}
+.radar-grid-line{stroke:var(--line);stroke-width:1;fill:none}
+.radar-tick{font-family:var(--font-body);font-size:9px;fill:var(--ink-3);opacity:.55}
+.radar-axis{stroke:var(--line);stroke-width:1.5}
+.radar-axis-label{font-family:var(--font-body);font-size:11px;font-weight:600;fill:var(--ink-3);dominant-baseline:middle}
+.radar-axis-label.is-outlier{fill:var(--ink);font-weight:700}
+.radar-quarter{fill:none;stroke:var(--ink-3);stroke-width:1.5;stroke-dasharray:3 3}
+.radar-quarter--q2{stroke-opacity:.28}
+.radar-quarter--q3{stroke-opacity:.48}
+.radar-quarter--q4{stroke-opacity:.72}
+.radar-current{fill:rgba(255,0,229,.14);stroke:var(--flarepop);stroke-width:2}
+.radar-current-points circle{fill:var(--flarepop);stroke:var(--page);stroke-width:2}
+.radar-current-points circle.is-outlier{fill:var(--ink);stroke:var(--page)}
+.radar-quarters-legend{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:18px;font-size:var(--fs-8);font-weight:600;color:var(--ink-3)}
+.radar-quarters-legend .swatch{display:inline-block;width:14px;height:2px;background:var(--ink-3);margin-right:6px;vertical-align:middle}
+.radar-quarters-legend .swatch.q2{opacity:.28}
+.radar-quarters-legend .swatch.q3{opacity:.48}
+.radar-quarters-legend .swatch.q4{opacity:.72}
+.radar-quarters-legend .swatch.current{background:var(--flarepop);opacity:1;height:3px}
+.radar-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 .pillar{margin-top:64px;scroll-margin-top:100px}
 .pillar-head{display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:end;padding-bottom:18px;margin-bottom:22px;border-bottom:1px solid var(--line)}
@@ -276,6 +421,15 @@ def parse():
         1,
     )
 
+    # 1b: the byline's author portrait was a plain unstyled placeholder
+    # ("Portrait" text in a bare circle, not even a pattern-fill image) —
+    # swap in Andrew Au's real headshot, same asset used on about-us/homepage.
+    blob = blob.replace(
+        '<div class="byline-portrait"><span>Portrait</span></div>',
+        '<img class="byline-portrait" style="aspect-ratio:1/1;object-fit:cover" src="{base}assets/img/team/andrew-au.webp" alt="Andrew Au">',
+        1,
+    )
+
     # 2: wire the 3 related cards to the real Signals from the Edge pages
     # whose titles they match exactly.
     def wire_related(m):
@@ -288,6 +442,14 @@ def parse():
         return card.replace('<a class="rel-card">', f'<a class="rel-card" href="{{base}}insights/{href}">', 1)
 
     blob = re.sub(r'<a class="rel-card">.*?</a>', wire_related, blob, flags=re.S)
+
+    # 3: replace the "6-pillar signal overview" radar-chart text placeholder
+    # with a real inline SVG radar chart (Andrew's review round 2). See
+    # radar_chart_html()/RADAR_* above for the real-data sourcing + the
+    # cross-check that justifies shipping the ported Q2/Q3 2025 figures.
+    blob, n_radar = re.subn(r'<div class="radar-viz">.*?</div>', lambda m: radar_chart_html(), blob, flags=re.S)
+    if n_radar != 1:
+        raise ValueError(f"expected exactly 1 radar-viz placeholder, found {n_radar}")
 
     return h1, crumb, blob
 

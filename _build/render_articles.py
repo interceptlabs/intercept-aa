@@ -81,9 +81,18 @@ def parse(fname):
     ahead = between(html, '<!-- ARTICLE HEADER -->', '<!-- BODY -->')
     eyebrow = re.search(r'<p class="eyebrow">(.*?)</p>', ahead, re.S).group(1)
     h1 = re.search(r"<h1>(.*?)</h1>", ahead, re.S).group(1)
-    byline = re.search(r'<div class="byline">(.*?)</div>\s*</div>\s*</section>', ahead + "</section>", re.S)
-    byline_html = re.search(r'(<div class="byline">.*?</div>\s*</div>)\s*<div class="share">', ahead, re.S)
-    byline_inner = byline_html.group(1) if byline_html else ""
+    # Pulled as 3 separate fields (name/meta/share-icons) rather than one
+    # blob-boundary regex: the byline's own 3 child <div>s each close with
+    # </div> too, so a lazy ".*?</div></div>" match can't reliably find the
+    # OUTER byline div's own closing tag — it was silently matching nothing
+    # (byline_inner came back "" on all 4 articles, rendering an empty
+    # <div class="byline"></div> sitewide, with no name/role/read-time/photo
+    # visible at all — a real bug, not just a missing photo). <b>, .meta,
+    # and .share are each unique within the header section, so searching
+    # directly in `ahead` is unambiguous.
+    byline_name = re.search(r"<b>(.*?)</b>", ahead, re.S).group(1).strip()
+    byline_meta = re.search(r'<span class="meta">(.*?)</span>', ahead, re.S).group(1).strip()
+    byline_share = re.search(r'<div class="share">(.*?)</div>', ahead, re.S).group(1).strip()
     toc = re.search(r'<nav class="toc">(.*?)</nav>', html, re.S).group(1)
     toc_links = re.findall(r'<a[^>]*>(.*?)</a>', toc)
     copy = between(html, '<div class="copy">', '\n      </div>\n    </div>\n  </div>\n</section>\n\n<!-- ARTICLE CTA -->')
@@ -104,7 +113,9 @@ def parse(fname):
     # Signals from the Edge articles instead (see ARTICLE_META) — exactly fills the
     # 3-column grid with no self-link and no orphaned article.
 
-    return dict(crumb=crumb, eyebrow=eyebrow, h1=h1, byline_inner=byline_inner, toc_links=toc_links,
+    return dict(crumb=crumb, eyebrow=eyebrow, h1=h1,
+                byline_name=byline_name, byline_meta=byline_meta, byline_share=byline_share,
+                toc_links=toc_links,
                 copy=copy, acta_html=acta_html, faq_items=faq_items, faq_close=faq_close[-1] if faq_close else "",
                 about_grid=about_grid)
 
@@ -122,6 +133,14 @@ ARTICLE_META = [
     ("who-owns-your-marketing-alpha", "Who owns your marketing alpha?"),
     ("why-2026-feels-heavier", "Why 2026 feels heavier, and what the data says"),
 ]
+
+def author_avatar_html(name, base, size="800/586"):
+    """Real headshot for a known byline author, else None (caller falls back
+    to a pattern placeholder rather than fabricating a photo)."""
+    norm = re.sub(r"<[^>]+>", "", name).strip().lower()
+    if norm == "shaheen yazdani":
+        return f'<img class="ph" style="aspect-ratio:{size}" src="{base}assets/img/team/shaheen-yazdani.webp" alt="{esc(name)}">'
+    return None
 
 def render(slug, data, base="../../"):
     pc = PatternCycler()
@@ -151,8 +170,27 @@ def render(slug, data, base="../../"):
                 f'<span class="rel-meta">Signals from the Edge</span><h3>{esc(title)}</h3></a>')
     rel_html = "".join(rel_card(s, t) for s, t in ARTICLE_META if s != slug)
 
+    avatar_html = author_avatar_html(data["byline_name"], base, "1/1")
+    if not avatar_html:
+        src, ratio = pc.next("4col", base)
+        avatar_html = f'<img class="ph" style="aspect-ratio:{ratio}" src="{src}" alt="">'
+    byline_inner = (
+        f'{avatar_html}'
+        f'<div><b>{data["byline_name"]}</b><span class="meta">{data["byline_meta"]}</span></div>'
+        f'<div class="share">{data["byline_share"]}</div>'
+    )
+
     hero_src, hero_ratio = pc.next("hero", base)
-    about_grid = swap_ph(data["about_grid"], "Portrait", "4col")
+    # The "About Signals from the Edge" author box's portrait is Shaheen
+    # Yazdani (confirmed byline author on all 4 articles) — swap in her real
+    # headshot (already sourced round 16, reused from about-us) instead of a
+    # generic pattern-fill placeholder; this is a specific person's photo,
+    # not decoration.
+    about_grid = data["about_grid"].replace(
+        '<div class="ph">Portrait</div>',
+        f'<img class="ph" style="aspect-ratio:800/586" src="{base}assets/img/team/shaheen-yazdani.webp" alt="Shaheen Yazdani">',
+        1,
+    )
 
     return f"""<!doctype html>
 <html lang="en">
@@ -170,7 +208,7 @@ def render(slug, data, base="../../"):
   <div class="wrap">
     <p class="eyebrow">{data["eyebrow"]}</p>
     <h1>{data["h1"]}</h1>
-    <div class="byline">{data["byline_inner"]}</div>
+    <div class="byline">{byline_inner}</div>
   </div>
 </section>
 

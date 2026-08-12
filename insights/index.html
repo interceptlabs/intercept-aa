@@ -150,8 +150,8 @@ img.ph{width:100%;height:auto;object-fit:cover;display:block;border:0;background
 .prop .ph{aspect-ratio:4/3;margin-bottom:14px}
 .prop b{display:block;font-size:var(--fs-4);line-height:1.22;font-weight:700;margin-bottom:8px}
 .prop span{display:block;font-size:var(--fs-7);line-height:1.5;color:var(--ink-2);margin-bottom:16px}
-.prop .link{margin-top:auto}
-.feed{padding:48px 0 12px}
+.prop .link{margin-top:auto;color:var(--ink)}
+.feed{padding:48px 0 12px;scroll-margin-top:100px}
 .feed h2{margin-bottom:24px}
 .chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
 .chip{font-size:var(--fs-7);font-weight:600;padding:8px 16px;border-radius:99px;border:1px solid var(--line);color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
@@ -213,7 +213,7 @@ img.ph{width:100%;height:auto;object-fit:cover;display:block;border:0;background
       <span class="eyebrow">Featured &middot; Signals from the Edge &middot; July 2026</span>
       <h2>Who owns your marketing alpha?</h2>
       <p>A field read on the ownership question now facing enterprise technology, and what it means for marketing teams building on frontier AI models.</p>
-      <div class="byline"><img class="ph" style="aspect-ratio:671/490" src="../assets/img/patterns/4col-coolsweep.webp" alt="Shaheen Yazdani"><div><b>Shaheen Yazdani</b><span class="meta">Co-CEO &middot; 23 min read</span></div></div>
+      <div class="byline"><img class="ph" style="aspect-ratio:800/586" src="../assets/img/team/shaheen-yazdani.webp" alt="Shaheen Yazdani"><div><b>Shaheen Yazdani</b><span class="meta">Co-CEO &middot; 23 min read</span></div></div>
       <a class="link" href="who-owns-your-marketing-alpha/index.html">Read the blog</a>
     </div>
   </div></div>
@@ -222,11 +222,11 @@ img.ph{width:100%;height:auto;object-fit:cover;display:block;border:0;background
 <section class="props">
   <div class="wrap">
     <h2 style="font-size:var(--fs-2)">Where to start</h2>
-    <div class="prop-grid"><div class="prop"><img class="ph" style="aspect-ratio:671/490" src="../assets/img/patterns/4col-wiretree.webp" alt="Signals from the Edge"><b>Signals from the Edge</b><span>Shaheen Yazdani on what we are seeing in live client work, and what it means for the year ahead.</span></div><div class="prop"><img class="ph" style="aspect-ratio:671/490" src="../assets/img/patterns/4col-flarepop.webp" alt="Trends Brief"><b>Trends Brief</b><span>Original research on what is changing across the industry, and how our clients are adapting.</span></div><div class="prop"><img class="ph" style="aspect-ratio:671/490" src="../assets/img/patterns/4col-coolsweep.webp" alt="ChatB2B"><b>ChatB2B</b><span>Andrew Au interviews marketing leaders at the largest enterprise technology companies on how they are piloting and scaling AI use cases across their organizations.</span></div><div class="prop"><img class="ph" style="aspect-ratio:671/490" src="../assets/img/patterns/4col-wiretree.webp" alt="eBooks"><b>eBooks</b><span>Papers on emerging trends such as neuroscience-based creative and AI-powered research.</span></div></div>
+    <div class="prop-grid"><a class="prop" href="#feed" data-f="Signals from the Edge"><img class="ph" style="aspect-ratio:671/490" src="../assets/img/patterns/4col-wiretree.webp" alt="Signals from the Edge"><b>Signals from the Edge</b><span>Shaheen Yazdani on what we are seeing in live client work, and what it means for the year ahead.</span><span class="link">Explore Signals from the Edge</span></a><a class="prop" href="#feed" data-f="Trends Brief"><img class="ph" style="aspect-ratio:671/490" src="../assets/img/patterns/4col-flarepop.webp" alt="Trends Brief"><b>Trends Brief</b><span>Original research on what is changing across the industry, and how our clients are adapting.</span><span class="link">Explore Trends Brief</span></a><a class="prop" href="chatb2b/index.html"><img class="ph" style="aspect-ratio:671/490" src="../assets/img/patterns/4col-coolsweep.webp" alt="ChatB2B"><b>ChatB2B</b><span>Andrew Au interviews marketing leaders at the largest enterprise technology companies on how they are piloting and scaling AI use cases across their organizations.</span><span class="link">Explore ChatB2B</span></a><a class="prop" href="#feed" data-f="eBooks"><img class="ph" style="aspect-ratio:671/490" src="../assets/img/patterns/4col-wiretree.webp" alt="eBooks"><b>eBooks</b><span>Papers on emerging trends such as neuroscience-based creative and AI-powered research.</span><span class="link">Explore eBooks</span></a></div>
   </div>
 </section>
 
-<section class="feed">
+<section class="feed" id="feed">
   <div class="wrap">
     <h2 style="font-size:var(--fs-2)">Insights hub</h2>
     <div class="chips"><span class="chip on" data-f="">Everything</span><span class="chip" data-f="Signals from the Edge">Signals from the Edge</span><span class="chip" data-f="Trends Brief">Trends Brief</span><span class="chip" data-f="ChatB2B">ChatB2B</span><span class="chip" data-f="eBooks">eBooks</span></div>
@@ -260,6 +260,7 @@ img.ph{width:100%;height:auto;object-fit:cover;display:block;border:0;background
         <a href="../our-work/index.html">Our Work</a>
         <a href="../index.html#services">What We Do</a>
         <a href="../insights/index.html">Insights</a>
+        <a href="../insights/chatb2b/index.html">ChatB2B Podcast</a>
         <a href="../about-us/index.html">About Us</a>
         <a href="../careers/index.html">Careers</a>
         <a href="../contact/index.html">Contact</a>
@@ -473,6 +474,7 @@ img.ph{width:100%;height:auto;object-fit:cover;display:block;border:0;background
 (function(){
   var grid = document.querySelector(".feed-grid");
   var cards = [].slice.call(grid.querySelectorAll(".card"));
+  var chipEls = [].slice.call(document.querySelectorAll(".chip"));
   var more = document.getElementById("more");
   var filter = "", expanded = false;
   function apply(){
@@ -486,10 +488,25 @@ img.ph{width:100%;height:auto;object-fit:cover;display:block;border:0;background
     var hiddenLeft = cards.filter(function(c){ return c.hidden; }).length;
     more.parentNode.style.display = hiddenLeft ? "" : "none";
   }
+  // Shared by the chip-click handler and the "Where to start" prop-card
+  // click handler below, so clicking a prop card runs the exact same
+  // filter-activation path a manual chip click would.
+  function activateFilter(value){
+    var match = chipEls.filter(function(c){ return (c.dataset.f || "") === value; })[0];
+    if (!match) return;
+    chipEls.forEach(function(c){ c.classList.remove("on"); });
+    match.classList.add("on");
+    filter = value; expanded = false; apply();
+  }
   document.querySelector(".chips").addEventListener("click", function(e){
     var chip = e.target.closest(".chip"); if(!chip) return;
-    [].forEach.call(document.querySelectorAll(".chip"), function(c){ c.classList.remove("on"); });
-    chip.classList.add("on"); filter = chip.dataset.f || ""; expanded = false; apply();
+    activateFilter(chip.dataset.f || "");
+  });
+  // Prop cards carry href="#feed" (native, smooth-scrolling per the sitewide
+  // html{scroll-behavior:smooth} rule, and a working destination with JS
+  // off) plus data-f matching a real chip's data-f exactly.
+  [].slice.call(document.querySelectorAll(".prop[data-f]")).forEach(function(p){
+    p.addEventListener("click", function(){ activateFilter(p.dataset.f || ""); });
   });
   more.addEventListener("click", function(){ expanded = true; apply(); });
   apply();

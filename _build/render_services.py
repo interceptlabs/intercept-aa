@@ -94,6 +94,15 @@ def parse(slug):
     )
     if callout_m:
         stat_value, stat_desc, stat_source = (g.strip() for g in callout_m.groups())
+        # Andrew's edit (round 17): 49.8% -> 50%, and the descriptor sentence
+        # extended to end "...leading change coming to buying committees"
+        # (was "...to buying"). Both patched here rather than in the source
+        # wireframe file, matching this project's own convention of editing
+        # the render script, not a hand-edited output/source copy.
+        if stat_value == "49.8%":
+            stat_value = "50%"
+        if stat_desc.endswith("coming to buying"):
+            stat_desc = stat_desc + " committees"
 
     wwd = between(html, "<!-- WHAT WE DO -->", "<!-- AI MODULE -->")
     wwd_h2 = grab(r"<h2>(.*?)</h2>", wwd)

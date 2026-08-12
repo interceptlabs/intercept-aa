@@ -101,6 +101,7 @@ p{margin:0;text-wrap:pretty}
 .band-navy{background:var(--coolsweep-500);color:#fff}
 
 .ph{background:var(--band);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;color:var(--ink-3);font-family:var(--font-body);font-weight:600;font-size:var(--fs-8);letter-spacing:.09em;text-transform:uppercase}
+img.ph{width:100%;height:auto;object-fit:cover;display:block;border:0;background:none;padding:0}
 
 /* stat strip (the sanctioned data-viz default). Numeral voice is Instrument
    Sans display bold, not a separate mono "data" register — ties the figure
@@ -240,7 +241,28 @@ p{margin:0;text-wrap:pretty}
 .radar{margin:28px 0;padding:28px;background:var(--band);border:1px solid var(--line)}
 .radar-legend{padding:14px 18px;background:var(--page);border:1px solid var(--line);margin-bottom:22px;font-size:var(--fs-7);line-height:1.5;color:var(--ink-2)}
 .radar-legend b{color:var(--ink);font-weight:600}
-.radar-viz{min-height:260px;background:var(--page);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;font-size:var(--fs-8);color:var(--ink-3);line-height:1.7}
+.radar-chart-figure{margin:0}
+.radar-chart-wrap{max-width:400px;margin:0 auto;background:var(--page);border:1px solid var(--line);padding:20px}
+.radar-chart-wrap svg{display:block;width:100%;height:auto}
+.radar-grid-line{stroke:var(--line);stroke-width:1;fill:none}
+.radar-tick{font-family:var(--font-body);font-size:9px;fill:var(--ink-3);opacity:.55}
+.radar-axis{stroke:var(--line);stroke-width:1.5}
+.radar-axis-label{font-family:var(--font-body);font-size:11px;font-weight:600;fill:var(--ink-3);dominant-baseline:middle}
+.radar-axis-label.is-outlier{fill:var(--ink);font-weight:700}
+.radar-quarter{fill:none;stroke:var(--ink-3);stroke-width:1.5;stroke-dasharray:3 3}
+.radar-quarter--q2{stroke-opacity:.28}
+.radar-quarter--q3{stroke-opacity:.48}
+.radar-quarter--q4{stroke-opacity:.72}
+.radar-current{fill:rgba(255,0,229,.14);stroke:var(--flarepop);stroke-width:2}
+.radar-current-points circle{fill:var(--flarepop);stroke:var(--page);stroke-width:2}
+.radar-current-points circle.is-outlier{fill:var(--ink);stroke:var(--page)}
+.radar-quarters-legend{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:18px;font-size:var(--fs-8);font-weight:600;color:var(--ink-3)}
+.radar-quarters-legend .swatch{display:inline-block;width:14px;height:2px;background:var(--ink-3);margin-right:6px;vertical-align:middle}
+.radar-quarters-legend .swatch.q2{opacity:.28}
+.radar-quarters-legend .swatch.q3{opacity:.48}
+.radar-quarters-legend .swatch.q4{opacity:.72}
+.radar-quarters-legend .swatch.current{background:var(--flarepop);opacity:1;height:3px}
+.radar-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 .pillar{margin-top:64px;scroll-margin-top:100px}
 .pillar-head{display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:end;padding-bottom:18px;margin-bottom:22px;border-bottom:1px solid var(--line)}
@@ -371,7 +393,7 @@ p{margin:0;text-wrap:pretty}
           <cite>Andrew Au &middot; Co-CEO, Intercept</cite>
         </blockquote>
         <div class="byline">
-          <div class="byline-portrait"><span>Portrait</span></div>
+          <img class="byline-portrait" style="aspect-ratio:1/1;object-fit:cover" src="../../../assets/img/team/andrew-au.webp" alt="Andrew Au">
           <div class="byline-meta">
             <b>Andrew Au</b>
             <span>Co-CEO, Intercept &middot; 20 min read &middot; Q2 2026</span>
@@ -563,7 +585,29 @@ p{margin:0;text-wrap:pretty}
             <div class="radar-legend">
               <b>Watchtower</b> is Intercept's proprietary intelligence engine, tracking sentiment and intent across a windowed sample of 20 million people globally. Each pillar is scored on a 5-point maturity scale.
             </div>
-            <div class="radar-viz">Radar chart &middot; 6-pillar signal overview<br>Q2 2025 · Q3 2025 · Q4 2025 · Q1 2026<br>(visualization placeholder)</div>
+            <figure class="radar-chart-figure">
+              <div class="radar-chart-wrap">
+                <svg viewBox="-260 -260 520 520" role="img" aria-labelledby="radarTitle" aria-describedby="radarDesc">
+                  <title id="radarTitle">Watchtower six-pillar radar, Q2 2025 through Q1 2026</title>
+                  <circle class="radar-grid-line" cx="0" cy="0" r="40"/><circle class="radar-grid-line" cx="0" cy="0" r="80"/><circle class="radar-grid-line" cx="0" cy="0" r="120"/><circle class="radar-grid-line" cx="0" cy="0" r="160"/><circle class="radar-grid-line" cx="0" cy="0" r="200"/>
+                  <text class="radar-tick" x="6" y="-37">1</text><text class="radar-tick" x="6" y="-77">2</text><text class="radar-tick" x="6" y="-117">3</text><text class="radar-tick" x="6" y="-157">4</text><text class="radar-tick" x="6" y="-197">5</text>
+                  <line class="radar-axis" x1="0" y1="0" x2="0.0" y2="-200.0"/><line class="radar-axis" x1="0" y1="0" x2="173.2" y2="-100.0"/><line class="radar-axis" x1="0" y1="0" x2="173.2" y2="100.0"/><line class="radar-axis" x1="0" y1="0" x2="0.0" y2="200.0"/><line class="radar-axis" x1="0" y1="0" x2="-173.2" y2="100.0"/><line class="radar-axis" x1="0" y1="0" x2="-173.2" y2="-100.0"/>
+                  <polygon class="radar-quarter radar-quarter--q2" points="0.0,-134.0 105.3,-60.8 110.5,63.8 0.0,139.2 -112.2,64.8 -99.8,-57.6"/>
+                  <polygon class="radar-quarter radar-quarter--q3" points="0.0,-129.6 100.1,-57.8 118.1,68.2 0.0,118.8 -102.5,59.2 -116.4,-67.2"/>
+                  <polygon class="radar-quarter radar-quarter--q4" points="0.0,-126.8 104.6,-60.4 99.1,57.2 0.0,128.8 -103.2,59.6 -98.7,-57.0"/>
+                  <polygon class="radar-current" points="0.0,-136.0 107.4,-62.0 117.8,68.0 0.0,132.0 -121.2,70.0 -93.5,-54.0"/>
+                  <g class="radar-current-points"><circle cx="0.0" cy="-136.0" r="5"/><circle cx="107.4" cy="-62.0" r="5"/><circle cx="117.8" cy="68.0" r="5"/><circle cx="0.0" cy="132.0" r="5"/><circle cx="-121.2" cy="70.0" r="5"/><circle class="is-outlier" cx="-93.5" cy="-54.0" r="6"/></g>
+                  <text class="radar-axis-label" x="0.0" y="-228.0" text-anchor="middle">Proficiency 3.4</text><text class="radar-axis-label" x="197.5" y="-114.0" text-anchor="middle">Readiness 3.1</text><text class="radar-axis-label" x="197.5" y="114.0" text-anchor="middle">Sentiment 3.4</text><text class="radar-axis-label" x="0.0" y="228.0" text-anchor="middle">Adoption 3.3</text><text class="radar-axis-label" x="-197.5" y="114.0" text-anchor="middle">Outlook 3.5</text><text class="radar-axis-label is-outlier" x="-197.5" y="-114.0" text-anchor="middle">Job Conf 2.7 ↓</text>
+                </svg>
+              </div>
+              <div class="radar-quarters-legend">
+                <span><span class="swatch q2"></span>Q2 2025</span>
+                <span><span class="swatch q3"></span>Q3 2025</span>
+                <span><span class="swatch q4"></span>Q4 2025</span>
+                <span><span class="swatch current"></span>Q1 2026</span>
+              </div>
+              <figcaption id="radarDesc" class="radar-sr-only"><ul><li><b>Individual AI Proficiency:</b> 3.4 of 5, up from 3.17 last quarter — rebound after three declines</li><li><b>Organizational AI Readiness:</b> 3.1 of 5, up from 3.02 last quarter — modest rise</li><li><b>Sentiment Toward AI:</b> 3.4 of 5, up from 2.86 last quarter — inside marketing</li><li><b>Organizational AI Adoption:</b> 3.3 of 5, up from 3.22 last quarter — uneven but real</li><li><b>Future Outlook:</b> 3.5 of 5, up from 2.98 last quarter — highest in the set</li><li><b>Job Confidence:</b> 2.7 of 5, down from 2.85 last quarter — lowest reading in the series, the only pillar to fall</li></ul></figcaption>
+            </figure>
           </div>
         </div>
 
@@ -973,6 +1017,7 @@ p{margin:0;text-wrap:pretty}
         <a href="../../../our-work/index.html">Our Work</a>
         <a href="../../../index.html#services">What We Do</a>
         <a href="../../../insights/index.html">Insights</a>
+        <a href="../../../insights/chatb2b/index.html">ChatB2B Podcast</a>
         <a href="../../../about-us/index.html">About Us</a>
         <a href="../../../careers/index.html">Careers</a>
         <a href="../../../contact/index.html">Contact</a>

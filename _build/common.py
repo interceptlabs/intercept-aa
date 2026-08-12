@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Shared design-system pieces for InterceptAA: tokens, nav, footer, logo library."""
-import json, os, html as _html
+import json, os, re, html as _html
 
 BUILD_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -107,6 +107,36 @@ class PatternCycler:
         return f'{base}assets/img/patterns/{size}-{color}.webp', f"{w}/{h}"
 
 
+# Team members with a real sourced headshot (round 16 — see TEAM_IMG_DIMS
+# above), keyed by normalized full name. Reused for ANY author-byline avatar
+# sitewide (ebooks, articles, insights hub, trends briefs) — not just the
+# about-us team grid this was originally sourced for. Round 17 found the
+# same "generic pattern/placeholder instead of the person's real photo" bug
+# recurring independently in 3 different render scripts (Shaheen Yazdani on
+# the insights hub + Signals-from-the-Edge author box, Andrew Au on both
+# eBooks + the Trends Brief byline) — centralizing the lookup here so a
+# future 4th occurrence doesn't repeat the same miss.
+TEAM_PHOTO_SLUGS = {
+    "andrew au": "andrew-au",
+    "shaheen yazdani": "shaheen-yazdani",
+    "francis silva": "francis-silva",
+    "laura white": "laura-white",
+    "david toto": "david-toto",
+    "jeff lewis": "jeff-lewis",
+}
+
+def author_avatar_html(name, base, css_class="ph"):
+    """Real headshot <img> for a known team-member byline author, else None
+    — caller falls back to a pattern placeholder rather than fabricating a
+    photo for someone with no sourced image."""
+    norm = re.sub(r"<[^>]+>", "", name or "").strip().lower()
+    slug = TEAM_PHOTO_SLUGS.get(norm)
+    if not slug:
+        return None
+    w, h = TEAM_IMG_DIMS[slug]
+    return f'<img class="{css_class}" style="aspect-ratio:{w}/{h}" src="{base}assets/img/team/{slug}.webp" alt="{esc(name)}">'
+
+
 # ---- wordmark (re-sourced from intercept-home-concepts/concept-d, 2026-08-06 correction —
 #      home.html's copy carried a runtime translate(0,-10) against a fractional viewBox, the
 #      exact "crunchy logo" failure mode the constitution's L-1..L-5 document. concept-d's copy
@@ -154,6 +184,30 @@ def _load_lifted(name, filename, height_px):
 CLIENT_LOGOS["Intel"] = _load_lifted("Intel", "intel_inner.txt", 21)
 CLIENT_LOGOS["TD SYNNEX"] = _load_lifted("TD SYNNEX", "td_inner.txt", 16)
 
+# ChatB2B guest-wall logos, round 17: Andrew supplied real files at
+# ~/Downloads/Logos-for-ChatB2B/ for the 7 guests that had no sourced vector
+# (previously plain "brand-text" fallbacks). Moderne + Procom were supplied
+# as clean SVGs and are lifted the same way as Intel/TD SYNNEX above (real
+# vector, viewBox tightened to the artwork's own bounding box). The other 5
+# (CGI/Google/Kaltura/Sophos/Veeam) were supplied as raster PNGs — kept as
+# raster rather than hand-traced to vector (never redraw a supplied logo).
+# Files processed into assets/img/logos/*.png (trimmed, transparent bg);
+# veeam.png specifically was re-extracted from the source "chip cutout" art
+# (the wordmark is a knock-out hole in a solid badge, not white-on-black
+# text) via enclosed-hole flood-fill, discarding the badge entirely — a
+# naive invert/threshold left a faint ghost of the badge's cut corner.
+CLIENT_LOGOS["Moderne"] = _load_lifted("Moderne", "moderne_inner.txt", 22)
+CLIENT_LOGOS["Procom"] = _load_lifted("Procom", "procom_inner.txt", 18)
+
+def _load_raster(name, filename, height_px):
+    return {"href": None, "svg": None, "img": f"assets/img/logos/{filename}", "img_h": height_px}
+
+CLIENT_LOGOS["CGI"] = _load_raster("CGI", "cgi.png", 20)
+CLIENT_LOGOS["Google"] = _load_raster("Google", "google.png", 26)
+CLIENT_LOGOS["Kaltura"] = _load_raster("Kaltura", "kaltura.png", 22)
+CLIENT_LOGOS["Sophos"] = _load_raster("Sophos", "sophos.png", 18)
+CLIENT_LOGOS["Veeam"] = _load_raster("Veeam", "veeam.png", 18)
+
 _TEXT_LOGOS = {
     "Intuit": ("https://www.intuit.com/", "intuit", 22),
 }
@@ -165,13 +219,20 @@ for name, (href, label, size) in _TEXT_LOGOS.items():
         "text_size": size,
     }
 
-def client_logo_html(name):
-    """Render a client logo (or text fallback) as an unlinked mono glyph for the wall/badges."""
+def client_logo_html(name, base=""):
+    """Render a client logo (or text fallback) as an unlinked mono glyph for the wall/badges.
+    base: relative path prefix to site root, needed only for raster (img) entries —
+    vector entries are self-contained inline SVG and ignore it."""
     entry = CLIENT_LOGOS.get(name)
     if not entry:
         return f'<span class="brand-text">{esc(name)}</span>'
     if entry.get("svg"):
         return entry["svg"]
+    if entry.get("img"):
+        return (
+            f'<img class="brand-img" src="{base}{entry["img"]}" alt="{esc(name)}" '
+            f'style="height:{entry["img_h"]}px;width:auto;object-fit:contain">'
+        )
     return f'<span class="brand-text" style="font-size:{entry["text_size"]}px">{esc(entry["text"])}</span>'
 
 # ---- CSS ----
@@ -361,6 +422,7 @@ def footer_html(base=""):
         <a href="{base}our-work/index.html">Our Work</a>
         <a href="{base}index.html#services">What We Do</a>
         <a href="{base}insights/index.html">Insights</a>
+        <a href="{base}insights/chatb2b/index.html">ChatB2B Podcast</a>
         <a href="{base}about-us/index.html">About Us</a>
         <a href="{base}careers/index.html">Careers</a>
         <a href="{base}contact/index.html">Contact</a>

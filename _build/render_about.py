@@ -53,8 +53,14 @@ def render():
         ("Shaheen Yazdani", "shaheen-yazdani", "Co-CEO", "Leads client services and operations, and co-founded the agency in 2006. More than 20 years marketing for Fortune 100 brands, now steering Intercept’s move to an AI-native operating model. Named to WXN’s Canada’s Most Powerful Women, Top 100, and a juror for the ANA B2, Echo, and CMA awards."),
         ("Francis Silva", "francis-silva", "Chief Technology Officer", "Designs the AI platforms and go-to-market systems behind the work. Previously EVP of Digital and AI at a North American loyalty technology company, leading teams of 250. Teaches analytics and AI marketing at Queen’s Smith School of Business."),
         ("Laura White", "laura-white", "Chief Financial Officer", "Oversees the finance function, modernizing reporting and the systems that support it. More than 25 years of finance and operational leadership across advertising, media, and consumer businesses. Previously Senior Executive Finance Director at TBWA\\Chiat\\Day in New York and Group CFO of TBWA\\Group Canada."),
-        ("David Toto", "david-toto", "Managing Director", "Bio to come. Target 40 to 50 words."),
-        ("Jeff Lewis", "jeff-lewis", "Head of Client Advisory", "Bio to come. Target 40 to 50 words."),
+        # David Toto / Jeff Lewis bios: round 17 initially reverted these to
+        # placeholders because they didn't match the live interceptgroup.com
+        # (David) or appear there at all (Jeff) — but Jon confirmed 2026-08-11
+        # these are real, sourced verbatim from ~/Downloads/about-us.html (the
+        # newer copy doc referenced back in round 16), just not yet published
+        # to the live site. Restored verbatim from that file.
+        ("David Toto", "david-toto", "Managing Director", "Runs agency operations, with more than 25 years building integrated teams. Previously President of Juniper Park\\TBWA, where the agency doubled in size and won Effie Canada’s Agency of the Year and multiple Cannes Lions. Holds a Master’s in Management from HEC Paris."),
+        ("Jeff Lewis", "jeff-lewis", "Head of Client Advisory", "Advises enterprise clients on aligning marketing strategy with business goals and adopting AI-native ways of working. Nearly two decades in digital marketing, including more than ten years leading client services inside agencies. Works across enterprise technology and B2B SaaS, with brands including Zscaler, Cisco, and Xactly."),
     ]
     bio_html = "".join(
         f'<div class="bio"><img class="ph" style="aspect-ratio:{TEAM_IMG_DIMS[slug][0]}/{TEAM_IMG_DIMS[slug][1]}" src="../assets/img/team/{slug}.webp" alt="{esc(n)}, {esc(r)}"><b>{esc(n)}</b><em>{esc(r)}</em><p>{esc(b)}</p></div>'
@@ -153,7 +159,7 @@ def render():
       <img class="ph" style="aspect-ratio:{twoup_ratio}" src="{twoup_src}" alt="">
       <div>
         <h2 style="margin-bottom:16px">A team built to find the best people, anywhere</h2>
-        <p style="margin:0">We work remotely across North America, from San Francisco and San Diego to Toronto, Calgary, and Vancouver, with a growing team of specialists in Islamabad and Oman.</p>
+        <p style="margin:0">We work remotely across North America, from San Francisco and San Diego to Toronto, Calgary, and Vancouver, with a growing team of specialists across Asia Pacific.</p>
       </div>
     </div>
   </div>

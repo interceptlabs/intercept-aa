@@ -25,8 +25,8 @@ CSS = """
 .prop .ph{aspect-ratio:4/3;margin-bottom:14px}
 .prop b{display:block;font-size:var(--fs-4);line-height:1.22;font-weight:700;margin-bottom:8px}
 .prop span{display:block;font-size:var(--fs-7);line-height:1.5;color:var(--ink-2);margin-bottom:16px}
-.prop .link{margin-top:auto}
-.feed{padding:48px 0 12px}
+.prop .link{margin-top:auto;color:var(--ink)}
+.feed{padding:48px 0 12px;scroll-margin-top:100px}
 .feed h2{margin-bottom:24px}
 .chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
 .chip{font-size:var(--fs-7);font-weight:600;padding:8px 16px;border-radius:99px;border:1px solid var(--line);color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
@@ -49,6 +49,7 @@ FILTER_SCRIPT = """<script>
 (function(){
   var grid = document.querySelector(".feed-grid");
   var cards = [].slice.call(grid.querySelectorAll(".card"));
+  var chipEls = [].slice.call(document.querySelectorAll(".chip"));
   var more = document.getElementById("more");
   var filter = "", expanded = false;
   function apply(){
@@ -62,10 +63,25 @@ FILTER_SCRIPT = """<script>
     var hiddenLeft = cards.filter(function(c){ return c.hidden; }).length;
     more.parentNode.style.display = hiddenLeft ? "" : "none";
   }
+  // Shared by the chip-click handler and the "Where to start" prop-card
+  // click handler below, so clicking a prop card runs the exact same
+  // filter-activation path a manual chip click would.
+  function activateFilter(value){
+    var match = chipEls.filter(function(c){ return (c.dataset.f || "") === value; })[0];
+    if (!match) return;
+    chipEls.forEach(function(c){ c.classList.remove("on"); });
+    match.classList.add("on");
+    filter = value; expanded = false; apply();
+  }
   document.querySelector(".chips").addEventListener("click", function(e){
     var chip = e.target.closest(".chip"); if(!chip) return;
-    [].forEach.call(document.querySelectorAll(".chip"), function(c){ c.classList.remove("on"); });
-    chip.classList.add("on"); filter = chip.dataset.f || ""; expanded = false; apply();
+    activateFilter(chip.dataset.f || "");
+  });
+  // Prop cards carry href="#feed" (native, smooth-scrolling per the sitewide
+  // html{scroll-behavior:smooth} rule, and a working destination with JS
+  // off) plus data-f matching a real chip's data-f exactly.
+  [].slice.call(document.querySelectorAll(".prop[data-f]")).forEach(function(p){
+    p.addEventListener("click", function(){ activateFilter(p.dataset.f || ""); });
   });
   more.addEventListener("click", function(){ expanded = true; apply(); });
   apply();
@@ -137,12 +153,29 @@ def render():
         ("ChatB2B", "Andrew Au interviews marketing leaders at the largest enterprise technology companies on how they are piloting and scaling AI use cases across their organizations."),
         ("eBooks", "Papers on emerging trends such as neuroscience-based creative and AI-powered research."),
     ]
+    # ChatB2B has its own real hub page — link straight to it. The other 3
+    # ("Signals from the Edge" / "Trends Brief" / "eBooks") have no dedicated
+    # hub page — they're filter categories within this page's own .feed
+    # section below, so their CTA activates that category's chip (data-f
+    # matches CHIPS exactly) and scrolls to #feed, same UI a manual chip
+    # click already produces. See FILTER_SCRIPT's activateFilter().
+    PROP_HREFS = {"ChatB2B": "chatb2b/index.html"}
     def prop_card(n, d):
         src, ratio = pc.next("4col", "../")
-        return f'<div class="prop"><img class="ph" style="aspect-ratio:{ratio}" src="{src}" alt="{esc(n)}"><b>{esc(n)}</b><span>{esc(d)}</span></div>'
+        href = PROP_HREFS.get(n)
+        attrs = f'href="{href}"' if href else f'href="#feed" data-f="{esc(n)}"'
+        return (
+            f'<a class="prop" {attrs}>'
+            f'<img class="ph" style="aspect-ratio:{ratio}" src="{src}" alt="{esc(n)}">'
+            f'<b>{esc(n)}</b><span>{esc(d)}</span>'
+            f'<span class="link">Explore {esc(n)}</span></a>'
+        )
     props_html = "".join(prop_card(n, d) for n, d in props)
     feat_src, feat_ratio = pc.next("2col", "../")
-    portrait_src, portrait_ratio = pc.next("4col", "../")
+    # Shaheen Yazdani's real headshot (sourced round 16, reused here rather
+    # than a generic pattern-fill placeholder — this is a specific person's
+    # byline photo, not a decorative empty slot).
+    portrait_src, portrait_ratio = "../assets/img/team/shaheen-yazdani.webp", "800/586"
 
     return f"""<!doctype html>
 <html lang="en">
@@ -177,7 +210,7 @@ def render():
   </div>
 </section>
 
-<section class="feed">
+<section class="feed" id="feed">
   <div class="wrap">
     <h2 style="font-size:var(--fs-2)">Insights hub</h2>
     <div class="chips">{chips_html}</div>

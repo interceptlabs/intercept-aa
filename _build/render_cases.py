@@ -2,7 +2,7 @@
 """Render all 31 case-study pages from cases.json into ../our-work/<slug>/index.html."""
 import json, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import esc, head_html, header_html, footer_html, CSS, IMG_DIMS
+from common import esc, head_html, header_html, footer_html, CSS, IMG_DIMS, PatternCycler
 
 def img_ratio(key):
     w, h = IMG_DIMS[key]
@@ -82,6 +82,7 @@ def render_case(c):
     )
     result_paras = "".join(f"<p>{esc(p)}</p>" for p in c["result_paras"])
 
+    pc = PatternCycler()
     rel_cards = ""
     for r in c["related"]:
         match = resolve_related(r["title"])
@@ -89,7 +90,14 @@ def render_case(c):
         if match:
             img_html = f'<img class="ph" style="aspect-ratio:{img_ratio(match["slug"]+"-card")}" src="{base}assets/img/cases/{match["slug"]}-card.webp" alt="{esc(match["client_display"])} — {esc(r["title"])}">'
         else:
-            img_html = '<div class="ph" style="aspect-ratio:4/3">Related work</div>'
+            # No matching case (e.g. "Intel vPro, Explained" — never a real
+            # case page, confirmed against the Figma "Intercept Website
+            # Images" file too) — fall back to the sitewide pattern
+            # placeholder rather than the plain unstyled text box this used
+            # to render as (indistinguishable from blank space on this
+            # site's flat warm-tone background).
+            src, ratio = pc.next("3col", base)
+            img_html = f'<img class="ph" style="aspect-ratio:{ratio}" src="{src}" alt="">'
         rel_cards += (
             f'<a class="card rel" href="{href}">{img_html}'
             f'<h3>{esc(r["title"])}</h3><p>{esc(r["desc"])}</p></a>'
