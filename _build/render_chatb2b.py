@@ -249,6 +249,7 @@ CSS = """
 .fcard .ep-date{font-size:var(--fs-8);color:var(--ink-3);display:block;margin:0 0 8px}
 .fcard h3{font-size:var(--fs-4);line-height:1.26;letter-spacing:-.014em;margin:0 0 9px}
 .fcard p:not(.eyebrow){font-size:var(--fs-7);line-height:1.5;color:var(--ink-2);margin:0}
+.fcard .ep-links{margin-top:14px;flex-wrap:wrap}
 
 .wall{padding:46px 0;background:var(--band);border-bottom:1px solid var(--line)}
 .wall-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:14px;margin-top:20px}
@@ -371,8 +372,16 @@ def parse():
 def render(data, base="../../"):
     pc = PatternCycler()
     def fcard_html(ph, date, h3, p):
+        # Round 17.1 fix: this "More episodes" 3-card teaser had NO click-through
+        # at all (no wrapping <a>, no platform links) — same underlying gap the
+        # "All episodes" archive already had fixed via episode_links()/
+        # ep_links_html(), just never ported to this second, separate section.
         src, ratio = pc.next("3col", base)
-        return f'<div class="fcard"><img class="ph" style="aspect-ratio:{ratio}" src="{src}" alt=""><span class="ep-date">{date}</span><h3>{h3}</h3><p>{p}</p></div>'
+        return (
+            f'<div class="fcard"><img class="ph" style="aspect-ratio:{ratio}" src="{src}" alt="">'
+            f'<span class="ep-date">{date}</span><h3>{h3}</h3><p>{p}</p>'
+            f'<div class="ep-links">{ep_links_html(episode_links(h3))}</div></div>'
+        )
     fcards_html = "".join(fcard_html(*c) for c in data["fcards"])
     wall_html = "".join(
         f'<div class="ph">{client_logo_html(WALL_LOGO_KEY.get(name, name), base)}</div>'
