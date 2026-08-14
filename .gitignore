@@ -2,5 +2,6 @@
 _build/__pycache__/
 _build/_retired-pre-reflow/
 _build/_wrong-image-backups/
+_build/_logo-color-backups/
 media/*.pre-*.mp4
 image_assets/

@@ -20,7 +20,16 @@ HOME_CSS = """
 .hero-card .btn{background:transparent;border:1.5px solid var(--flarepop);color:#fff}
 .hero-card .btn:hover{background:var(--flarepop);color:var(--carbon-500);border-color:var(--flarepop)}
 
-.hero-video-wrap{position:relative;flex:none;height:100%;aspect-ratio:4/3;background:var(--carbon-400)}
+/* max-width is load-bearing: this box's width comes from aspect-ratio:4/3
+   applied to the ROW'S HEIGHT (min(85vh,720px)), completely independent of
+   how much width is actually left over for .hero-card. On a common
+   1366x768 window that's 870px of video before the text panel gets a
+   single pixel -- .hero-card (min-width:0) just silently loses, its
+   text clipping off the left edge of the viewport rather than the box.
+   Capping width guarantees the card always keeps its share; the video
+   simply stops being exactly 4/3 in that squeeze and object-fit:cover
+   crops instead, which is the correct trade-off vs. losing the headline. */
+.hero-video-wrap{position:relative;flex:none;height:100%;aspect-ratio:4/3;max-width:55%;background:var(--carbon-400)}
 .hero-video-wrap video{display:block;width:100%;height:100%;object-fit:cover}
 
 /* headline "Intercept" morphs into an arrow while the video's closing
@@ -48,11 +57,26 @@ HOME_CSS = """
 .headline-word.sting-active .arrow-seg{transform:scaleX(1)}
 .headline-word.sting-active .arrow-head{opacity:1}
 
-@media(max-width:860px){
+/* Jon: "breakpoint needs to come sooner, still getting cut off too early."
+   Deliberately wider than the shared 860px nav breakpoint (common.py) --
+   this section's own math needs more room than a simple 1/2-col grid does.
+   Even with the max-width:55% safety cap above, a side-by-side hero still
+   needs ~1180px of total row width before .hero-card's real content
+   (520px max + up to 96px padding each side) stops feeling squeezed; below
+   that, stacking cleanly beats a cramped side-by-side that's merely
+   "not clipping anymore." Not the shared 860px value -- verified this
+   doesn't need to match nav's own hamburger threshold, they're solving
+   different problems. */
+@media(max-width:1180px){
   .hero-flex{flex-direction:column;height:auto;min-height:0}
   .hero-card{padding:56px 20px 32px;width:100%}
   .hero-card-inner{max-width:none}
-  .hero-video-wrap{width:100%;height:auto;aspect-ratio:16/10}
+  /* min-height:0 is load-bearing: a flex item's automatic minimum size
+     (min-height:auto) is derived from the UNCONDITIONAL aspect-ratio:4/3
+     above, not this rule's 16/10 -- without resetting it, the box gets
+     clamped to the taller 4:3 height and the video visually overflows its
+     own box (Jon caught this live, "We are Intercept" section on mobile). */
+  .hero-video-wrap{width:100%;max-width:none;height:auto;aspect-ratio:16/10;min-height:0}
   .headline-word .word-arrow{display:none}
   .headline-word .word-text{opacity:1!important}
 }
@@ -112,8 +136,8 @@ HOME_CSS = """
 
 .ins{padding:72px 0 80px}
 .ins .card-grid{align-items:start}
-.icard{border:1px solid var(--line)}
-.icard img.ph{aspect-ratio:1600/1172;border-bottom:1px solid var(--line)}
+{}
+.icard img.ph{aspect-ratio:1600/1172}
 .icard .body{padding:18px}
 .icard .kicker{font-size:var(--fs-8);font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}
 .icard h3{font-size:var(--fs-4);line-height:1.32;margin:0 0 8px}
@@ -148,7 +172,14 @@ HERO_SCRIPT = """<script>
 
   function updateLayout(){
     inner.style.transform = "";
-    if (window.innerWidth <= 860) { word.style.removeProperty("--arrow-w"); return; }
+    // must match the CSS stacking breakpoint below (1180px) -- this math
+    // (arrow width, translateY to align with the video's in-frame wordmark)
+    // only means anything in the side-by-side layout; left at the old 860
+    // after that breakpoint moved wider, it kept running in the 861-1180px
+    // band where CSS had already stacked the section, pushing the headline
+    // down by a huge bogus offset computed against a video rect that no
+    // longer sits beside it.
+    if (window.innerWidth <= 1180) { word.style.removeProperty("--arrow-w"); return; }
     var videoRect = videoWrap.getBoundingClientRect();
     var wordRect = word.getBoundingClientRect();
 

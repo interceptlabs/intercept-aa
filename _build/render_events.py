@@ -37,12 +37,22 @@ CSS = """
 .ehero h1{font-size:var(--fs-1);line-height:1.02;letter-spacing:-.036em;margin:0 0 20px}
 .ehero p:not(.eyebrow){font-size:var(--fs-5);line-height:1.56;color:var(--ink-2);margin:0;max-width:48ch}
 
-.book{border:1px solid var(--ink);padding:28px}
+{padding:28px}
 .book h2{font-size:var(--fs-5);line-height:1.2;letter-spacing:-.014em;margin:0 0 20px}
 .book .field{margin:0 0 13px}
 .book label{display:block;font-size:var(--fs-8);color:var(--ink-3);margin:0 0 6px}
-.book .input{border:1px solid var(--line);height:42px}
-.book .btn{display:block;text-align:center;margin-top:18px}
+/* Priority 3 #8: real inputs, same technique as render_contact.py -- was a
+   visual-only <div class="input"></div> box. 44px min-height (bumped from
+   the mockup's 42px) matches the sitewide touch-target floor now that this
+   is a real tappable control, not decoration. */
+.book input[type=text],.book input[type=email]{
+  width:100%;box-sizing:border-box;border:1px solid var(--line);background:var(--page);min-height:44px;
+  padding:0 14px;font-size:var(--fs-7);font-family:var(--font-body);color:var(--ink);
+}
+.book input:focus{outline:2px solid var(--flarepop-ink);outline-offset:2px}
+.book .btn{display:block;width:100%;box-sizing:border-box;text-align:center;margin-top:18px;border:0;cursor:pointer;font-family:inherit}
+.book .rsent{display:none;padding:14px 16px;background:var(--band);border-left:3px solid var(--flarepop);font-size:var(--fs-8);color:var(--ink);margin-top:16px}
+.book .rsent.show{display:block}
 
 .esec{padding:54px 0;border-bottom:1px solid var(--line)}
 .esec h2{font-size:var(--fs-2);line-height:1.1;letter-spacing:-.026em;margin:0 0 26px}
@@ -74,7 +84,7 @@ CSS = """
 .lwall .ph{aspect-ratio:5/2;font-size:10px}
 
 .feed{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.post{border:1px solid var(--line);padding:18px;display:flex;flex-direction:column;gap:11px}
+{padding:18px;display:flex;flex-direction:column;gap:11px}
 .post .top{display:flex;align-items:center;gap:10px}
 .post .av{width:34px;height:34px;border-radius:999px;background:var(--band);flex:none}
 .post .who{font-size:var(--fs-8);color:var(--ink-3)}
@@ -149,6 +159,50 @@ def parse_template_demo():
     )
 
 
+def _book_input_attrs(label):
+    """Guess a sensible type/autocomplete for a registration-field label,
+    so render_event() stays reusable for a future real event whose field
+    labels may differ from this demo's Name/Work email/Company."""
+    key = label.lower()
+    if "email" in key:
+        return "email", "email"
+    if "phone" in key:
+        return "tel", "tel"
+    if "company" in key or "organization" in key:
+        return "text", "organization"
+    if key == "name" or "your name" in key:
+        return "text", "name"
+    return "text", "off"
+
+
+def _book_field_html(i, label):
+    fid = f"regField{i}"
+    input_type, autocomplete = _book_input_attrs(label)
+    return f'<div class="field"><label for="{fid}">{esc(label)}</label><input type="{input_type}" id="{fid}" autocomplete="{autocomplete}"></div>'
+
+
+def registration_script(field_ids):
+    ids_js = ", ".join(f'"{fid}"' for fid in field_ids)
+    return f"""<script>
+(function(){{
+  var ids = [{ids_js}];
+  var btn = document.getElementById("regBtn");
+  var sent = document.getElementById("regSent");
+  if (!btn) return;
+  btn.addEventListener("click", function(){{
+    var missing = [];
+    ids.forEach(function(id){{
+      var el = document.getElementById(id);
+      if (el && !el.value.trim()) missing.push(el);
+    }});
+    if (missing.length){{ missing[0].focus(); return; }}
+    sent.classList.add("show");
+    sent.scrollIntoView({{behavior: "smooth", block: "nearest"}});
+  }});
+}})();
+</script>"""
+
+
 def render_event(data, base="../../"):
     """data: the dict shape returned by parse_template_demo() above. Pass a
     real event's copy in this same shape to generate a real instance."""
@@ -202,8 +256,9 @@ def render_event(data, base="../../"):
       </div>
       <div class="book">
         <h2>{esc(data["book_h2"])}</h2>
-        {"".join(f'<div class="field"><label>{esc(l)}</label><div class="input"></div></div>' for l in data["book_labels"])}
-        <span class="btn">{esc(data["book_btn"])}</span>
+        {"".join(_book_field_html(i, l) for i, l in enumerate(data["book_labels"]))}
+        <button type="button" class="btn" id="regBtn">{esc(data["book_btn"])}</button>
+        <div class="rsent" id="regSent">Thanks — you&rsquo;re registered. We&rsquo;ll send the details to your inbox.</div>
       </div>
     </div>
   </div>
@@ -265,6 +320,7 @@ def render_event(data, base="../../"):
 
 </main>
 {footer_html(base)}
+{registration_script([f"regField{i}" for i in range(len(data["book_labels"]))])}
 </body>
 </html>"""
 

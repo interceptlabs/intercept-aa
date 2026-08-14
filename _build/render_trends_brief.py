@@ -185,7 +185,7 @@ CSS = """
 .byline-social-btn:hover{border-color:var(--ink);color:var(--ink)}
 @media(max-width:560px){.byline-social{display:none}}
 
-.hero-nums{padding:32px;border:1px solid var(--line);background:var(--band);position:relative}
+{padding:32px;background:var(--band);position:relative}
 .hero-nums::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--ink)}
 .hero-nums-label{font-size:var(--fs-8);font-weight:700;color:var(--ink);margin:0 0 22px;display:flex;align-items:center;gap:10px}
 .hero-nums-label::before{content:"";width:8px;height:8px;background:var(--ink)}
@@ -195,7 +195,7 @@ CSS = """
 .hn-label{font-size:var(--fs-7);line-height:1.55;color:var(--ink-2);margin:0}
 
 .takeaways{padding:44px 0;border-bottom:1px solid var(--line)}
-.takeaways-inner{max-width:var(--readw);margin:0 auto;padding:32px 36px;background:var(--band);border:1px solid var(--line)}
+{max-width:var(--readw);margin:0 auto;padding:32px 36px;background:var(--band);}
 .takeaways-label{font-size:var(--fs-8);font-weight:700;color:var(--ink);margin:0 0 22px;display:block}
 .takeaways ul{list-style:none;margin:0;padding:0}
 .takeaways li{font-size:var(--fs-6);line-height:1.6;color:var(--ink-2);padding:16px 0 16px 26px;position:relative;border-bottom:1px solid var(--line)}
@@ -211,7 +211,7 @@ CSS = """
 .at-glance h2{font-size:var(--fs-3);letter-spacing:-.022em;margin:0 0 12px;color:var(--ink)}
 .at-glance-lead{font-size:var(--fs-6);color:var(--ink-2);margin:0;line-height:1.55}
 .pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.pillar-mini{display:flex;flex-direction:column;gap:10px;padding:22px 24px;background:var(--page);border:1px solid var(--line);text-decoration:none;color:inherit}
+{display:flex;flex-direction:column;gap:10px;padding:22px 24px;background:var(--page);text-decoration:none;color:inherit}
 .pillar-mini:hover{border-color:var(--ink)}
 .pillar-mini.is-outlier{background:var(--halo-200);border-color:var(--ink)}
 .pillar-mini-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
@@ -228,7 +228,11 @@ CSS = """
 .body-grid{display:grid;grid-template-columns:220px 1fr;gap:60px;align-items:start}
 .toc{position:sticky;top:96px;font-size:var(--fs-7);line-height:1.5;display:flex;flex-direction:column;gap:6px;border-left:1px solid var(--line);padding:4px 0 4px 16px;max-height:calc(100vh - 120px);overflow-y:auto}
 .toc .eyebrow{margin:0 0 12px}
-.toc a{display:flex;align-items:baseline;gap:10px;color:var(--ink-3);padding:3px 0;text-decoration:none}
+/* Priority 2 #5: unified TOC-link height to 44px, matching legal + articles
+   (was 27px here vs 21px/31px there -- three heights for one UI role). The
+   toc-num/toc-text 2-part row layout (flex+gap) is unchanged; only the
+   vertical centering/height changed, baseline -> center. */
+.toc a{display:flex;align-items:center;gap:10px;min-height:44px;color:var(--ink-3);padding:0;text-decoration:none}
 .toc a:hover{color:var(--ink)}
 .toc a.on{color:var(--ink);font-weight:600}
 .toc-num{font-size:var(--fs-8);color:var(--ink-3);flex:0 0 auto;min-width:16px}
@@ -243,20 +247,23 @@ CSS = """
 .copy .section{margin-top:64px}
 .copy .section:first-child{margin-top:0}
 
-.chapter-opener{margin:72px 0 40px;padding:48px 40px;background:var(--band);border:1px solid var(--line)}
+{margin:72px 0 40px;padding:48px 40px;background:var(--band);}
 .chapter-opener:first-of-type{margin-top:0}
 .chapter-opener-eyebrow{font-size:var(--fs-8);font-weight:700;color:var(--ink);margin:0 0 16px}
 .chapter-opener-title{font-size:var(--fs-3);line-height:1.18;letter-spacing:-.024em;color:var(--ink);margin:0 0 14px}
-.chapter-opener-thesis{font-size:var(--fs-7);line-height:1.6;color:var(--ink-2);margin:0;max-width:52ch}
+/* Priority 2 #6: the chapter-opener thesis is real framing prose (note the
+   52ch reading measure, a tell this was meant to be read, not glanced at)
+   -- promoted to fs-6 (body scale). */
+.chapter-opener-thesis{font-size:var(--fs-6);line-height:1.6;color:var(--ink-2);margin:0;max-width:52ch}
 .chapter-opener-range{font-size:var(--fs-8);color:var(--ink-3);margin-top:20px;display:inline-block;padding-top:14px;border-top:1px solid var(--line)}
 
-.stat-callout{margin:28px 0;padding:24px 28px;background:var(--band);border:1px solid var(--line);display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+{margin:28px 0;padding:24px 28px;background:var(--band);display:flex;gap:24px;align-items:center;flex-wrap:wrap}
 .stat-callout .stat-num{font-family:var(--font-display);font-size:clamp(36px,4.6vw,52px);font-weight:700;color:var(--ink);line-height:1;letter-spacing:-.03em;flex:0 0 auto}
 .stat-callout .stat-meta{flex:1 1 240px}
 .stat-callout .stat-lbl{font-size:var(--fs-6);line-height:1.5;color:var(--ink);margin:0 0 8px;font-weight:500}
 .stat-callout cite{display:block;font-size:var(--fs-8);color:var(--ink-3)}
 
-.pull-quote{margin:40px 0;padding:32px 36px;background:var(--band);border:1px solid var(--line)}
+{margin:40px 0;padding:32px 36px;background:var(--band);}
 .pull-quote p{margin:0 0 16px;font-size:var(--fs-3);font-weight:500;line-height:1.35;letter-spacing:-.014em;color:var(--ink);font-style:italic}
 .pull-quote cite{display:block;font-size:var(--fs-8);color:var(--ink-3)}
 .pull-quote cite b{color:var(--ink);font-weight:700}
@@ -264,17 +271,21 @@ CSS = """
 .viz{margin:28px 0;padding:22px 24px;background:var(--band);border:1px dashed var(--halo-400)}
 .viz-eyebrow{font-size:var(--fs-8);color:var(--ink-3);margin:0 0 6px}
 .viz-title{font-size:var(--fs-7);font-weight:600;color:var(--ink);margin:0 0 12px}
-.viz-body{font-size:var(--fs-8);color:var(--ink-3);padding:22px;text-align:center;background:var(--page);border:1px solid var(--line);line-height:1.6}
+{font-size:var(--fs-8);color:var(--ink-3);padding:22px;text-align:center;background:var(--page);line-height:1.6}
 .viz-note{font-size:var(--fs-7);color:var(--ink-2);line-height:1.5;margin:12px 0 0}
 
-.radar{margin:28px 0;padding:28px;background:var(--band);border:1px solid var(--line)}
-.radar-legend{padding:14px 18px;background:var(--page);border:1px solid var(--line);margin-bottom:22px;font-size:var(--fs-7);line-height:1.5;color:var(--ink-2)}
+{margin:28px 0;padding:28px;background:var(--band);}
+{padding:14px 18px;background:var(--page);margin-bottom:22px;font-size:var(--fs-7);line-height:1.5;color:var(--ink-2)}
 .radar-legend b{color:var(--ink);font-weight:600}
 .radar-chart-figure{margin:0}
-.radar-chart-wrap{max-width:400px;margin:0 auto;background:var(--page);border:1px solid var(--line);padding:20px}
+{max-width:400px;margin:0 auto;background:var(--page);padding:20px}
 .radar-chart-wrap svg{display:block;width:100%;height:auto}
 .radar-grid-line{stroke:var(--line);stroke-width:1;fill:none}
-.radar-tick{font-family:var(--font-body);font-size:9px;fill:var(--ink-3);opacity:.55}
+/* Priority 2 #5: 9px was illegible (thin, low-opacity, and further shrunk by
+   the SVG's own viewBox->360px scale-down). Bumped to 11px to match
+   .radar-axis-label's already-legible 11px declared in this same chart --
+   same unit convention, proven readable at this chart's actual render size. */
+.radar-tick{font-family:var(--font-body);font-size:11px;fill:var(--ink-3);opacity:.55}
 .radar-axis{stroke:var(--line);stroke-width:1.5}
 .radar-axis-label{font-family:var(--font-body);font-size:11px;font-weight:600;fill:var(--ink-3);dominant-baseline:middle}
 .radar-axis-label.is-outlier{fill:var(--ink);font-weight:700}
@@ -305,7 +316,7 @@ CSS = """
 .pillar-score-delta{font-size:var(--fs-7);font-weight:500;color:var(--ink-2)}
 .pillar.is-outlier .outlier-banner{display:inline-flex;align-items:center;gap:10px;font-size:var(--fs-8);font-weight:700;background:var(--ink);color:var(--page);padding:6px 14px;margin:0 0 18px}
 
-.pillar-summary{margin:0 0 28px;padding:22px 26px;background:var(--band);border:1px solid var(--line);display:grid;grid-template-columns:1fr;gap:8px}
+{margin:0 0 28px;padding:22px 26px;background:var(--band);display:grid;grid-template-columns:1fr;gap:8px}
 .pillar-summary-thesis{font-size:var(--fs-6);line-height:1.55;color:var(--ink);font-weight:500;margin:0}
 .pillar-summary-eyebrow{font-size:var(--fs-8);color:var(--ink-3);margin:0}
 
@@ -315,7 +326,7 @@ CSS = """
 .si-pair h4{font-size:var(--fs-8);font-weight:700;color:var(--ink);margin:0 0 10px}
 .si-pair p{font-size:var(--fs-7);line-height:1.55;color:var(--ink-2);margin:0}
 
-.mid-cta{margin:56px 0;padding:32px 36px;background:var(--band);border:1px solid var(--line);display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+{margin:56px 0;padding:32px 36px;background:var(--band);display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
 .mid-cta-body{flex:1 1 400px}
 .mid-cta .mid-cta-eyebrow{font-size:var(--fs-8);color:var(--ink-3);margin:0 0 8px}
 .mid-cta h3{font-size:var(--fs-4);font-weight:700;line-height:1.22;letter-spacing:-.014em;color:var(--ink);margin:0 0 10px}
@@ -333,7 +344,9 @@ CSS = """
 .dd-summary-eyebrow{font-size:var(--fs-8);font-weight:700;color:var(--ink-3)}
 .dd-summary-title{font-size:var(--fs-6);font-weight:700;color:var(--ink);letter-spacing:-.012em;line-height:1.32;margin:0}
 .dd-body{padding:16px 0 22px}
-.dd-body p{font-size:var(--fs-7);line-height:1.6;color:var(--ink-2);margin:0}
+/* Priority 2 #6: deep-dive body copy is the report's real analytical prose,
+   not a caption -- promoted to fs-6 (body scale). */
+.dd-body p{font-size:var(--fs-6);line-height:1.6;color:var(--ink-2);margin:0}
 .dd-body p b{color:var(--ink);font-weight:600}
 
 .lq{margin-top:64px;scroll-margin-top:100px}
@@ -343,7 +356,9 @@ CSS = """
 @media(max-width:560px){.lq-item{grid-template-columns:1fr;padding:24px}}
 .lq-num{font-family:var(--font-display);font-weight:700;font-size:26px;color:var(--ink);line-height:1;letter-spacing:-.02em}
 .lq-body h3{font-size:var(--fs-4);font-weight:700;line-height:1.3;letter-spacing:-.012em;color:var(--ink);margin:0 0 10px}
-.lq-body p{font-size:var(--fs-7);line-height:1.6;color:var(--ink-2);margin:0}
+/* Priority 2 #6: each leadership-question answer is real multi-sentence
+   prose, not a caption -- promoted to fs-6 (body scale). */
+.lq-body p{font-size:var(--fs-6);line-height:1.6;color:var(--ink-2);margin:0}
 
 .conclusion{margin-top:64px;scroll-margin-top:100px}
 
@@ -357,7 +372,7 @@ CSS = """
 .related h2{font-size:var(--fs-3);letter-spacing:-.02em;margin:0 0 28px}
 .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 @media(max-width:820px){.related-grid{grid-template-columns:1fr}}
-.rel-card{padding:22px 24px;background:var(--band);border:1px solid var(--line);display:flex;flex-direction:column;gap:12px;color:inherit;text-decoration:none}
+{padding:22px 24px;background:var(--band);display:flex;flex-direction:column;gap:12px;color:inherit;text-decoration:none}
 .rel-card:hover{border-color:var(--ink)}
 .rel-card .kicker{font-size:var(--fs-8);font-weight:700;color:var(--ink-3)}
 .rel-card h3{font-size:var(--fs-4);line-height:1.28;letter-spacing:-.012em;color:var(--ink);font-weight:700;margin:0}

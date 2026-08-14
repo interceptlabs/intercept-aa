@@ -32,7 +32,10 @@ CSS = """
 .body-grid{display:grid;grid-template-columns:220px 1fr;gap:60px;align-items:start}
 .toc{position:sticky;top:90px;display:flex;flex-direction:column;gap:8px;border-left:1px solid var(--line);padding:4px 0 4px 16px}
 .toc .eyebrow{margin:0 0 10px}
-.toc a{display:block;font-size:var(--fs-8);line-height:1.4;color:var(--ink-3);text-decoration:none;padding:2px 0;transition:color .15s ease}
+/* Priority 2 #5: TOC-link rows were 21px here vs 27px (trends-brief) vs 31px
+   (articles) -- unified to 44px across all three so a link is a link
+   regardless of template, not a per-page accident of padding math. */
+.toc a{display:flex;align-items:center;min-height:44px;font-size:var(--fs-8);line-height:1.4;color:var(--ink-3);text-decoration:none;padding:0;transition:color .15s ease}
 .toc a:hover{color:var(--ink)}
 .toc a.on{color:var(--ink);font-weight:600}
 .copy{max-width:var(--readw)}
@@ -47,7 +50,7 @@ CSS = """
 .more{border-top:1px solid var(--line);padding:56px 0 64px;background:var(--band)}
 .more h2{font-size:var(--fs-2);letter-spacing:-.022em;margin:0 0 22px;font-weight:700}
 .more-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.mcard{display:block;padding:24px 26px;background:var(--page);border:1px solid var(--line);transition:border-color .18s ease, transform .18s ease}
+{display:block;padding:24px 26px;background:var(--page);transition:border-color .18s ease, transform .18s ease}
 .mcard:hover{border-color:var(--ink);transform:translateY(-2px)}
 .mcard b{display:block;font-size:var(--fs-4);font-weight:700;letter-spacing:-.014em;color:var(--ink);margin:0 0 8px}
 .mcard p{margin:0 0 16px;font-size:var(--fs-7);line-height:1.5;color:var(--ink-2)}

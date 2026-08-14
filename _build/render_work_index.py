@@ -69,7 +69,7 @@ INDEX_CSS = """
 
 .gal{padding:8px 0 76px}
 .chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px}
-.chip{font-size:var(--fs-7);font-weight:600;padding:8px 16px;border-radius:99px;border:1px solid var(--line);color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.chip{display:inline-flex;align-items:center;min-height:44px;font-size:var(--fs-7);font-weight:600;padding:0 16px;border-radius:99px;border:1px solid var(--line);color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
 .chip:hover{border-color:var(--ink-3)}
 .chip.on{background:var(--carbon-500);color:#fff;border-color:var(--carbon-500)}
 .gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}

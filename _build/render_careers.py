@@ -23,7 +23,7 @@ CSS = """
 /* hub: credentials */
 .creds{padding:44px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .cred-row{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
-.cred .ph{width:56px;height:56px;font-size:8px;margin-bottom:14px}
+.cred .ph{width:96px;height:96px;font-size:8px;margin-bottom:18px}
 .cred b{display:block;font-size:var(--fs-6);letter-spacing:-.01em;margin-bottom:4px}
 .cred span{display:block;font-size:var(--fs-7);line-height:1.45;color:var(--ink-2)}
 
@@ -66,7 +66,7 @@ CSS = """
 /* filters (real, filters .role rows by data-s discipline) */
 .filters{padding:0 0 8px}
 .filter-row{display:flex;flex-wrap:wrap;gap:10px;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.chip{font-size:var(--fs-7);font-weight:600;padding:8px 16px;border-radius:99px;border:1px solid var(--line);color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.chip{display:inline-flex;align-items:center;min-height:44px;font-size:var(--fs-7);font-weight:600;padding:0 16px;border-radius:99px;border:1px solid var(--line);color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
 .chip:hover{border-color:var(--ink-3)}
 .chip.on{background:var(--carbon-500);color:#fff;border-color:var(--carbon-500)}
 .filter-note{font-size:var(--fs-8);color:var(--ink-3);padding:14px 0 0;margin:0}
@@ -87,19 +87,33 @@ a.role:hover{background:var(--band)}
 .nofit h2{font-size:var(--fs-2);line-height:1.08;letter-spacing:-.028em;margin:0 0 16px;max-width:20ch}
 .nofit p{font-size:var(--fs-6);color:var(--ink-2);margin:0 0 24px;max-width:52ch}
 
-/* apply — purely visual mockup fields, nothing here submits anywhere */
+/* apply — Priority 3 #7: real form, same technique as render_contact.py
+   (real inputs, a real custom select, client-side ack -- no backend/CRM
+   exists, so nothing here pretends to submit anywhere real). */
 .form{padding:34px 0 8px}
 .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px 24px;max-width:820px}
 .fgrid .wide{grid-column:1 / -1}
-.field label{display:block;font-size:var(--fs-8);color:var(--ink-3);margin:0 0 7px;font-weight:600}
-.field .input{border:1px solid var(--line);background:var(--page);height:46px;display:flex;align-items:center;padding:0 14px;font-size:var(--fs-7);color:var(--ink-3)}
-.field .input.area{height:120px;align-items:flex-start;padding-top:13px}
-.field .input.select{display:flex}
-.field .input.select::after{content:'⌄';margin-left:auto;color:var(--ink-3);font-size:15px}
-.req{color:var(--ink-3);font-weight:400}
-.menu{border:1px solid var(--line);border-top:0;background:var(--page)}
-.menu span{display:block;padding:11px 14px;font-size:var(--fs-7);color:var(--ink-2);border-top:1px solid var(--line)}
-.menu span:first-child{border-top:0;background:var(--band);color:var(--ink);font-weight:600}
+.field{position:relative}
+.field label{display:block;font-size:var(--fs-8);font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin:0 0 7px}
+.field input[type=text],.field input[type=email],.field input[type=tel],.field input[type=url],.field textarea{
+  width:100%;box-sizing:border-box;border:1px solid var(--line);background:var(--page);height:46px;
+  padding:0 14px;font-size:var(--fs-7);font-family:var(--font-body);color:var(--ink);
+}
+.field input:focus,.field textarea:focus,.select-btn:focus{outline:2px solid var(--flarepop-ink);outline-offset:2px}
+.field textarea{height:120px;padding-top:13px;resize:vertical}
+.select-btn{width:100%;box-sizing:border-box;border:1px solid var(--line);background:var(--page);height:46px;padding:0 14px;font-size:var(--fs-7);font-family:var(--font-body);color:var(--ink-3);display:flex;align-items:center;cursor:pointer;text-align:left}
+.select-btn.chosen{color:var(--ink)}
+.select-btn::after{content:'⌄';margin-left:auto;color:var(--ink-3);font-size:15px}
+.select-btn[aria-expanded="true"]::after{content:'⌃'}
+.req{color:var(--ink-3);font-weight:400;text-transform:none;letter-spacing:0}
+.fsubmit{padding:26px 0 4px}
+.menu{list-style:none;margin:0;padding:0;position:absolute;left:0;right:0;top:100%;z-index:5;border:1px solid var(--line);border-top:0;background:var(--page);box-shadow:0 8px 20px rgba(10,10,15,.08)}
+.menu li{padding:11px 14px;font-size:var(--fs-7);color:var(--ink-2);border-top:1px solid var(--line);cursor:pointer}
+.menu li:first-child{border-top:0}
+.menu li:hover,.menu li.on{background:var(--band);color:var(--ink);font-weight:600}
+.fsubmit .btn{border:0;cursor:pointer;font-family:inherit}
+.fsent{display:none;padding:16px 18px;background:var(--band);border-left:3px solid var(--flarepop);font-size:var(--fs-7);color:var(--ink);margin-top:18px;max-width:820px}
+.fsent.show{display:block}
 
 @media(max-width:900px){
   .cred-row,.area-grid,.roles-cta-grid,.life-grid,.fgrid{grid-template-columns:1fr}
@@ -111,16 +125,16 @@ a.role:hover{background:var(--band)}
 # ---- data ----
 
 CREDS = [
-    # Great Place to Work and Chief Marketer have no generic badge to source: GPTW's
-    # certification mark is personalized per company/validation-period and only issued
-    # through Intercept's own certification portal; Chief Marketer's "Agency of the Year"
-    # is an editorial list placement with no downloadable seal at all. Both stay honest
-    # text placeholders (same convention as Intuit's un-sourced logo) rather than a
-    # fabricated mark. B Corp's mark IS a real, non-personalized certification badge
-    # (bcorporation.net), sourced 2026-08-11 from B Lab's official Wikimedia asset.
-    ("Great Place to Work", "Certified seven years running. Protecting the culture through high growth.", False),
-    ("Certified B Corp", "Measured on how we treat people and the planet, not only on what we deliver.", True),
-    ("Agency of the Year", "Chief Marketer, 2025 and 2026, and counting.", False),
+    # All 3 now real, personalized certification marks. B Corp sourced 2026-08-11 from
+    # B Lab's official Wikimedia SVG (bcorporation.net). Great Place to Work + Chief
+    # Marketer's "Agency of the Year" are personalized per company/period and can only
+    # come from Intercept's own portal — Jon supplied both real files 2026-08-13
+    # (~/Downloads/Badges.zip): Intercept's Aug 2025-Aug 2026 Canada GPTW certificate and
+    # the Chief Marketer 2026 Honoree seal, trimmed to their own bbox and alpha-safely
+    # resized into assets/img/badges/.
+    ("Great Place to Work", "Certified seven years running. Protecting the culture through high growth.", "great-place-to-work.png"),
+    ("Certified B Corp", "Measured on how we treat people and the planet, not only on what we deliver.", "bcorp.svg"),
+    ("Agency of the Year", "Chief Marketer, 2025 and 2026, and counting.", "agency-of-the-year.png"),
 ]
 
 AREAS = [
@@ -157,14 +171,17 @@ HEARD_ABOUT_OPTIONS = [
 
 def render_hub():
     pc = PatternCycler()
-    def cred_card(b, d, has_mark):
-        if has_mark:
-            mark = '<img class="ph" style="padding:8px" src="../assets/img/badges/bcorp.svg" alt="Certified B Corporation">'
+    def cred_card(b, d, mark_file):
+        if mark_file:
+            # object-fit:contain (not the base img.ph cover) — these marks aren't square,
+            # and GPTW's personalized cert text sits right at the top/bottom edges, so a
+            # cover-crop in the 56x56 box would cut off the exact detail that makes it real.
+            mark = f'<img class="ph" style="padding:6px;object-fit:contain" src="../assets/img/badges/{mark_file}" alt="{esc(b)}">'
         else:
             src, ratio = pc.next("4col", "../")
             mark = f'<img class="ph" style="aspect-ratio:{ratio}" src="{src}" alt="">'
         return f'<div class="cred">{mark}<b>{esc(b)}</b><span>{esc(d)}</span></div>'
-    cred_html = "".join(cred_card(b, d, has_mark) for b, d, has_mark in CREDS)
+    cred_html = "".join(cred_card(b, d, mark_file) for b, d, mark_file in CREDS)
     def area_card(b, d):
         src, ratio = pc.next("3col", "../")
         return f'<div class="area"><img class="ph" style="aspect-ratio:{ratio}" src="{src}" alt=""><b>{esc(b)}</b><span>{esc(d)}</span></div>'
@@ -343,8 +360,65 @@ def render_open_roles():
 </html>"""
 
 
+APPLY_SCRIPT = """<script>
+(function(){
+  var btn = document.getElementById("heardToggle");
+  var menu = document.getElementById("heardMenu");
+  var label = document.getElementById("heardLabel");
+  var value = document.getElementById("heardValue");
+  if (!btn || !menu) return;
+
+  function closeMenu(){ menu.hidden = true; btn.setAttribute("aria-expanded", "false"); }
+  function openMenu(){ menu.hidden = false; btn.setAttribute("aria-expanded", "true"); }
+
+  btn.addEventListener("click", function(e){
+    e.stopPropagation();
+    if (menu.hidden) openMenu(); else closeMenu();
+  });
+  menu.addEventListener("click", function(e){
+    var li = e.target.closest("li"); if (!li) return;
+    [].forEach.call(menu.querySelectorAll("li"), function(o){ o.classList.remove("on"); });
+    li.classList.add("on");
+    label.textContent = li.dataset.value;
+    value.value = li.dataset.value;
+    btn.classList.add("chosen");
+    closeMenu();
+  });
+  document.addEventListener("click", function(e){
+    if (!btn.contains(e.target) && !menu.contains(e.target)) closeMenu();
+  });
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape") closeMenu();
+  });
+})();
+(function(){
+  var sendBtn = document.getElementById("applyBtn");
+  var sent = document.getElementById("fsent");
+  var value = document.getElementById("heardValue");
+  var first = document.getElementById("fFirstName");
+  var last = document.getElementById("fLastName");
+  var email = document.getElementById("fEmail");
+  var location = document.getElementById("fLocation");
+  var portfolio = document.getElementById("fPortfolio");
+  if (!sendBtn) return;
+  sendBtn.addEventListener("click", function(){
+    var missing = [];
+    if (!first.value.trim()) missing.push(first);
+    if (!last.value.trim()) missing.push(last);
+    if (!email.value.trim()) missing.push(email);
+    if (!location.value.trim()) missing.push(location);
+    if (!portfolio.value.trim()) missing.push(portfolio);
+    if (!value.value) missing.push(document.getElementById("heardToggle"));
+    if (missing.length){ missing[0].focus(); return; }
+    sent.classList.add("show");
+    sent.scrollIntoView({behavior: "smooth", block: "nearest"});
+  });
+})();
+</script>"""
+
+
 def render_apply():
-    menu_html = "".join(f"<span>{esc(o)}</span>" for o in HEARD_ABOUT_OPTIONS)
+    menu_html = "".join(f'<li data-value="{esc(o)}">{esc(o)}</li>' for o in HEARD_ABOUT_OPTIONS)
 
     return f"""<!doctype html>
 <html lang="en">
@@ -371,44 +445,48 @@ def render_apply():
   <div class="wrap">
     <div class="fgrid">
       <div class="field">
-        <label>First name</label>
-        <div class="input"></div>
+        <label for="fFirstName">First name</label>
+        <input type="text" id="fFirstName" autocomplete="given-name">
       </div>
       <div class="field">
-        <label>Last name</label>
-        <div class="input"></div>
+        <label for="fLastName">Last name</label>
+        <input type="text" id="fLastName" autocomplete="family-name">
       </div>
       <div class="field">
-        <label>Email</label>
-        <div class="input"></div>
+        <label for="fEmail">Email</label>
+        <input type="email" id="fEmail" autocomplete="email">
       </div>
       <div class="field">
-        <label>Phone <span class="req">(optional)</span></label>
-        <div class="input"></div>
+        <label for="fPhone">Phone <span class="req">(optional)</span></label>
+        <input type="tel" id="fPhone" autocomplete="tel">
       </div>
       <div class="field">
-        <label>Where you are based</label>
-        <div class="input">City and time zone</div>
+        <label for="fLocation">Where you are based</label>
+        <input type="text" id="fLocation" placeholder="City and time zone">
       </div>
       <div class="field">
-        <label>Portfolio or LinkedIn</label>
-        <div class="input">https://</div>
+        <label for="fPortfolio">Portfolio or LinkedIn</label>
+        <input type="url" id="fPortfolio" autocomplete="url" placeholder="https://">
       </div>
       <div class="field wide">
-        <label>Anything you want us to know <span class="req">(optional)</span></label>
-        <div class="input area"></div>
+        <label for="fMore">Anything you want us to know <span class="req">(optional)</span></label>
+        <textarea id="fMore"></textarea>
       </div>
       <div class="field wide">
-        <label>How you heard about us</label>
-        <div class="input select">Select one</div>
-        <div class="menu">{menu_html}</div>
+        <label id="heardFieldLabel">How you heard about us</label>
+        <button type="button" class="select-btn" id="heardToggle" aria-haspopup="listbox" aria-expanded="false"><span id="heardLabel">Select one</span></button>
+        <ul class="menu" id="heardMenu" role="listbox" hidden>{menu_html}</ul>
+        <input type="hidden" id="heardValue">
       </div>
     </div>
+    <div class="fsubmit"><button type="button" class="btn" id="applyBtn">Submit application</button></div>
+    <div class="fsent" id="fsent">Thanks — we&rsquo;ve received your application and will be in touch if there&rsquo;s a fit.</div>
   </div>
 </section>
 
 </main>
 {footer_html("../../")}
+{APPLY_SCRIPT}
 </body>
 </html>"""
 

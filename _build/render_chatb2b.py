@@ -221,7 +221,11 @@ CSS = """
 .chero h1{font-size:var(--fs-1);line-height:1.04;letter-spacing:-.03em;margin:0 0 16px}
 .chero p:not(.eyebrow){font-size:var(--fs-5);line-height:1.5;color:var(--ink-2);margin:0 0 24px;max-width:52ch}
 .plat-row{display:flex;flex-wrap:wrap;gap:10px}
-.plat{font-size:var(--fs-7);font-weight:600;border:1px solid var(--ink);padding:9px 18px;border-radius:8px;color:var(--ink)}
+/* Priority 2 #5: hero .plat pills were already ~42px; the archive's
+   .ep-links override below was 35px -- both unified to 44px via min-height
+   (rather than vertical padding) so the height match holds regardless of
+   the two contexts' different font-size/padding-x. */
+.plat{display:inline-flex;align-items:center;min-height:44px;font-size:var(--fs-7);font-weight:600;border:1px solid var(--ink);padding:0 18px;border-radius:8px;color:var(--ink)}
 .plat.solid{background:var(--ink);color:var(--page)}
 
 .vid{position:relative}
@@ -282,7 +286,7 @@ CSS = """
 .ep-main h3{font-size:var(--fs-5);line-height:1.28;letter-spacing:-.012em;margin:0 0 6px}
 .ep-main p:not(.eyebrow){font-size:var(--fs-7);line-height:1.45;color:var(--ink-2);margin:0}
 .ep-links{display:flex;gap:8px}
-.ep-links .plat{font-size:var(--fs-8);padding:7px 13px;font-weight:600}
+.ep-links .plat{font-size:var(--fs-8);padding:0 13px;font-weight:600}
 .loadmore{display:flex;justify-content:center;padding:36px 0 0}
 
 .sub{padding:56px 0;border-top:1px solid var(--line)}

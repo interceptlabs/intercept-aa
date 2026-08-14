@@ -25,6 +25,14 @@ NAV_LABELS = {
     "channel": "Channel",
 }
 
+# Real hero-cover photography, round 18 (2026-08-14): Figma file eTHq3jbEbLog3PkmurOfDw,
+# page "What we do" (109:2), each section's own "Cover 3 1" fill node -- exported via the
+# Full-seat connector, not the small "Andrew Au"-named tiles repeated in every 3/4-column
+# proof row on that page (those are unrelated placeholder tiles, deliberately not sourced
+# here). All 6 export at an identical 1280x830 (the header frame's own fixed size), so one
+# shared ratio covers every slug -- no per-slug dimension lookup needed.
+WWD_COVER_RATIO = "1280/830"
+
 def between(text, a, b):
     i = text.index(a) + len(a)
     j = text.index(b, i)
@@ -183,8 +191,6 @@ def render(slug, data, base="../../"):
             f'<h3>{esc(title)}</h3><p>{esc(desc)}</p></a>'
         )
 
-    hero_src, hero_ratio = pc.next("2col", base)
-
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -199,7 +205,7 @@ def render(slug, data, base="../../"):
 
 <section class="shero">
   <div class="wrap"><div class="shero-grid">
-    <img class="ph" style="aspect-ratio:{hero_ratio}" src="{hero_src}" alt="">
+    <img class="ph" style="aspect-ratio:{WWD_COVER_RATIO}" src="{base}assets/img/what-we-do/{slug}-cover.webp" alt="{esc(NAV_LABELS[slug])}">
     <div>
       <p class="eyebrow">{esc(data["eyebrow"])}</p>
       <h1>{esc(data["h1"])}</h1>

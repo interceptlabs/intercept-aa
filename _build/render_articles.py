@@ -2,7 +2,7 @@
 """Parse + render the 4 Signals from the Edge articles, reusing the source's own
 inner markup verbatim for free-form blocks (copy/FAQ/about/related) rather than
 re-deriving fields — lowest-risk path for copy fidelity on rich content."""
-import os, re, sys
+import os, re, sys, json
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import esc, head_html, header_html, footer_html, PatternCycler
 
@@ -28,15 +28,28 @@ CSS = """
 .ahead{padding:52px 0 30px}
 .ahead h1{font-size:var(--fs-1);line-height:1.04;letter-spacing:-.03em;margin:0 0 18px;max-width:17ch}
 .deck{font-size:var(--fs-5);line-height:1.4;color:var(--ink-2);margin:0 0 30px;max-width:54ch}
-.byline{display:flex;align-items:center;gap:14px;padding:20px 0;max-width:640px}
+.byline{display:flex;align-items:center;flex-wrap:wrap;gap:14px;padding:20px 0;max-width:640px}
 .byline .ph{width:44px;height:44px;padding:0;font-size:8px;border-radius:50%;flex:none}
 .byline b{display:block;font-size:var(--fs-7);font-weight:700;letter-spacing:-.01em}
 .byline .meta{display:block;margin-top:2px;font-size:var(--fs-8);color:var(--ink-3)}
+/* Priority 1 #3: real share icons, real per-article hrefs (was raw unstyled
+   text "inx@" -- <span>in</span><span>x</span><span>@</span> with zero CSS
+   anywhere). No icon library ships in this repo (see render_chatb2b.py's
+   VPLAY_SVG comment) so these are hand-built inline SVGs on the same 24x24
+   stroke grid as that precedent, not a Lucide pull. margin-left:auto pushes
+   the row right when there's room; flex-wrap above lets it drop to its own
+   line at narrow widths instead of squeezing/overflowing next to the name. */
+.byline .share{display:flex;gap:6px;margin-left:auto}
+.share-ic{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;color:var(--ink-3);flex:none;transition:background .15s,color .15s}
+.share-ic:hover{background:var(--band);color:var(--flarepop-ink)}
+.share-ic svg{width:19px;height:19px}
 .ahero .ph{aspect-ratio:21/9}
 .body{padding:36px 0 20px}
 .body-grid{display:grid;grid-template-columns:220px 1fr;gap:60px;align-items:start}
 .toc{position:sticky;top:90px}
-.toc a{display:block;font-size:var(--fs-8);line-height:1.4;color:var(--ink-2);text-decoration:none;padding:7px 0}
+/* Priority 2 #5: unified TOC-link height to 44px, matching legal + trends-brief
+   (was 31px here vs 21px/27px there -- three heights for one UI role). */
+.toc a{display:flex;align-items:center;min-height:44px;font-size:var(--fs-8);line-height:1.4;color:var(--ink-2);text-decoration:none;padding:0}
 .copy{max-width:var(--readw)}
 .copy h2{font-size:var(--fs-2);line-height:1.14;letter-spacing:-.024em;margin:40px 0 16px;font-weight:700;max-width:22ch}
 .copy h2:first-child{margin-top:0}
@@ -56,12 +69,16 @@ CSS = """
 .acc{margin-top:18px;max-width:860px}
 .acc-item{padding:16px 0}
 .acc-item h3{font-size:var(--fs-5);font-weight:700;margin:0}
-.acc-item p{font-size:var(--fs-7);line-height:1.55;color:var(--ink-2);margin:8px 0 0}
+/* Priority 2 #6: FAQ answers are real explanatory prose the reader consults
+   for an actual answer, not a caption -- promoted to fs-6 (body scale). */
+.acc-item p{font-size:var(--fs-6);line-height:1.55;color:var(--ink-2);margin:8px 0 0}
 .faq-close{font-size:var(--fs-7);color:var(--ink-2);margin:22px 0 0}
 .about{padding:44px 0;background:var(--band)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
 .about b{display:block;font-size:var(--fs-6);font-weight:700;margin-bottom:8px}
-.about p{font-size:var(--fs-7);line-height:1.55;color:var(--ink-2);margin:0 0 10px}
+/* Priority 2 #6: the series description + author bio here are full-sentence
+   prose, not captions -- promoted to fs-6 (body scale). */
+.about p{font-size:var(--fs-6);line-height:1.55;color:var(--ink-2);margin:0 0 10px}
 .about .who{display:flex;gap:14px;align-items:flex-start}
 .about .who .ph{width:56px;height:56px;padding:0;font-size:7px;border-radius:50%;flex:none}
 .rel{padding:48px 0 12px}
@@ -124,6 +141,62 @@ def slugify_heading(h):
     text = re.sub(r"[^a-z0-9]+", "-", text).strip("-")
     return text
 
+# Real share icons (Priority 1 #3), 24x24 stroke grid to match the one other
+# hand-built icon precedent in this repo (render_chatb2b.py's VPLAY_SVG).
+# Generic share-button glyphs (envelope, "in" badge, X mark) -- not a
+# reproduction of any platform's actual brand-asset file.
+SHARE_ICON_LINKEDIN = (
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" '
+    'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+    '<rect x="3" y="3" width="18" height="18" rx="3"/>'
+    '<circle cx="7.5" cy="8.2" r=".2" fill="currentColor" stroke-width="2.4"/>'
+    '<path d="M7.5 10.8v5.3"/>'
+    '<path d="M11 16.1v-3.4c0-1.3.9-2.1 2-2.1s2 .8 2 2.1v3.4"/>'
+    '<path d="M11 12v4.1"/>'
+    "</svg>"
+)
+SHARE_ICON_X = (
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" '
+    'stroke-linecap="round" aria-hidden="true">'
+    '<path d="M4.5 4.5l15 15M19.5 4.5l-15 15"/>'
+    "</svg>"
+)
+SHARE_ICON_EMAIL = (
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" '
+    'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+    '<rect x="3" y="5.5" width="18" height="13" rx="2"/>'
+    '<path d="m4 7.5 8 6 8-6"/>'
+    "</svg>"
+)
+
+def share_html(title):
+    """Real per-article share links -- LinkedIn/X/email -- computed client-side
+    off location.href so they resolve to wherever the page actually ends up
+    hosted (this local preview, staging, or production) rather than a
+    hardcoded guessed domain. `title` is the clean ARTICLE_META short title
+    (no inline HTML), reused from the same source of truth as the related-
+    article cards, per the audit's own pointer to reuse it."""
+    title_js = json.dumps(title)
+    return f"""<div class="share">
+      <a class="share-ic" data-share="linkedin" target="_blank" rel="noopener" href="#" aria-label="Share on LinkedIn">{SHARE_ICON_LINKEDIN}</a>
+      <a class="share-ic" data-share="x" target="_blank" rel="noopener" href="#" aria-label="Share on X">{SHARE_ICON_X}</a>
+      <a class="share-ic" data-share="email" href="#" aria-label="Share via email">{SHARE_ICON_EMAIL}</a>
+    </div>
+    <script>(function(){{
+      var s = document.currentScript.previousElementSibling;
+      var url = encodeURIComponent(location.href);
+      var title = encodeURIComponent({title_js});
+      var hrefs = {{
+        linkedin: "https://www.linkedin.com/sharing/share-offsite/?url=" + url,
+        x: "https://twitter.com/intent/tweet?url=" + url + "&text=" + title,
+        email: "mailto:?subject=" + title + "&body=" + url
+      }};
+      var links = s.querySelectorAll("a[data-share]");
+      for (var i = 0; i < links.length; i++) {{
+        links[i].href = hrefs[links[i].getAttribute("data-share")];
+      }}
+    }})();</script>"""
+
 # short titles matching the exact strings used for these same 4 articles' cards
 # elsewhere on the site (render_insights_index.py's FEED list) — kept as one
 # explicit source of truth rather than re-deriving from each page's own long <h1>.
@@ -174,10 +247,11 @@ def render(slug, data, base="../../"):
     if not avatar_html:
         src, ratio = pc.next("4col", base)
         avatar_html = f'<img class="ph" style="aspect-ratio:{ratio}" src="{src}" alt="">'
+    article_title = dict(ARTICLE_META)[slug]
     byline_inner = (
         f'{avatar_html}'
         f'<div><b>{data["byline_name"]}</b><span class="meta">{data["byline_meta"]}</span></div>'
-        f'<div class="share">{data["byline_share"]}</div>'
+        f'{share_html(article_title)}'
     )
 
     hero_src, hero_ratio = pc.next("hero", base)

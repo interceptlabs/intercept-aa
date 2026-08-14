@@ -24,7 +24,10 @@ CSS = """
 .acc-head{display:flex;justify-content:space-between;align-items:center;gap:24px}
 .acc-head h3{font-size:var(--fs-4);line-height:1.3;margin:0;font-weight:700}
 .acc-body{padding-top:8px}
-.acc-body p{font-size:var(--fs-7);line-height:1.55;color:var(--ink-2);margin:0}
+/* Priority 2 #6: real multi-sentence value-prop prose ("The best B2B work
+   comes from practitioners who..."), not a caption/label -- promoted from
+   fs-7 (dek scale) to fs-6 (body scale). */
+.acc-body p{font-size:var(--fs-6);line-height:1.55;color:var(--ink-2);margin:0}
 .recog h2{font-size:var(--fs-2);margin:0 0 16px}
 .recog p{max-width:var(--readw)}
 .cardgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
@@ -35,7 +38,9 @@ CSS = """
 .bio .ph{aspect-ratio:4/3;margin-bottom:14px}
 .bio b{display:block;font-size:var(--fs-6);letter-spacing:-.01em}
 .bio em{display:block;font-style:normal;font-size:var(--fs-8);color:var(--ink-3);margin:2px 0 10px}
-.bio p{font-size:var(--fs-7);line-height:1.5;color:var(--ink-2);margin:0}
+/* Priority 2 #6: leadership bios are full-sentence prose the reader is meant
+   to actually read, not a card caption -- promoted to fs-6 (body scale). */
+.bio p{font-size:var(--fs-6);line-height:1.5;color:var(--ink-2);margin:0}
 .two-up{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center}
 .careers-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:center}
 .convert{padding:56px 0;background:var(--band);margin-top:40px;text-align:center}
@@ -66,16 +71,26 @@ def render():
         f'<div class="bio"><img class="ph" style="aspect-ratio:{TEAM_IMG_DIMS[slug][0]}/{TEAM_IMG_DIMS[slug][1]}" src="../assets/img/team/{slug}.webp" alt="{esc(n)}, {esc(r)}"><b>{esc(n)}</b><em>{esc(r)}</em><p>{esc(b)}</p></div>'
         for n, slug, r, b in team
     )
+    # Real marks for 3 of 4 (matching careers/index.html's cred row, wired round 18): The Drum
+    # Honors has no downloadable seal (editorial list placement, same as Chief Marketer's own
+    # listing) so it alone stays a pattern-fill placeholder.
     awards = [
-        ("Agency of the Year", "Chief Marketer, 2025 and 2026"),
-        ("Great Place to Work", "Certified seven years running"),
-        ("B Corp", "Certified"),
-        ("The Drum Honors", "Recommended agencies, 2026"),
+        ("Agency of the Year", "Chief Marketer, 2025 and 2026", "agency-of-the-year.png"),
+        ("Great Place to Work", "Certified seven years running", "great-place-to-work.png"),
+        ("B Corp", "Certified", "bcorp.svg"),
+        ("The Drum Honors", "Recommended agencies, 2026", None),
     ]
-    def award_card(a, d):
-        src, ratio = pc.next("4col", "../")
-        return f'<div class="tcard"><img class="ph" style="aspect-ratio:{ratio}" src="{src}" alt="{esc(a)}"><b>{esc(a)}</b><span>{esc(d)}</span></div>'
-    awards_html = "".join(award_card(a, d) for a, d in awards)
+    def award_card(a, d, mark_file):
+        if mark_file:
+            # object-fit:contain, not the base img.ph cover — these marks aren't 4:3 and
+            # GPTW's personalized cert text sits right at its own top/bottom edges (see
+            # careers/index.html's identical fix, round 18).
+            mark = f'<img class="ph" style="padding:14px;object-fit:contain" src="../assets/img/badges/{mark_file}" alt="{esc(a)}">'
+        else:
+            src, ratio = pc.next("4col", "../")
+            mark = f'<img class="ph" style="aspect-ratio:{ratio}" src="{src}" alt="">'
+        return f'<div class="tcard">{mark}<b>{esc(a)}</b><span>{esc(d)}</span></div>'
+    awards_html = "".join(award_card(a, d, mark_file) for a, d, mark_file in awards)
 
     acc_items = [
         ("Time-tested industry expertise", "The best B2B work comes from practitioners who know which audience signals matter and which proof points shift perception. We built that pattern recognition across silicon, hyperscalers, OEMs, ISVs, and networking infrastructure."),

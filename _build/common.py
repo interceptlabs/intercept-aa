@@ -208,6 +208,20 @@ CLIENT_LOGOS["Kaltura"] = _load_raster("Kaltura", "kaltura.png", 22)
 CLIENT_LOGOS["Sophos"] = _load_raster("Sophos", "sophos.png", 18)
 CLIENT_LOGOS["Veeam"] = _load_raster("Veeam", "veeam.png", 18)
 
+# Jon: unify the whole wall to the flat-black-and-white treatment every
+# vector logo already had by construction (none of the 12 vector entries —
+# Microsoft/HP/SAP/Lenovo/Qualcomm/AMD/Cisco/Nokia/Logitech/TELUS/BMC/Intel/
+# TD SYNNEX/Moderne/Procom — ever specify a fill color; SVG defaults to
+# black, and TELUS/BMC's explicit fill="currentColor" resolves to the same
+# ink). The 4 raster logos below shipped with their real brand colors baked
+# into the pixels (CGI red, Sophos blue, Google/Kaltura multicolor) — the
+# only ones breaking the wall's consistency. Recolored in place to flat
+# #000 with the original alpha channel untouched (shape/anti-aliasing
+# preserved exactly, only hue removed) — originals kept at
+# _build/_logo-color-backups/ (gitignored) if the real-color version is
+# ever wanted elsewhere. Veeam needed no change — already a pure black
+# silhouette from its round-17 extraction.
+
 _TEXT_LOGOS = {
     "Intuit": ("https://www.intuit.com/", "intuit", 22),
 }
@@ -271,7 +285,20 @@ CSS = """
   --maxw:1200px; --readw:700px;
   --font-display:'Instrument Sans',system-ui,sans-serif;
   --font-body:'Inter',system-ui,sans-serif;
-  --fs-1:56px; --fs-2:40px; --fs-3:24px; --fs-4:20px; --fs-5:18px; --fs-6:16px; --fs-7:14px; --fs-8:12px; --fs-data:56px;
+  /* fs-1 is the one rung that needs to move on mobile: hero h1 at a fixed 56px
+     hand-copied into 18 render scripts overflowed its grid cell at 390px
+     (long unbroken words like "commoditized." forced the cell's auto
+     min-width past the viewport, and body{overflow-x:clip} ate the excess
+     silently, no scrollbar). Fixing the token here, once, cascades through
+     every var(--fs-1) reference sitewide with zero per-script edits — CSS
+     custom properties resolve at the point of use regardless of selector
+     specificity, so this reaches inline styles and heavily-scoped rules
+     alike. Linear scale: 34px at <=325px viewport, up to the full 56px by
+     900px (the same width the g3/g2 card-grid breakpoint already uses),
+     4vw+20px between. Judgment call: fs-2 (section h2, 40px) was left fixed
+     — no h2 clipped in the audit, and the overflow-wrap safety net below
+     covers it if a future long word ever does. */
+  --fs-1:clamp(34px, 4vw + 20px, 56px); --fs-2:40px; --fs-3:24px; --fs-4:20px; --fs-5:18px; --fs-6:16px; --fs-7:14px; --fs-8:12px; --fs-data:56px;
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -279,7 +306,7 @@ html,body{margin:0;overflow-x:clip;max-width:100%}
 body{background:var(--page);color:var(--ink);font-family:var(--font-body);font-size:var(--fs-6);line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img,svg{max-width:100%}
-h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;letter-spacing:-.02em;margin:0;text-wrap:balance}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;letter-spacing:-.02em;margin:0;text-wrap:balance;overflow-wrap:break-word}
 p{margin:0;text-wrap:pretty}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
 .read{max-width:var(--readw)}
@@ -315,16 +342,31 @@ p{margin:0;text-wrap:pretty}
 .topbar .row{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:28px}
 .nav-wrap{display:flex;align-items:center;gap:20px}
 .nav-links{display:flex;align-items:center;gap:24px;font-size:var(--fs-7);font-weight:500;color:var(--ink-2)}
+/* Priority 2 #5: shared 44px touch-target rule -- flex+min-height rather than
+   padding so it works regardless of each link's own line-height/font-size. */
+.nav-links a{display:flex;align-items:center;min-height:44px}
 .nav-links a:hover{color:var(--flarepop-ink)}
 .nav-links .inert{color:var(--ink);opacity:.45;cursor:default}
-.cta-nav{background:var(--carbon-500);color:#fff;font-weight:600;font-size:var(--fs-7);padding:9px 18px;border-radius:8px;transition:background .15s;flex:none}
+.cta-nav{display:inline-flex;align-items:center;min-height:44px;background:var(--carbon-500);color:#fff;font-weight:600;font-size:var(--fs-7);padding:0 18px;border-radius:8px;transition:background .15s;flex:none}
 .cta-nav:hover{background:var(--flarepop);color:var(--carbon-500)}
-.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;padding:0;background:none;border:0;cursor:pointer;flex:none}
-.nav-toggle span{display:block;width:100%;height:2px;background:var(--ink)}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:0;background:none;border:0;cursor:pointer;flex:none}
+.nav-toggle span{display:block;width:100%;height:2px;background:var(--ink);transition:transform .18s,opacity .18s}
+/* icon state change: 3 bars -> X while the drawer is open, so the control
+   itself reflects open/closed instead of staying static (Priority 1 #2) */
+.nav-toggle.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle.is-open span:nth-child(2){opacity:0}
+.nav-toggle.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+/* scrim: sits under the drawer (which inherits the topbar's z-index:100
+   stacking context) and above page content, and is the tap-to-close target —
+   fixes "tappable-through while open" (Priority 1 #2). Page content behind
+   it is also made inert (see NAV_TOGGLE_SCRIPT) so it's neither hit-testable
+   nor reachable by keyboard/focus while the drawer is open. */
+.nav-scrim{position:fixed;inset:0;z-index:90;background:rgba(10,10,15,.4);opacity:0;pointer-events:none;transition:opacity .18s}
+.nav-scrim.open{opacity:1;pointer-events:auto}
 @media(max-width:860px){
   .nav-toggle{display:flex}
   .nav-links{display:none}
-  .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;gap:18px;background:var(--page);padding:22px 24px 26px;border-bottom:1px solid var(--line)}
+  .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;z-index:100;flex-direction:column;align-items:flex-start;gap:18px;background:var(--page);padding:22px 24px 26px;border-bottom:1px solid var(--line)}
 }
 
 /* buttons — bg/text pairs checked for contrast: carbon/white ~19:1, flarepop/carbon ~6:1 */
@@ -351,13 +393,13 @@ img.ph{width:100%;height:auto;object-fit:cover;display:block;border:0;background
 .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;text-align:center}
 .stat b{display:block;font-family:var(--font-display);font-size:var(--fs-data);line-height:1;letter-spacing:-.03em;font-weight:700}
 .stat span{display:block;font-size:var(--fs-7);line-height:1.45;margin:12px auto 0;opacity:.9;max-width:26ch}
-@media(max-width:820px){.stat-row{grid-template-columns:1fr;gap:28px}}
+@media(max-width:860px){.stat-row{grid-template-columns:1fr;gap:28px}}
 
 /* cards */
 .card-grid{display:grid;gap:24px}
 .g3{grid-template-columns:repeat(3,1fr)}
 .g2{grid-template-columns:repeat(2,1fr)}
-@media(max-width:900px){.g3,.g2{grid-template-columns:1fr}}
+@media(max-width:860px){.g3,.g2{grid-template-columns:1fr}}
 .card h3{font-size:var(--fs-4);letter-spacing:-.015em;margin:0 0 8px;font-weight:700}
 .card p{font-size:var(--fs-7);line-height:1.5;color:var(--ink-2)}
 .card .ph{margin-bottom:14px}
@@ -370,7 +412,16 @@ img.ph{width:100%;height:auto;object-fit:cover;display:block;border:0;background
 .foot-col a:hover{color:var(--flarepop-ink)}
 .foot-col span.inert{color:var(--ink);opacity:.45}
 .foot-bot{margin-top:40px;padding-top:20px;font-size:var(--fs-8);color:var(--ink-3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-@media(max-width:820px){.foot-grid{grid-template-columns:1fr 1fr;gap:24px 20px}}
+/* Priority 2 #4: common.py's 3 shared breakpoints (nav 860 / stat-row+foot-grid
+   820 / card-grid 900) did different component-level work at 3 different
+   widths — consolidated onto 860, the most load-bearing one (nav already
+   used it). stat-row and foot-grid now collapse a little sooner (820->860,
+   an improvement: those grids were already tight at 821-860px); card-grid
+   (g3/g2) now collapses a little later (900->860) — verified at 768/820/
+   860/880/900 that no 3-col card-grid instance (our-work/article/ebook
+   related-cards, home insights, services proof-cards) looks cramped sitting
+   un-collapsed in the 861-900px range that used to be 1-col. */
+@media(max-width:860px){.foot-grid{grid-template-columns:1fr 1fr;gap:24px 20px}}
 """
 
 NAV_TOGGLE_SCRIPT = (
@@ -378,9 +429,36 @@ NAV_TOGGLE_SCRIPT = (
     "(function(){\n"
     '  var t = document.getElementById("navToggle"), n = document.getElementById("navLinks");\n'
     "  if (!t || !n) return;\n"
-    '  t.addEventListener("click", function(){\n'
-    '    var open = n.classList.toggle("open");\n'
+    '  var header = t.closest(".topbar") || t.closest("header");\n'
+    '  var scrim = document.createElement("div");\n'
+    '  scrim.className = "nav-scrim";\n'
+    '  scrim.setAttribute("id", "navScrim");\n'
+    "  header.insertAdjacentElement('afterend', scrim);\n"
+    "  function setOpen(open){\n"
+    '    n.classList.toggle("open", open);\n'
+    '    t.classList.toggle("is-open", open);\n'
     '    t.setAttribute("aria-expanded", open ? "true" : "false");\n'
+    '    scrim.classList.toggle("open", open);\n'
+    "    // Priority 1 #2: while the drawer is open, everything below the\n"
+    "    // topbar is inert -- neither hit-testable (fixes tap-through) nor\n"
+    "    // reachable by keyboard focus (fixes the missing focus trap) --\n"
+    "    // regardless of what a given template puts between header and footer.\n"
+    "    Array.prototype.forEach.call(document.body.children, function(el){\n"
+    "      if (el === header || el === scrim) return;\n"
+    "      if (open) { el.setAttribute('inert', ''); }\n"
+    "      else { el.removeAttribute('inert'); }\n"
+    "    });\n"
+    "    if (open) {\n"
+    '      var first = n.querySelector("a");\n'
+    "      if (first) first.focus();\n"
+    "    }\n"
+    "  }\n"
+    '  t.addEventListener("click", function(){\n'
+    '    setOpen(!n.classList.contains("open"));\n'
+    "  });\n"
+    '  scrim.addEventListener("click", function(){ setOpen(false); });\n'
+    '  document.addEventListener("keydown", function(e){\n'
+    '    if (e.key === "Escape" && n.classList.contains("open")) { setOpen(false); t.focus(); }\n'
     "  });\n"
     "})();\n"
     "</script>"

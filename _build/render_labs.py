@@ -20,7 +20,9 @@ CSS = """
 .hitem .row{display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
 .hitem i{display:block;font-style:normal;font-family:var(--font-body);font-weight:600;font-size:var(--fs-8);letter-spacing:.09em;color:var(--ink-3);margin-bottom:8px}
 .hitem b{display:block;font-size:var(--fs-4);line-height:1.25;letter-spacing:-.016em;font-weight:700}
-.hitem span{display:block;font-size:var(--fs-7);line-height:1.55;color:var(--ink-2);margin-top:10px;max-width:44ch}
+/* Priority 2 #6: each numbered step's explanation is real prose the reader
+   works through in sequence, not a caption -- promoted to fs-6 (body scale). */
+.hitem span{display:block;font-size:var(--fs-6);line-height:1.55;color:var(--ink-2);margin-top:10px;max-width:44ch}
 .how-panel .ph{aspect-ratio:4/3}
 .quote{background:var(--carbon-500);color:#fff}
 .quote-inner{max-width:var(--maxw);margin:0 auto;padding:80px 32px}
